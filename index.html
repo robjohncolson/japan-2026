@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Japan 2026 — Robert's Trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --accent:#2C3E70; --accent-d:#1d2c52; --warn:#B23A1E; --warnbg:#FBEAE5;
+    --tokyo:#DCE6F5; --cap:#E6E6E6; --kanzaki:#DCEFDC; --kashima:#D3ECEA;
+    --kuma:#F6E3CE; --flight:#F3D6D2; --soft:#888; --ink:#1c2330; --line:#dfe3ea;
+    --bg:#f4f6fa; --card:#fff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif;
+    line-height:1.5; -webkit-text-size-adjust:100%;
+  }
+  .jp{font-family:"Noto Sans JP",sans-serif}
+  a{color:var(--accent)}
+  .wrap{max-width:920px;margin:0 auto;padding:0 14px 64px}
+
+  /* ---- Header ---- */
+  header.hero{background:var(--accent);color:#fff;padding:22px 16px 18px;text-align:left}
+  header.hero .wrap{padding-bottom:0}
+  .hero h1{margin:0;font-size:30px;letter-spacing:.5px}
+  .hero .sub{margin-top:4px;font-size:15px;opacity:.92}
+  .hero .route{margin-top:2px;font-size:13px;opacity:.8}
+
+  /* ---- Sticky nav ---- */
+  nav.tabs{position:sticky;top:0;z-index:40;background:var(--accent-d);box-shadow:0 2px 6px rgba(0,0,0,.18)}
+  nav.tabs .wrap{padding:0 8px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav.tabs a{
+    color:#cdd6ea;text-decoration:none;font-size:13px;font-weight:600;
+    padding:13px 14px;white-space:nowrap;border-bottom:3px solid transparent
+  }
+  nav.tabs a:hover{color:#fff}
+
+  section.block{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:18px;overflow:hidden}
+  .block > h2{
+    margin:0;background:var(--accent);color:#fff;font-size:16px;font-weight:700;
+    padding:11px 16px;letter-spacing:.3px
+  }
+  .block .body{padding:14px 16px}
+  .block .body > :first-child{margin-top:0}
+  .note-hint{font-size:13px;color:var(--soft);margin:2px 0 12px}
+
+  /* ---- Overview chips ---- */
+  .legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+  .legend span{font-size:12px;padding:3px 9px;border-radius:20px;border:1px solid rgba(0,0,0,.08)}
+  .c-tokyo{background:var(--tokyo)} .c-cap{background:var(--cap)} .c-kanzaki{background:var(--kanzaki)}
+  .c-kashima{background:var(--kashima)} .c-kuma{background:var(--kuma)} .c-flight{background:var(--flight)}
+  ul.tight{margin:8px 0 0;padding-left:20px}
+  ul.tight li{margin:4px 0}
+
+  /* ---- Calendar ---- */
+  .cal{margin-top:6px}
+  .cal-title{margin:16px 0 8px;font-size:15px;color:var(--accent);font-weight:700}
+  .cal:first-child .cal-title{margin-top:0}
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+  .cal-dow{font-size:11px;font-weight:700;color:var(--soft);text-align:center;padding:2px 0}
+  .cal-cell{
+    position:relative;border:1px solid var(--line);border-radius:8px;background:#fafbfc;
+    min-height:62px;padding:4px 5px;text-align:left;cursor:pointer;font:inherit;color:inherit;
+    display:flex;flex-direction:column;gap:2px;transition:transform .05s,box-shadow .1s
+  }
+  .cal-cell.empty{border:none;background:transparent;cursor:default;min-height:0}
+  .cal-cell.plain{background:#fafbfc}
+  .cal-cell:not(.empty):hover{box-shadow:0 2px 8px rgba(44,62,112,.18)}
+  .cal-cell:not(.empty):active{transform:scale(.98)}
+  .cell-num{font-size:13px;font-weight:700;line-height:1}
+  .cell-label{font-size:10px;line-height:1.15;font-weight:600;color:#333;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;max-height:24px}
+  .cell-badge{margin-top:auto;font-size:10px;font-weight:700;color:var(--accent);min-height:12px}
+  .cal-cell.c-tokyo{background:var(--tokyo)} .cal-cell.c-cap{background:var(--cap)}
+  .cal-cell.c-kanzaki{background:var(--kanzaki)} .cal-cell.c-kashima{background:var(--kashima)}
+  .cal-cell.c-kuma{background:var(--kuma)} .cal-cell.c-flight{background:var(--flight)}
+  .cal-foot{font-size:11px;color:var(--soft);margin:12px 0 0}
+
+  /* ---- Tables ---- */
+  .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  thead th{background:var(--accent);color:#fff;font-weight:700;font-size:12px}
+  td code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;background:#f0f2f7;padding:1px 4px;border-radius:4px}
+  .warnrow{background:var(--warnbg)}
+  .pin{font-weight:700;color:var(--accent)}
+
+  .warnbox{border:1px solid var(--warn);background:var(--warnbg);border-radius:10px;padding:12px 14px;margin-top:4px}
+  .warnbox ol{margin:0;padding-left:20px}
+  .warnbox li{margin:7px 0}
+  .tag-warn{color:var(--warn);font-weight:700}
+  .phrasebox{border:1px solid var(--accent);border-radius:10px;padding:12px 14px;margin-top:12px;background:#fbfcfe}
+  .phrasebox .jp{font-size:15px}
+  .phrasebox .en{font-size:12px;color:#555;font-style:italic;margin:2px 0 12px}
+
+  footer{margin-top:26px;text-align:center;font-size:12px;color:var(--soft)}
+  footer button{background:none;border:1px solid var(--line);color:var(--soft);border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;margin-top:8px}
+
+  /* ---- Modal ---- */
+  .overlay{position:fixed;inset:0;background:rgba(20,26,40,.55);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:0}
+  .overlay.open{display:flex}
+  @media(min-width:560px){.overlay{align-items:center;padding:20px}}
+  .sheet{background:#fff;width:100%;max-width:520px;max-height:90vh;border-radius:16px 16px 0 0;overflow:auto;box-shadow:0 -4px 24px rgba(0,0,0,.25)}
+  @media(min-width:560px){.sheet{border-radius:16px}}
+  .sheet-head{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .sheet-head h3{margin:0;font-size:17px}
+  .sheet-head .dow{font-size:12px;color:var(--soft);font-weight:600}
+  .sheet-head .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin-top:5px;border:1px solid rgba(0,0,0,.08)}
+  .x{background:none;border:none;font-size:24px;line-height:1;cursor:pointer;color:#888;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;align-self:flex-start;margin:-8px -8px -8px 0}
+  .sheet-body{padding:14px 16px}
+  .plan{font-size:14px;background:#f6f8fc;border-radius:8px;padding:10px 12px;margin-bottom:14px}
+  .notes-h{font-size:13px;font-weight:700;color:var(--accent);margin:0 0 8px;text-transform:uppercase;letter-spacing:.4px}
+  .note{border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:8px;background:#fff;position:relative}
+  .note .who{font-weight:700;font-size:13px}
+  .note .when{font-size:11px;color:var(--soft);margin-left:6px;font-weight:400}
+  .note .txt{font-size:14px;margin-top:3px;white-space:pre-wrap;word-break:break-word}
+  .note .del{position:absolute;top:6px;right:8px;background:none;border:none;color:var(--warn);font-size:12px;cursor:pointer;font-weight:700}
+  .empty-notes{font-size:13px;color:var(--soft);font-style:italic;margin-bottom:12px}
+  .addform label{display:block;font-size:12px;font-weight:600;color:#555;margin:8px 0 3px}
+  .addform input,.addform textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:inherit;font-size:16px;scroll-margin-bottom:140px}
+  .addform textarea{min-height:70px;resize:vertical}
+  .addform button{margin-top:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;cursor:pointer;width:100%}
+  .addform button:disabled{opacity:.5;cursor:default}
+  .form-msg{font-size:12px;margin-top:8px;min-height:14px}
+  .form-msg.err{color:var(--warn)} .form-msg.ok{color:#1a7f37}
+
+  .banner{background:var(--warnbg);border:1px solid var(--warn);color:var(--warn);border-radius:8px;padding:8px 12px;font-size:13px;margin-top:12px;display:none}
+  .banner.show{display:block}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>JAPAN 2026</h1>
+    <div class="sub">Mon 27 Jul → Fri 28 Aug · Robert Colson</div>
+    <div class="route">Boston ↔ Tokyo · Tokyo / Saga / Kumamoto</div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <div class="wrap">
+    <a href="#overview">Overview</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#flights">Flights</a>
+    <a href="#lodging">Lodging</a>
+    <a href="#todo">To-do</a>
+    <a href="#logistics">Logistics</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- OVERVIEW -->
+  <section class="block" id="overview">
+    <h2>The trip at a glance</h2>
+    <div class="body">
+      <p>One month in Japan — three Tokyo nights at each end, the middle in Kyushu visiting family
+         in Saga (Kanzaki &amp; Kashima) and a Kumamoto base for mountain day-trips.</p>
+      <ul class="tight">
+        <li><b>Tokyo (do-c Ebisu)</b> — 28–30 Jul &amp; 24–26 Aug</li>
+        <li><b>Saga — Kanzaki</b> (R9 The Yard) — 1–7 Aug · family Kenji / Hitomi / Mika</li>
+        <li><b>Saga — Kashima</b> (R9 Sagakashima) — 8–14 Aug · family Akimasa, Yoichi, Hirotaka, Hiromi · <b>Obon 13–14</b></li>
+        <li><b>Kumamoto</b> (Obi house) — 15–22 Aug · <b>Obon 15–16</b> · Aso / Kurokawa / Takachiho day-trips</li>
+        <li>Rental car across Kyushu (pick up Hakata 1 Aug, return 23 Aug)</li>
+      </ul>
+      <div class="legend">
+        <span class="c-tokyo">Tokyo (do-c)</span>
+        <span class="c-cap">Capsule / transit</span>
+        <span class="c-kanzaki">Saga — Kanzaki</span>
+        <span class="c-kashima">Saga — Kashima</span>
+        <span class="c-kuma">Kumamoto</span>
+        <span class="c-flight">Flight day</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="block" id="calendar">
+    <h2>Calendar — leave me notes 💬</h2>
+    <div class="body">
+      <p class="note-hint">Tap any day to see the plan and leave a note. Everyone's notes show up here.</p>
+      <div id="banner" class="banner"></div>
+      <div id="calendars"></div>
+      <p class="cal-foot"><b>*</b> = suggested day-trip from the Kumamoto base — not booked, weather-dependent (Aug is typhoon season; Miyazaki most exposed).</p>
+    </div>
+  </section>
+
+  <!-- FLIGHTS -->
+  <section class="block" id="flights">
+    <h2>Flights — Japan Airlines · ref DUFCGR</h2>
+    <div class="body">
+      <div class="tscroll">
+        <table>
+          <thead><tr><th>Date</th><th>Flight</th><th>Route</th><th>Class</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><b>Mon 27 Jul</b></td><td><code>JL007</code></td>
+              <td>Boston (Logan, <b>Term. E</b>) <b>13:15</b> → Tokyo Narita (<b>T2</b>) <b>16:00</b> (+1, 28 Jul)</td>
+              <td>Economy (O)<br>13h45</td>
+            </tr>
+            <tr>
+              <td><b>Fri 28 Aug</b></td><td><code>JL008</code></td>
+              <td>Tokyo Narita (<b>T2</b>) <b>18:25</b> → Boston (Logan, <b>Term. E</b>) <b>18:15</b> (same day)</td>
+              <td>Economy (Q)<br>12h50</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13px;color:#555;margin-bottom:0">Booked under COLSON ROBERT JOHN. Arrive 9h Narita the evening of 27 Aug;
+      capsule checkout <b>10:00</b> on the 28th (no late checkout). Depart sequence: checkout → store bags → eat → check-in → security → 18:25.</p>
+    </div>
+  </section>
+
+  <!-- LODGING -->
+  <section class="block" id="lodging">
+    <h2>Lodging — 31 nights</h2>
+    <div class="body">
+      <p class="note-hint">Dates = nights you sleep there; check-out is the next morning.</p>
+      <div class="tscroll">
+        <table>
+          <thead><tr><th>Nights</th><th>Nt</th><th>Property / address</th><th>Conf. # / PIN</th><th>Phone</th><th>Price / cancel</th></tr></thead>
+          <tbody>
+            <tr><td>28–30 Jul</td><td>3</td><td><b>do-c Ebisu</b><br>Ebisu, Shibuya-ku, Tokyo</td><td><code>06a32e3dae71f9</code></td><td>—</td><td>advance-pay</td></tr>
+            <tr><td>31 Jul</td><td>1</td><td><b>9h nine hours Hakata</b><br>Hakata Stn, Fukuoka</td><td><code>06a33ef012f22c</code></td><td>—</td><td>Fri rate (low)</td></tr>
+            <tr><td>1–7 Aug</td><td>7</td><td><b>R9 The Yard Kanzaki</b><br>4155-54 Osaki, Kanzaki-machi, Kanzaki, Saga</td><td><code>5108271860</code><br>PIN <span class="pin">6818</span></td><td><code>+81 952-20-3642</code></td><td>¥53,910<br>free to <b>29 Jul</b> (then ¥11,700)</td></tr>
+            <tr><td>8–14 Aug</td><td>7</td><td><b>R9 The Yard Sagakashima</b><br>Nakamura 821-2, Kashima, Saga</td><td><code>6745266039</code><br>PIN <span class="pin">5813</span></td><td><code>+81 954-69-0111</code></td><td>Genius −10%<br>free to <b>5 Aug</b> (then ¥10,800)</td></tr>
+            <tr><td>15–22 Aug</td><td>8</td><td><b>Obi house B2</b><br>Obiyama 1-24-24, Kumamoto City<br><i>host meets 15:00–18:00</i></td><td><code>6468624330</code><br>PIN <span class="pin">6592</span></td><td><code>+81 80-3981-4337</code></td><td><span class="tag-warn">⚠</span> rebook to check-out <b>23 Aug</b><br>free to <b>13 Aug</b></td></tr>
+            <tr class="warnrow"><td>23 Aug</td><td>1</td><td><span class="tag-warn">⚠</span> <b>9h Hakata</b> (return car)<br>Hakata Stn</td><td><b>BOOK NOW</b></td><td>—</td><td>—</td></tr>
+            <tr><td>24–26 Aug</td><td>3</td><td><b>do-c Ebisu</b><br>Ebisu, Shibuya-ku, Tokyo</td><td><code>06a32e4fc76abd</code><br><span class="tag-warn">⚠</span> extend to 3 nt</td><td>—</td><td>advance-pay</td></tr>
+            <tr><td>27 Aug</td><td>1</td><td><b>9h nine hours Narita</b><br>Narita T2 (landside)</td><td><code>06a1f0ee5125a2</code></td><td>—</td><td>¥7,266<br>free to <b>26 Aug</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:#555;margin-bottom:0"><b>Cancellation cliffs:</b> R9 Kanzaki free to <b>29 Jul</b> (then ¥11,700) ·
+        R9 Kashima free to <b>5 Aug</b> (then ¥10,800) · Obi Kumamoto free to <b>13 Aug</b> · 9h Narita free to <b>26 Aug</b>.
+        do-c / 9h Hakata = advance-pay — check before changing.</p>
+    </div>
+  </section>
+
+  <!-- TODO -->
+  <section class="block" id="todo">
+    <h2>Open items &amp; deadlines — before the flight</h2>
+    <div class="body">
+      <div class="warnbox">
+        <ol>
+          <li><b>AAA International Driving Permit (IDP)</b> — <span class="tag-warn">hard deadline; US-only.</span> Carry it with US license + passport (Japan needs the 1949 Geneva-format permit).</li>
+          <li><b>Lock the trimmed tail</b> (gives 3 Tokyo nights at each end): (a) rebook <b>Obi Kumamoto</b> to check out <b>23 Aug</b> (free through 13 Aug); (b) <b>book 9h Hakata for 23 Aug</b>; (c) <b>extend do-c</b> (<code>06a32e4fc76abd</code>) to 3 nights, 24–26 Aug.</li>
+          <li><b>Rental car</b> — pick up Hakata <b>1 Aug</b>, return Hakata <b>23 Aug</b> (~22 days — confirm long-term/monthly rate). Kei car / compact over kei truck.</li>
+          <li><b>Reserve 9× Casio SXC-1 before flying</b> — nine in stock isn't guaranteed. Confirm "Mako's husband" is a separate recipient.</li>
+          <li><b>SIMs</b> — order <b>Sakura Mobile</b> (Docomo) before the trip; add <b>au / KDDI</b> as the second line. Both live before leaving Tokyo.</li>
+          <li><b>Shinkansen</b> — book both legs on SmartEX: <b>31 Jul</b> Tokyo→Hakata, <b>24 Aug</b> Hakata→Tokyo.</li>
+          <li><b>Obon</b> — Kashima check-out is the morning of <b>15 Aug</b>, but 15th–16th are often the gathering peak. Ask family which day they gather; Kumamoto is free to cancel through <b>13 Aug</b>.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGISTICS -->
+  <section class="block" id="logistics">
+    <h2>Logistics &amp; reference</h2>
+    <div class="body">
+      <h3 style="margin-top:0;color:var(--accent)">Rental car</h3>
+      <ul class="tight">
+        <li><b>Vehicle:</b> 9-night Kumamoto base for expressway + mountain day-trips (Aso ~1.5h, Kurokawa ~2h, Takachiho ~2.5h) plus Hakata runs. <b>Prefer a kei car</b> (N-Box / Tanto / Hustler) or a <b>compact</b> (Fit / Yaris / Note / Swift) over a kei truck.</li>
+        <li><b>Request:</b> automatic, non-smoking, ETC unit + rental ETC card, English nav, <b>CDW</b> and <b>NOC</b> waiver — confirm both.</li>
+        <li><b>KEP (Kyushu Expressway Pass):</b> max ~10 days, can't cover the full ~22-day rental; Times / ORIX / Nissan / Nippon accept it (not Toyota/Budget).</li>
+        <li><b>Drives:</b> Hakata→Kanzaki ~45–60 min · Hakata→Kashima ~1h · Kanzaki↔Kashima ~30–45 min.</li>
+      </ul>
+
+      <h3 style="color:var(--accent)">Akiba day — Thu 30 Jul (Yodobashi Multimedia Akiba)</h3>
+      <div class="tscroll">
+        <table>
+          <thead><tr><th>Floor</th><th>Department</th><th>Errand</th></tr></thead>
+          <tbody>
+            <tr><td><b>4F</b></td><td>Musical instruments / Audio (DTM &amp; DJ)</td><td><b>Casio SXC-1 sampler ×9</b> — reserve ahead</td></tr>
+            <tr><td><b>1F</b></td><td>Mobile phones &amp; SIMs</td><td><b>au / KDDI</b> second SIM (prepaid visitor line)</td></tr>
+            <tr><td><b>2F</b></td><td>Travel goods</td><td>Duffel / carry-cart for the 9 samplers (no forwarding)</td></tr>
+            <tr><td><b>6F</b></td><td>Bicycles &amp; accessories</td><td>Lock / lights / helmet if rental doesn't include</td></tr>
+            <tr><td><b>8F</b></td><td>Restaurants</td><td>Lunch</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:#555">Tax-free: bring passport to the register. Parking B2–B6. <i>Peace cigarettes not sold here</i> — buy at a konbini or tobacco shop (<span class="jp">たばこ</span>).</p>
+
+      <h3 style="color:var(--accent)">Mobile — two SIMs</h3>
+      <ul class="tight">
+        <li><b>Sakura Mobile</b> (NTT <b>Docomo</b>) — English-friendly; order before the trip, deliver to do-c or pick up at Narita.</li>
+        <li><b>au / KDDI</b> — second line for rural reach; prepaid SIM from Yodobashi Akiba 1F or the airport.</li>
+        <li>Needs a dual-SIM phone. Both live before leaving Tokyo (target 29 Jul). Docomo + au ≈ near-total coverage incl. rural Kyushu.</li>
+      </ul>
+
+      <h3 style="color:var(--accent)">Bicycle — Tokyo</h3>
+      <ul class="tight">
+        <li><b>How:</b> Docomo Bike Share or Hello Cycling apps (e-assist, ~¥1,000–2,000/day, docks at Ebisu &amp; across Shibuya, in-app pay, built-in lock, no helmet), or a full-day bike from CycleTrip (Akihabara) or a local Ebisu shop.</li>
+        <li><b>Front (29 Jul):</b> short shakedown around Ebisu. <b>Tail (25 Aug):</b> Yamanote loop (~35 km), dawn start, 33–36°C. <b>(26 Aug):</b> Yokohama Chinatown / waterfront ride.</li>
+        <li><b>Rules:</b> from 1 Apr 2026, cyclists 16+ get "blue-ticket" fines — no phone while riding, obey signals, lights at night.</li>
+      </ul>
+
+      <h3 style="color:var(--accent)">Gifts — Casio SXC-1 samplers</h3>
+      <ul class="tight">
+        <li><b>Qty 9</b> (8 gifts + 1 for me). ~¥39,930 tax-in each. Nine ≈ ¥359,000 ≈ US$2,200–2,300.</li>
+        <li><b>Recipients (8):</b> Kenji, Yoichi, Akimasa; husbands of Hiromi, Hitomi, Mika, (Mako?); Hirotaka. <i>Verify Mako is a separate cousin.</i></li>
+        <li><b>Buy 30 Jul</b>, Yodobashi Akiba 4F (or Bic Camera). Tax-free only the one unit I export; treat the 8 left behind as tax-in.</li>
+        <li><b>Reserve ahead</b> — 9 is a bulk ask. Pull the current store number from Google Maps and call first. Carry them (no forwarding); nine fit a duffel.</li>
+      </ul>
+      <div class="phrasebox">
+        <div class="jp">カシオの SXC-1 サンプラーの在庫はありますか？ 7月30日に9台、受け取りたいです。取り置き・事前注文はできますか？</div>
+        <div class="en">"Do you have the Casio SXC-1 sampler in stock? I'd like nine on July 30 — can I reserve / preorder?"</div>
+        <div class="jp">8台は日本国内の親戚への贈り物で、1台は自分でアメリカに持ち帰ります。会計を分けられますか？</div>
+        <div class="en">"Eight are gifts for relatives in Japan; one I'll take to the US. Can you split the payment?"</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Japan 2026 · built from the planning thread · details may change</div>
+    <button id="adminBtn" type="button">🔒 Owner</button>
+  </footer>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheet-head">
+      <div>
+        <h3 id="m-date">—</h3>
+        <div class="dow" id="m-dow"></div>
+        <span class="tag" id="m-tag" style="display:none"></span>
+      </div>
+      <button class="x" id="m-close" aria-label="Close">×</button>
+    </div>
+    <div class="sheet-body">
+      <div class="plan" id="m-plan" style="display:none"></div>
+      <p class="notes-h">Notes</p>
+      <div id="m-notes"></div>
+      <form class="addform" id="m-form">
+        <label for="m-name">Your name</label>
+        <input id="m-name" maxlength="60" autocomplete="name" placeholder="e.g. Mom">
+        <label for="m-body">Leave a note for Robert</label>
+        <textarea id="m-body" maxlength="1000" placeholder="A reminder, a question, a 'have fun!'…"></textarea>
+        <button type="submit" id="m-submit">Add note</button>
+        <div class="form-msg" id="m-msg"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ---------- Supabase (anon, public — same project as the school app) ---------- */
+const SB_URL = 'https://hgvnytaqmuybzbotosyj.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhndm55dGFxbXV5Ynpib3Rvc3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUxNTE5MTMsImV4cCI6MjA4MDcyNzkxM30.-LcH_zly4pXoX_2Vra-RbH9twPvUj6xAJp66xPi02tU';
+const SB_HEADERS = { apikey: SB_KEY, Authorization: 'Bearer ' + SB_KEY };
+
+// fetch with an abort timeout so a stalled connection (travel Wi-Fi) can't hang the UI
+function sbReq(url, opts, ms){
+  const ctrl = new AbortController();
+  const t = setTimeout(function(){ ctrl.abort(); }, ms || 12000);
+  return fetch(url, Object.assign({}, opts, {signal:ctrl.signal})).finally(function(){ clearTimeout(t); });
+}
+
+async function sbFetchNotes(){
+  const r = await sbReq(SB_URL + '/rest/v1/japan_notes?select=*&order=created_at.asc', { headers: SB_HEADERS });
+  if(!r.ok){ const e = new Error('load ' + r.status); e.status = r.status; throw e; }
+  return r.json();
+}
+async function sbAddNote(day, author, body){
+  const r = await sbReq(SB_URL + '/rest/v1/japan_notes', {
+    method:'POST',
+    headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json', Prefer:'return=representation'}),
+    body: JSON.stringify({ day:day, author:author, body:body })
+  });
+  if(!r.ok){ const e = new Error(await r.text()); e.status = r.status; throw e; }
+  return r.json();
+}
+async function sbDeleteNote(id, secret){
+  const r = await sbReq(SB_URL + '/rest/v1/rpc/delete_japan_note', {
+    method:'POST',
+    headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json'}),
+    body: JSON.stringify({ note_id:id, secret:secret })
+  });
+  return r.ok;
+}
+
+/* ---------- Trip data ---------- */
+const DAYS = {
+  '2026-07-27':{cls:'flight', label:'DEPART BOS', detail:'13:15 JL007 Boston (Logan, Term. E) → Tokyo Narita. Arrive NRT 16:00 the next day (28th).'},
+  '2026-07-28':{cls:'tokyo',  label:'Arrive Tokyo', detail:'Land Narita 16:00 (T2). Check in do-c Ebisu (Shibuya-ku) — first of 3 nights.'},
+  '2026-07-29':{cls:'tokyo',  label:'Tokyo · do-c', detail:'SIMs go live (Sakura/Docomo + au/KDDI). Short bike shakedown ride around Ebisu.'},
+  '2026-07-30':{cls:'tokyo',  label:'Akiba day', detail:'Yodobashi Akiba: reserve 9× Casio SXC-1 samplers (4F), au/KDDI SIM (1F), a duffel for the samplers (2F). Lunch on 8F.'},
+  '2026-07-31':{cls:'cap',    label:'→ Hakata', detail:'Shinkansen Tokyo → Hakata. Overnight at 9h nine hours Hakata (Hakata Stn, Fukuoka).'},
+  '2026-08-01':{cls:'kanzaki',label:'→ Kanzaki', detail:'Pick up the rental car in Hakata → drive to Kanzaki, Saga. Check in R9 The Yard Kanzaki — first of 7 nights.'},
+  '2026-08-02':{cls:'kanzaki',label:'Kanzaki', detail:'Family in Kanzaki: Kenji / Hitomi / Mika.'},
+  '2026-08-03':{cls:'kanzaki',label:'Kanzaki', detail:'Saga — Kanzaki base.'},
+  '2026-08-04':{cls:'kanzaki',label:'Kanzaki', detail:'Saga — Kanzaki base.'},
+  '2026-08-05':{cls:'kanzaki',label:'Kanzaki', detail:'Saga — Kanzaki base.'},
+  '2026-08-06':{cls:'kanzaki',label:'Kanzaki', detail:'Saga — Kanzaki base.'},
+  '2026-08-07':{cls:'kanzaki',label:'Kanzaki', detail:'Saga — Kanzaki base. Last night before Kashima.'},
+  '2026-08-08':{cls:'kashima',label:'→ Kashima', detail:'Drive to Kashima, Saga. Check in R9 The Yard Sagakashima — first of 7 nights.'},
+  '2026-08-09':{cls:'kashima',label:'Kashima', detail:'Family in Kashima: Akimasa, Yoichi, Hirotaka, Hiromi.'},
+  '2026-08-10':{cls:'kashima',label:'Kashima', detail:'Saga — Kashima base.'},
+  '2026-08-11':{cls:'kashima',label:'Kashima', detail:'Saga — Kashima base.'},
+  '2026-08-12':{cls:'kashima',label:'Kashima', detail:'Saga — Kashima base.'},
+  '2026-08-13':{cls:'kashima',label:'Kashima · Obon', detail:'Saga — Kashima. Obon begins.'},
+  '2026-08-14':{cls:'kashima',label:'Kashima · Obon', detail:'Saga — Kashima. Obon. Last night before Kumamoto.'},
+  '2026-08-15':{cls:'kuma',   label:'→ Kumamoto', detail:'Drive to Kumamoto City. Check in Obi house B2 (host meets 15:00–18:00). Obon — first of 8 nights.'},
+  '2026-08-16':{cls:'kuma',   label:'Obon', detail:'Kumamoto base. Obon.'},
+  '2026-08-17':{cls:'kuma',   label:'Kumamoto', detail:'Kumamoto base.'},
+  '2026-08-18':{cls:'kuma',   label:'Aso*', detail:'Mt Aso day-trip (~1.5h). *Not booked — weather-dependent (Aug is typhoon season).'},
+  '2026-08-19':{cls:'kuma',   label:'Rest*', detail:'Flex / rest day in Kumamoto. *Optional day-trip swap — weather-dependent.'},
+  '2026-08-20':{cls:'kuma',   label:'Kurokawa*', detail:'Kurokawa Onsen day-trip (~2h). *Weather-dependent.'},
+  '2026-08-21':{cls:'kuma',   label:'Takachiho*', detail:'Takachiho day-trip (~2.5h mountain road). *Weather-dependent.'},
+  '2026-08-22':{cls:'kuma',   label:'Kumamoto', detail:'Repack — last night in Kumamoto.'},
+  '2026-08-23':{cls:'cap',    label:'→ Hakata', detail:'Check out AM → drive to Hakata → return the rental car. Overnight 9h Hakata.'},
+  '2026-08-24':{cls:'tokyo',  label:'→ Tokyo', detail:'Shinkansen Hakata → Tokyo. Check in do-c Ebisu — first of 3 nights.'},
+  '2026-08-25':{cls:'tokyo',  label:'Tokyo', detail:'Yamanote bike loop (~35 km), dawn start. River paths as a shadier fallback.'},
+  '2026-08-26':{cls:'tokyo',  label:'Tokyo', detail:'Yokohama Chinatown / waterfront bike — last full day.'},
+  '2026-08-27':{cls:'cap',    label:'9h Narita', detail:'Check in 9h nine hours Narita Airport (T2, landside).'},
+  '2026-08-28':{cls:'flight', label:'DEPART NRT', detail:'18:25 JL008 → Boston. Capsule checkout 10:00 (no late checkout).'}
+};
+const TAG_NAME = {tokyo:'Tokyo (do-c)', cap:'Capsule / transit', kanzaki:'Saga — Kanzaki', kashima:'Saga — Kashima', kuma:'Kumamoto', flight:'Flight day'};
+const MONTHS = [{y:2026,m:6,name:'July 2026'},{y:2026,m:7,name:'August 2026'}];
+const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const MON = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+/* ---------- State ---------- */
+let notesByDay = {};
+let currentDay = null;
+let adminSecret = localStorage.getItem('japan_admin_secret') || null;
+let _lastTrigger = null;   // element to restore focus to when the modal closes
+let _notesSig = null;      // signature of last-rendered notes, to skip needless re-renders
+let _pollFails = 0;        // consecutive load failures, for poll backoff
+let _pollTimer = null;
+
+const pad = n => String(n).padStart(2,'0');
+const keyParts = k => k.split('-').map(Number); // [y, m(1-12), d]
+
+function relTime(iso){
+  const then = new Date(iso).getTime();
+  const diff = Math.max(0, Date.now() - then); // clamp so clock skew never shows a negative
+  const m = Math.round(diff/60000);
+  if(m < 1) return 'just now';
+  if(m < 60) return m + ' min ago';
+  const h = Math.round(m/60);
+  if(h < 24) return h + (h===1?' hr ago':' hrs ago');
+  const d = Math.round(h/24);
+  if(d < 7) return d + (d===1?' day ago':' days ago');
+  const dd = new Date(iso); // use the LOCAL date, matching the rest of the UI
+  return MON[dd.getMonth()].slice(0,3) + ' ' + dd.getDate();
+}
+
+/* ---------- Calendar render ---------- */
+function renderCalendars(){
+  const wrap = document.getElementById('calendars');
+  wrap.textContent = '';
+  MONTHS.forEach(mo => {
+    const cal = document.createElement('div'); cal.className = 'cal';
+    const t = document.createElement('div'); t.className = 'cal-title'; t.textContent = mo.name; cal.appendChild(t);
+    const grid = document.createElement('div'); grid.className = 'cal-grid';
+    DOW.forEach(d => { const h = document.createElement('div'); h.className = 'cal-dow'; h.textContent = d; grid.appendChild(h); });
+    const offset = new Date(mo.y, mo.m, 1).getDay();
+    const dim = new Date(mo.y, mo.m+1, 0).getDate();
+    for(let i=0;i<offset;i++){ const b = document.createElement('div'); b.className = 'cal-cell empty'; grid.appendChild(b); }
+    for(let d=1; d<=dim; d++){
+      const key = mo.y + '-' + pad(mo.m+1) + '-' + pad(d);
+      const info = DAYS[key];
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.className = 'cal-cell ' + (info ? 'c-'+info.cls : 'plain');
+      const num = document.createElement('div'); num.className = 'cell-num'; num.textContent = d; cell.appendChild(num);
+      if(info){ const lab = document.createElement('div'); lab.className = 'cell-label'; lab.textContent = info.label; cell.appendChild(lab); }
+      const badge = document.createElement('div'); badge.className = 'cell-badge';
+      const cnt = (notesByDay[key]||[]).length;
+      if(cnt) badge.textContent = '💬 ' + cnt;
+      cell.appendChild(badge);
+      cell.addEventListener('click', () => openDay(key));
+      grid.appendChild(cell);
+    }
+    cal.appendChild(grid);
+    wrap.appendChild(cal);
+  });
+}
+
+/* ---------- Modal ---------- */
+const overlay = document.getElementById('overlay');
+function openDay(key){
+  currentDay = key;
+  const p = keyParts(key);
+  const dt = new Date(p[0], p[1]-1, p[2]);
+  document.getElementById('m-date').textContent = MON[p[1]-1] + ' ' + p[2] + ', ' + p[0];
+  document.getElementById('m-dow').textContent = DOW[dt.getDay()] + (key>='2026-07-27' && key<='2026-08-28' ? ' · Day ' + dayIndex(key) : '');
+  const info = DAYS[key];
+  const tag = document.getElementById('m-tag');
+  const plan = document.getElementById('m-plan');
+  if(info){
+    tag.style.display=''; tag.textContent = TAG_NAME[info.cls]; tag.className = 'tag c-'+info.cls;
+    plan.style.display=''; plan.textContent = info.detail;
+  } else {
+    tag.style.display='none'; plan.style.display='none';
+  }
+  renderNotes();
+  document.getElementById('m-name').value = localStorage.getItem('japan_note_author') || '';
+  document.getElementById('m-body').value = '';
+  setMsg('', '');
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+  _lastTrigger = document.activeElement;
+  setTimeout(function(){ document.getElementById('m-close').focus(); }, 0);
+}
+function dayIndex(key){
+  const a = new Date(2026,6,27);
+  const p = keyParts(key);
+  const b = new Date(p[0], p[1]-1, p[2]);
+  return Math.round((b-a)/86400000) + 1;
+}
+function closeModal(){
+  overlay.classList.remove('open'); document.body.style.overflow=''; currentDay=null;
+  if(_lastTrigger && _lastTrigger.focus) _lastTrigger.focus();
+  _lastTrigger = null;
+}
+
+function renderNotes(){
+  const box = document.getElementById('m-notes');
+  box.textContent = '';
+  const list = notesByDay[currentDay] || [];
+  if(!list.length){
+    const e = document.createElement('div'); e.className='empty-notes'; e.textContent='No notes yet — be the first.';
+    box.appendChild(e); return;
+  }
+  list.forEach(n => {
+    const card = document.createElement('div'); card.className='note';
+    const head = document.createElement('div');
+    const who = document.createElement('span'); who.className='who'; who.textContent = n.author;
+    const when = document.createElement('span'); when.className='when'; when.textContent = relTime(n.created_at);
+    head.appendChild(who); head.appendChild(when);
+    const txt = document.createElement('div'); txt.className='txt'; txt.textContent = n.body;
+    card.appendChild(head); card.appendChild(txt);
+    if(adminSecret){
+      const del = document.createElement('button'); del.type='button'; del.className='del'; del.textContent='delete';
+      del.addEventListener('click', () => onDelete(n.id));
+      card.appendChild(del);
+    }
+    box.appendChild(card);
+  });
+}
+
+function setMsg(text, kind){
+  const m = document.getElementById('m-msg');
+  m.textContent = text; m.className = 'form-msg' + (kind ? ' '+kind : '');
+}
+
+/* ---------- Data sync ---------- */
+async function loadNotes(){
+  try{
+    const rows = await sbFetchNotes();
+    const grouped = {};
+    rows.forEach(r => { (grouped[r.day] = grouped[r.day] || []).push(r); });
+    notesByDay = grouped;
+    _pollFails = 0;
+    document.getElementById('banner').classList.remove('show');
+    // only rebuild the calendar DOM when the set of notes actually changed
+    const sig = rows.map(r => r.id).join(',');
+    if(sig !== _notesSig){ _notesSig = sig; renderCalendars(); }
+    if(currentDay) renderNotes();
+  }catch(e){
+    _pollFails++;
+    const b = document.getElementById('banner');
+    if(typeof navigator !== 'undefined' && navigator.onLine === false){
+      b.textContent = 'You appear to be offline — notes will load when you’re back online. The itinerary above is complete.';
+    } else if(e && e.status === 404){
+      b.textContent = 'Notes aren’t available yet (the database table still needs to be created). The itinerary above is complete.';
+    } else {
+      b.textContent = 'Notes are temporarily unavailable — please try again later. The itinerary above is complete.';
+    }
+    b.classList.add('show');
+    console.warn('Japan notes load failed:', e);
+  }
+}
+
+async function onSubmit(ev){
+  ev.preventDefault();
+  const name = document.getElementById('m-name').value.trim();
+  const body = document.getElementById('m-body').value.trim();
+  if(!name){ setMsg('Please add your name.', 'err'); return; }
+  if(!body){ setMsg('Write a note first.', 'err'); return; }
+  localStorage.setItem('japan_note_author', name);
+  const btn = document.getElementById('m-submit');
+  btn.disabled = true; setMsg('Saving…', '');
+  try{
+    await sbAddNote(currentDay, name, body);
+    document.getElementById('m-body').value='';
+    setMsg('Saved — thank you!', 'ok');
+    await loadNotes();
+  }catch(e){
+    setMsg((typeof navigator !== 'undefined' && navigator.onLine === false)
+      ? 'You appear to be offline — your note wasn’t saved. Try again when you have signal.'
+      : 'Could not save. Please try again.', 'err');
+  }finally{
+    btn.disabled = false;
+  }
+}
+
+async function onDelete(id){
+  if(!adminSecret) return;
+  if(!confirm('Delete this note?')) return;
+  const ok = await sbDeleteNote(id, adminSecret);
+  if(ok){ await loadNotes(); }
+  else { alert('Delete failed — the owner secret may be wrong.'); }
+}
+
+/* ---------- Admin ---------- */
+document.getElementById('adminBtn').addEventListener('click', () => {
+  if(adminSecret){
+    if(confirm('Exit owner mode?')){ adminSecret=null; localStorage.removeItem('japan_admin_secret'); updateAdminBtn(); if(currentDay) renderNotes(); }
+    return;
+  }
+  const s = prompt('Owner secret (lets you delete notes):');
+  if(s){ adminSecret = s.trim(); localStorage.setItem('japan_admin_secret', adminSecret); updateAdminBtn(); if(currentDay) renderNotes(); }
+});
+function updateAdminBtn(){ document.getElementById('adminBtn').textContent = adminSecret ? '🔓 Owner mode — tap to exit' : '🔒 Owner'; }
+
+/* ---------- Wire up ---------- */
+document.getElementById('m-close').addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape' && overlay.classList.contains('open')) closeModal(); });
+document.getElementById('m-form').addEventListener('submit', onSubmit);
+
+// keyboard focus trap inside the open modal
+document.querySelector('.sheet').addEventListener('keydown', e => {
+  if(e.key !== 'Tab' || !overlay.classList.contains('open')) return;
+  const nodes = overlay.querySelectorAll('button, input, textarea, [href]');
+  const list = Array.prototype.filter.call(nodes, el => !el.disabled && el.offsetParent !== null);
+  if(!list.length) return;
+  const first = list[0], last = list[list.length-1];
+  if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+});
+
+// scroll the focused field above the on-screen keyboard inside the bottom sheet
+['m-name','m-body'].forEach(id => {
+  document.getElementById(id).addEventListener('focus', e => {
+    setTimeout(function(){ e.target.scrollIntoView({block:'center', behavior:'smooth'}); }, 250);
+  });
+});
+
+updateAdminBtn();
+renderCalendars();
+loadNotes();
+
+// light cross-device polling: pause when the tab is hidden, back off after failures
+function schedulePoll(){
+  if(_pollTimer) clearTimeout(_pollTimer);
+  const delay = _pollFails > 0 ? Math.min(45000 * Math.pow(2, _pollFails - 1), 300000) : 45000;
+  _pollTimer = setTimeout(async function(){
+    if(!document.hidden) await loadNotes();
+    schedulePoll();
+  }, delay);
+}
+document.addEventListener('visibilitychange', function(){ if(!document.hidden) loadNotes(); });
+schedulePoll();
+</script>
+</body>
+</html>
