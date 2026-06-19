@@ -1,0 +1,15 @@
+{
+  "name": "Japan 2026 — Robert's Trip",
+  "short_name": "Japan 2026",
+  "description": "Robert's Japan 2026 itinerary with an editable family calendar.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6fa",
+  "theme_color": "#2C3E70",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
