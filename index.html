@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#2C3E70">
+<meta name="theme-color" content="#DDDDDD">
 <title>Japan 2026 — Robert's Trip</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -17,158 +17,348 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+  /* ================= System 7 "Platinum" skin =================
+     Chrome idioms ported from The Desk (follow-alongs): platinum
+     surfaces, 1px black borders, hard 2px offset shadows (never
+     blurred), inset bevels, pinstripe title bars, pill buttons,
+     stepped transitions. Type runs larger than the Desk's 10px —
+     this page is read by relatives on phones. */
   :root{
-    --accent:#2C3E70; --accent-d:#1d2c52; --warn:#B23A1E; --warnbg:#FBEAE5;
+    --platinum:#DDDDDD; --plat-hi:#e8ecf2; --plat-lo:#8890a0;
+    --bevel-hi:#dde4ee; --bevel-lo:#555577; --chrome-border:#333366;
+    --stripe-dark:#AAAAAA; --black:#000; --white:#fff;
+    --warn:#B23A1E; --warnbg:#FBEAE5;
     --tokyo:#DCE6F5; --cap:#E6E6E6; --kanzaki:#DCEFDC; --kashima:#D3ECEA;
-    --kuma:#F6E3CE; --flight:#F3D6D2; --soft:#888; --ink:#1c2330; --line:#dfe3ea;
-    --bg:#f4f6fa; --card:#fff;
+    --kuma:#F6E3CE; --flight:#F3D6D2;
+    --soft:#555; --ink:#000;
+    --f-head:'Chicago','Arial Black',Arial,'Noto Sans JP',sans-serif;
+    --f-body:'Geneva',Arial,'Noto Sans JP',sans-serif;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    margin:0; background:var(--bg); color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans JP",sans-serif;
-    line-height:1.5; -webkit-text-size-adjust:100%;
+    margin:0; color:var(--ink);
+    background-color:#555566;
+    background-image:url("data:image/svg+xml,%3Csvg width='2' height='2' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='%23666677'/%3E%3Crect x='1' y='1' width='1' height='1' fill='%23666677'/%3E%3C/svg%3E");
+    image-rendering:pixelated;
+    font-family:var(--f-body);
+    font-size:13px; line-height:1.5; -webkit-text-size-adjust:100%;
   }
-  html[lang="ja"] body{font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+  html[lang="ja"] body{font-family:"Noto Sans JP",'Geneva',Arial,sans-serif}
   .jp{font-family:"Noto Sans JP",sans-serif}
-  a{color:var(--accent)}
+  a{color:var(--black)}
   .wrap{max-width:920px;margin:0 auto;padding:0 14px 64px}
+  h1,.title-text,.cd-box .num{
+    font-family:var(--f-head);font-weight:normal;
+    -webkit-font-smoothing:none;text-rendering:geometricPrecision;
+  }
 
-  /* ---- Header ---- */
-  header.hero{background:var(--accent);color:#fff;padding:22px 16px 18px}
-  header.hero .wrap{padding-bottom:0;position:relative}
-  .hero h1{margin:0;font-size:30px;letter-spacing:.5px}
-  .hero .sub{margin-top:4px;font-size:15px;opacity:.92}
-  .hero .route{margin-top:2px;font-size:13px;opacity:.8}
-  .langtog{position:absolute;top:0;right:14px;display:flex;border:1px solid rgba(255,255,255,.55);border-radius:8px;overflow:hidden}
-  .langtog button{background:transparent;color:#fff;border:none;padding:8px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;min-height:40px}
-  .langtog button.active{background:#fff;color:var(--accent)}
+  /* ---- S7 pill buttons ---- */
+  .s7btn{
+    font-family:var(--f-head);font-size:12px;background:var(--white);color:var(--black);
+    border-radius:500px;border:1px solid var(--black);padding:6px 16px;cursor:pointer;
+    outline:none;text-align:center;box-shadow:inset -1px -1px 0 var(--plat-lo);
+    transition:background-color 60ms steps(2),color 60ms steps(2);
+  }
+  .s7btn:active,.s7btn.s7btn-inv{background:var(--black);color:var(--white);box-shadow:none}
+  .s7btn:focus-visible{outline:2px dotted var(--black);outline-offset:2px}
 
-  /* ---- Sticky nav ---- */
-  nav.tabs{position:sticky;top:0;z-index:40;background:var(--accent-d);box-shadow:0 2px 6px rgba(0,0,0,.18)}
-  nav.tabs .wrap{padding:0 8px;display:flex;gap:2px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  /* ---- Menu bar (sticky nav) ---- */
+  nav.tabs{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:1px solid var(--black);user-select:none}
+  nav.tabs .wrap{padding:0 8px 0;display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
   nav.tabs a{
-    color:#cdd6ea;text-decoration:none;font-size:13px;font-weight:600;
-    padding:13px 14px;white-space:nowrap;border-bottom:3px solid transparent
+    color:var(--black);text-decoration:none;font-size:12px;font-family:var(--f-head);
+    padding:9px 11px;white-space:nowrap;
   }
-  nav.tabs a:hover{color:#fff}
+  nav.tabs a:hover{background:var(--black);color:var(--white)}
 
-  section.block{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-top:18px;overflow:hidden}
-  .block > h2{
-    margin:0;background:var(--accent);color:#fff;font-size:16px;font-weight:700;
-    padding:11px 16px;letter-spacing:.3px
+  /* ---- Header window ---- */
+  header.hero{padding:20px 0 0}
+  header.hero .wrap{padding-bottom:0;position:relative}
+  .hero h1{margin:0;font-size:26px;letter-spacing:1px}
+  .hero .sub{margin-top:4px;font-size:14px}
+  .hero .route{margin-top:2px;font-size:12px;color:var(--soft)}
+  .hero-body{background:var(--white);margin:0 1px 1px;padding:14px 14px 16px;position:relative}
+  .langtog{position:absolute;top:12px;right:12px;display:flex;gap:6px}
+  .langtog button{
+    font-family:var(--f-head);font-size:12px;background:var(--white);color:var(--black);
+    border:1px solid var(--black);border-radius:500px;padding:6px 13px;cursor:pointer;
+    min-height:36px;box-shadow:inset -1px -1px 0 var(--plat-lo);
   }
-  .block .body{padding:14px 16px}
+  .langtog button.active{background:var(--black);color:var(--white);box-shadow:none}
+
+  /* ---- Mac window (sections + hero + sheet) ---- */
+  .mac-window,section.block{
+    background:var(--platinum);border:1px solid var(--black);border-radius:2px;
+    box-shadow:inset 1px 1px 0 0 var(--plat-hi),inset -1px -1px 0 0 var(--plat-lo),2px 2px 0 0 var(--black);
+    padding:1px;overflow:hidden;
+  }
+  section.block{margin-top:18px;scroll-margin-top:40px}
+  .title-bar{
+    height:22px;margin:1px 1px 0;position:relative;display:flex;align-items:center;justify-content:center;
+    background:var(--platinum);
+    box-shadow:inset 0 1px 0 var(--bevel-hi),inset 0 -1px 0 var(--bevel-lo);
+  }
+  .title-stripes{
+    position:absolute;top:4px;bottom:4px;left:4px;right:4px;
+    background:repeating-linear-gradient(to bottom,var(--platinum) 0,var(--platinum) 1px,var(--stripe-dark) 1px,var(--stripe-dark) 2px);
+    z-index:1;
+  }
+  .title-text{font-size:12px;padding:0 8px;background:var(--platinum);position:relative;z-index:2;letter-spacing:.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%}
+  .tbox{
+    position:absolute;width:13px;height:13px;background:var(--platinum);
+    border:1px solid var(--chrome-border);z-index:3;
+    box-shadow:inset 1px 1px 0 var(--bevel-hi),inset -1px -1px 0 var(--bevel-lo);
+  }
+  .tbox.close-box{left:5px} .tbox.collapse-box{right:5px}
+  .tbox.collapse-box::after{content:"";position:absolute;top:5px;left:1px;right:1px;height:1px;background:var(--chrome-border)}
+
+  /* section headers = pinstripe title bars (pseudo-element stripes —
+     i18n replaces h2 innerHTML, so no inner spans allowed here) */
+  .block > h2{
+    margin:0;display:flex;align-items:center;gap:8px;
+    background:var(--platinum);color:var(--black);
+    font-family:var(--f-head);font-weight:normal;font-size:13px;letter-spacing:.5px;
+    padding:5px 10px;border-bottom:1px solid var(--black);
+    box-shadow:inset 0 1px 0 var(--bevel-hi);
+    -webkit-font-smoothing:none;text-rendering:geometricPrecision;
+  }
+  .block > h2::before,.block > h2::after{
+    content:'';flex:1;height:11px;min-width:12px;
+    background:repeating-linear-gradient(to bottom,var(--platinum) 0,var(--platinum) 1px,var(--stripe-dark) 1px,var(--stripe-dark) 2px);
+  }
+  .block .body{background:var(--white);margin:0 1px 1px;padding:13px 15px}
   .block .body > :first-child{margin-top:0}
-  .note-hint{font-size:13px;color:var(--soft);margin:2px 0 12px}
+  .block .body h3{
+    font-family:var(--f-head);font-weight:normal;font-size:13px;letter-spacing:.5px;
+    border-bottom:1px solid var(--black);padding-bottom:3px;margin:18px 0 8px;
+  }
+  .note-hint{font-size:12px;color:var(--soft);margin:2px 0 12px}
+
+  /* ---- Countdown / "now" strip ---- */
+  .cd-strip{display:flex;justify-content:flex-start;gap:10px;margin:14px 0 2px;flex-wrap:wrap}
+  .cd-box{
+    padding:6px 14px 8px;text-align:center;min-width:92px;
+    background:var(--white);border:1px solid var(--black);
+    box-shadow:inset 1px 1px 0 var(--plat-lo);
+    font-family:var(--f-body);color:var(--black);cursor:default;
+  }
+  button.cd-box{cursor:pointer;font:inherit}
+  button.cd-box:focus-visible{outline:2px dotted var(--black);outline-offset:2px}
+  .cd-box .num{font-size:22px;line-height:1.2;margin-bottom:2px}
+  .cd-box .lbl{font-size:10px}
+  .cd-box.cd-text{max-width:220px}
+  .cd-box.cd-text .num{font-size:13px;line-height:1.3;font-family:var(--f-body);font-weight:700;-webkit-font-smoothing:auto}
+  .cd-box.cd-dark{background:var(--black);color:var(--white);box-shadow:inset 1px 1px 0 #444}
+  .cd-box.c-tokyo,.cd-box.c-cap,.cd-box.c-kanzaki,.cd-box.c-kashima,.cd-box.c-kuma,.cd-box.c-flight{box-shadow:inset 1px 1px 0 rgba(0,0,0,.15)}
 
   /* ---- Overview chips ---- */
   .legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
-  .legend span{font-size:12px;padding:3px 9px;border-radius:20px;border:1px solid rgba(0,0,0,.08)}
+  .legend span{font-size:11px;padding:3px 9px;border:1px solid var(--black);box-shadow:1px 1px 0 var(--black)}
   .c-tokyo{background:var(--tokyo)} .c-cap{background:var(--cap)} .c-kanzaki{background:var(--kanzaki)}
   .c-kashima{background:var(--kashima)} .c-kuma{background:var(--kuma)} .c-flight{background:var(--flight)}
   ul.tight{margin:8px 0 0;padding-left:20px}
   ul.tight li{margin:4px 0}
 
-  /* ---- Calendar ---- */
+  /* ---- View toggle ---- */
+  .viewtog{display:flex;gap:8px;margin:0 0 12px}
+  .viewtog .s7btn{min-width:96px}
+
+  /* ---- Calendar: S7 shared-border month grid ---- */
   .cal{margin-top:6px}
-  .cal-title{margin:16px 0 8px;font-size:15px;color:var(--accent);font-weight:700}
+  .cal-title{margin:16px 0 8px;font-size:13px;font-family:var(--f-head);font-weight:normal;letter-spacing:.5px}
   .cal:first-child .cal-title{margin-top:0}
-  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
-  .cal-dow{font-size:11px;font-weight:700;color:var(--soft);text-align:center;padding:2px 0}
-  .cal-cell{
-    position:relative;border:1px solid var(--line);border-radius:8px;background:#fafbfc;
-    min-height:62px;padding:4px 5px;text-align:left;cursor:pointer;font:inherit;color:inherit;
-    display:flex;flex-direction:column;gap:2px;transition:transform .05s,box-shadow .1s
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border-top:1px solid var(--black);border-left:1px solid var(--black);background:var(--white)}
+  .cal-dow{
+    font-size:10px;text-align:center;padding:4px 0;font-family:var(--f-head);min-width:0;
+    background:var(--platinum);border-right:1px solid var(--black);border-bottom:1px solid var(--black);
+    box-shadow:inset 1px 1px 0 var(--plat-hi);
   }
-  .cal-cell.empty{border:none;background:transparent;cursor:default;min-height:0}
-  .cal-cell.plain{background:#fafbfc}
-  .cal-cell:not(.empty):hover{box-shadow:0 2px 8px rgba(44,62,112,.18)}
-  .cal-cell:not(.empty):active{transform:scale(.98)}
-  .cell-num{font-size:13px;font-weight:700;line-height:1}
-  .cell-label{font-size:10px;line-height:1.15;font-weight:600;color:#333;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;max-height:24px}
-  .cell-badge{margin-top:auto;font-size:10px;font-weight:700;color:var(--accent);min-height:12px}
+  .cal-cell{
+    position:relative;border:none;border-right:1px solid var(--black);border-bottom:1px solid var(--black);
+    border-radius:0;background:var(--white);
+    min-width:0;min-height:62px;padding:4px 5px;text-align:left;cursor:pointer;font:inherit;color:inherit;
+    display:flex;flex-direction:column;gap:2px;
+    transition:background-color 60ms steps(2);
+  }
+  .cal-cell.empty{background:var(--platinum);cursor:default}
+  .cal-cell.plain{background:var(--white)}
+  .cal-cell:not(.empty):hover{outline:2px solid var(--black);outline-offset:-2px;z-index:2}
+  .cal-cell:not(.empty):active{box-shadow:inset 1px 1px 0 rgba(0,0,0,.4)}
+  .cal-cell:focus-visible{outline:2px dotted var(--black);outline-offset:-3px;z-index:4}
+  .cell-num{font-size:12px;font-weight:700;line-height:1}
+  .cell-label{font-size:10px;line-height:1.15;font-weight:700;color:#222;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;max-height:24px;overflow-wrap:anywhere}
+  .cell-badge{margin-top:auto;font-size:10px;font-weight:700;color:var(--black);min-height:12px}
   .cal-cell.c-tokyo{background:var(--tokyo)} .cal-cell.c-cap{background:var(--cap)}
   .cal-cell.c-kanzaki{background:var(--kanzaki)} .cal-cell.c-kashima{background:var(--kashima)}
   .cal-cell.c-kuma{background:var(--kuma)} .cal-cell.c-flight{background:var(--flight)}
+  /* today = crisp 2px inset black frame (the Desk's temporal anchor) */
+  .cal-cell.today{box-shadow:inset 0 0 0 2px var(--black);z-index:2}
+  .cal-cell.past{opacity:.55}
+  /* owner-edited day: ✎ glyph, top-right (date owns top-left), white halo */
+  .cal-cell.edited::after{
+    content:'\270E';position:absolute;top:2px;right:3px;font-size:10px;line-height:1;
+    pointer-events:none;text-shadow:0 0 2px var(--white),0 0 1px var(--white);
+  }
   .cal-foot{font-size:11px;color:var(--soft);margin:12px 0 0}
+
+  /* ---- Agenda (list view) ---- */
+  .ag-band{
+    padding:4px 8px;font-size:11px;font-family:var(--f-head);letter-spacing:.5px;
+    background:var(--black);color:var(--white);
+    border:1px solid var(--black);border-bottom:none;
+  }
+  .ag-row{
+    display:flex;align-items:stretch;width:100%;padding:0;text-align:left;font:inherit;color:inherit;
+    background:var(--white);border:1px solid var(--black);border-top:none;cursor:pointer;position:relative;
+    transition:background-color 60ms steps(2);
+  }
+  .ag-row:hover{outline:2px solid var(--black);outline-offset:-2px;z-index:2}
+  .ag-row:focus-visible{outline:2px dotted var(--black);outline-offset:-3px;z-index:4}
+  .ag-date{
+    width:60px;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:6px 4px;background:var(--platinum);border-right:1px solid var(--black);
+    box-shadow:inset 1px 1px 0 var(--plat-hi);
+  }
+  .ag-dow{font-size:10px}
+  .ag-num{font-size:17px;font-family:var(--f-head);line-height:1.1}
+  .ag-main{flex:1;min-width:0;padding:7px 10px}
+  .ag-label{font-weight:700;font-size:13px;line-height:1.25}
+  .ag-sub{font-size:11px;color:#333;margin-top:2px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .ag-side{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:3px;padding:6px 9px;font-size:10px;font-weight:700}
+  .ag-row.c-tokyo{background:var(--tokyo)} .ag-row.c-cap{background:var(--cap)}
+  .ag-row.c-kanzaki{background:var(--kanzaki)} .ag-row.c-kashima{background:var(--kashima)}
+  .ag-row.c-kuma{background:var(--kuma)} .ag-row.c-flight{background:var(--flight)}
+  .ag-row.today{box-shadow:inset 0 0 0 2px var(--black);z-index:2}
+  .ag-row.past{opacity:.55}
 
   /* ---- Tables ---- */
   .tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  table{border-collapse:collapse;width:100%;font-size:13px;min-width:520px}
-  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
-  thead th{background:var(--accent);color:#fff;font-weight:700;font-size:12px}
-  td code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;background:#f0f2f7;padding:1px 4px;border-radius:4px}
+  table{border-collapse:collapse;width:100%;font-size:12px;min-width:520px}
+  th,td{border:1px solid var(--black);padding:7px 9px;text-align:left;vertical-align:top}
+  thead th{
+    background:var(--platinum);color:var(--black);font-family:var(--f-head);font-weight:normal;font-size:11px;
+    box-shadow:inset 1px 1px 0 var(--plat-hi);
+  }
+  td code,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;background:var(--platinum);padding:1px 4px;border:1px solid var(--plat-lo)}
   .warnrow{background:var(--warnbg)}
-  .pin{font-weight:700;color:var(--accent)}
+  .pin{font-weight:700}
 
-  .warnbox{border:1px solid var(--warn);background:var(--warnbg);border-radius:10px;padding:12px 14px;margin-top:4px}
+  .warnbox{border:1px solid var(--warn);background:var(--warnbg);padding:12px 14px;margin-top:4px;box-shadow:2px 2px 0 var(--warn)}
   .warnbox ol{margin:0;padding-left:20px}
   .warnbox li{margin:7px 0}
   .tag-warn{color:var(--warn);font-weight:700}
-  .phrasebox{border:1px solid var(--accent);border-radius:10px;padding:12px 14px;margin-top:12px;background:#fbfcfe}
+  .phrasebox{border:1px solid var(--black);padding:12px 14px;margin-top:12px;background:#FFFFCC;box-shadow:2px 2px 0 var(--black)}
   .phrasebox .jp{font-size:15px}
   .phrasebox .en{font-size:12px;color:#555;font-style:italic;margin:2px 0 12px}
 
-  /* ---- QR / share ---- */
-  .qrcard{text-align:center}
-  .qrcard img{width:200px;max-width:62%;height:auto;border:1px solid var(--line);border-radius:12px;padding:8px;background:#fff}
-  .qrcard .url{font-size:13px;margin:10px 0 0;word-break:break-all}
+  /* ---- Message board ---- */
+  .bd-list{margin-bottom:14px}
+  .bd-unavailable{font-size:12px;color:var(--soft);font-style:italic;margin-bottom:12px}
 
-  footer{margin-top:26px;text-align:center;font-size:12px;color:var(--soft)}
-  footer button{background:none;border:1px solid var(--line);color:var(--soft);border-radius:6px;padding:6px 12px;font-size:12px;cursor:pointer;margin-top:8px;min-height:36px}
-
-  /* ---- Modal ---- */
-  .overlay{position:fixed;inset:0;background:rgba(20,26,40,.55);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:0}
-  .overlay.open{display:flex}
-  @media(min-width:560px){.overlay{align-items:center;padding:20px}}
-  .sheet{background:#fff;width:100%;max-width:520px;max-height:90vh;border-radius:16px 16px 0 0;overflow:auto;box-shadow:0 -4px 24px rgba(0,0,0,.25)}
-  @media(min-width:560px){.sheet{border-radius:16px}}
-  .sheet-head{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-  .sheet-head h3{margin:0;font-size:17px}
-  .sheet-head .dow{font-size:12px;color:var(--soft);font-weight:600}
-  .sheet-head .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;margin-top:5px;border:1px solid rgba(0,0,0,.08)}
-  .x{background:none;border:none;font-size:24px;line-height:1;cursor:pointer;color:#888;min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;align-self:flex-start;margin:-8px -8px -8px 0}
-  .sheet-body{padding:14px 16px}
-  .plan{font-size:14px;background:#f6f8fc;border-radius:8px;padding:10px 12px;margin-bottom:14px}
-  .notes-h{font-size:13px;font-weight:700;color:var(--accent);margin:0 0 8px;text-transform:uppercase;letter-spacing:.4px}
-  .note{border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin-bottom:8px;background:#fff;position:relative}
+  /* ---- Notes / board cards + sender colors ---- */
+  .avat{
+    display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;
+    border:1px solid var(--black);font-size:10px;font-weight:700;margin-right:6px;
+    vertical-align:-4px;flex:0 0 auto;
+  }
+  .note{border:1px solid var(--black);border-left-width:4px;padding:8px 10px;margin-bottom:8px;background:var(--white);position:relative;box-shadow:1px 1px 0 var(--black)}
   .note .who{font-weight:700;font-size:13px}
   .note .when{font-size:11px;color:var(--soft);margin-left:6px;font-weight:400}
   .note .txt{font-size:14px;margin-top:3px;white-space:pre-wrap;word-break:break-word}
   .note .del{position:absolute;top:6px;right:8px;background:none;border:none;color:var(--warn);font-size:12px;cursor:pointer;font-weight:700}
-  .empty-notes{font-size:13px;color:var(--soft);font-style:italic;margin-bottom:12px}
-  .addform label{display:block;font-size:12px;font-weight:600;color:#555;margin:8px 0 3px}
-  .addform input,.addform textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:9px 10px;font:inherit;font-size:16px;scroll-margin-bottom:140px}
+  .empty-notes{font-size:12px;color:var(--soft);font-style:italic;margin-bottom:12px}
+
+  /* ---- QR / share ---- */
+  .qrcard{text-align:center}
+  .qrcard img{width:200px;max-width:62%;height:auto;border:1px solid var(--black);padding:8px;background:#fff;box-shadow:2px 2px 0 var(--black)}
+  .qrcard .url{font-size:13px;margin:10px 0 0;word-break:break-all}
+
+  footer{margin-top:26px;text-align:center;font-size:11px;color:#ccd}
+  footer button{
+    font-family:var(--f-head);background:var(--platinum);border:1px solid var(--black);color:var(--black);
+    border-radius:500px;padding:6px 14px;font-size:11px;cursor:pointer;margin-top:8px;min-height:36px;
+    box-shadow:inset -1px -1px 0 var(--plat-lo);
+  }
+  footer button:active{background:var(--black);color:var(--white)}
+
+  /* ---- Modal (bottom sheet as a Mac window) ---- */
+  .overlay{position:fixed;inset:0;background:rgba(20,20,30,.5);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:0}
+  .overlay.open{display:flex}
+  @media(min-width:560px){.overlay{align-items:center;padding:20px}}
+  .sheet{
+    background:var(--platinum);width:100%;max-width:520px;max-height:90vh;overflow:auto;
+    border:1px solid var(--black);border-radius:2px;
+    box-shadow:inset 1px 1px 0 0 var(--plat-hi),inset -1px -1px 0 0 var(--plat-lo),2px 2px 0 0 var(--black);
+    padding:1px;
+  }
+  .sheet-head{
+    position:sticky;top:0;z-index:2;background:var(--platinum);border-bottom:1px solid var(--black);
+    padding:10px 12px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px;
+    box-shadow:inset 0 1px 0 var(--bevel-hi);
+  }
+  .sheet-head h3{margin:0;font-size:15px;font-family:var(--f-head);font-weight:normal}
+  .sheet-head .dow{font-size:12px;color:var(--soft);font-weight:600}
+  .sheet-head .tag{display:inline-block;font-size:11px;padding:2px 8px;margin-top:5px;border:1px solid var(--black)}
+  .x{
+    background:var(--platinum);border:1px solid var(--chrome-border);font-size:16px;line-height:1;cursor:pointer;color:var(--black);
+    min-width:36px;min-height:36px;display:flex;align-items:center;justify-content:center;align-self:flex-start;
+    box-shadow:inset 1px 1px 0 var(--bevel-hi),inset -1px -1px 0 var(--bevel-lo);
+  }
+  .x:active{box-shadow:inset 1px 1px 0 var(--bevel-lo),inset -1px -1px 0 var(--bevel-hi)}
+  .sheet-body{padding:14px 16px;background:var(--white);margin:0 1px 1px}
+  .plan{font-size:14px;background:#FFFFCC;border:1px solid var(--black);padding:10px 12px;margin-bottom:8px;box-shadow:1px 1px 0 var(--black)}
+  .upd-chip{font-size:11px;color:var(--soft);margin:0 0 12px}
+  .notes-h{font-size:12px;font-weight:normal;font-family:var(--f-head);color:var(--black);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.4px}
+
+  /* ---- Forms ---- */
+  .addform label{display:block;font-size:12px;font-weight:700;color:#333;margin:8px 0 3px}
+  .addform input,.addform textarea,.addform select{
+    width:100%;border:1px solid var(--black);border-radius:0;padding:9px 10px;
+    font:inherit;font-size:16px;background:var(--white);box-shadow:inset 1px 1px 0 var(--plat-lo);
+    scroll-margin-bottom:140px;
+  }
   .addform textarea{min-height:70px;resize:vertical}
-  .addform button{margin-top:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:12px 16px;font-size:15px;font-weight:700;cursor:pointer;width:100%}
+  .addform button[type="submit"]{
+    margin:10px 2px 2px;background:var(--white);color:var(--black);
+    border:1px solid var(--black);border-radius:500px;padding:11px 16px;
+    font-family:var(--f-head);font-size:14px;cursor:pointer;width:calc(100% - 4px);
+    box-shadow:0 0 0 1px var(--white),0 0 0 3px var(--black),inset -1px -1px 0 var(--plat-lo);
+  }
+  .addform button[type="submit"]:active{background:var(--black);color:var(--white)}
   .addform button:disabled{opacity:.5;cursor:default}
   .form-msg{font-size:12px;margin-top:8px;min-height:14px}
   .form-msg.err{color:var(--warn)} .form-msg.ok{color:#1a7f37}
 
-  .banner{background:var(--warnbg);border:1px solid var(--warn);color:var(--warn);border-radius:8px;padding:8px 12px;font-size:13px;margin-top:12px;display:none}
+  /* owner edit form */
+  .editrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .editrow .s7btn{flex:1;min-width:90px;padding:10px 12px;font-size:13px}
+  .editrow .s7btn-default{box-shadow:0 0 0 1px var(--white),0 0 0 3px var(--black),inset -1px -1px 0 var(--plat-lo);margin:2px}
+  .editrow .s7btn-danger{background:#f0d6d6;color:#8a3a3a;border-color:#c98a8a;box-shadow:inset -1px -1px 0 #d9b3b3}
+  #m-editbtn{width:100%;padding:9px 14px;margin:0 0 14px;font-size:13px}
+  #m-editform{margin-bottom:14px}
+
+  .banner{background:var(--warnbg);border:1px solid var(--warn);color:var(--warn);padding:8px 12px;font-size:13px;margin-top:12px;display:none;box-shadow:1px 1px 0 var(--warn)}
   .banner.show{display:block}
+
+  @media (prefers-reduced-motion: reduce){
+    .s7btn,.cal-cell,.ag-row{transition:none}
+    html{scroll-behavior:auto}
+  }
+  @media (max-width:700px){
+    .cd-box{min-width:78px;padding:5px 10px 7px}
+    .cd-box .num{font-size:18px}
+    .ag-date{width:52px}
+  }
 </style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="langtog" role="group" aria-label="Language / 言語">
-      <button type="button" data-lang="en">EN</button>
-      <button type="button" data-lang="ja" class="jp">日本語</button>
-    </div>
-    <h1>JAPAN 2026</h1>
-    <div class="sub" data-i18n="hero.sub">Mon 27 Jul → Fri 28 Aug · Robert Colson</div>
-    <div class="route" data-i18n="hero.route">Boston ↔ Tokyo · Tokyo / Saga / Kumamoto</div>
-  </div>
-</header>
 
 <nav class="tabs">
   <div class="wrap">
     <a href="#overview"  data-i18n="nav.overview">Overview</a>
     <a href="#calendar"  data-i18n="nav.calendar">Calendar</a>
+    <a href="#board"     data-i18n="nav.board">Board</a>
     <a href="#flights"   data-i18n="nav.flights">Flights</a>
     <a href="#lodging"   data-i18n="nav.lodging">Lodging</a>
     <a href="#todo"      data-i18n="nav.todo">To-do</a>
@@ -176,6 +366,29 @@
     <a href="#share"     data-i18n="nav.share">Share</a>
   </div>
 </nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="mac-window">
+      <div class="title-bar">
+        <span class="title-stripes" aria-hidden="true"></span>
+        <span class="tbox close-box" aria-hidden="true"></span>
+        <span class="title-text" data-i18n="hero.title">Japan 2026 — Robert's Trip</span>
+        <span class="tbox collapse-box" aria-hidden="true"></span>
+      </div>
+      <div class="hero-body">
+        <div class="langtog" role="group" aria-label="Language / 言語">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="ja" class="jp">日本語</button>
+        </div>
+        <h1>JAPAN 2026</h1>
+        <div class="sub" data-i18n="hero.sub">Mon 27 Jul → Fri 28 Aug · Robert Colson</div>
+        <div class="route" data-i18n="hero.route">Boston ↔ Tokyo · Tokyo / Saga / Kumamoto</div>
+        <div class="cd-strip" id="cdstrip"></div>
+      </div>
+    </div>
+  </div>
+</header>
 
 <div class="wrap">
 
@@ -209,8 +422,30 @@
     <div class="body">
       <p class="note-hint" data-i18n="cal.hint">Tap any day to see the plan and leave a note. Everyone's notes show up here.</p>
       <div id="banner" class="banner"></div>
+      <div class="viewtog" role="group" aria-label="View / 表示">
+        <button type="button" id="v-grid" class="s7btn" data-i18n="view.grid">▦ Month</button>
+        <button type="button" id="v-list" class="s7btn" data-i18n="view.list">☰ List</button>
+      </div>
       <div id="calendars"></div>
+      <div id="agenda" style="display:none"></div>
       <p class="cal-foot" data-i18n="cal.foot"><b>*</b> = suggested day-trip from the Kumamoto base — not booked, weather-dependent (Aug is typhoon season; Miyazaki most exposed).</p>
+    </div>
+  </section>
+
+  <!-- MESSAGE BOARD -->
+  <section class="block" id="board">
+    <h2 data-i18n="h.board">Message board 💬</h2>
+    <div class="body">
+      <p class="note-hint" data-i18n="bd.hint">General messages that aren't about one day — say hi, plan a meet-up, share a photo link.</p>
+      <div class="bd-list" id="bd-list"></div>
+      <form class="addform" id="bd-form">
+        <label for="bd-name" data-i18n="m.name">Your name</label>
+        <input id="bd-name" maxlength="60" autocomplete="name" data-i18n-ph="m.namePh" placeholder="e.g. Mom">
+        <label for="bd-body" data-i18n="bd.leave">Message</label>
+        <textarea id="bd-body" maxlength="2000" data-i18n-ph="bd.bodyPh" placeholder="Write to the whole family…"></textarea>
+        <button type="submit" id="bd-submit" data-i18n="m.add">Add note</button>
+        <div class="form-msg" id="bd-msg"></div>
+      </form>
     </div>
   </section>
 
@@ -295,7 +530,7 @@
   <section class="block" id="logistics">
     <h2 data-i18n="h.logistics">Logistics &amp; reference</h2>
     <div class="body">
-      <h3 style="margin-top:0;color:var(--accent)" data-i18n="log.car">Rental car</h3>
+      <h3 style="margin-top:0" data-i18n="log.car">Rental car</h3>
       <ul class="tight">
         <li data-i18n="car.1"><b>Vehicle:</b> 9-night Kumamoto base for expressway + mountain day-trips (Aso ~1.5h, Kurokawa ~2h, Takachiho ~2.5h) plus Hakata runs. <b>Prefer a kei car</b> (N-Box / Tanto / Hustler) or a <b>compact</b> (Fit / Yaris / Note / Swift) over a kei truck.</li>
         <li data-i18n="car.2"><b>Request:</b> automatic, non-smoking, ETC unit + rental ETC card, English nav, <b>CDW</b> and <b>NOC</b> waiver — confirm both.</li>
@@ -303,7 +538,7 @@
         <li data-i18n="car.4"><b>Drives:</b> Hakata→Kanzaki ~45–60 min · Hakata→Kashima ~1h · Kanzaki↔Kashima ~30–45 min.</li>
       </ul>
 
-      <h3 style="color:var(--accent)" data-i18n="log.akiba">Akiba day — Thu 30 Jul (Yodobashi Multimedia Akiba)</h3>
+      <h3 data-i18n="log.akiba">Akiba day — Thu 30 Jul (Yodobashi Multimedia Akiba)</h3>
       <div class="tscroll">
         <table>
           <thead><tr>
@@ -320,21 +555,21 @@
       </div>
       <p style="font-size:12px;color:#555" data-i18n="ak.note">Tax-free: bring passport to the register. Parking B2–B6. <i>Peace cigarettes not sold here</i> — buy at a konbini or tobacco shop (<span class="jp">たばこ</span>).</p>
 
-      <h3 style="color:var(--accent)" data-i18n="log.sim">Mobile — two SIMs</h3>
+      <h3 data-i18n="log.sim">Mobile — two SIMs</h3>
       <ul class="tight">
         <li data-i18n="sim.1"><b>Sakura Mobile</b> (NTT <b>Docomo</b>) — English-friendly; order before the trip, deliver to do-c or pick up at Narita.</li>
         <li data-i18n="sim.2"><b>au / KDDI</b> — second line for rural reach; prepaid SIM from Yodobashi Akiba 1F or the airport.</li>
         <li data-i18n="sim.3">Needs a dual-SIM phone. Both live before leaving Tokyo (target 29 Jul). Docomo + au ≈ near-total coverage incl. rural Kyushu.</li>
       </ul>
 
-      <h3 style="color:var(--accent)" data-i18n="log.bike">Bicycle — Tokyo</h3>
+      <h3 data-i18n="log.bike">Bicycle — Tokyo</h3>
       <ul class="tight">
         <li data-i18n="bike.1"><b>How:</b> Docomo Bike Share or Hello Cycling apps (e-assist, ~¥1,000–2,000/day, docks at Ebisu &amp; across Shibuya, in-app pay, built-in lock, no helmet), or a full-day bike from CycleTrip (Akihabara) or a local Ebisu shop.</li>
         <li data-i18n="bike.2"><b>Front (29 Jul):</b> short shakedown around Ebisu. <b>Tail (25 Aug):</b> Yamanote loop (~35 km), dawn start, 33–36°C. <b>(26 Aug):</b> Yokohama Chinatown / waterfront ride.</li>
         <li data-i18n="bike.3"><b>Rules:</b> from 1 Apr 2026, cyclists 16+ get "blue-ticket" fines — no phone while riding, obey signals, lights at night.</li>
       </ul>
 
-      <h3 style="color:var(--accent)" data-i18n="log.gifts">Gifts — Casio SXC-1 samplers</h3>
+      <h3 data-i18n="log.gifts">Gifts — Casio SXC-1 samplers</h3>
       <ul class="tight">
         <li data-i18n="gift.1"><b>Qty 9</b> (8 gifts + 1 for me). ~¥39,930 tax-in each. Nine ≈ ¥359,000 ≈ US$2,200–2,300.</li>
         <li data-i18n="gift.2"><b>Recipients (8):</b> Kenji, Yoichi, Akimasa; husbands of Hiromi, Hitomi, Mika, (Mako?); Hirotaka. <i>Verify Mako is a separate cousin.</i></li>
@@ -380,6 +615,34 @@
     </div>
     <div class="sheet-body">
       <div class="plan" id="m-plan" style="display:none"></div>
+      <div class="upd-chip" id="m-updated" style="display:none"></div>
+      <button type="button" id="m-editbtn" class="s7btn" style="display:none" data-i18n="ed.btn">✏️ Edit this day</button>
+      <form class="addform" id="m-editform" style="display:none">
+        <label for="e-label" data-i18n="ed.label">Calendar label (English)</label>
+        <input id="e-label" maxlength="80">
+        <label for="e-label-ja" data-i18n="ed.labelJa">Calendar label (日本語)</label>
+        <input id="e-label-ja" maxlength="80" class="jp">
+        <label for="e-detail" data-i18n="ed.detail">Day plan (English)</label>
+        <textarea id="e-detail" maxlength="2000"></textarea>
+        <label for="e-detail-ja" data-i18n="ed.detailJa">Day plan (日本語)</label>
+        <textarea id="e-detail-ja" maxlength="2000" class="jp"></textarea>
+        <label for="e-cls" data-i18n="ed.cls">Location color</label>
+        <select id="e-cls">
+          <option value="" data-i18n="ed.clsKeep">(keep original)</option>
+          <option value="tokyo"   data-i18n="lg.tokyo">Tokyo (do-c)</option>
+          <option value="cap"     data-i18n="lg.cap">Capsule / transit</option>
+          <option value="kanzaki" data-i18n="lg.kanzaki">Saga — Kanzaki</option>
+          <option value="kashima" data-i18n="lg.kashima">Saga — Kashima</option>
+          <option value="kuma"    data-i18n="lg.kuma">Kumamoto</option>
+          <option value="flight"  data-i18n="lg.flight">Flight day</option>
+        </select>
+        <div class="editrow">
+          <button type="submit" id="e-save" class="s7btn s7btn-default" data-i18n="ed.save">Save</button>
+          <button type="button" id="e-cancel" class="s7btn" data-i18n="ed.cancel">Cancel</button>
+          <button type="button" id="e-revert" class="s7btn s7btn-danger" style="display:none" data-i18n="ed.revert">Revert to original</button>
+        </div>
+        <div class="form-msg" id="e-msg"></div>
+      </form>
       <p class="notes-h" data-i18n="m.notes">Notes</p>
       <div id="m-notes"></div>
       <form class="addform" id="m-form">
@@ -413,11 +676,16 @@ async function sbFetchNotes(){
   return r.json();
 }
 async function sbAddNote(day, author, body){
-  const r = await sbReq(SB_URL + '/rest/v1/japan_notes', {
+  const post = payload => sbReq(SB_URL + '/rest/v1/japan_notes', {
     method:'POST',
     headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json', Prefer:'return=representation'}),
-    body: JSON.stringify({ day:day, author:author, body:body })
+    body: JSON.stringify(payload)
   });
+  let r = await post({ day:day, author:author, body:body, device_id:deviceId });
+  if(!r.ok && r.status === 400){
+    // device_id column not migrated yet (v2 SQL) — never lose the note over it
+    r = await post({ day:day, author:author, body:body });
+  }
   if(!r.ok){ const e = new Error(await r.text()); e.status = r.status; throw e; }
   return r.json();
 }
@@ -426,6 +694,59 @@ async function sbDeleteNote(id, secret){
     method:'POST',
     headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json'}),
     body: JSON.stringify({ note_id:id, secret:secret })
+  });
+  return r.ok;
+}
+/* day-edit overrides (japan_day_edits) — merged over the baseline DAYS.
+   404 = table not created yet; treated as "no overrides", never an error. */
+async function sbFetchEdits(){
+  const r = await sbReq(SB_URL + '/rest/v1/japan_day_edits?select=*', { headers: SB_HEADERS });
+  if(r.status === 404) return [];
+  if(!r.ok){ const e = new Error('edits ' + r.status); e.status = r.status; throw e; }
+  return r.json();
+}
+async function sbUpsertDay(day, fields, secret){
+  const r = await sbReq(SB_URL + '/rest/v1/rpc/upsert_japan_day', {
+    method:'POST',
+    headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json'}),
+    body: JSON.stringify({
+      edit_day:day,
+      new_label:fields.label, new_label_ja:fields.label_ja,
+      new_detail:fields.detail, new_detail_ja:fields.detail_ja,
+      new_cls:fields.cls, secret:secret
+    })
+  });
+  if(!r.ok){ const e = new Error(await r.text()); e.status = r.status; throw e; }
+}
+async function sbDeleteDayEdit(day, secret){
+  const r = await sbReq(SB_URL + '/rest/v1/rpc/delete_japan_day_edit', {
+    method:'POST',
+    headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json'}),
+    body: JSON.stringify({ edit_day:day, secret:secret })
+  });
+  return r.ok;
+}
+/* general message board (japan_board). 404 = table not created yet. */
+async function sbFetchBoard(){
+  const r = await sbReq(SB_URL + '/rest/v1/japan_board?select=*&order=created_at.asc', { headers: SB_HEADERS });
+  if(r.status === 404){ const e = new Error('board 404'); e.status = 404; throw e; }
+  if(!r.ok){ const e = new Error('board ' + r.status); e.status = r.status; throw e; }
+  return r.json();
+}
+async function sbAddBoard(author, body){
+  const r = await sbReq(SB_URL + '/rest/v1/japan_board', {
+    method:'POST',
+    headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json', Prefer:'return=representation'}),
+    body: JSON.stringify({ author:author, body:body, device_id:deviceId })
+  });
+  if(!r.ok){ const e = new Error(await r.text()); e.status = r.status; throw e; }
+  return r.json();
+}
+async function sbDeleteBoard(id, secret){
+  const r = await sbReq(SB_URL + '/rest/v1/rpc/delete_japan_board_msg', {
+    method:'POST',
+    headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json'}),
+    body: JSON.stringify({ msg_id:id, secret:secret })
   });
   return r.ok;
 }
@@ -599,8 +920,47 @@ const T = {
   'bannerError':{en:"Notes are temporarily unavailable — please try again later. The itinerary above is complete.", ja:"メモが一時的に利用できません。しばらくしてからお試しください。上の旅程はすべて表示されています。"},
   'adminLocked':{en:"🔒 Owner", ja:"🔒 管理"},
   'adminUnlocked':{en:"🔓 Owner mode — tap to exit", ja:"🔓 管理モード（タップで終了）"},
-  'adminPrompt':{en:"Owner secret (lets you delete notes):", ja:"管理用パスワード（メモを削除できます）:"},
-  'adminExit':{en:"Exit owner mode?", ja:"管理モードを終了しますか？"}
+  'adminPrompt':{en:"Owner secret (lets you edit days and delete notes):", ja:"管理用パスワード（予定の編集とメモの削除ができます）:"},
+  'adminExit':{en:"Exit owner mode?", ja:"管理モードを終了しますか？"},
+
+  /* header window + views */
+  'hero.title':{en:"Japan 2026 — Robert's Trip", ja:"日本 2026 — ロバートの旅程"},
+  'view.grid':{en:"▦ Month", ja:"▦ 月表示"},
+  'view.list':{en:"☰ List", ja:"☰ リスト"},
+
+  /* now / countdown strip */
+  'now.until':{en:"days until departure", ja:"出発まで（日）"},
+  'now.departs':{en:"departs Mon 27 Jul", ja:"7/27(月) 出発"},
+  'now.dayN':{en:"of 33 · today", ja:"／33日 · 今日"},
+  'now.today':{en:"Today", ja:"今日"},
+  'now.tonight':{en:"tonight", ja:"今夜の宿"},
+  'now.done':{en:"Trip complete — back in Boston. Thank you for following along! 🇯🇵", ja:"旅は無事終了 — ボストンに戻りました。見てくれてありがとう！🇯🇵"},
+
+  /* message board */
+  'nav.board':{en:"Board", ja:"掲示板"},
+  'h.board':{en:"Message board 💬", ja:"掲示板 💬"},
+  'bd.hint':{en:"General messages that aren't about one day — say hi, plan a meet-up, share a photo link.", ja:"特定の日に限らないメッセージはこちらへ — 挨拶、集まりの相談、写真のリンクなど。"},
+  'bd.leave':{en:"Message", ja:"メッセージ"},
+  'bd.bodyPh':{en:"Write to the whole family…", ja:"家族みんなへのメッセージ…"},
+  'bd.empty':{en:"No messages yet — be the first.", ja:"まだメッセージはありません。最初のひとことをどうぞ。"},
+  'bd.unavailable':{en:"The board isn't available yet — check back soon.", ja:"掲示板はまだ準備中です。また見に来てください。"},
+
+  /* owner day editing */
+  'ed.btn':{en:"✏️ Edit this day", ja:"✏️ この日を編集"},
+  'ed.label':{en:"Calendar label (English)", ja:"カレンダーの見出し（英語）"},
+  'ed.labelJa':{en:"Calendar label (日本語)", ja:"カレンダーの見出し（日本語）"},
+  'ed.detail':{en:"Day plan (English)", ja:"その日の予定（英語）"},
+  'ed.detailJa':{en:"Day plan (日本語)", ja:"その日の予定（日本語）"},
+  'ed.cls':{en:"Location color", ja:"場所の色"},
+  'ed.clsKeep':{en:"(keep original)", ja:"（元のまま）"},
+  'ed.save':{en:"Save", ja:"保存"},
+  'ed.cancel':{en:"Cancel", ja:"キャンセル"},
+  'ed.revert':{en:"Revert to original", ja:"元に戻す"},
+  'ed.saving':{en:"Saving…", ja:"保存中…"},
+  'ed.saved':{en:"Saved — everyone sees this within a minute.", ja:"保存しました。1分以内にみんなに反映されます。"},
+  'ed.fail':{en:"Could not save — check the owner secret and try again. Your text is kept.", ja:"保存できませんでした。管理用パスワードを確認して再試行してください。入力内容は残っています。"},
+  'ed.revertConfirm':{en:"Remove this day's edits and show the original plan?", ja:"この日の編集を取り消して元の予定に戻しますか？"},
+  'ed.updated':{en:"✎ plan updated", ja:"✎ 予定が更新されました"}
 };
 function tr(k){ return (T[k] && T[k][lang] != null) ? T[k][lang] : (T[k] ? T[k].en : k); }
 
@@ -655,17 +1015,64 @@ let lang = (function(){
   return ((navigator.language || '').toLowerCase().indexOf('ja') === 0) ? 'ja' : 'en';
 })();
 let notesByDay = {};
+let dayEdits = {};        // 'YYYY-MM-DD' -> override row from japan_day_edits
+let boardMsgs = [];
 let currentDay = null;
 let adminSecret = localStorage.getItem('japan_admin_secret') || null;
+let view = (localStorage.getItem('japan_view') === 'list') ? 'list' : 'grid';
 let _lastTrigger = null;
 let _notesSig = null;
+let _editsSig = null;
+let _boardSig = null;
+let _boardMissing = false;   // japan_board table not created yet (404)
 let _pollFails = 0;
 let _pollTimer = null;
 let _bannerKey = null;   // 'bannerOffline' | 'bannerMissing' | 'bannerError' | null
-let _msgKey = null, _msgKind = '';   // last form-message key, so it re-translates on lang switch
+let _msgKey = null, _msgKind = '';       // day-note form message (re-translates on lang switch)
+let _bdMsgKey = null, _bdMsgKind = '';   // board form message
+let _edMsgKey = null, _edMsgKind = '';   // edit form message
+
+/* stable per-browser identity (bitchat lesson: key colors/ownership off a
+   stable id, never off the display name — two "Mika"s stay distinguishable) */
+const deviceId = (function(){
+  let id = localStorage.getItem('japan_device_id');
+  if(!id){
+    id = (window.crypto && crypto.randomUUID) ? crypto.randomUUID()
+       : 'd-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+    localStorage.setItem('japan_device_id', id);
+  }
+  return id;
+})();
 
 const pad = n => String(n).padStart(2,'0');
 const keyParts = k => k.split('-').map(Number);
+const TRIP_START = '2026-07-27', TRIP_END = '2026-08-28';
+/* "today" is Japan's calendar day (JST, UTC+9, no DST) for every viewer —
+   the strip answers "where is Robert now", not "what day is it for me" */
+function todayKey(){
+  const d = new Date(Date.now() + 9*3600*1000);
+  return d.getUTCFullYear() + '-' + pad(d.getUTCMonth()+1) + '-' + pad(d.getUTCDate());
+}
+
+/* djb2 → hue (ported from bitchat's colorForPeerSeed): deterministic pastel
+   per sender. Orange (~30°) is reserved for this browser ("you"). */
+function djb2(str){
+  let h = 5381;
+  for(let i = 0; i < str.length; i++){ h = ((h << 5) + h + str.charCodeAt(i)) >>> 0; }
+  return h;
+}
+function senderHue(seed, isSelf){
+  if(isSelf) return 30;
+  let hue = djb2(seed) % 360;
+  if(hue >= 15 && hue <= 45) hue = (hue + 43) % 360;   // keep orange for self
+  return hue;
+}
+function senderColors(row){
+  const seed = row.device_id ? ('dev:' + row.device_id) : ('name:' + (row.author || '').toLowerCase());
+  const self = !!row.device_id && row.device_id === deviceId;
+  const hue = senderHue(seed, self);
+  return { bg:'hsl(' + hue + ',70%,88%)', border:'hsl(' + hue + ',55%,45%)' };
+}
 
 function relTime(iso){
   const diff = Math.max(0, Date.now() - new Date(iso).getTime());
@@ -715,14 +1122,33 @@ function setLang(l){
   updateAdminBtn();
   if(_bannerKey) showBanner(_bannerKey);
   if(_msgKey) setMsg(_msgKey, _msgKind);
-  renderCalendars();
+  if(_bdMsgKey) setBdMsg(_bdMsgKey, _bdMsgKind);
+  if(_edMsgKey) setEdMsg(_edMsgKey, _edMsgKind);
+  renderAll();
   if(currentDay){ setModalHeader(currentDay); renderNotes(); }
 }
 
-/* ---------- Calendar render ---------- */
+/* ---------- Day data: baseline DAYS + owner overrides ---------- */
+function dayInfo(key){
+  const base = DAYS[key];
+  const e = dayEdits[key];
+  if(!e) return base || null;
+  const b = base || {};
+  return {
+    cls:       e.cls       || b.cls || 'cap',
+    label:     e.label     != null ? e.label     : (b.label || ''),
+    label_ja:  e.label_ja  != null ? e.label_ja  : (b.label_ja || ''),
+    detail:    e.detail    != null ? e.detail    : (b.detail || ''),
+    detail_ja: e.detail_ja != null ? e.detail_ja : (b.detail_ja || ''),
+    edited:    true, updated_at: e.updated_at
+  };
+}
+
+/* ---------- Calendar render (month grid) ---------- */
 function renderCalendars(){
   const wrap = document.getElementById('calendars');
   wrap.textContent = '';
+  const tk = todayKey();
   MONTHS.forEach(mo => {
     const cal = document.createElement('div'); cal.className = 'cal';
     const t = document.createElement('div'); t.className = 'cal-title'; t.textContent = mo.name[lang]; cal.appendChild(t);
@@ -733,10 +1159,14 @@ function renderCalendars(){
     for(let i=0;i<offset;i++){ const b = document.createElement('div'); b.className = 'cal-cell empty'; grid.appendChild(b); }
     for(let d=1; d<=dim; d++){
       const key = mo.y + '-' + pad(mo.m+1) + '-' + pad(d);
-      const info = DAYS[key];
+      const info = dayInfo(key);
       const cell = document.createElement('button');
       cell.type = 'button';
-      cell.className = 'cal-cell ' + (info ? 'c-'+info.cls : 'plain');
+      let cls = 'cal-cell ' + (info ? 'c-'+info.cls : 'plain');
+      if(key === tk) cls += ' today';
+      else if(key < tk && info) cls += ' past';
+      if(info && info.edited) cls += ' edited';
+      cell.className = cls;
       const num = document.createElement('div'); num.className = 'cell-num'; num.textContent = d; cell.appendChild(num);
       if(info){
         const lab = document.createElement('div'); lab.className = 'cell-label';
@@ -747,12 +1177,127 @@ function renderCalendars(){
       const cnt = (notesByDay[key]||[]).length;
       if(cnt) badge.textContent = '💬 ' + cnt;
       cell.appendChild(badge);
+      const aria = [(lang==='ja') ? (mo.name.ja + d + '日') : (mo.name.en.split(' ')[0] + ' ' + d)];
+      if(info) aria.push(lang === 'ja' ? info.label_ja : info.label);
+      if(cnt) aria.push('💬' + cnt);
+      cell.setAttribute('aria-label', aria.join(', '));
       cell.addEventListener('click', () => openDay(key));
       grid.appendChild(cell);
     }
     cal.appendChild(grid);
     wrap.appendChild(cal);
   });
+}
+
+/* ---------- Agenda render (list view) ---------- */
+function renderAgenda(){
+  const wrap = document.getElementById('agenda');
+  wrap.textContent = '';
+  const tk = todayKey();
+  let curMonth = -1;
+  const frag = document.createDocumentFragment();
+  const start = new Date(2026, 6, 27);
+  for(let i = 0; i < 33; i++){
+    const dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
+    const key = dt.getFullYear() + '-' + pad(dt.getMonth()+1) + '-' + pad(dt.getDate());
+    if(dt.getMonth() !== curMonth){
+      curMonth = dt.getMonth();
+      const band = document.createElement('div'); band.className = 'ag-band';
+      const mo = MONTHS.find(m => m.m === curMonth);
+      band.textContent = mo ? mo.name[lang] : '';
+      frag.appendChild(band);
+    }
+    const info = dayInfo(key);
+    const row = document.createElement('button');
+    row.type = 'button';
+    let cls = 'ag-row' + (info ? ' c-'+info.cls : '');
+    if(key === tk) cls += ' today';
+    else if(key < tk) cls += ' past';
+    row.className = cls;
+    const date = document.createElement('div'); date.className = 'ag-date';
+    const dow = document.createElement('div'); dow.className = 'ag-dow'; dow.textContent = DOW[lang][dt.getDay()];
+    const num = document.createElement('div'); num.className = 'ag-num'; num.textContent = dt.getDate();
+    date.appendChild(dow); date.appendChild(num);
+    const main = document.createElement('div'); main.className = 'ag-main';
+    const lab = document.createElement('div'); lab.className = 'ag-label';
+    lab.textContent = info ? (lang === 'ja' ? info.label_ja : info.label) : '';
+    const sub = document.createElement('div'); sub.className = 'ag-sub';
+    sub.textContent = info ? (lang === 'ja' ? info.detail_ja : info.detail) : '';
+    main.appendChild(lab); main.appendChild(sub);
+    const side = document.createElement('div'); side.className = 'ag-side';
+    const cnt = (notesByDay[key]||[]).length;
+    if(cnt){ const c = document.createElement('span'); c.textContent = '💬 ' + cnt; side.appendChild(c); }
+    if(info && info.edited){ const e = document.createElement('span'); e.textContent = '✎'; side.appendChild(e); }
+    row.appendChild(date); row.appendChild(main); row.appendChild(side);
+    row.setAttribute('aria-label', ((lang==='ja') ? ((dt.getMonth()+1)+'月'+dt.getDate()+'日') : (MON_EN[dt.getMonth()].slice(0,3)+' '+dt.getDate())) + (info ? ', ' + (lang==='ja'?info.label_ja:info.label) : ''));
+    row.addEventListener('click', () => openDay(key));
+    frag.appendChild(row);
+  }
+  wrap.appendChild(frag);
+}
+
+/* ---------- View toggle ---------- */
+function setView(v){
+  view = (v === 'list') ? 'list' : 'grid';
+  localStorage.setItem('japan_view', view);
+  document.getElementById('calendars').style.display = (view === 'grid') ? '' : 'none';
+  document.getElementById('agenda').style.display = (view === 'list') ? '' : 'none';
+  document.getElementById('v-grid').classList.toggle('s7btn-inv', view === 'grid');
+  document.getElementById('v-list').classList.toggle('s7btn-inv', view === 'list');
+}
+
+/* ---------- "Now" countdown strip ---------- */
+const NIGHTS = [
+  ['2026-07-28','2026-07-30', {en:'do-c Ebisu, Tokyo', ja:'do-c 恵比寿（東京）'}],
+  ['2026-07-31','2026-07-31', {en:'9h Hakata', ja:'9h 博多'}],
+  ['2026-08-01','2026-08-07', {en:'R9 The Yard Kanzaki', ja:'R9 The Yard 神埼'}],
+  ['2026-08-08','2026-08-14', {en:'R9 Sagakashima', ja:'R9 佐賀鹿島'}],
+  ['2026-08-15','2026-08-22', {en:'Obi house, Kumamoto', ja:'Obi house（熊本）'}],
+  ['2026-08-23','2026-08-23', {en:'9h Hakata', ja:'9h 博多'}],
+  ['2026-08-24','2026-08-26', {en:'do-c Ebisu, Tokyo', ja:'do-c 恵比寿（東京）'}],
+  ['2026-08-27','2026-08-27', {en:'9h Narita Airport', ja:'9h 成田空港'}]
+];
+function lodgingFor(key){
+  for(const n of NIGHTS){ if(key >= n[0] && key <= n[1]) return n[2][lang]; }
+  return null;
+}
+function cdBox(num, lbl, opts){
+  const el = document.createElement(opts && opts.click ? 'button' : 'div');
+  if(opts && opts.click){ el.type = 'button'; el.addEventListener('click', opts.click); }
+  el.className = 'cd-box' + (opts && opts.cls ? ' ' + opts.cls : '');
+  const n = document.createElement('div'); n.className = 'num'; n.textContent = num;
+  const l = document.createElement('div'); l.className = 'lbl'; l.textContent = lbl;
+  el.appendChild(n); el.appendChild(l);
+  return el;
+}
+function renderNow(){
+  const strip = document.getElementById('cdstrip');
+  strip.textContent = '';
+  const tk = todayKey();
+  if(tk < TRIP_START){
+    const days = Math.round((new Date(2026,6,27) - new Date(tk.slice(0,4), tk.slice(5,7)-1, tk.slice(8,10))) / 86400000);
+    strip.appendChild(cdBox(days, tr('now.until'), {cls:'cd-dark'}));
+    strip.appendChild(cdBox('JL007', tr('now.departs'), {click:() => openDay(TRIP_START)}));
+    return;
+  }
+  if(tk > TRIP_END){
+    strip.appendChild(cdBox('✓', tr('now.done'), {cls:'cd-dark'}));
+    return;
+  }
+  const info = dayInfo(tk);
+  strip.appendChild(cdBox(dayIndex(tk), tr('now.dayN'), {cls:'cd-dark'}));
+  if(info){
+    strip.appendChild(cdBox(lang === 'ja' ? info.label_ja : info.label, tr('now.today'), {cls:'cd-text c-'+info.cls, click:() => openDay(tk)}));
+  }
+  const lodging = lodgingFor(tk);
+  if(lodging) strip.appendChild(cdBox(lodging, tr('now.tonight'), {cls:'cd-text'}));
+}
+
+function renderAll(){
+  renderNow();
+  renderCalendars();
+  renderAgenda();
+  renderBoard();
 }
 
 /* ---------- Modal ---------- */
@@ -769,22 +1314,30 @@ function setModalHeader(key){
   document.getElementById('m-date').textContent = (lang === 'ja')
     ? (p[0] + '年' + p[1] + '月' + p[2] + '日')
     : (MON_EN[p[1]-1] + ' ' + p[2] + ', ' + p[0]);
-  const inTrip = key >= '2026-07-27' && key <= '2026-08-28';
+  const inTrip = key >= TRIP_START && key <= TRIP_END;
   let dowTxt = DOW[lang][dt.getDay()];
   if(inTrip) dowTxt += (lang === 'ja') ? (' · ' + dayIndex(key) + '日目') : (' · Day ' + dayIndex(key));
   document.getElementById('m-dow').textContent = dowTxt;
-  const info = DAYS[key];
+  const info = dayInfo(key);
   const tag = document.getElementById('m-tag');
   const plan = document.getElementById('m-plan');
+  const upd = document.getElementById('m-updated');
   if(info){
     tag.style.display=''; tag.textContent = TAG_NAME[lang][info.cls]; tag.className = 'tag c-'+info.cls;
     plan.style.display=''; plan.textContent = (lang === 'ja' ? info.detail_ja : info.detail);
   } else {
     tag.style.display='none'; plan.style.display='none';
   }
+  if(info && info.edited && info.updated_at){
+    upd.style.display=''; upd.textContent = tr('ed.updated') + ' · ' + relTime(info.updated_at);
+  } else {
+    upd.style.display='none';
+  }
+  updateEditUI();
 }
 function openDay(key){
   currentDay = key;
+  hideEditForm();
   setModalHeader(key);
   renderNotes();
   document.getElementById('m-name').value = localStorage.getItem('japan_note_author') || '';
@@ -797,8 +1350,103 @@ function openDay(key){
 }
 function closeModal(){
   overlay.classList.remove('open'); document.body.style.overflow=''; currentDay=null;
+  hideEditForm();
   if(_lastTrigger && _lastTrigger.focus) _lastTrigger.focus();
   _lastTrigger = null;
+}
+
+/* ---------- Owner day editing ---------- */
+function updateEditUI(){
+  const btn = document.getElementById('m-editbtn');
+  const form = document.getElementById('m-editform');
+  if(!adminSecret){ btn.style.display='none'; form.style.display='none'; return; }
+  if(form.style.display === 'none') btn.style.display='';
+}
+function hideEditForm(){
+  document.getElementById('m-editform').style.display='none';
+  setEdMsg('', '');
+  if(adminSecret && currentDay) document.getElementById('m-editbtn').style.display='';
+}
+function showEditForm(){
+  const e = dayEdits[currentDay] || {};
+  const base = DAYS[currentDay] || {};
+  const set = (id, val, ph) => {
+    const el = document.getElementById(id);
+    el.value = val != null ? val : '';
+    el.placeholder = ph || '';
+  };
+  set('e-label',     e.label,     base.label);
+  set('e-label-ja',  e.label_ja,  base.label_ja);
+  set('e-detail',    e.detail,    base.detail);
+  set('e-detail-ja', e.detail_ja, base.detail_ja);
+  document.getElementById('e-cls').value = e.cls || '';
+  document.getElementById('e-revert').style.display = dayEdits[currentDay] ? '' : 'none';
+  document.getElementById('m-editbtn').style.display='none';
+  document.getElementById('m-editform').style.display='';
+  setEdMsg('', '');
+}
+function setEdMsg(key, kind){
+  _edMsgKey = key || null; _edMsgKind = kind || '';
+  const m = document.getElementById('e-msg');
+  m.textContent = key ? tr(key) : '';
+  m.className = 'form-msg' + (kind ? ' '+kind : '');
+}
+async function onEditSubmit(ev){
+  ev.preventDefault();
+  if(!adminSecret || !currentDay) return;
+  const fields = {
+    label:     document.getElementById('e-label').value.trim(),
+    label_ja:  document.getElementById('e-label-ja').value.trim(),
+    detail:    document.getElementById('e-detail').value.trim(),
+    detail_ja: document.getElementById('e-detail-ja').value.trim(),
+    cls:       document.getElementById('e-cls').value
+  };
+  const save = document.getElementById('e-save');
+  save.disabled = true; setEdMsg('ed.saving', '');
+  try{
+    await sbUpsertDay(currentDay, fields, adminSecret);
+    await loadAll();
+    hideEditForm();
+    setModalHeader(currentDay);   // shows the "✎ plan updated · just now" chip
+  }catch(e){
+    setEdMsg('ed.fail', 'err');
+  }finally{
+    save.disabled = false;
+  }
+}
+async function onEditRevert(){
+  if(!adminSecret || !currentDay || !dayEdits[currentDay]) return;
+  if(!confirm(tr('ed.revertConfirm'))) return;
+  const ok = await sbDeleteDayEdit(currentDay, adminSecret);
+  if(ok){
+    await loadAll();
+    hideEditForm();
+    setModalHeader(currentDay);
+  } else {
+    setEdMsg('ed.fail', 'err');
+  }
+}
+
+/* one card renderer for day notes AND board messages (sender-colored) */
+function noteCard(n, onDel){
+  const card = document.createElement('div'); card.className='note';
+  const colors = senderColors(n);
+  card.style.borderLeftColor = colors.border;
+  const head = document.createElement('div');
+  const av = document.createElement('span'); av.className='avat';
+  av.style.background = colors.bg;
+  av.textContent = (n.author || '?').trim().charAt(0).toUpperCase();
+  const who = document.createElement('span'); who.className='who'; who.textContent = n.author;
+  const when = document.createElement('span'); when.className='when'; when.textContent = relTime(n.created_at);
+  head.appendChild(av); head.appendChild(who); head.appendChild(when);
+  const txt = document.createElement('div'); txt.className='txt'; txt.textContent = n.body;
+  card.appendChild(head); card.appendChild(txt);
+  if(adminSecret){
+    const del = document.createElement('button'); del.type='button'; del.className='del'; del.textContent = tr('delBtn');
+    del.addEventListener('click', onDel);
+    card.appendChild(del);
+  }
+  return card;
 }
 
 function renderNotes(){
@@ -809,21 +1457,61 @@ function renderNotes(){
     const e = document.createElement('div'); e.className='empty-notes'; e.textContent = tr('noNotes');
     box.appendChild(e); return;
   }
-  list.forEach(n => {
-    const card = document.createElement('div'); card.className='note';
-    const head = document.createElement('div');
-    const who = document.createElement('span'); who.className='who'; who.textContent = n.author;
-    const when = document.createElement('span'); when.className='when'; when.textContent = relTime(n.created_at);
-    head.appendChild(who); head.appendChild(when);
-    const txt = document.createElement('div'); txt.className='txt'; txt.textContent = n.body;
-    card.appendChild(head); card.appendChild(txt);
-    if(adminSecret){
-      const del = document.createElement('button'); del.type='button'; del.className='del'; del.textContent = tr('delBtn');
-      del.addEventListener('click', () => onDelete(n.id));
-      card.appendChild(del);
-    }
-    box.appendChild(card);
-  });
+  list.forEach(n => box.appendChild(noteCard(n, () => onDelete(n.id))));
+}
+
+/* ---------- Message board ---------- */
+function renderBoard(){
+  const box = document.getElementById('bd-list');
+  box.textContent = '';
+  if(_boardMissing){
+    const e = document.createElement('div'); e.className='bd-unavailable'; e.textContent = tr('bd.unavailable');
+    box.appendChild(e);
+    document.getElementById('bd-form').style.display='none';
+    return;
+  }
+  document.getElementById('bd-form').style.display='';
+  if(!boardMsgs.length){
+    const e = document.createElement('div'); e.className='empty-notes'; e.textContent = tr('bd.empty');
+    box.appendChild(e); return;
+  }
+  boardMsgs.forEach(n => box.appendChild(noteCard(n, () => onBoardDelete(n.id))));
+}
+
+function setBdMsg(key, kind){
+  _bdMsgKey = key || null; _bdMsgKind = kind || '';
+  const m = document.getElementById('bd-msg');
+  m.textContent = key ? tr(key) : '';
+  m.className = 'form-msg' + (kind ? ' '+kind : '');
+}
+
+async function onBoardSubmit(ev){
+  ev.preventDefault();
+  const name = document.getElementById('bd-name').value.trim();
+  const body = document.getElementById('bd-body').value.trim();
+  if(!name){ setBdMsg('needName', 'err'); return; }
+  if(!body){ setBdMsg('needBody', 'err'); return; }
+  localStorage.setItem('japan_note_author', name);
+  const btn = document.getElementById('bd-submit');
+  btn.disabled = true; setBdMsg('saving', '');
+  try{
+    await sbAddBoard(name, body);
+    document.getElementById('bd-body').value='';
+    setBdMsg('saved', 'ok');
+    await loadAll();
+  }catch(e){
+    setBdMsg((typeof navigator !== 'undefined' && navigator.onLine === false) ? 'offlineSave' : 'saveFail', 'err');
+  }finally{
+    btn.disabled = false;
+  }
+}
+
+async function onBoardDelete(id){
+  if(!adminSecret) return;
+  if(!confirm(tr('delConfirm'))) return;
+  const ok = await sbDeleteBoard(id, adminSecret);
+  if(ok){ await loadAll(); }
+  else { alert(tr('delFail')); }
 }
 
 function setMsg(key, kind){
@@ -843,24 +1531,52 @@ function showBanner(key){
 function hideBanner(){ _bannerKey = null; document.getElementById('banner').classList.remove('show'); }
 
 /* ---------- Data sync ---------- */
-async function loadNotes(){
-  try{
-    const rows = await sbFetchNotes();
+async function loadAll(){
+  const results = await Promise.allSettled([sbFetchNotes(), sbFetchEdits(), sbFetchBoard()]);
+  let changed = false;
+
+  if(results[0].status === 'fulfilled'){
+    const rows = results[0].value;
     const grouped = {};
     rows.forEach(r => { (grouped[r.day] = grouped[r.day] || []).push(r); });
     notesByDay = grouped;
     _pollFails = 0;
     hideBanner();
     const sig = rows.map(r => r.id).join(',');
-    if(sig !== _notesSig){ _notesSig = sig; renderCalendars(); }
-    if(currentDay) renderNotes();
-  }catch(e){
+    if(sig !== _notesSig){ _notesSig = sig; changed = true; }
+  } else {
+    const e = results[0].reason;
     _pollFails++;
     if(typeof navigator !== 'undefined' && navigator.onLine === false) showBanner('bannerOffline');
     else if(e && e.status === 404) showBanner('bannerMissing');
     else showBanner('bannerError');
     console.warn('Japan notes load failed:', e);
   }
+
+  if(results[1].status === 'fulfilled'){
+    const rows = results[1].value;
+    const map = {};
+    rows.forEach(r => { map[r.day] = r; });
+    dayEdits = map;
+    const sig = rows.map(r => r.day + ':' + r.updated_at).sort().join(',');
+    if(sig !== _editsSig){ _editsSig = sig; changed = true; }
+  } else {
+    console.warn('Japan day edits load failed:', results[1].reason);
+  }
+
+  if(results[2].status === 'fulfilled'){
+    boardMsgs = results[2].value;
+    if(_boardMissing){ _boardMissing = false; changed = true; }
+    const sig = boardMsgs.map(r => r.id).join(',');
+    if(sig !== _boardSig){ _boardSig = sig; changed = true; }
+  } else {
+    const e = results[2].reason;
+    if(e && e.status === 404 && !_boardMissing){ _boardMissing = true; changed = true; }
+    console.warn('Japan board load failed:', e);
+  }
+
+  if(changed) renderAll();
+  if(currentDay){ setModalHeader(currentDay); renderNotes(); }
 }
 
 async function onSubmit(ev){
@@ -876,7 +1592,7 @@ async function onSubmit(ev){
     await sbAddNote(currentDay, name, body);
     document.getElementById('m-body').value='';
     setMsg('saved', 'ok');
-    await loadNotes();
+    await loadAll();
   }catch(e){
     setMsg((typeof navigator !== 'undefined' && navigator.onLine === false) ? 'offlineSave' : 'saveFail', 'err');
   }finally{
@@ -888,18 +1604,23 @@ async function onDelete(id){
   if(!adminSecret) return;
   if(!confirm(tr('delConfirm'))) return;
   const ok = await sbDeleteNote(id, adminSecret);
-  if(ok){ await loadNotes(); }
+  if(ok){ await loadAll(); }
   else { alert(tr('delFail')); }
 }
 
 /* ---------- Admin ---------- */
+function onAdminChange(){
+  updateAdminBtn();
+  renderBoard();
+  if(currentDay){ renderNotes(); updateEditUI(); if(!adminSecret) hideEditForm(); }
+}
 document.getElementById('adminBtn').addEventListener('click', () => {
   if(adminSecret){
-    if(confirm(tr('adminExit'))){ adminSecret=null; localStorage.removeItem('japan_admin_secret'); updateAdminBtn(); if(currentDay) renderNotes(); }
+    if(confirm(tr('adminExit'))){ adminSecret=null; localStorage.removeItem('japan_admin_secret'); onAdminChange(); }
     return;
   }
   const s = prompt(tr('adminPrompt'));
-  if(s){ adminSecret = s.trim(); localStorage.setItem('japan_admin_secret', adminSecret); updateAdminBtn(); if(currentDay) renderNotes(); }
+  if(s){ adminSecret = s.trim(); localStorage.setItem('japan_admin_secret', adminSecret); onAdminChange(); }
 });
 function updateAdminBtn(){ document.getElementById('adminBtn').textContent = adminSecret ? tr('adminUnlocked') : tr('adminLocked'); }
 
@@ -908,13 +1629,20 @@ document.getElementById('m-close').addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape' && overlay.classList.contains('open')) closeModal(); });
 document.getElementById('m-form').addEventListener('submit', onSubmit);
+document.getElementById('bd-form').addEventListener('submit', onBoardSubmit);
+document.getElementById('m-editbtn').addEventListener('click', showEditForm);
+document.getElementById('m-editform').addEventListener('submit', onEditSubmit);
+document.getElementById('e-cancel').addEventListener('click', hideEditForm);
+document.getElementById('e-revert').addEventListener('click', onEditRevert);
+document.getElementById('v-grid').addEventListener('click', () => setView('grid'));
+document.getElementById('v-list').addEventListener('click', () => setView('list'));
 document.querySelectorAll('.langtog button').forEach(function(b){
   b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
 });
 
 document.querySelector('.sheet').addEventListener('keydown', e => {
   if(e.key !== 'Tab' || !overlay.classList.contains('open')) return;
-  const nodes = overlay.querySelectorAll('button, input, textarea, [href]');
+  const nodes = overlay.querySelectorAll('button, input, textarea, select, [href]');
   const list = Array.prototype.filter.call(nodes, el => !el.disabled && el.offsetParent !== null);
   if(!list.length) return;
   const first = list[0], last = list[list.length-1];
@@ -922,7 +1650,7 @@ document.querySelector('.sheet').addEventListener('keydown', e => {
   else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
 });
 
-['m-name','m-body'].forEach(id => {
+['m-name','m-body','bd-name','bd-body'].forEach(id => {
   document.getElementById(id).addEventListener('focus', e => {
     setTimeout(function(){ e.target.scrollIntoView({block:'center', behavior:'smooth'}); }, 250);
   });
@@ -931,18 +1659,20 @@ document.querySelector('.sheet').addEventListener('keydown', e => {
 applyStaticLang();
 updateLangBtns();
 updateAdminBtn();
-renderCalendars();
-loadNotes();
+document.getElementById('bd-name').value = localStorage.getItem('japan_note_author') || '';
+renderAll();
+setView(view);
+loadAll();
 
 function schedulePoll(){
   if(_pollTimer) clearTimeout(_pollTimer);
   const delay = _pollFails > 0 ? Math.min(45000 * Math.pow(2, _pollFails - 1), 300000) : 45000;
   _pollTimer = setTimeout(async function(){
-    if(!document.hidden) await loadNotes();
+    if(!document.hidden) await loadAll();
     schedulePoll();
   }, delay);
 }
-document.addEventListener('visibilitychange', function(){ if(!document.hidden) loadNotes(); });
+document.addEventListener('visibilitychange', function(){ if(!document.hidden) loadAll(); });
 schedulePoll();
 
 // register the service worker (real "Add to Home Screen" install + offline itinerary)
