@@ -16,6 +16,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<script>
+/* Simple (phone) mode — decided before first paint so hidden sections never flash.
+   Phones default to the focused view; an explicit choice (japan_mode) wins. */
+(function(){
+  try{
+    var m = localStorage.getItem('japan_mode');
+    if(m === 'simple' || (m !== 'full' && window.matchMedia('(max-width:640px)').matches)){
+      document.documentElement.classList.add('simple');
+    }
+  }catch(e){}
+})();
+</script>
 <style>
   /* ================= System 7 "Platinum" skin =================
      Chrome idioms ported from The Desk (follow-alongs): platinum
@@ -65,7 +77,8 @@
 
   /* ---- Menu bar (sticky nav) ---- */
   nav.tabs{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:1px solid var(--black);user-select:none}
-  nav.tabs .wrap{padding:0 8px 0;display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav.tabs .wrap{padding:0 8px 0;display:flex;gap:0;align-items:stretch}
+  nav.tabs .navstrip{display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;min-width:0}
   nav.tabs a{
     color:var(--black);text-decoration:none;font-size:12px;font-family:var(--f-head);
     padding:9px 11px;white-space:nowrap;
@@ -350,20 +363,39 @@
     .cd-box .num{font-size:18px}
     .ag-date{width:52px}
   }
+
+  /* ---- Simple (phone) mode: calendar + board only ---- */
+  #modeToggle{
+    display:none;background:none;border:none;cursor:pointer;
+    color:var(--black);font-size:12px;font-family:var(--f-head);
+    padding:9px 11px;white-space:nowrap;flex:0 0 auto;
+  }
+  #modeToggle:hover{background:var(--black);color:var(--white)}
+  @media (max-width:640px){ #modeToggle{display:block} }
+  /* never trap: while simple mode is on, the way back stays visible at any width */
+  html.simple #modeToggle{display:block}
+  html.simple #overview, html.simple #flights, html.simple #lodging,
+  html.simple #todo, html.simple #logistics, html.simple #share,
+  html.simple nav.tabs a.full-only{display:none}
+  html.simple .viewtog{display:none}
+  html.simple .ag-sub{-webkit-line-clamp:1}
 </style>
 </head>
 <body>
 
 <nav class="tabs">
   <div class="wrap">
-    <a href="#overview"  data-i18n="nav.overview">Overview</a>
-    <a href="#calendar"  data-i18n="nav.calendar">Calendar</a>
-    <a href="#board"     data-i18n="nav.board">Board</a>
-    <a href="#flights"   data-i18n="nav.flights">Flights</a>
-    <a href="#lodging"   data-i18n="nav.lodging">Lodging</a>
-    <a href="#todo"      data-i18n="nav.todo">To-do</a>
-    <a href="#logistics" data-i18n="nav.logistics">Logistics</a>
-    <a href="#share"     data-i18n="nav.share">Share</a>
+    <div class="navstrip">
+      <a href="#overview"  class="full-only" data-i18n="nav.overview">Overview</a>
+      <a href="#calendar"  data-i18n="nav.calendar">Calendar</a>
+      <a href="#board"     data-i18n="nav.board">Board</a>
+      <a href="#flights"   class="full-only" data-i18n="nav.flights">Flights</a>
+      <a href="#lodging"   class="full-only" data-i18n="nav.lodging">Lodging</a>
+      <a href="#todo"      class="full-only" data-i18n="nav.todo">To-do</a>
+      <a href="#logistics" class="full-only" data-i18n="nav.logistics">Logistics</a>
+      <a href="#share"     class="full-only" data-i18n="nav.share">Share</a>
+    </div>
+    <button type="button" id="modeToggle">Full site</button>
   </div>
 </nav>
 
@@ -422,6 +454,7 @@
     <div class="body">
       <p class="note-hint" data-i18n="cal.hint">Tap any day to see the plan and leave a note. Everyone's notes show up here.</p>
       <div id="banner" class="banner"></div>
+      <div id="focus" style="display:none"></div>
       <div class="viewtog" role="group" aria-label="View / 表示">
         <button type="button" id="v-grid" class="s7btn" data-i18n="view.grid">▦ Month</button>
         <button type="button" id="v-list" class="s7btn" data-i18n="view.list">☰ List</button>
@@ -747,6 +780,11 @@ const T = {
   'nav.todo':    {en:"To-do", ja:"やること"},
   'nav.logistics':{en:"Logistics", ja:"移動・買い物"},
   'nav.share':   {en:"Share", ja:"共有"},
+  'nav.more':    {en:"Full site", ja:"すべて表示"},
+  'nav.simple':  {en:"Simple view", ja:"シンプル表示"},
+  'focus.title': {en:"The next two weeks", ja:"これからの2週間"},
+  'focus.first': {en:"The first two weeks of the trip", ja:"旅の最初の2週間"},
+  'focus.last':  {en:"The last two weeks of the trip", ja:"旅の最後の2週間"},
 
   'h.overview': {en:"The trip at a glance", ja:"旅の概要"},
   'h.calendar': {en:"Calendar — leave me notes 💬", ja:"カレンダー — メモを残してね 💬"},
@@ -1089,6 +1127,7 @@ function setLang(l){
   if(_bdMsgKey) setBdMsg(_bdMsgKey, _bdMsgKind);
   if(_edMsgKey) setEdMsg(_edMsgKey, _edMsgKind);
   renderAll();
+  applyMode();
   if(currentDay){ setModalHeader(currentDay); renderNotes(); }
 }
 
@@ -1144,13 +1183,51 @@ function renderCalendars(){
       const aria = [(lang==='ja') ? (mo.name.ja + d + '日') : (mo.name.en.split(' ')[0] + ' ' + d)];
       if(info) aria.push(lang === 'ja' ? info.label_ja : info.label);
       if(cnt) aria.push('💬' + cnt);
+      if(key === tk) aria.push(tr('now.today'));
       cell.setAttribute('aria-label', aria.join(', '));
+      if(key === tk) cell.setAttribute('aria-current', 'date');
       cell.addEventListener('click', () => openDay(key));
       grid.appendChild(cell);
     }
     cal.appendChild(grid);
     wrap.appendChild(cal);
   });
+}
+
+/* ---------- Agenda rows (shared by the list view + the phone focus list) ---------- */
+function agBand(month){
+  const band = document.createElement('div'); band.className = 'ag-band';
+  const mo = MONTHS.find(m => m.m === month);
+  band.textContent = mo ? mo.name[lang] : '';
+  return band;
+}
+function agRow(dt, key, tk){
+  const info = dayInfo(key);
+  const row = document.createElement('button');
+  row.type = 'button';
+  let cls = 'ag-row' + (info ? ' c-'+info.cls : '');
+  if(key === tk) cls += ' today';
+  else if(key < tk) cls += ' past';
+  row.className = cls;
+  const date = document.createElement('div'); date.className = 'ag-date';
+  const dow = document.createElement('div'); dow.className = 'ag-dow'; dow.textContent = DOW[lang][dt.getDay()];
+  const num = document.createElement('div'); num.className = 'ag-num'; num.textContent = dt.getDate();
+  date.appendChild(dow); date.appendChild(num);
+  const main = document.createElement('div'); main.className = 'ag-main';
+  const lab = document.createElement('div'); lab.className = 'ag-label';
+  lab.textContent = info ? (lang === 'ja' ? info.label_ja : info.label) : '';
+  const sub = document.createElement('div'); sub.className = 'ag-sub';
+  sub.textContent = info ? (lang === 'ja' ? info.detail_ja : info.detail) : '';
+  main.appendChild(lab); main.appendChild(sub);
+  const side = document.createElement('div'); side.className = 'ag-side';
+  const cnt = (notesByDay[key]||[]).length;
+  if(cnt){ const c = document.createElement('span'); c.textContent = '💬 ' + cnt; side.appendChild(c); }
+  if(info && info.edited){ const e = document.createElement('span'); e.textContent = '✎'; side.appendChild(e); }
+  row.appendChild(date); row.appendChild(main); row.appendChild(side);
+  row.setAttribute('aria-label', ((lang==='ja') ? ((dt.getMonth()+1)+'月'+dt.getDate()+'日') : (MON_EN[dt.getMonth()].slice(0,3)+' '+dt.getDate())) + (info ? ', ' + (lang==='ja'?info.label_ja:info.label) : '') + (key === tk ? ', ' + tr('now.today') : ''));
+  if(key === tk) row.setAttribute('aria-current', 'date');
+  row.addEventListener('click', () => openDay(key));
+  return row;
 }
 
 /* ---------- Agenda render (list view) ---------- */
@@ -1164,38 +1241,41 @@ function renderAgenda(){
   for(let i = 0; i < 33; i++){
     const dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
     const key = dt.getFullYear() + '-' + pad(dt.getMonth()+1) + '-' + pad(dt.getDate());
-    if(dt.getMonth() !== curMonth){
-      curMonth = dt.getMonth();
-      const band = document.createElement('div'); band.className = 'ag-band';
-      const mo = MONTHS.find(m => m.m === curMonth);
-      band.textContent = mo ? mo.name[lang] : '';
-      frag.appendChild(band);
-    }
-    const info = dayInfo(key);
-    const row = document.createElement('button');
-    row.type = 'button';
-    let cls = 'ag-row' + (info ? ' c-'+info.cls : '');
-    if(key === tk) cls += ' today';
-    else if(key < tk) cls += ' past';
-    row.className = cls;
-    const date = document.createElement('div'); date.className = 'ag-date';
-    const dow = document.createElement('div'); dow.className = 'ag-dow'; dow.textContent = DOW[lang][dt.getDay()];
-    const num = document.createElement('div'); num.className = 'ag-num'; num.textContent = dt.getDate();
-    date.appendChild(dow); date.appendChild(num);
-    const main = document.createElement('div'); main.className = 'ag-main';
-    const lab = document.createElement('div'); lab.className = 'ag-label';
-    lab.textContent = info ? (lang === 'ja' ? info.label_ja : info.label) : '';
-    const sub = document.createElement('div'); sub.className = 'ag-sub';
-    sub.textContent = info ? (lang === 'ja' ? info.detail_ja : info.detail) : '';
-    main.appendChild(lab); main.appendChild(sub);
-    const side = document.createElement('div'); side.className = 'ag-side';
-    const cnt = (notesByDay[key]||[]).length;
-    if(cnt){ const c = document.createElement('span'); c.textContent = '💬 ' + cnt; side.appendChild(c); }
-    if(info && info.edited){ const e = document.createElement('span'); e.textContent = '✎'; side.appendChild(e); }
-    row.appendChild(date); row.appendChild(main); row.appendChild(side);
-    row.setAttribute('aria-label', ((lang==='ja') ? ((dt.getMonth()+1)+'月'+dt.getDate()+'日') : (MON_EN[dt.getMonth()].slice(0,3)+' '+dt.getDate())) + (info ? ', ' + (lang==='ja'?info.label_ja:info.label) : ''));
-    row.addEventListener('click', () => openDay(key));
-    frag.appendChild(row);
+    if(dt.getMonth() !== curMonth){ curMonth = dt.getMonth(); frag.appendChild(agBand(curMonth)); }
+    frag.appendChild(agRow(dt, key, tk));
+  }
+  wrap.appendChild(frag);
+}
+
+/* ---------- Focus render (phone simple mode): a rolling two-week list.
+   Window = today + 13 days, clamped inside the trip: before departure it
+   shows the first two weeks; near/after the end it shows the last two. */
+function focusStartKey(){
+  const tk = todayKey();
+  let s = tk < TRIP_START ? TRIP_START : tk;
+  const p = keyParts(TRIP_END);
+  const last = new Date(p[0], p[1]-1, p[2] - 13);
+  const lastKey = last.getFullYear() + '-' + pad(last.getMonth()+1) + '-' + pad(last.getDate());
+  if(s > lastKey) s = lastKey;
+  return s;
+}
+function renderFocus(){
+  const wrap = document.getElementById('focus');
+  wrap.textContent = '';
+  const tk = todayKey();
+  const sk = focusStartKey();
+  const sp = keyParts(sk);
+  /* title matches the clamp: pre-trip = first two weeks, tail/post = last two */
+  const titleKey = tk < TRIP_START ? 'focus.first' : (sk < tk ? 'focus.last' : 'focus.title');
+  const t = document.createElement('div'); t.className = 'cal-title'; t.textContent = tr(titleKey);
+  wrap.appendChild(t);
+  const frag = document.createDocumentFragment();
+  let curMonth = -1;
+  for(let i = 0; i < 14; i++){
+    const dt = new Date(sp[0], sp[1]-1, sp[2] + i);
+    const key = dt.getFullYear() + '-' + pad(dt.getMonth()+1) + '-' + pad(dt.getDate());
+    if(dt.getMonth() !== curMonth){ curMonth = dt.getMonth(); frag.appendChild(agBand(curMonth)); }
+    frag.appendChild(agRow(dt, key, tk));
   }
   wrap.appendChild(frag);
 }
@@ -1209,6 +1289,36 @@ function setView(v){
   document.getElementById('v-grid').classList.toggle('s7btn-inv', view === 'grid');
   document.getElementById('v-list').classList.toggle('s7btn-inv', view === 'list');
 }
+
+/* ---------- Simple (phone) mode ---------- */
+function isSimple(){ return document.documentElement.classList.contains('simple'); }
+function applyMode(){
+  const simple = isSimple();
+  document.getElementById('focus').style.display = simple ? '' : 'none';
+  if(simple){
+    document.getElementById('calendars').style.display = 'none';
+    document.getElementById('agenda').style.display = 'none';
+  } else {
+    setView(view);
+  }
+  document.getElementById('modeToggle').textContent = tr(simple ? 'nav.more' : 'nav.simple');
+}
+function setMode(m){
+  localStorage.setItem('japan_mode', m);
+  document.documentElement.classList.toggle('simple', m === 'simple');
+  applyMode();
+}
+/* deep links (#lodging etc.) target sections hidden in simple mode — a
+   display:none anchor is a silent no-op, so switch to full and scroll */
+const FULL_ONLY_IDS = ['overview','flights','lodging','todo','logistics','share'];
+function handleHash(){
+  const id = (location.hash || '').slice(1);
+  if(FULL_ONLY_IDS.indexOf(id) === -1) return;
+  if(isSimple()) setMode('full');
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView();
+}
+window.addEventListener('hashchange', handleHash);
 
 /* ---------- "Now" countdown strip ---------- */
 const NIGHTS = [
@@ -1261,6 +1371,7 @@ function renderAll(){
   renderNow();
   renderCalendars();
   renderAgenda();
+  renderFocus();
   renderBoard();
 }
 
@@ -1600,6 +1711,7 @@ document.getElementById('e-cancel').addEventListener('click', hideEditForm);
 document.getElementById('e-revert').addEventListener('click', onEditRevert);
 document.getElementById('v-grid').addEventListener('click', () => setView('grid'));
 document.getElementById('v-list').addEventListener('click', () => setView('list'));
+document.getElementById('modeToggle').addEventListener('click', () => setMode(isSimple() ? 'full' : 'simple'));
 document.querySelectorAll('.langtog button').forEach(function(b){
   b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
 });
@@ -1626,7 +1738,9 @@ updateAdminBtn();
 document.getElementById('bd-name').value = localStorage.getItem('japan_note_author') || '';
 renderAll();
 setView(view);
-loadAll();
+applyMode();
+handleHash();
+loadAll().then(handleHash);   // re-anchor deep links after async content shifts layout
 
 function schedulePoll(){
   if(_pollTimer) clearTimeout(_pollTimer);
