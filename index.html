@@ -288,8 +288,13 @@
   .qrcard .url{font-size:13px;margin:10px 0 0;word-break:break-all}
 
   footer{margin-top:26px;text-align:center;font-size:11px;color:#ccd}
-  footer .gamelink{margin-bottom:8px;font-size:12px}
-  footer .gamelink a{color:#fff;font-weight:bold}
+  .playbtn{
+    display:inline-block;text-decoration:none;font-family:var(--f-head);
+    background:var(--platinum);border:1px solid var(--black);color:var(--black);
+    border-radius:500px;padding:12px 26px;font-size:15px;font-weight:bold;
+    box-shadow:0 0 0 1px var(--white),0 0 0 3px var(--black),inset -1px -1px 0 var(--plat-lo);margin:2px;
+  }
+  .playbtn:active{background:var(--black);color:var(--white)}
   footer button{
     font-family:var(--f-head);background:var(--platinum);border:1px solid var(--black);color:var(--black);
     border-radius:500px;padding:6px 14px;font-size:11px;cursor:pointer;margin-top:8px;min-height:36px;
@@ -614,8 +619,17 @@
     </div>
   </section>
 
+  <!-- GAME -->
+  <section class="block" id="game">
+    <h2 data-i18n="h.game">🎮 Bored? Play Bobby's game</h2>
+    <div class="body" style="text-align:center">
+      <p style="margin-top:0" data-i18n="game.desc"><b>Aim Dojo</b> — a little game Bobby made. A slow beat plays, and a glowing orb appears somewhere around you: <b>find it, track it, and fire right on the beat</b>. It speeds up while you're hot and eases off when you miss. Nothing to install — it runs right in the browser.</p>
+      <p style="margin:14px 0 10px"><a class="playbtn" href="https://robjohncolson.github.io/aim-dojo/" target="_blank" rel="noopener" data-i18n="game.play">▶ Play Aim Dojo</a></p>
+      <p class="note-hint" style="margin-bottom:0" data-i18n="game.hint">Best on a computer with a mouse. Headphones make it even better — the sound tells you where the orb is hiding.</p>
+    </div>
+  </section>
+
   <footer>
-    <div class="gamelink" data-i18n="foot.game">🎮 Bored? Try <a href="https://robjohncolson.github.io/aim-dojo/" target="_blank" rel="noopener">Aim Dojo</a> — a little game Robert made (best on a computer with a mouse).</div>
     <div data-i18n="foot.txt">Japan 2026 · built from the planning thread · details may change</div>
     <button id="adminBtn" type="button">🔒 Owner</button>
   </footer>
@@ -900,8 +914,13 @@ const T = {
   'share.tip':{en:"Tip: on a phone you can “Add to Home Screen” to open it like an app.", ja:"ヒント：スマホでは「ホーム画面に追加」すると、アプリのように開けます。"},
 
   'foot.txt':{en:"Japan 2026 · built from the planning thread · details may change", ja:"日本 2026 · 計画メモから作成 · 予定は変わることがあります"},
-  'foot.game':{en:"🎮 Bored? Try <a href=\"https://robjohncolson.github.io/aim-dojo/\" target=\"_blank\" rel=\"noopener\">Aim Dojo</a> — a little game Robert made (best on a computer with a mouse).",
-               ja:"🎮 ひまつぶしに <a href=\"https://robjohncolson.github.io/aim-dojo/\" target=\"_blank\" rel=\"noopener\">Aim Dojo</a> — ロバート作のミニゲーム（マウス付きのパソコン推奨）。"},
+
+  'h.game':{en:"🎮 Bored? Play Bobby's game", ja:"🎮 ひまなとき — ボビーのゲーム"},
+  'game.desc':{en:"<b>Aim Dojo</b> — a little game Bobby made. A slow beat plays, and a glowing orb appears somewhere around you: <b>find it, track it, and fire right on the beat</b>. It speeds up while you're hot and eases off when you miss. Nothing to install — it runs right in the browser.",
+               ja:"<b>Aim Dojo（エイム道場）</b> — ボビーが作ったミニゲーム。ゆっくりしたビートが流れ、光る玉がどこかに現れます。<b>見つけて、追いかけて、ビートに合わせて撃つ！</b> 調子がいいとだんだん速く、外すとやさしくなります。インストール不要、ブラウザだけで遊べます。"},
+  'game.play':{en:"▶ Play Aim Dojo", ja:"▶ Aim Dojo で遊ぶ"},
+  'game.hint':{en:"Best on a computer with a mouse. Headphones make it even better — the sound tells you where the orb is hiding.",
+               ja:"マウス付きのパソコン推奨。ヘッドホンをつけると音で玉の場所がわかって、もっと楽しい！"},
 
   /* modal + dynamic strings */
   'm.notes':{en:"Notes", ja:"メモ"},
