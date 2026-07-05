@@ -288,6 +288,8 @@
   .qrcard .url{font-size:13px;margin:10px 0 0;word-break:break-all}
 
   footer{margin-top:26px;text-align:center;font-size:11px;color:#ccd}
+  footer .gamelink{margin-bottom:8px;font-size:12px}
+  footer .gamelink a{color:#fff;font-weight:bold}
   footer button{
     font-family:var(--f-head);background:var(--platinum);border:1px solid var(--black);color:var(--black);
     border-radius:500px;padding:6px 14px;font-size:11px;cursor:pointer;margin-top:8px;min-height:36px;
@@ -613,6 +615,7 @@
   </section>
 
   <footer>
+    <div class="gamelink" data-i18n="foot.game">🎮 Bored? Try <a href="https://robjohncolson.github.io/aim-dojo/" target="_blank" rel="noopener">Aim Dojo</a> — a little game Robert made (best on a computer with a mouse).</div>
     <div data-i18n="foot.txt">Japan 2026 · built from the planning thread · details may change</div>
     <button id="adminBtn" type="button">🔒 Owner</button>
   </footer>
@@ -897,6 +900,8 @@ const T = {
   'share.tip':{en:"Tip: on a phone you can “Add to Home Screen” to open it like an app.", ja:"ヒント：スマホでは「ホーム画面に追加」すると、アプリのように開けます。"},
 
   'foot.txt':{en:"Japan 2026 · built from the planning thread · details may change", ja:"日本 2026 · 計画メモから作成 · 予定は変わることがあります"},
+  'foot.game':{en:"🎮 Bored? Try <a href=\"https://robjohncolson.github.io/aim-dojo/\" target=\"_blank\" rel=\"noopener\">Aim Dojo</a> — a little game Robert made (best on a computer with a mouse).",
+               ja:"🎮 ひまつぶしに <a href=\"https://robjohncolson.github.io/aim-dojo/\" target=\"_blank\" rel=\"noopener\">Aim Dojo</a> — ロバート作のミニゲーム（マウス付きのパソコン推奨）。"},
 
   /* modal + dynamic strings */
   'm.notes':{en:"Notes", ja:"メモ"},
