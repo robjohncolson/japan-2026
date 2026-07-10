@@ -296,9 +296,21 @@
   }
   .playbtn:active{background:var(--black);color:var(--white)}
   .game-shot{
-    display:block;width:100%;max-width:560px;height:auto;margin:0 auto 14px;
+    display:block;width:100%;max-width:560px;height:auto;margin:0 auto 8px;
     border:1px solid var(--black);box-shadow:2px 2px 0 var(--black);background:#000;
   }
+  .game-cap{font-size:11px;color:var(--soft);margin:0 0 14px;letter-spacing:.04em}
+  .game-story{
+    text-align:left;max-width:520px;margin:0 auto 14px;font-size:13.5px;line-height:1.55;
+  }
+  .game-story b{font-weight:700}
+  .game-steps{
+    text-align:left;max-width:520px;margin:0 auto 14px;padding:10px 12px;
+    border:1px solid var(--black);background:var(--platinum);font-size:13px;line-height:1.5;
+    box-shadow:inset 1px 1px 0 var(--plat-hi),inset -1px -1px 0 var(--plat-lo);
+  }
+  .game-steps ol{margin:6px 0 0;padding-left:1.3em}
+  .game-steps li{margin:4px 0}
   .game-url{font-size:12px;margin:8px 0 0;word-break:break-all;color:var(--soft)}
   .game-url a{color:var(--soft)}
   footer button{
@@ -625,15 +637,19 @@
     </div>
   </section>
 
-  <!-- GAME -->
+  <!-- GAME — Moon Chorus (Bobby) -->
   <section class="block" id="game">
-    <h2 data-i18n="h.game">🎮 Bored? Play Bobby's game</h2>
+    <h2 data-i18n="h.game">✦ Bored? Play Bobby's game — Moon Chorus</h2>
     <div class="body" style="text-align:center">
-      <a href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener"><img class="game-shot" src="aim-dojo.jpg" width="1200" height="641" alt="Aim Dojo screenshot — glowing orb, rainbow shot arc, night dojo" data-i18n-alt="game.imgalt"></a>
-      <p style="margin-top:0" data-i18n="game.desc"><b>Aim Dojo</b> — a browser rhythm-aim game Bobby built. A glowing orb appears somewhere around you; <b>find it, track it, and land your shot on the beat</b>. The rainbow path shows where your shot will fly. It speeds up while you're hot and eases off when you miss. Nothing to install — open it in the browser.</p>
-      <p style="margin:14px 0 6px"><a class="playbtn" href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener" data-i18n="game.play">▶ Play Aim Dojo</a></p>
+      <a href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener"><img class="game-shot" src="moon-chorus.jpg" width="1168" height="784" alt="Moon Chorus key art — Listener under the full moon, rainbow link into a glowing Echo Orb over prehistoric ruins" data-i18n-alt="game.artalt"></a>
+      <p class="game-cap" data-i18n="game.artcap">Key art · The Moon's Lost Chorus</p>
+      <p class="game-story" data-i18n="game.desc" style="margin-top:0"><b>Moon Chorus</b> (still at aim-dojo.vercel.app) — a browser rhythm-aim game Bobby built. Long before dinosaurs, the Moon kept a choir of distant minds. Their voices fell asleep inside glowing <b>Echo Orbs</b>. You are the <b>Listener</b>: step when the floor flashes, send a rainbow link through the gap, and land it while the orb glows so a lost voice can rejoin the chorus. Miss the glow and you only clink a closed shell. Nothing to install.</p>
+      <div class="game-steps" data-i18n="game.steps"><b>How it works</b><ol><li><b>Step</b> — tap the letter when the floor flashes (steadies the field).</li><li><b>Send</b> — between steps, fire the rainbow link.</li><li><b>Land</b> — time the throw so it arrives while the orb glows.</li></ol></div>
+      <a href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener"><img class="game-shot" src="aim-dojo.jpg" width="1200" height="641" alt="Moon Chorus in-browser screenshot — Echo Orb, rainbow Moonline, night dojo" data-i18n-alt="game.imgalt"></a>
+      <p class="game-cap" data-i18n="game.shotcap">In the browser · same rules, live on the web</p>
+      <p style="margin:14px 0 6px"><a class="playbtn" href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener" data-i18n="game.play">▶ Play Moon Chorus</a></p>
       <p class="game-url"><a href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener">aim-dojo.vercel.app</a></p>
-      <p class="note-hint" style="margin-bottom:0" data-i18n="game.hint">Best on a computer with a mouse. Headphones make it even better — the sound tells you where the orb is hiding.</p>
+      <p class="note-hint" style="margin-bottom:0" data-i18n="game.hint">Best on a computer with a mouse. Headphones help — the Echoes call from where they're hiding. New players can pick the trainer; veterans jump straight into the Full Night.</p>
     </div>
   </section>
 
@@ -923,14 +939,20 @@ const T = {
 
   'foot.txt':{en:"Japan 2026 · built from the planning thread · details may change", ja:"日本 2026 · 計画メモから作成 · 予定は変わることがあります"},
 
-  'h.game':{en:"🎮 Bored? Play Bobby's game", ja:"🎮 ひまなとき — ボビーのゲーム"},
-  'game.desc':{en:"<b>Aim Dojo</b> — a browser rhythm-aim game Bobby built. A glowing orb appears somewhere around you; <b>find it, track it, and land your shot on the beat</b>. The rainbow path shows where your shot will fly. It speeds up while you're hot and eases off when you miss. Nothing to install — open it in the browser.",
-               ja:"<b>Aim Dojo（エイム道場）</b> — ボビーが作ったブラウザのリズム＆エイムゲーム。光る玉がどこかに現れます。<b>見つけて、追いかけて、ビートに合わせて撃つ！</b> 虹色の軌道で弾の行き先がわかります。調子がいいとだんだん速く、外すとやさしくなります。インストール不要 — ブラウザでそのまま遊べます。"},
-  'game.play':{en:"▶ Play Aim Dojo", ja:"▶ Aim Dojo で遊ぶ"},
-  'game.hint':{en:"Best on a computer with a mouse. Headphones make it even better — the sound tells you where the orb is hiding.",
-               ja:"マウス付きのパソコン推奨。ヘッドホンをつけると音で玉の場所がわかって、もっと楽しい！"},
-  'game.imgalt':{en:"Aim Dojo screenshot — glowing orb, rainbow shot arc, night dojo",
-                 ja:"Aim Dojoの画面 — 光る玉、虹色の弾道、夜の道場"},
+  'h.game':{en:"✦ Bored? Play Bobby's game — Moon Chorus", ja:"✦ ひまなとき — ボビーのゲーム『月の合唱』"},
+  'game.desc':{en:"<b>Moon Chorus</b> (still at aim-dojo.vercel.app) — a browser rhythm-aim game Bobby built. Long before dinosaurs, the Moon kept a choir of distant minds. Their voices fell asleep inside glowing <b>Echo Orbs</b>. You are the <b>Listener</b>: step when the floor flashes, send a rainbow link through the gap, and land it while the orb glows so a lost voice can rejoin the chorus. Miss the glow and you only clink a closed shell. Nothing to install.",
+               ja:"<b>月の合唱（Moon Chorus）</b>（aim-dojo.vercel.app）— ボビーが作ったブラウザのリズム＆エイムゲーム。恐竜よりもずっと昔、月は遠い心の合唱を守っていました。その声は光る<b>エコーの玉</b>の中で眠っています。あなたは<b>聴き手</b>。床が光ったらステップし、すき間で虹のリンクを送り、玉が光っているあいだに届けて、失われた声を合唱へ返す。光っていないと殻にカチンと当たるだけ。インストール不要。"},
+  'game.steps':{en:"<b>How it works</b><ol><li><b>Step</b> — tap the letter when the floor flashes (steadies the field).</li><li><b>Send</b> — between steps, fire the rainbow link.</li><li><b>Land</b> — time the throw so it arrives while the orb glows.</li></ol>",
+                ja:"<b>やり方</b><ol><li><b>ステップ</b> — 床が光ったら表示のキーを押す（場が安定する）。</li><li><b>送る</b> — ステップのあいだに虹のリンクを撃つ。</li><li><b>届ける</b> — 玉が光っている瞬間に着弾するようにタイミングを合わせる。</li></ol>"},
+  'game.play':{en:"▶ Play Moon Chorus", ja:"▶ 月の合唱を遊ぶ"},
+  'game.hint':{en:"Best on a computer with a mouse. Headphones help — the Echoes call from where they're hiding. New players can pick the trainer; veterans jump straight into the Full Night.",
+               ja:"マウス付きのパソコン推奨。ヘッドホンだとエコーの居場所が音でわかります。初めてならトレーナー、慣れた人はフルナイトへ。"},
+  'game.artalt':{en:"Moon Chorus key art — Listener under the full moon, rainbow link into a glowing Echo Orb over prehistoric ruins",
+                 ja:"月の合唱のキーアート — 満月の下の聴き手、古代の遺跡の上で光るエコーに虹のリンク"},
+  'game.artcap':{en:"Key art · The Moon's Lost Chorus", ja:"キーアート · 月の失われた合唱"},
+  'game.imgalt':{en:"Moon Chorus in-browser screenshot — Echo Orb, rainbow Moonline, night dojo",
+                 ja:"月の合唱のプレイ画面 — エコーの玉、虹のムーンライン、夜の道場"},
+  'game.shotcap':{en:"In the browser · same rules, live on the web", ja:"ブラウザ内 · 同じルール、ウェブでそのまま"},
 
   /* modal + dynamic strings */
   'm.notes':{en:"Notes", ja:"メモ"},

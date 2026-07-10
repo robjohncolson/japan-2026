@@ -3,10 +3,11 @@
    plane), and uses network-first for same-origin requests so redeploys are
    picked up when online. Supabase (cross-origin) is never intercepted, so the
    notes feature always talks to the live API. */
-const CACHE = 'japan-2026-v8';
+const CACHE = 'japan-2026-v9';
 const SHELL = [
   './', 'index.html', 'manifest.json',
-  'favicon.svg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'qr.svg', 'aim-dojo.jpg'
+  'favicon.svg', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'qr.svg',
+  'aim-dojo.jpg', 'moon-chorus.jpg'
 ];
 
 self.addEventListener('install', function(e){
