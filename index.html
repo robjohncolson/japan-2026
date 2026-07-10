@@ -295,6 +295,12 @@
     box-shadow:0 0 0 1px var(--white),0 0 0 3px var(--black),inset -1px -1px 0 var(--plat-lo);margin:2px;
   }
   .playbtn:active{background:var(--black);color:var(--white)}
+  .game-shot{
+    display:block;width:100%;max-width:560px;height:auto;margin:0 auto 14px;
+    border:1px solid var(--black);box-shadow:2px 2px 0 var(--black);background:#000;
+  }
+  .game-url{font-size:12px;margin:8px 0 0;word-break:break-all;color:var(--soft)}
+  .game-url a{color:var(--soft)}
   footer button{
     font-family:var(--f-head);background:var(--platinum);border:1px solid var(--black);color:var(--black);
     border-radius:500px;padding:6px 14px;font-size:11px;cursor:pointer;margin-top:8px;min-height:36px;
@@ -623,8 +629,10 @@
   <section class="block" id="game">
     <h2 data-i18n="h.game">🎮 Bored? Play Bobby's game</h2>
     <div class="body" style="text-align:center">
-      <p style="margin-top:0" data-i18n="game.desc"><b>Aim Dojo</b> — a little game Bobby made. A slow beat plays, and a glowing orb appears somewhere around you: <b>find it, track it, and fire right on the beat</b>. It speeds up while you're hot and eases off when you miss. Nothing to install — it runs right in the browser.</p>
-      <p style="margin:14px 0 10px"><a class="playbtn" href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener" data-i18n="game.play">▶ Play Aim Dojo</a></p>
+      <a href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener"><img class="game-shot" src="aim-dojo.jpg" width="1200" height="641" alt="Aim Dojo screenshot — glowing orb, rainbow shot arc, night dojo" data-i18n-alt="game.imgalt"></a>
+      <p style="margin-top:0" data-i18n="game.desc"><b>Aim Dojo</b> — a browser rhythm-aim game Bobby built. A glowing orb appears somewhere around you; <b>find it, track it, and land your shot on the beat</b>. The rainbow path shows where your shot will fly. It speeds up while you're hot and eases off when you miss. Nothing to install — open it in the browser.</p>
+      <p style="margin:14px 0 6px"><a class="playbtn" href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener" data-i18n="game.play">▶ Play Aim Dojo</a></p>
+      <p class="game-url"><a href="https://aim-dojo.vercel.app/" target="_blank" rel="noopener">aim-dojo.vercel.app</a></p>
       <p class="note-hint" style="margin-bottom:0" data-i18n="game.hint">Best on a computer with a mouse. Headphones make it even better — the sound tells you where the orb is hiding.</p>
     </div>
   </section>
@@ -916,11 +924,13 @@ const T = {
   'foot.txt':{en:"Japan 2026 · built from the planning thread · details may change", ja:"日本 2026 · 計画メモから作成 · 予定は変わることがあります"},
 
   'h.game':{en:"🎮 Bored? Play Bobby's game", ja:"🎮 ひまなとき — ボビーのゲーム"},
-  'game.desc':{en:"<b>Aim Dojo</b> — a little game Bobby made. A slow beat plays, and a glowing orb appears somewhere around you: <b>find it, track it, and fire right on the beat</b>. It speeds up while you're hot and eases off when you miss. Nothing to install — it runs right in the browser.",
-               ja:"<b>Aim Dojo（エイム道場）</b> — ボビーが作ったミニゲーム。ゆっくりしたビートが流れ、光る玉がどこかに現れます。<b>見つけて、追いかけて、ビートに合わせて撃つ！</b> 調子がいいとだんだん速く、外すとやさしくなります。インストール不要、ブラウザだけで遊べます。"},
+  'game.desc':{en:"<b>Aim Dojo</b> — a browser rhythm-aim game Bobby built. A glowing orb appears somewhere around you; <b>find it, track it, and land your shot on the beat</b>. The rainbow path shows where your shot will fly. It speeds up while you're hot and eases off when you miss. Nothing to install — open it in the browser.",
+               ja:"<b>Aim Dojo（エイム道場）</b> — ボビーが作ったブラウザのリズム＆エイムゲーム。光る玉がどこかに現れます。<b>見つけて、追いかけて、ビートに合わせて撃つ！</b> 虹色の軌道で弾の行き先がわかります。調子がいいとだんだん速く、外すとやさしくなります。インストール不要 — ブラウザでそのまま遊べます。"},
   'game.play':{en:"▶ Play Aim Dojo", ja:"▶ Aim Dojo で遊ぶ"},
   'game.hint':{en:"Best on a computer with a mouse. Headphones make it even better — the sound tells you where the orb is hiding.",
                ja:"マウス付きのパソコン推奨。ヘッドホンをつけると音で玉の場所がわかって、もっと楽しい！"},
+  'game.imgalt':{en:"Aim Dojo screenshot — glowing orb, rainbow shot arc, night dojo",
+                 ja:"Aim Dojoの画面 — 光る玉、虹色の弾道、夜の道場"},
 
   /* modal + dynamic strings */
   'm.notes':{en:"Notes", ja:"メモ"},
