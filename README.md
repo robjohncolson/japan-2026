@@ -1,8 +1,9 @@
 # Japan 2026 — family itinerary page
 
 A single-file shareable itinerary for Robert's Japan 2026 trip, styled after
-classic Mac OS System 7 ("Platinum"), with a calendar + agenda view, a family
-message board, and per-day notes.
+classic Mac OS System 7 ("Platinum"). **Calendar-first home:** only the calendar
+is on the main screen; Overview, Board, Flights, Lodging, Logistics, Game, and
+Share open from the ☰ menu. Owner tools (prices, to-do) stay behind the footer lock.
 
 - **Live page:** https://robjohncolson.github.io/japan-2026/
 - **Source of truth for the itinerary:** the private `japan` vault (`japan2026.tex`).

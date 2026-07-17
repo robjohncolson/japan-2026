@@ -17,15 +17,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <script>
-/* Simple (phone) mode — decided before first paint so hidden sections never flash.
-   Phones default to the focused view; an explicit choice (japan_mode) wins. */
+/* Calendar-first home: only #calendar paints; other sections open from the menu.
+   Legacy japan_mode is ignored (old simple/full split retired). */
 (function(){
-  try{
-    var m = localStorage.getItem('japan_mode');
-    if(m === 'simple' || (m !== 'full' && window.matchMedia('(max-width:640px)').matches)){
-      document.documentElement.classList.add('simple');
-    }
-  }catch(e){}
+  document.documentElement.classList.add('home');
 })();
 </script>
 <style>
@@ -75,30 +70,128 @@
   .s7btn:active,.s7btn.s7btn-inv{background:var(--black);color:var(--white);box-shadow:none}
   .s7btn:focus-visible{outline:2px dotted var(--black);outline-offset:2px}
 
-  /* ---- Menu bar (sticky nav) ---- */
-  nav.tabs{position:sticky;top:0;z-index:40;background:var(--white);border-bottom:1px solid var(--black);user-select:none}
-  nav.tabs .wrap{padding:0 8px 0;display:flex;gap:0;align-items:stretch}
-  nav.tabs .navstrip{display:flex;gap:0;overflow-x:auto;-webkit-overflow-scrolling:touch;flex:1;min-width:0}
-  nav.tabs a{
-    color:var(--black);text-decoration:none;font-size:12px;font-family:var(--f-head);
-    padding:9px 11px;white-space:nowrap;
+  /* ---- App bar (calendar-first) ---- */
+  nav.appbar{
+    position:sticky;top:0;z-index:50;background:var(--white);
+    border-bottom:1px solid var(--black);user-select:none;
   }
-  nav.tabs a:hover{background:var(--black);color:var(--white)}
-
-  /* ---- Header window ---- */
-  header.hero{padding:20px 0 0}
-  header.hero .wrap{padding-bottom:0;position:relative}
-  .hero h1{margin:0;font-size:26px;letter-spacing:1px}
-  .hero .sub{margin-top:4px;font-size:14px}
-  .hero .route{margin-top:2px;font-size:12px;color:var(--soft)}
-  .hero-body{background:var(--white);margin:0 1px 1px;padding:14px 14px 16px;position:relative}
-  .langtog{position:absolute;top:12px;right:12px;display:flex;gap:6px}
+  nav.appbar .wrap{
+    padding:0 8px;display:flex;align-items:center;gap:8px;min-height:44px;
+  }
+  .appbar-btn{
+    font-family:var(--f-head);font-size:16px;line-height:1;
+    background:var(--white);color:var(--black);border:1px solid var(--black);
+    border-radius:4px;padding:6px 10px;cursor:pointer;min-width:40px;min-height:36px;
+    box-shadow:inset -1px -1px 0 var(--plat-lo);
+  }
+  .appbar-btn:hover,.appbar-btn[aria-expanded="true"]{background:var(--black);color:var(--white);box-shadow:none}
+  .appbar-btn:focus-visible{outline:2px dotted var(--black);outline-offset:2px}
+  .app-title{
+    flex:1;min-width:0;font-family:var(--f-head);font-size:14px;letter-spacing:.5px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .app-sub{display:none;font-size:11px;color:var(--soft);font-family:var(--f-body);margin-top:1px}
+  @media (min-width:520px){
+    .app-title-wrap{display:flex;flex-direction:column;flex:1;min-width:0}
+    .app-sub{display:block}
+  }
+  .langtog{display:flex;gap:6px;flex:0 0 auto}
   .langtog button{
     font-family:var(--f-head);font-size:12px;background:var(--white);color:var(--black);
-    border:1px solid var(--black);border-radius:500px;padding:6px 13px;cursor:pointer;
+    border:1px solid var(--black);border-radius:500px;padding:6px 12px;cursor:pointer;
     min-height:36px;box-shadow:inset -1px -1px 0 var(--plat-lo);
   }
   .langtog button.active{background:var(--black);color:var(--white);box-shadow:none}
+
+  /* ---- Menu drawer ---- */
+  #menuScrim{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:60;
+  }
+  html.menu-open #menuScrim{display:block}
+  #menuDrawer{
+    position:fixed;top:0;left:0;bottom:0;width:min(300px,88vw);z-index:70;
+    background:var(--platinum);border-right:1px solid var(--black);
+    box-shadow:4px 0 0 0 var(--black);
+    transform:translateX(-105%);transition:transform 120ms steps(4);
+    display:flex;flex-direction:column;padding:1px;
+  }
+  html.menu-open #menuDrawer{transform:translateX(0)}
+  @media (prefers-reduced-motion: reduce){
+    #menuDrawer{transition:none}
+  }
+  #menuDrawer .drawer-head{
+    height:22px;margin:1px;position:relative;display:flex;align-items:center;justify-content:center;
+    background:var(--platinum);
+    box-shadow:inset 0 1px 0 var(--bevel-hi),inset 0 -1px 0 var(--bevel-lo);
+  }
+  #menuDrawer .drawer-head .title-stripes{
+    position:absolute;top:4px;bottom:4px;left:4px;right:4px;
+    background:repeating-linear-gradient(to bottom,var(--platinum) 0,var(--platinum) 1px,var(--stripe-dark) 1px,var(--stripe-dark) 2px);
+    z-index:1;
+  }
+  #menuDrawer .drawer-head span.title-text{
+    font-size:12px;padding:0 8px;background:var(--platinum);position:relative;z-index:2;
+    font-family:var(--f-head);letter-spacing:.5px;
+  }
+  #menuDrawer .drawer-body{flex:1;overflow-y:auto;background:var(--white);margin:0 1px 1px;padding:6px 0}
+  #menuDrawer button.drawer-link{
+    display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid #ccc;
+    font-family:var(--f-head);font-size:13px;padding:12px 16px;cursor:pointer;color:var(--black);
+  }
+  #menuDrawer button.drawer-link:hover,
+  #menuDrawer button.drawer-link:focus-visible{background:var(--black);color:var(--white);outline:none}
+  #menuDrawer .drawer-foot{
+    padding:10px 12px;font-size:11px;color:var(--soft);border-top:1px solid var(--black);
+    background:var(--platinum);
+  }
+
+  /* ---- Panel back bar (when a menu section is open) ---- */
+  #panelBackbar{
+    display:none;position:sticky;top:44px;z-index:45;
+    background:var(--platinum);border-bottom:1px solid var(--black);
+    padding:8px 14px;align-items:center;gap:10px;
+  }
+  html.panel-open #panelBackbar{display:flex}
+  #panelBackbar .s7btn{flex:0 0 auto}
+  #panelBackbar .panel-label{
+    font-family:var(--f-head);font-size:13px;letter-spacing:.3px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+
+  /* ---- Home = calendar only; panel = one detail section ---- */
+  html.home header.hero,
+  html.home #overview,
+  html.home #board,
+  html.home #flights,
+  html.home #lodging,
+  html.home #todo,
+  html.home #logistics,
+  html.home #share,
+  html.home #game{display:none !important}
+
+  html.panel-open #calendar{display:none !important}
+  html.panel-open header.hero{display:none !important}
+  html.panel-open #overview,
+  html.panel-open #board,
+  html.panel-open #flights,
+  html.panel-open #lodging,
+  html.panel-open #todo,
+  html.panel-open #logistics,
+  html.panel-open #share,
+  html.panel-open #game{display:none !important}
+  html.panel-open #overview.panel-active,
+  html.panel-open #board.panel-active,
+  html.panel-open #flights.panel-active,
+  html.panel-open #lodging.panel-active,
+  html.panel-open #todo.panel-active,
+  html.panel-open #logistics.panel-active,
+  html.panel-open #share.panel-active,
+  html.panel-open #game.panel-active{display:block !important;margin-top:12px}
+
+  /* ---- Compact home wrap ---- */
+  html.home .wrap{padding-top:12px}
+  html.home #calendar{margin-top:0}
+  html.home #calendar h2{font-size:15px}
 
   /* ---- Mac window (sections + hero + sheet) ---- */
   .mac-window,section.block{
@@ -389,22 +482,6 @@
     .ag-date{width:52px}
   }
 
-  /* ---- Simple (phone) mode: calendar + board only ---- */
-  #modeToggle{
-    display:none;background:none;border:none;cursor:pointer;
-    color:var(--black);font-size:12px;font-family:var(--f-head);
-    padding:9px 11px;white-space:nowrap;flex:0 0 auto;
-  }
-  #modeToggle:hover{background:var(--black);color:var(--white)}
-  @media (max-width:640px){ #modeToggle{display:block} }
-  /* never trap: while simple mode is on, the way back stays visible at any width */
-  html.simple #modeToggle{display:block}
-  html.simple #overview, html.simple #flights, html.simple #lodging,
-  html.simple #todo, html.simple #logistics, html.simple #share,
-  html.simple nav.tabs a.full-only{display:none}
-  html.simple .viewtog{display:none}
-  html.simple .ag-sub{-webkit-line-clamp:1}
-
   /* ---- Owner-only (prices, cancel cliffs, ops tools) ---- */
   .owner-only{display:none !important}
   html.owner .owner-only{display:revert !important}
@@ -430,47 +507,64 @@
 </head>
 <body>
 
-<nav class="tabs">
+<nav class="appbar" aria-label="App">
   <div class="wrap">
-    <div class="navstrip">
-      <a href="#overview"  class="full-only" data-i18n="nav.overview">Overview</a>
-      <a href="#calendar"  data-i18n="nav.calendar">Calendar</a>
-      <a href="#board"     data-i18n="nav.board">Board</a>
-      <a href="#flights"   class="full-only" data-i18n="nav.flights">Flights</a>
-      <a href="#lodging"   class="full-only" data-i18n="nav.lodging">Lodging</a>
-      <a href="#todo"      class="full-only" data-i18n="nav.todo">To-do</a>
-      <a href="#logistics" class="full-only" data-i18n="nav.logistics">Logistics</a>
-      <a href="#share"     class="full-only" data-i18n="nav.share">Share</a>
+    <button type="button" class="appbar-btn" id="menuBtn" aria-expanded="false" aria-controls="menuDrawer" data-i18n-aria="nav.menuAria" aria-label="Menu">☰</button>
+    <div class="app-title-wrap">
+      <div class="app-title" data-i18n="hero.title">Japan 2026 — Robert's Trip</div>
+      <div class="app-sub" data-i18n="hero.sub">Mon 27 Jul → Fri 28 Aug · Robert Colson</div>
     </div>
-    <button type="button" id="modeToggle">Full site</button>
+    <div class="langtog" role="group" aria-label="Language / 言語">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="ja" class="jp">日本語</button>
+    </div>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="mac-window">
-      <div class="title-bar">
-        <span class="title-stripes" aria-hidden="true"></span>
-        <span class="tbox close-box" aria-hidden="true"></span>
-        <span class="title-text" data-i18n="hero.title">Japan 2026 — Robert's Trip</span>
-        <span class="tbox collapse-box" aria-hidden="true"></span>
-      </div>
-      <div class="hero-body">
-        <div class="langtog" role="group" aria-label="Language / 言語">
-          <button type="button" data-lang="en">EN</button>
-          <button type="button" data-lang="ja" class="jp">日本語</button>
-        </div>
-        <h1>JAPAN 2026</h1>
-        <div class="sub" data-i18n="hero.sub">Mon 27 Jul → Fri 28 Aug · Robert Colson</div>
-        <div class="route" data-i18n="hero.route">Boston ↔ Tokyo · Tokyo / Saga / Kumamoto</div>
-        <div class="cd-strip" id="cdstrip"></div>
-      </div>
-    </div>
+<div id="menuScrim" hidden></div>
+<aside id="menuDrawer" role="dialog" aria-modal="true" aria-labelledby="menuDrawerTitle" hidden>
+  <div class="drawer-head">
+    <span class="title-stripes" aria-hidden="true"></span>
+    <span class="title-text" id="menuDrawerTitle" data-i18n="nav.menu">Menu</span>
   </div>
-</header>
+  <div class="drawer-body">
+    <button type="button" class="drawer-link" data-go="calendar" data-i18n="nav.calendar">Calendar</button>
+    <button type="button" class="drawer-link" data-go="board" data-i18n="nav.board">Board</button>
+    <button type="button" class="drawer-link" data-go="overview" data-i18n="nav.overview">Overview</button>
+    <button type="button" class="drawer-link" data-go="flights" data-i18n="nav.flights">Flights</button>
+    <button type="button" class="drawer-link" data-go="lodging" data-i18n="nav.lodging">Lodging</button>
+    <button type="button" class="drawer-link" data-go="logistics" data-i18n="nav.logistics">Logistics</button>
+    <button type="button" class="drawer-link" data-go="game" data-i18n="nav.game">Bobby's game</button>
+    <button type="button" class="drawer-link" data-go="share" data-i18n="nav.share">Share</button>
+    <button type="button" class="drawer-link owner-only" data-go="todo" data-i18n="nav.todo">To-do (owner)</button>
+  </div>
+  <div class="drawer-foot" data-i18n="nav.menuFoot">Calendar is home · everything else lives here</div>
+</aside>
+
+<div id="panelBackbar">
+  <button type="button" class="s7btn" id="panelBack" data-i18n="nav.backCal">← Calendar</button>
+  <span class="panel-label" id="panelLabel"></span>
+</div>
 
 <div class="wrap">
   <div id="ownerBanner" role="status"></div>
+
+  <!-- CALENDAR (home) -->
+  <section class="block" id="calendar">
+    <h2 data-i18n="h.calendar">Calendar — leave me notes 💬</h2>
+    <div class="body">
+      <div class="cd-strip" id="cdstrip" style="margin-bottom:12px"></div>
+      <p class="note-hint" data-i18n="cal.hint">Tap any day to see the plan and leave a note. Everyone's notes show up here.</p>
+      <div id="banner" class="banner"></div>
+      <div class="viewtog" role="group" aria-label="View / 表示">
+        <button type="button" id="v-grid" class="s7btn" data-i18n="view.grid">▦ Month</button>
+        <button type="button" id="v-list" class="s7btn" data-i18n="view.list">☰ List</button>
+      </div>
+      <div id="calendars"></div>
+      <div id="agenda" style="display:none"></div>
+      <p class="cal-foot" data-i18n="cal.foot"><b>*</b> = suggested day-trip from the Kumamoto base — not booked, weather-dependent (Aug is typhoon season; Miyazaki most exposed).</p>
+    </div>
+  </section>
 
   <!-- OVERVIEW -->
   <section class="block" id="overview">
@@ -493,23 +587,6 @@
         <span class="c-kuma"    data-i18n="lg.kuma">Kumamoto</span>
         <span class="c-flight"  data-i18n="lg.flight">Flight day</span>
       </div>
-    </div>
-  </section>
-
-  <!-- CALENDAR -->
-  <section class="block" id="calendar">
-    <h2 data-i18n="h.calendar">Calendar — leave me notes 💬</h2>
-    <div class="body">
-      <p class="note-hint" data-i18n="cal.hint">Tap any day to see the plan and leave a note. Everyone's notes show up here.</p>
-      <div id="banner" class="banner"></div>
-      <div id="focus" style="display:none"></div>
-      <div class="viewtog" role="group" aria-label="View / 表示">
-        <button type="button" id="v-grid" class="s7btn" data-i18n="view.grid">▦ Month</button>
-        <button type="button" id="v-list" class="s7btn" data-i18n="view.list">☰ List</button>
-      </div>
-      <div id="calendars"></div>
-      <div id="agenda" style="display:none"></div>
-      <p class="cal-foot" data-i18n="cal.foot"><b>*</b> = suggested day-trip from the Kumamoto base — not booked, weather-dependent (Aug is typhoon season; Miyazaki most exposed).</p>
     </div>
   </section>
 
@@ -853,11 +930,14 @@ const T = {
   'nav.calendar':{en:"Calendar", ja:"カレンダー"},
   'nav.flights': {en:"Flights", ja:"フライト"},
   'nav.lodging': {en:"Lodging", ja:"宿泊"},
-  'nav.todo':    {en:"To-do", ja:"やること"},
+  'nav.todo':    {en:"To-do (owner)", ja:"やること（管理者）"},
   'nav.logistics':{en:"Logistics", ja:"移動・買い物"},
   'nav.share':   {en:"Share", ja:"共有"},
-  'nav.more':    {en:"Full site", ja:"すべて表示"},
-  'nav.simple':  {en:"Simple view", ja:"シンプル表示"},
+  'nav.game':    {en:"Bobby's game", ja:"ボビーのゲーム"},
+  'nav.menu':    {en:"Menu", ja:"メニュー"},
+  'nav.menuAria':{en:"Open menu", ja:"メニューを開く"},
+  'nav.menuFoot':{en:"Calendar is home · everything else lives here", ja:"ホームはカレンダー · 他はここから"},
+  'nav.backCal': {en:"← Calendar", ja:"← カレンダー"},
   'focus.title': {en:"The next two weeks", ja:"これからの2週間"},
   'focus.first': {en:"The first two weeks of the trip", ja:"旅の最初の2週間"},
   'focus.last':  {en:"The last two weeks of the trip", ja:"旅の最後の2週間"},
@@ -1240,7 +1320,9 @@ function setLang(l){
   if(_edMsgKey) setEdMsg(_edMsgKey, _edMsgKind);
   renderAll();
   renderCliffList();
-  applyMode();
+  if(activePanel && PANEL_TITLES[activePanel]){
+    document.getElementById('panelLabel').textContent = tr(PANEL_TITLES[activePanel]);
+  }
   if(currentDay){ setModalHeader(currentDay); renderNotes(); }
 }
 
@@ -1373,24 +1455,8 @@ function focusStartKey(){
   return s;
 }
 function renderFocus(){
-  const wrap = document.getElementById('focus');
-  wrap.textContent = '';
-  const tk = todayKey();
-  const sk = focusStartKey();
-  const sp = keyParts(sk);
-  /* title matches the clamp: pre-trip = first two weeks, tail/post = last two */
-  const titleKey = tk < TRIP_START ? 'focus.first' : (sk < tk ? 'focus.last' : 'focus.title');
-  const t = document.createElement('div'); t.className = 'cal-title'; t.textContent = tr(titleKey);
-  wrap.appendChild(t);
-  const frag = document.createDocumentFragment();
-  let curMonth = -1;
-  for(let i = 0; i < 14; i++){
-    const dt = new Date(sp[0], sp[1]-1, sp[2] + i);
-    const key = dt.getFullYear() + '-' + pad(dt.getMonth()+1) + '-' + pad(dt.getDate());
-    if(dt.getMonth() !== curMonth){ curMonth = dt.getMonth(); frag.appendChild(agBand(curMonth)); }
-    frag.appendChild(agRow(dt, key, tk));
-  }
-  wrap.appendChild(frag);
+  /* Retired with calendar-first home (list view covers the same need). */
+  return;
 }
 
 /* ---------- View toggle ---------- */
@@ -1403,33 +1469,64 @@ function setView(v){
   document.getElementById('v-list').classList.toggle('s7btn-inv', view === 'list');
 }
 
-/* ---------- Simple (phone) mode ---------- */
-function isSimple(){ return document.documentElement.classList.contains('simple'); }
-function applyMode(){
-  const simple = isSimple();
-  document.getElementById('focus').style.display = simple ? '' : 'none';
-  if(simple){
-    document.getElementById('calendars').style.display = 'none';
-    document.getElementById('agenda').style.display = 'none';
-  } else {
-    setView(view);
-  }
-  document.getElementById('modeToggle').textContent = tr(simple ? 'nav.more' : 'nav.simple');
+/* ---------- Menu drawer + detail panels (calendar is home) ---------- */
+const PANEL_IDS = ['overview','board','flights','lodging','todo','logistics','share','game'];
+const PANEL_TITLES = {
+  overview:'h.overview', board:'h.board', flights:'h.flights', lodging:'h.lodging',
+  todo:'h.todo', logistics:'h.logistics', share:'h.share', game:'h.game'
+};
+let activePanel = null;
+
+function openMenu(){
+  const drawer = document.getElementById('menuDrawer');
+  const scrim = document.getElementById('menuScrim');
+  document.documentElement.classList.add('menu-open');
+  drawer.hidden = false; scrim.hidden = false;
+  document.getElementById('menuBtn').setAttribute('aria-expanded','true');
+  const first = drawer.querySelector('.drawer-link');
+  if(first) setTimeout(function(){ first.focus(); }, 50);
 }
-function setMode(m){
-  localStorage.setItem('japan_mode', m);
-  document.documentElement.classList.toggle('simple', m === 'simple');
-  applyMode();
+function closeMenu(){
+  document.documentElement.classList.remove('menu-open');
+  document.getElementById('menuDrawer').hidden = true;
+  document.getElementById('menuScrim').hidden = true;
+  document.getElementById('menuBtn').setAttribute('aria-expanded','false');
 }
-/* deep links (#lodging etc.) target sections hidden in simple mode — a
-   display:none anchor is a silent no-op, so switch to full and scroll */
-const FULL_ONLY_IDS = ['overview','flights','lodging','todo','logistics','share'];
+function openPanel(id){
+  if(PANEL_IDS.indexOf(id) === -1){ goHome(); return; }
+  if(id === 'todo' && !adminSecret){ goHome(); return; }
+  closeMenu();
+  activePanel = id;
+  document.documentElement.classList.add('panel-open');
+  document.documentElement.classList.remove('home');
+  PANEL_IDS.forEach(function(pid){
+    const el = document.getElementById(pid);
+    if(el) el.classList.toggle('panel-active', pid === id);
+  });
+  const titleKey = PANEL_TITLES[id];
+  document.getElementById('panelLabel').textContent = titleKey ? tr(titleKey) : id;
+  try{ history.replaceState(null,'','#'+id); }catch(e){}
+  window.scrollTo(0,0);
+}
+function goHome(){
+  closeMenu();
+  activePanel = null;
+  document.documentElement.classList.remove('panel-open');
+  document.documentElement.classList.add('home');
+  PANEL_IDS.forEach(function(pid){
+    const el = document.getElementById(pid);
+    if(el) el.classList.remove('panel-active');
+  });
+  document.getElementById('panelLabel').textContent = '';
+  try{
+    if(location.hash && location.hash !== '#calendar') history.replaceState(null,'',location.pathname + location.search);
+  }catch(e){}
+  window.scrollTo(0,0);
+}
 function handleHash(){
   const id = (location.hash || '').slice(1);
-  if(FULL_ONLY_IDS.indexOf(id) === -1) return;
-  if(isSimple()) setMode('full');
-  const el = document.getElementById(id);
-  if(el) el.scrollIntoView();
+  if(!id || id === 'calendar'){ goHome(); return; }
+  if(PANEL_IDS.indexOf(id) !== -1) openPanel(id);
 }
 window.addEventListener('hashchange', handleHash);
 
@@ -2004,9 +2101,27 @@ document.getElementById('e-cancel').addEventListener('click', hideEditForm);
 document.getElementById('e-revert').addEventListener('click', onEditRevert);
 document.getElementById('v-grid').addEventListener('click', () => setView('grid'));
 document.getElementById('v-list').addEventListener('click', () => setView('list'));
-document.getElementById('modeToggle').addEventListener('click', () => setMode(isSimple() ? 'full' : 'simple'));
+document.getElementById('menuBtn').addEventListener('click', function(){
+  if(document.documentElement.classList.contains('menu-open')) closeMenu();
+  else openMenu();
+});
+document.getElementById('menuScrim').addEventListener('click', closeMenu);
+document.getElementById('panelBack').addEventListener('click', goHome);
+document.querySelectorAll('#menuDrawer .drawer-link').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    const go = btn.getAttribute('data-go');
+    if(go === 'calendar') goHome();
+    else openPanel(go);
+  });
+});
 document.querySelectorAll('.langtog button').forEach(function(b){
   b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); });
+});
+document.addEventListener('keydown', function(e){
+  if(e.key !== 'Escape') return;
+  if(document.getElementById('overlay').classList.contains('open')) return; /* modal owns Escape */
+  if(document.documentElement.classList.contains('menu-open')){ closeMenu(); return; }
+  if(document.documentElement.classList.contains('panel-open')) goHome();
 });
 
 document.querySelector('.sheet').addEventListener('keydown', e => {
@@ -2031,7 +2146,6 @@ document.getElementById('bd-name').value = localStorage.getItem('japan_note_auth
 renderAll();
 onAdminChange(); /* sets html.owner, cliff list, banner, notifications if unlocked */
 setView(view);
-applyMode();
 handleHash();
 loadAll().then(handleHash);   // re-anchor deep links after async content shifts layout
 
