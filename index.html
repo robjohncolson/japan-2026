@@ -404,6 +404,28 @@
   html.simple nav.tabs a.full-only{display:none}
   html.simple .viewtog{display:none}
   html.simple .ag-sub{-webkit-line-clamp:1}
+
+  /* ---- Owner-only (prices, cancel cliffs, ops tools) ---- */
+  .owner-only{display:none !important}
+  html.owner .owner-only{display:revert !important}
+  #cliffList{list-style:none;padding:0;margin:8px 0 12px}
+  #cliffList li{
+    display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;
+    padding:8px 10px;margin:0 0 6px;border:1px solid var(--black);
+    background:var(--white);font-size:13px;
+  }
+  #cliffList li.urgent{background:#fff3cd;border-color:#b8860b}
+  #cliffList li.passed{opacity:.55;text-decoration:line-through}
+  #cliffList .cliff-name{font-weight:700;min-width:10em;flex:1 1 10em}
+  #cliffList .cliff-until{font-variant-numeric:tabular-nums}
+  #cliffList .cliff-days{font-weight:700;color:#8b0000}
+  #cliffList .cliff-fee{color:#555;font-size:12px}
+  .owner-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  #ownerBanner{
+    display:none;background:#fff3cd;border:2px solid #b8860b;border-radius:2px;
+    padding:8px 12px;margin:0 0 12px;font-size:13px;font-weight:700;
+  }
+  html.owner #ownerBanner.show{display:block}
 </style>
 </head>
 <body>
@@ -448,6 +470,7 @@
 </header>
 
 <div class="wrap">
+  <div id="ownerBanner" role="status"></div>
 
   <!-- OVERVIEW -->
   <section class="block" id="overview">
@@ -546,23 +569,32 @@
           <thead><tr>
             <th data-i18n="lo.nights">Nights</th><th data-i18n="lo.nt">Nt</th>
             <th data-i18n="lo.prop">Property / address</th>
-            <th data-i18n="lo.phone">Phone</th><th data-i18n="lo.price">Price / cancel</th>
+            <th data-i18n="lo.phone">Phone</th>
+            <th class="owner-only" data-i18n="lo.price">Price / cancel</th>
           </tr></thead>
           <tbody>
-            <tr><td data-i18n="lo.dt1">28–30 Jul</td><td>3</td><td data-i18n="lo.prop1"><b>do-c Ebisu</b><br>1-8-1 Ebisu, Shibuya-ku, Tokyo</td><td><code>+81 50-1807-2324</code></td><td data-i18n="lo.pr1">advance-pay</td></tr>
-            <tr><td data-i18n="lo.dt2">31 Jul</td><td>1</td><td data-i18n="lo.prop2"><b>9h nine hours Hakata</b><br>3-22-2 Hakataekimae, Hakata-ku, Fukuoka (Hakata Stn)</td><td><code>+81 50-1807-3481</code></td><td data-i18n="lo.pr2">Fri rate (low)</td></tr>
-            <tr><td data-i18n="lo.dt3">1–7 Aug</td><td>7</td><td data-i18n="lo.prop3"><b>R9 The Yard Kanzaki</b><br>4155-54 Osaki, Kanzaki-machi, Kanzaki, Saga</td><td><code>+81 952-20-3642</code></td><td data-i18n="lo.pr3">¥53,910<br>free to <b>29 Jul</b> (then ¥11,700)</td></tr>
-            <tr><td data-i18n="lo.dt4">8–14 Aug</td><td>7</td><td data-i18n="lo.prop4"><b>R9 The Yard Sagakashima</b><br>Nakamura 821-2, Kashima, Saga</td><td><code>+81 954-69-0111</code></td><td data-i18n="lo.pr4">Genius −10%<br>free to <b>5 Aug</b> (then ¥10,800)</td></tr>
-            <tr><td data-i18n="lo.dt5">15–22 Aug</td><td>8</td><td data-i18n="lo.prop5"><b>Obi house B2</b><br>Obiyama 1-24-24, Kumamoto City<br><i>host meets 15:00–18:00</i></td><td><code>+81 80-3981-4337</code></td><td data-i18n="lo.pr5"><span class="tag-warn">⚠</span> rebook to check-out <b>23 Aug</b><br>free to <b>13 Aug</b></td></tr>
-            <tr><td data-i18n="lo.dt6">23 Aug</td><td>1</td><td data-i18n="lo.prop6"><b>9h nine hours Hakata</b> (return car)<br>3-22-2 Hakataekimae, Hakata-ku, Fukuoka (Hakata Stn)</td><td><code>+81 50-1807-3481</code></td><td data-i18n="lo.pr6">¥3,630 prepaid ✓</td></tr>
-            <tr><td data-i18n="lo.dt7">24–26 Aug</td><td>3</td><td data-i18n="lo.prop7"><b>do-c Ebisu</b><br>1-8-1 Ebisu, Shibuya-ku, Tokyo</td><td><code>+81 50-1807-2324</code></td><td data-i18n="lo.pr7">advance-pay<br><span class="tag-warn">⚠</span> extend to 3 nt</td></tr>
-            <tr><td data-i18n="lo.dt8">27 Aug</td><td>1</td><td data-i18n="lo.prop8"><b>9h nine hours Narita</b><br>Narita T2 (landside)</td><td>—</td><td data-i18n="lo.pr8">¥7,266<br>free to <b>26 Aug</b></td></tr>
+            <tr><td data-i18n="lo.dt1">28–30 Jul</td><td>3</td><td data-i18n="lo.prop1"><b>do-c Ebisu</b><br>1-8-1 Ebisu, Shibuya-ku, Tokyo</td><td><code>+81 50-1807-2324</code></td><td class="owner-only" data-i18n="lo.pr1">advance-pay</td></tr>
+            <tr><td data-i18n="lo.dt2">31 Jul</td><td>1</td><td data-i18n="lo.prop2"><b>9h nine hours Hakata</b><br>3-22-2 Hakataekimae, Hakata-ku, Fukuoka (Hakata Stn)</td><td><code>+81 50-1807-3481</code></td><td class="owner-only" data-i18n="lo.pr2">Fri rate (low)</td></tr>
+            <tr><td data-i18n="lo.dt3">1–7 Aug</td><td>7</td><td data-i18n="lo.prop3"><b>R9 The Yard Kanzaki</b><br>4155-54 Osaki, Kanzaki-machi, Kanzaki, Saga</td><td><code>+81 952-20-3642</code></td><td class="owner-only" data-i18n="lo.pr3">¥53,910<br>free to <b>29 Jul</b> (then ¥11,700)</td></tr>
+            <tr><td data-i18n="lo.dt4">8–14 Aug</td><td>7</td><td data-i18n="lo.prop4"><b>R9 The Yard Sagakashima</b><br>Nakamura 821-2, Kashima, Saga</td><td><code>+81 954-69-0111</code></td><td class="owner-only" data-i18n="lo.pr4">Genius −10%<br>free to <b>5 Aug</b> (then ¥10,800)</td></tr>
+            <tr><td data-i18n="lo.dt5">15–22 Aug</td><td>8</td><td data-i18n="lo.prop5"><b>Obi house B2</b><br>Obiyama 1-24-24, Kumamoto City<br><i>host meets 15:00–18:00</i></td><td><code>+81 80-3981-4337</code></td><td class="owner-only" data-i18n="lo.pr5"><span class="tag-warn">⚠</span> rebook to check-out <b>23 Aug</b><br>free to <b>13 Aug</b></td></tr>
+            <tr><td data-i18n="lo.dt6">23 Aug</td><td>1</td><td data-i18n="lo.prop6"><b>9h nine hours Hakata</b> (return car)<br>3-22-2 Hakataekimae, Hakata-ku, Fukuoka (Hakata Stn)</td><td><code>+81 50-1807-3481</code></td><td class="owner-only" data-i18n="lo.pr6">¥3,630 prepaid ✓</td></tr>
+            <tr><td data-i18n="lo.dt7">24–26 Aug</td><td>3</td><td data-i18n="lo.prop7"><b>do-c Ebisu</b><br>1-8-1 Ebisu, Shibuya-ku, Tokyo</td><td><code>+81 50-1807-2324</code></td><td class="owner-only" data-i18n="lo.pr7">advance-pay<br><span class="tag-warn">⚠</span> extend to 3 nt</td></tr>
+            <tr><td data-i18n="lo.dt8">27 Aug</td><td>1</td><td data-i18n="lo.prop8"><b>9h nine hours Narita</b><br>Narita T2 (landside)</td><td>—</td><td class="owner-only" data-i18n="lo.pr8">¥7,266<br>free to <b>26 Aug</b></td></tr>
           </tbody>
         </table>
       </div>
-      <p style="font-size:12px;color:#555;margin-bottom:0" data-i18n="lo.cliffs"><b>Cancellation cliffs:</b> R9 Kanzaki free to <b>29 Jul</b> (then ¥11,700) ·
-        R9 Kashima free to <b>5 Aug</b> (then ¥10,800) · Obi Kumamoto free to <b>13 Aug</b> · 9h Narita free to <b>26 Aug</b>.
-        do-c / 9h Hakata = advance-pay — check before changing.</p>
+      <!-- Prices + cancel fees: owner-only. Family sees where/when/phone only. -->
+      <div class="owner-only" id="ownerCliffsPanel" style="margin-top:14px;padding-top:12px;border-top:1px solid #999">
+        <h3 style="margin:0 0 6px;font-size:14px" data-i18n="lo.cliffsHead">Cancellation deadlines (owner)</h3>
+        <p class="note-hint" style="margin-bottom:8px" data-i18n="lo.cliffsHelp">Last free-cancel day for each place. Browser reminders fire when you open the site in owner mode; use the calendar file for phone alarms that work offline.</p>
+        <ul id="cliffList"></ul>
+        <p style="font-size:12px;color:#555;margin:0 0 8px" data-i18n="lo.cliffsNote">do-c / 9h Hakata = advance-pay — check the booking before changing. Fee amounts after the free window are also owner-only.</p>
+        <div class="owner-actions">
+          <button type="button" class="s7btn" id="cliffNotifyBtn" data-i18n="lo.notify">Enable browser reminders</button>
+          <button type="button" class="s7btn" id="cliffIcsBtn" data-i18n="lo.ics">Download calendar reminders (.ics)</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -883,8 +915,23 @@ const T = {
   'lo.pr5':{en:"<span class=\"tag-warn\">⚠</span> rebook to check-out <b>23 Aug</b><br>free to <b>13 Aug</b>", ja:"<span class=\"tag-warn\">⚠</span> 8/23 チェックアウトに予約変更<br>8/13 まで無料キャンセル"},
   'lo.pr7':{en:"advance-pay<br><span class=\"tag-warn\">⚠</span> extend to 3 nt", ja:"事前決済<br><span class=\"tag-warn\">⚠</span> 3泊に延長"},
   'lo.pr8':{en:"¥7,266<br>free to <b>26 Aug</b>", ja:"¥7,266<br>8/26 まで無料キャンセル"},
-  'lo.cliffs':{en:"<b>Cancellation cliffs:</b> R9 Kanzaki free to <b>29 Jul</b> (then ¥11,700) · R9 Kashima free to <b>5 Aug</b> (then ¥10,800) · Obi Kumamoto free to <b>13 Aug</b> · 9h Narita free to <b>26 Aug</b>. do-c / 9h Hakata = advance-pay — check before changing.",
-              ja:"<b>無料キャンセル期限：</b>R9 神埼は <b>7/29</b> まで（以降 ¥11,700）· R9 鹿島は <b>8/5</b> まで（以降 ¥10,800）· Obi 熊本は <b>8/13</b> まで · 9h 成田は <b>8/26</b> まで。do-c / 9h 博多は事前決済 — 変更前に要確認。"},
+  'lo.cliffsHead':{en:"Cancellation deadlines (owner)", ja:"キャンセル期限（管理者）"},
+  'lo.cliffsHelp':{en:"Last free-cancel day for each place. Browser reminders fire when you open the site in owner mode; use the calendar file for phone alarms that work offline.",
+                   ja:"各宿の無料キャンセル最終日。管理モードでサイトを開くとブラウザ通知が出ます。オフラインでも効くのはカレンダー用 .ics です。"},
+  'lo.cliffsNote':{en:"do-c / 9h Hakata = advance-pay — check the booking before changing. Fee amounts after the free window are also owner-only.",
+                   ja:"do-c / 9h 博多は事前決済 — 変更前に予約内容を確認。無料期間後の料金も管理者のみ表示。"},
+  'lo.notify':{en:"Enable browser reminders", ja:"ブラウザ通知を有効化"},
+  'lo.notifyOn':{en:"Browser reminders on ✓", ja:"ブラウザ通知 ON ✓"},
+  'lo.notifyDenied':{en:"Notifications blocked in browser settings", ja:"ブラウザ設定で通知が拒否されています"},
+  'lo.ics':{en:"Download calendar reminders (.ics)", ja:"カレンダー用リマインダーをダウンロード（.ics）"},
+  'lo.cliffDays':{en:"{n} day(s) left", ja:"残り {n} 日"},
+  'lo.cliffToday':{en:"TODAY — last free day", ja:"今日 — 無料キャンセル最終日"},
+  'lo.cliffPassed':{en:"window closed", ja:"期限切れ"},
+  'lo.cliffAfter':{en:"then {fee}", ja:"以降 {fee}"},
+  'lo.banner':{en:"⚠ Free-cancel soon: {list}", ja:"⚠ まもなく無料キャンセル期限：{list}"},
+  'lo.freeTo':{en:"free to", ja:"まで無料："},
+  'lo.notifTitle':{en:"Japan 2026 — cancel deadline", ja:"Japan 2026 — キャンセル期限"},
+  'lo.notifBody':{en:"{name}: free cancel through {date} ({days})", ja:"{name}：{date} まで無料キャンセル（{days}）"},
 
   'todo.2':{en:"<b>Finish the tail</b> (gives 3 Tokyo nights at each end): (a) rebook <b>Obi Kumamoto</b> to check out <b>23 Aug</b> (free through 13 Aug); (b) <s>book 9h Hakata for 23 Aug</s> ✓ booked; (c) <b>extend do-c</b> to 3 nights, 24–26 Aug.",
             ja:"<b>後半の日程を確定</b>（前後の東京3泊ずつを確保）：(a) <b>Obi 熊本</b>を <b>8/23</b> チェックアウトに変更（8/13まで無料）；(b) <s>8/23 の 9h 博多を予約</s> ✓ 予約済み；(c) <b>do-c</b> を 8/24〜26 の3泊に延長。"},
@@ -1183,6 +1230,7 @@ function setLang(l){
   if(_bdMsgKey) setBdMsg(_bdMsgKey, _bdMsgKind);
   if(_edMsgKey) setEdMsg(_edMsgKey, _edMsgKind);
   renderAll();
+  renderCliffList();
   applyMode();
   if(currentDay){ setModalHeader(currentDay); renderNotes(); }
 }
@@ -1739,10 +1787,185 @@ async function onDelete(id){
   else { alert(tr('delFail')); }
 }
 
+/* ---------- Cancel cliffs (owner-only prices + reminders) ---------- */
+/* Dates = last free-cancel calendar day (inclusive). Prices stay vault-private
+   for relatives; owner mode reveals the Price/cancel column + this panel. */
+const CANCEL_CLIFFS = [
+  { id:'r9k', name:'R9 The Yard Kanzaki', name_ja:'R9 The Yard 神埼', until:'2026-07-29', after:'¥11,700', after_ja:'¥11,700' },
+  { id:'r9s', name:'R9 The Yard Sagakashima', name_ja:'R9 The Yard 佐賀鹿島', until:'2026-08-05', after:'¥10,800', after_ja:'¥10,800' },
+  { id:'obi', name:'Obi house Kumamoto', name_ja:'Obi house 熊本', until:'2026-08-13', after:'full', after_ja:'全額',
+    note:'⚠ rebook checkout → 23 Aug', note_ja:'⚠ チェックアウトを 8/23 に変更' },
+  { id:'nar', name:'9h Narita', name_ja:'9h 成田', until:'2026-08-26', after:null, after_ja:null }
+];
+const CLIFF_WARN_DAYS = 7;   /* banner + browser notify when ≤ this many days left */
+const CLIFF_NOTIFIED_KEY = 'japan_cliff_notified'; /* { id: 'YYYY-MM-DD' } last notify day */
+
+function todayISO(){
+  /* Local calendar day as YYYY-MM-DD (fine for US owner; cliffs are JP booking midnights). */
+  const d = new Date();
+  const y = d.getFullYear(), m = String(d.getMonth()+1).padStart(2,'0'), day = String(d.getDate()).padStart(2,'0');
+  return y+'-'+m+'-'+day;
+}
+function daysUntil(iso){
+  const t = todayISO();
+  const a = Date.UTC(+t.slice(0,4), +t.slice(5,7)-1, +t.slice(8,10));
+  const b = Date.UTC(+iso.slice(0,4), +iso.slice(5,7)-1, +iso.slice(8,10));
+  return Math.round((b - a) / 86400000);
+}
+function cliffName(c){ return lang === 'ja' ? c.name_ja : c.name; }
+function cliffDaysLabel(n){
+  if(n < 0) return tr('lo.cliffPassed');
+  if(n === 0) return tr('lo.cliffToday');
+  return tr('lo.cliffDays').replace('{n}', String(n));
+}
+function formatCliffDate(iso){
+  const [y,m,d] = iso.split('-').map(Number);
+  if(lang === 'ja') return m+'/'+d;
+  const mon = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][m-1];
+  return mon+' '+d;
+}
+function renderCliffList(){
+  const ul = document.getElementById('cliffList');
+  if(!ul) return;
+  ul.innerHTML = '';
+  CANCEL_CLIFFS.forEach(function(c){
+    const n = daysUntil(c.until);
+    const li = document.createElement('li');
+    if(n < 0) li.className = 'passed';
+    else if(n <= CLIFF_WARN_DAYS) li.className = 'urgent';
+    const name = document.createElement('span');
+    name.className = 'cliff-name';
+    name.textContent = cliffName(c) + (c.note ? ' · ' + (lang==='ja' ? c.note_ja : c.note) : '');
+    const until = document.createElement('span');
+    until.className = 'cliff-until';
+    until.innerHTML = lang === 'ja'
+      ? '<b>'+formatCliffDate(c.until)+'</b> まで無料'
+      : tr('lo.freeTo')+' <b>'+formatCliffDate(c.until)+'</b>';
+    const days = document.createElement('span');
+    days.className = 'cliff-days';
+    days.textContent = cliffDaysLabel(n);
+    li.appendChild(name); li.appendChild(until); li.appendChild(days);
+    if(c.after){
+      const fee = document.createElement('span');
+      fee.className = 'cliff-fee';
+      fee.textContent = tr('lo.cliffAfter').replace('{fee}', lang==='ja' ? c.after_ja : c.after);
+      li.appendChild(fee);
+    }
+    ul.appendChild(li);
+  });
+  updateOwnerBanner();
+  updateNotifyBtn();
+}
+function updateOwnerBanner(){
+  const el = document.getElementById('ownerBanner');
+  if(!el) return;
+  if(!adminSecret){ el.classList.remove('show'); el.textContent=''; return; }
+  const soon = CANCEL_CLIFFS.filter(function(c){ const n = daysUntil(c.until); return n >= 0 && n <= CLIFF_WARN_DAYS; });
+  if(!soon.length){ el.classList.remove('show'); el.textContent=''; return; }
+  const list = soon.map(function(c){ return cliffName(c)+' ('+cliffDaysLabel(daysUntil(c.until))+')'; }).join(' · ');
+  el.textContent = tr('lo.banner').replace('{list}', list);
+  el.classList.add('show');
+}
+function updateNotifyBtn(){
+  const btn = document.getElementById('cliffNotifyBtn');
+  if(!btn || !('Notification' in window)) return;
+  if(Notification.permission === 'granted') btn.textContent = tr('lo.notifyOn');
+  else if(Notification.permission === 'denied') btn.textContent = tr('lo.notifyDenied');
+  else btn.textContent = tr('lo.notify');
+}
+function loadCliffNotified(){
+  try{ return JSON.parse(localStorage.getItem(CLIFF_NOTIFIED_KEY) || '{}') || {}; }
+  catch(e){ return {}; }
+}
+function saveCliffNotified(map){ localStorage.setItem(CLIFF_NOTIFIED_KEY, JSON.stringify(map)); }
+function fireCliffNotifications(){
+  if(!adminSecret || !('Notification' in window) || Notification.permission !== 'granted') return;
+  const today = todayISO();
+  const map = loadCliffNotified();
+  CANCEL_CLIFFS.forEach(function(c){
+    const n = daysUntil(c.until);
+    if(n < 0 || n > CLIFF_WARN_DAYS) return;
+    if(map[c.id] === today) return; /* once per cliff per day */
+    const body = tr('lo.notifBody')
+      .replace('{name}', cliffName(c))
+      .replace('{date}', formatCliffDate(c.until))
+      .replace('{days}', cliffDaysLabel(n));
+    try{
+      new Notification(tr('lo.notifTitle'), { body: body, tag: 'japan-cliff-'+c.id, renotify: true });
+      map[c.id] = today;
+    }catch(e){}
+  });
+  saveCliffNotified(map);
+}
+function requestCliffNotifications(){
+  if(!('Notification' in window)){ alert(tr('lo.notifyDenied')); return; }
+  if(Notification.permission === 'granted'){ fireCliffNotifications(); updateNotifyBtn(); return; }
+  if(Notification.permission === 'denied'){ updateNotifyBtn(); return; }
+  Notification.requestPermission().then(function(p){
+    updateNotifyBtn();
+    if(p === 'granted') fireCliffNotifications();
+  });
+}
+function downloadCliffIcs(){
+  /* All-day events on each free-cancel last day + a 3-day-prior alarm event. */
+  const lines = [
+    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//japan-2026//cancel-cliffs//EN','CALSCALE:GREGORIAN','METHOD:PUBLISH'
+  ];
+  function icsDate(iso){ return iso.replace(/-/g,''); }
+  function addDaysISO(iso, delta){
+    const [y,m,d] = iso.split('-').map(Number);
+    const dt = new Date(Date.UTC(y, m-1, d + delta));
+    return dt.toISOString().slice(0,10);
+  }
+  CANCEL_CLIFFS.forEach(function(c){
+    const title = 'FREE CANCEL ENDS: ' + c.name + (c.note ? ' ('+c.note+')' : '');
+    const desc = 'Last free-cancel day for ' + c.name + '. After this: ' + (c.after || 'check booking') + '. Japan 2026 owner reminder.';
+    const uid = c.id + '-deadline@japan-2026';
+    lines.push('BEGIN:VEVENT');
+    lines.push('UID:'+uid);
+    lines.push('DTSTAMP:'+icsDate(todayISO())+'T090000Z');
+    lines.push('DTSTART;VALUE=DATE:'+icsDate(c.until));
+    lines.push('DTEND;VALUE=DATE:'+icsDate(addDaysISO(c.until, 1)));
+    lines.push('SUMMARY:'+title.replace(/,/g,'\\,'));
+    lines.push('DESCRIPTION:'+desc.replace(/,/g,'\\,').replace(/\n/g,'\\n'));
+    lines.push('BEGIN:VALARM');
+    lines.push('TRIGGER:-P1D');
+    lines.push('ACTION:DISPLAY');
+    lines.push('DESCRIPTION:'+title.replace(/,/g,'\\,'));
+    lines.push('END:VALARM');
+    lines.push('END:VEVENT');
+    /* Extra heads-up 3 days before (if still in the future window) */
+    const warn = addDaysISO(c.until, -3);
+    lines.push('BEGIN:VEVENT');
+    lines.push('UID:'+c.id+'-warn@japan-2026');
+    lines.push('DTSTAMP:'+icsDate(todayISO())+'T090000Z');
+    lines.push('DTSTART;VALUE=DATE:'+icsDate(warn));
+    lines.push('DTEND;VALUE=DATE:'+icsDate(addDaysISO(warn, 1)));
+    lines.push('SUMMARY:Cancel window in 3 days: '+c.name.replace(/,/g,'\\,'));
+    lines.push('DESCRIPTION:Free cancel for '+c.name+' ends '+c.until+'.');
+    lines.push('BEGIN:VALARM');
+    lines.push('TRIGGER:-PT9H');
+    lines.push('ACTION:DISPLAY');
+    lines.push('DESCRIPTION:Cancel window closing soon');
+    lines.push('END:VALARM');
+    lines.push('END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  const blob = new Blob([lines.join('\r\n')], { type:'text/calendar;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'japan-2026-cancel-deadlines.ics';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+}
+
 /* ---------- Admin ---------- */
 function onAdminChange(){
+  document.documentElement.classList.toggle('owner', !!adminSecret);
   updateAdminBtn();
   renderBoard();
+  renderCliffList();
+  if(adminSecret) fireCliffNotifications();
   if(currentDay){ renderNotes(); updateEditUI(); if(!adminSecret) hideEditForm(); }
 }
 document.getElementById('adminBtn').addEventListener('click', () => {
@@ -1754,6 +1977,8 @@ document.getElementById('adminBtn').addEventListener('click', () => {
   if(s){ adminSecret = s.trim(); localStorage.setItem('japan_admin_secret', adminSecret); onAdminChange(); }
 });
 function updateAdminBtn(){ document.getElementById('adminBtn').textContent = adminSecret ? tr('adminUnlocked') : tr('adminLocked'); }
+document.getElementById('cliffNotifyBtn').addEventListener('click', requestCliffNotifications);
+document.getElementById('cliffIcsBtn').addEventListener('click', downloadCliffIcs);
 
 /* ---------- Wire up ---------- */
 document.getElementById('m-close').addEventListener('click', closeModal);
@@ -1790,9 +2015,9 @@ document.querySelector('.sheet').addEventListener('keydown', e => {
 
 applyStaticLang();
 updateLangBtns();
-updateAdminBtn();
 document.getElementById('bd-name').value = localStorage.getItem('japan_note_author') || '';
 renderAll();
+onAdminChange(); /* sets html.owner, cliff list, banner, notifications if unlocked */
 setView(view);
 applyMode();
 handleHash();

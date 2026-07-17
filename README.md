@@ -38,6 +38,9 @@ next 45s poll. "Revert to original" removes the override.
   Booking confirmation codes and door PINs were **stripped from the page on
   2026-07-02** (they live only in the private vault + the owner's email);
   the URL is still treated as the access control, so don't post it publicly.
-- **Privacy line (2026-07-02):** where-I'm-staying / what-night is public;
-  booking codes/PINs, gift plans and anything surprise-sensitive live only in
-  the private vault and must never appear on this page — the recipients read it.
+- **Privacy line (2026-07-17):** where-I'm-staying / what-night / property phone
+  is public. **Prices, cancel fees, and free-cancel cliffs are owner-only**
+  (footer 🔒). Booking codes/PINs, gift plans and anything surprise-sensitive
+  live only in the private vault and must never appear on this page — the
+  recipients read it. Owner mode also shows cancel-deadline countdowns and can
+  fire browser notifications / export an `.ics` for phone calendar alarms.
