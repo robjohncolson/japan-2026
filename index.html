@@ -497,7 +497,10 @@
   }
   .x:active{box-shadow:inset 1px 1px 0 var(--bevel-lo),inset -1px -1px 0 var(--bevel-hi)}
   .sheet-body{padding:14px 16px;background:var(--white);margin:0 1px 1px}
-  .plan{font-size:14px;background:#FFFFCC;border:1px solid var(--black);padding:10px 12px;margin-bottom:8px;box-shadow:1px 1px 0 var(--black)}
+  .plan{font-size:14px;line-height:1.45;background:#FFFFCC;border:1px solid var(--black);padding:10px 12px;margin-bottom:8px;box-shadow:1px 1px 0 var(--black)}
+  .plan a,.dv-plan a{color:#00c;text-decoration:underline;word-break:break-word}
+  .plan b,.dv-plan b{font-weight:700}
+  .plan i,.dv-plan i{font-style:italic}
   .upd-chip{font-size:11px;color:var(--soft);margin:0 0 12px}
   .notes-h{font-size:12px;font-weight:normal;font-family:var(--f-head);color:var(--black);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.4px}
 
@@ -1467,6 +1470,18 @@ const deviceId = (function(){
 
 const pad = n => String(n).padStart(2,'0');
 const keyParts = k => k.split('-').map(Number);
+/** Trusted day-plan HTML → plain text for list/week previews (no raw tags). */
+function stripHtml(html){
+  if(html == null || html === '') return '';
+  const d = document.createElement('div');
+  d.innerHTML = String(html);
+  return (d.textContent || d.innerText || '').replace(/\s+/g, ' ').trim();
+}
+/** Day detail string for current language (may contain author-trusted HTML). */
+function dayDetailHtml(info){
+  if(!info) return '';
+  return lang === 'ja' ? (info.detail_ja || '') : (info.detail || '');
+}
 const TRIP_START = '2026-07-27', TRIP_END = '2026-08-28';
 /* "today" is Japan's calendar day (JST, UTC+9, no DST) for every viewer —
    the strip answers "where is Robert now", not "what day is it for me" */
@@ -1639,7 +1654,7 @@ function agRow(dt, key, tk){
   const lab = document.createElement('div'); lab.className = 'ag-label';
   lab.textContent = info ? (lang === 'ja' ? info.label_ja : info.label) : '';
   const sub = document.createElement('div'); sub.className = 'ag-sub';
-  sub.textContent = info ? (lang === 'ja' ? info.detail_ja : info.detail) : '';
+  sub.textContent = info ? stripHtml(dayDetailHtml(info)) : '';
   main.appendChild(lab); main.appendChild(sub);
   const side = document.createElement('div'); side.className = 'ag-side';
   const cnt = (notesByDay[key]||[]).length;
@@ -1778,7 +1793,7 @@ function renderWeek(){
     btn.appendChild(lab);
 
     const sub = document.createElement('div'); sub.className = 'wv-sub';
-    if(info) sub.textContent = lang === 'ja' ? info.detail_ja : info.detail;
+    if(info) sub.textContent = stripHtml(dayDetailHtml(info));
     btn.appendChild(sub);
 
     const meta = document.createElement('div'); meta.className = 'wv-meta';
@@ -1859,7 +1874,7 @@ function renderDayView(){
     lab.textContent = lang === 'ja' ? info.label_ja : info.label;
     panel.appendChild(lab);
     const plan = document.createElement('div'); plan.className = 'dv-plan';
-    plan.innerHTML = lang === 'ja' ? info.detail_ja : info.detail;
+    plan.innerHTML = dayDetailHtml(info);
     panel.appendChild(plan);
   } else {
     const lab = document.createElement('div'); lab.className = 'dv-label';
@@ -2065,9 +2080,9 @@ function setModalHeader(key){
   const upd = document.getElementById('m-updated');
   if(info){
     tag.style.display=''; tag.textContent = TAG_NAME[lang][info.cls]; tag.className = 'tag c-'+info.cls;
-    plan.style.display=''; plan.textContent = (lang === 'ja' ? info.detail_ja : info.detail);
+    plan.style.display=''; plan.innerHTML = dayDetailHtml(info);
   } else {
-    tag.style.display='none'; plan.style.display='none';
+    tag.style.display='none'; plan.style.display='none'; plan.textContent = '';
   }
   if(info && info.edited && info.updated_at){
     upd.style.display=''; upd.textContent = tr('ed.updated') + ' · ' + relTime(info.updated_at);
