@@ -690,7 +690,7 @@
           <li data-i18n="todo.3"><s><b>Rental car</b></s> ✓ Toyota Hakata · 31 Jul 15:30 → 23 Aug 20:00. Still: 31 Jul overnight coin parking near 9h.</li>
           <li data-i18n="todo.r9"><s><b>R9 Kanzaki</b></s> ✓ 3–7 Aug. Free cancel to <b>31 Jul 23:59</b> local (then ¥6,237).</li>
           <li data-i18n="todo.5"><b>Phone</b> — Sakura Voice+Data 100GB ✓ applied. <b>Pickup 28 Jul NRT T2 Arrivals 1F · JAL ABC Counter</b>. Cancel My Page by <b>25 Aug</b> (end 31 Aug).</li>
-          <li data-i18n="todo.6"><b>SmartEX</b> — book <b>both</b> legs: 31 Jul Tokyo→Hakata (morning Nozomi, arrive before 15:30) · 24 Aug Hakata→Tokyo (sales from 24 Jul).</li>
+          <li data-i18n="todo.6"><s><b>SmartEX</b></s> ✓ both booked — 31 Jul Nozomi 21 Shinagawa 09:37→Hakata ~14:30 · 24 Aug Nozomi 18 Hakata 09:36→Shinagawa 14:25.</li>
           <li data-i18n="todo.7"><b>Suica</b> — physical IC card at Narita (Samsung S24; no Apple Wallet). Load for Tokyo train days.</li>
           <li data-i18n="todo.8"><b>Cancel cliffs:</b> R9 Kashima free to <b>5 Aug 23:59</b> (then ¥10,800) · Obi free to <b>13 Aug 23:59</b> (then full) · Sakura cancel by <b>25 Aug</b>.</li>
         </ol>
@@ -712,8 +712,8 @@
 
       <h3 data-i18n="log.sx">SmartEX — shinkansen (book both)</h3>
       <ul class="tight">
-        <li data-i18n="sx.1"><a href="https://smart-ex.jp/en/" target="_blank" rel="noopener">smart-ex.jp</a> · <b>31 Jul</b> Tokyo→Hakata: morning <b>Nozomi</b> (~5h). Arrive with buffer before car <b>15:30</b>.</li>
-        <li data-i18n="sx.2"><b>24 Aug</b> Hakata→Tokyo: sales open <b>24 Jul</b> — book both legs when you can.</li>
+        <li data-i18n="sx.1"><b>31 Jul ✓</b> <b>Nozomi 21</b> · Shinagawa <b>09:37</b> → Hakata <b>~14:30</b> · then Toyota <b>15:30</b>.</li>
+        <li data-i18n="sx.2"><b>24 Aug ✓</b> <b>Nozomi 18</b> · Hakata <b>09:36</b> → Shinagawa <b>14:25</b> · then do-c Ebisu.</li>
       </ul>
 
       <h3 data-i18n="log.car">Rental car — booked ✓</h3>
@@ -1069,8 +1069,8 @@ const T = {
              ja:"<s><b>R9 神埼</b></s> ✓ 8/3〜7。無料キャンセル <b>7/31 23:59</b> まで（以降 ¥6,237）。"},
   'todo.5':{en:"<b>Phone</b> — Sakura Voice+Data 100GB ✓ applied. <b>Pickup 28 Jul NRT T2 Arrivals 1F · JAL ABC Counter</b>. Cancel My Page by <b>25 Aug</b> (end 31 Aug).",
             ja:"<b>携帯</b> — Sakura Voice+Data 100GB ✓。受取 <b>7/28 成田T2 到着1F・JAL ABC</b>。解約 My Page <b>8/25</b> まで（8/31 終了）。"},
-  'todo.6':{en:"<b>SmartEX</b> — book <b>both</b> legs: 31 Jul Tokyo→Hakata (morning Nozomi, arrive before 15:30) · 24 Aug Hakata→Tokyo (sales from 24 Jul).",
-            ja:"<b>SmartEX</b> — <b>往復</b>：7/31 東京→博多（朝のぞみ・15:30前着）· 8/24 博多→東京（発売 7/24〜）。"},
+  'todo.6':{en:"<s><b>SmartEX</b></s> ✓ both booked — 31 Jul Nozomi 21 Shinagawa 09:37→Hakata ~14:30 · 24 Aug Nozomi 18 Hakata 09:36→Shinagawa 14:25.",
+            ja:"<s><b>SmartEX</b></s> ✓ 往復予約済み — 7/31 のぞみ21 品川09:37→博多~14:30 · 8/24 のぞみ18 博多09:36→品川14:25。"},
   'todo.7':{en:"<b>Suica</b> — physical IC card at Narita (Samsung S24; no Apple Wallet). Load for Tokyo train days.",
             ja:"<b>Suica</b> — 成田で物理カード（Samsung）。東京電車用にチャージ。"},
   'todo.8':{en:"<b>Cancel cliffs:</b> R9 Kashima free to <b>5 Aug 23:59</b> (then ¥10,800) · Obi free to <b>13 Aug 23:59</b> (then full) · Sakura cancel by <b>25 Aug</b>.",
@@ -1239,7 +1239,7 @@ const DAYS = {
   '2026-07-28':{cls:'tokyo',  label:'Arrive Tokyo', label_ja:'東京着', detail:'Land NRT <b>T2</b> ~16:00 (JL007). After immigration: <b>Sakura</b> at Arrivals <b>1F · JAL ABC Counter</b> (pickup code). Buy <b>physical Suica</b> (Samsung — not Apple Wallet) before Keisei/N’EX; load for Tokyo trains. Then to <b>do-c Ebisu</b> (confirmed) — night 1 of 3.', detail_ja:'成田 <b>T2</b> ~16:00 着（JL007）。入国後：到着 <b>1F・JAL ABC</b> で <b>Sakura</b> 受取。京成/N’EX の前に <b>Suica カード</b>（物理・Samsung）を購入・チャージ。その後 <b>do-c 恵比寿</b>（確定）— 3泊の初日。'},
   '2026-07-29':{cls:'tokyo',  label:'Tokyo · bikes', label_ja:'東京・自転車', detail:'Docomo line live. Bike shakedown around Ebisu (Hello Cycling / Docomo Bike Share or shop rental). Suica for trains.', detail_ja:'ドコモ回線稼働。恵比寿で自転車慣らし（HELLO CYCLING／ドコモ・バイクシェア等）。電車は Suica。'},
   '2026-07-30':{cls:'tokyo',  label:'Akiba day', label_ja:'秋葉原', detail:'Yodobashi Akiba: optional Casio SXC-1 gifts (4F instruments — fun/silly household toy for the guys / grandkids), travel goods (2F), bike gear (6F). Lunch 8F.', detail_ja:'ヨドバシ秋葉原：任意で Casio SXC-1 ギフト（4F 楽器 — 家族向けの遊び・孫が触れるやつ）、旅行用品（2F）、自転車（6F）。8F 昼食。'},
-  '2026-07-31':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'<b>SmartEX</b> morning <b>Nozomi</b> Tokyo→Hakata (~5h; arrive before 15:30). Toyota pickup 15:30 Hakata Station Shop (1-12-8 Hakataeki Higashi). Overnight 9h Hakata. <b>Coin parking</b> nearby (no lot at 9h). <i>Owner:</i> R9 Kanzaki free cancel ends <b>tonight 23:59</b> local (then ¥6,237).', detail_ja:'<b>SmartEX</b> 朝の <b>のぞみ</b> 東京→博多（約5h・15:30前着）。15:30 トヨタ博多駅店で車。9h 博多。<b>コインP</b>近く（9h に駐車場なし）。<i>管理者：</i>R9 神埼の無料キャンセルは <b>今夜 23:59</b> まで（以降 ¥6,237）。'},
+  '2026-07-31':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'<b>SmartEX ✓</b> <b>Nozomi 21</b> Shinagawa <b>09:37</b> → Hakata <b>~14:30</b>. Walk ~10–15 min to Toyota Hakata Station Shop (1-12-8 Hakataeki Higashi · 092-441-0100) for <b>15:30</b> pickup. Then coin parking + <b>9h Hakata</b>. <i>Owner:</i> R9 Kanzaki free cancel ends <b>tonight 23:59</b> (then ¥6,237).', detail_ja:'<b>SmartEX ✓</b> <b>のぞみ21</b> 品川 <b>09:37</b> → 博多 <b>~14:30</b>。徒歩約10〜15分でトヨタ博多駅店（博多駅東1-12-8 · 092-441-0100）<b>15:30</b> 受取。コインP＋<b>9h 博多</b>。<i>管理者：</i>R9 神埼無料キャンセルは <b>今夜 23:59</b> まで（以降 ¥6,237）。'},
   '2026-08-01':{cls:'kanzaki',label:'→ Mika’s', label_ja:'Mika宅へ', detail:'Drive rental car Hakata → Kanzaki. Stay at cousin Mika & husband Kentaro’s apartment (nights of 1–2 Aug). No night-game tournament conflict.', detail_ja:'レンタカーで博多→神埼。いとこ Mika と夫 Kentaro のアパートに滞在（8/1〜2 の夜）。ナイトゲーム大会の予定なし。'},
   '2026-08-02':{cls:'kanzaki',label:'Kenji lunch', label_ja:'健司さん昼食', detail:'Lunch together at Uncle Kenji’s house (confirmed). Second night at Mika & Kentaro’s apartment.', detail_ja:'叔父・健司さんの家で一緒に昼食（確定）。2泊目も Mika & Kentaro 宅。'},
   '2026-08-03':{cls:'kanzaki',label:'→ R9 Kanzaki', label_ja:'R9 神埼へ', detail:'Check in R9 The Yard Kanzaki — first of 5 nights (3–7 Aug). Hotel site: <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a>', detail_ja:'R9 The Yard 神埼にチェックイン — 5泊の初日（8/3〜7）。ホテルサイト： <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a>'},
@@ -1263,7 +1263,7 @@ const DAYS = {
   '2026-08-21':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Optional long drive day (e.g. Miyazaki coast) or onsen (Kurokawa/Beppu). Weather-dependent.', detail_ja:'ロングドライブ（例：宮崎）or 温泉（黒川／別府）。天候次第。'},
   '2026-08-22':{cls:'kuma',   label:'Kumamoto', label_ja:'熊本', detail:'Repack — last night. <i>Owner:</i> last days for Sakura cancel-by-25 if not done.', detail_ja:'荷造り — 最終泊。<i>管理者：</i>Sakura 解約 8/25 まで。'},
   '2026-08-23':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'Check out AM → Hakata → return Toyota by <b>20:00</b>. Overnight 9h Hakata.', detail_ja:'午前アウト→博多→車 <b>20:00</b> まで返却。9h 博多。'},
-  '2026-08-24':{cls:'tokyo',  label:'→ Tokyo', label_ja:'東京へ', detail:'<b>SmartEX</b> Hakata→Tokyo shinkansen. Check in <b>do-c Ebisu</b> (confirmed) — first of 3 tail nights.', detail_ja:'<b>SmartEX</b> 博多→東京。 <b>do-c 恵比寿</b>（確定）— 後半3泊の初日。'},
+  '2026-08-24':{cls:'tokyo',  label:'→ Tokyo', label_ja:'東京へ', detail:'<b>SmartEX ✓</b> <b>Nozomi 18</b> Hakata <b>09:36</b> → Shinagawa <b>14:25</b>. Yamanote to Ebisu → <b>do-c Ebisu</b> (confirmed) — first of 3 tail nights.', detail_ja:'<b>SmartEX ✓</b> <b>のぞみ18</b> 博多 <b>09:36</b> → 品川 <b>14:25</b>。山手線で恵比寿 → <b>do-c 恵比寿</b>（確定）— 後半3泊の初日。'},
   '2026-08-25':{cls:'tokyo',  label:'Tokyo bikes', label_ja:'東京・自転車', detail:'Yamanote bike loop (~35 km), dawn start — Hello Cycling / Docomo Bike Share or day rental. Shadier river paths if hot.', detail_ja:'山手線一周サイクリング（約35km）、早朝。HELLO CYCLING 等。暑ければ川沿い。'},
   '2026-08-26':{cls:'tokyo',  label:'Yokohama*', label_ja:'横浜*', detail:'Yokohama Chinatown / waterfront by bike or train (Suica). Last full day.', detail_ja:'横浜中華街／海辺 — 自転車 or 電車（Suica）。最後の丸一日。'},
   '2026-08-27':{cls:'cap',    label:'9h Narita', label_ja:'成田泊', detail:'Check in 9h nine hours Narita Airport (T2, landside).', detail_ja:'9h ナインアワーズ成田空港（第2ターミナル・保安検査前）にチェックイン。'},
