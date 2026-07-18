@@ -166,6 +166,7 @@
   html.home #lodging,
   html.home #todo,
   html.home #logistics,
+  html.home #phone,
   html.home #share,
   html.home #game{display:none !important}
 
@@ -177,6 +178,7 @@
   html.panel-open #lodging,
   html.panel-open #todo,
   html.panel-open #logistics,
+  html.panel-open #phone,
   html.panel-open #share,
   html.panel-open #game{display:none !important}
   html.panel-open #overview.panel-active,
@@ -185,6 +187,7 @@
   html.panel-open #lodging.panel-active,
   html.panel-open #todo.panel-active,
   html.panel-open #logistics.panel-active,
+  html.panel-open #phone.panel-active,
   html.panel-open #share.panel-active,
   html.panel-open #game.panel-active{display:block !important;margin-top:12px}
 
@@ -533,6 +536,7 @@
     <button type="button" class="drawer-link" data-go="overview" data-i18n="nav.overview">Overview</button>
     <button type="button" class="drawer-link" data-go="flights" data-i18n="nav.flights">Flights</button>
     <button type="button" class="drawer-link" data-go="lodging" data-i18n="nav.lodging">Lodging</button>
+    <button type="button" class="drawer-link" data-go="phone" data-i18n="nav.phone">Phone / SIM</button>
     <button type="button" class="drawer-link" data-go="logistics" data-i18n="nav.logistics">Logistics</button>
     <button type="button" class="drawer-link" data-go="game" data-i18n="nav.game">Bobby's game</button>
     <button type="button" class="drawer-link" data-go="share" data-i18n="nav.share">Share</button>
@@ -685,7 +689,7 @@
           <li data-i18n="todo.2"><b>Finish the tail</b>: (a) <s>Obi checkout 23 Aug</s> ✓ (8 nt, 15→23 Aug); (b) <s>9h Hakata 23 Aug</s> ✓; (c) <b>extend do-c</b> to 3 nights, 24–26 Aug — still open.</li>
           <li data-i18n="todo.3"><s><b>Rental car</b></s> ✓ booked — Toyota Hakata Station Shop, C2 Full Package, <b>31 Jul 15:30 → 23 Aug 20:00</b>. Still: overnight parking night of 31 Jul near 9h.</li>
           <li data-i18n="todo.r9"><s><b>Rebook R9 Kanzaki</b></s> ✓ done — nights <b>3–7 Aug</b> (was 1–7). Nights 1–2 at Mika &amp; Kentaro’s.</li>
-          <li data-i18n="todo.5"><b>SIMs</b> — order <b>Sakura Mobile</b> (Docomo) before the trip; add <b>au / KDDI</b> as the second line. Both live before leaving Tokyo.</li>
+          <li data-i18n="todo.5"><b>Phone / SIM</b> — Sakura <b>Voice+Data 100 GB</b> (Docomo monthly). Live by 29 Jul. <b>Cancel by 25 Aug</b> in My Page (see ☰ Phone / SIM).</li>
           <li data-i18n="todo.6"><b>Shinkansen</b> — book both legs on SmartEX: <b>31 Jul</b> Tokyo→Hakata (<b>arrive before 15:30</b> car pickup — morning train), <b>24 Aug</b> Hakata→Tokyo.</li>
         </ol>
       </div>
@@ -721,12 +725,7 @@
       </div>
       <p style="font-size:12px;color:#555" data-i18n="ak.note">Tax-free: bring passport to the register. Parking B2–B6. <i>Peace cigarettes not sold here</i> — buy at a konbini or tobacco shop (<span class="jp">たばこ</span>).</p>
 
-      <h3 data-i18n="log.sim">Mobile — two SIMs</h3>
-      <ul class="tight">
-        <li data-i18n="sim.1"><b>Sakura Mobile</b> (NTT <b>Docomo</b>) — English-friendly; order before the trip, deliver to do-c or pick up at Narita.</li>
-        <li data-i18n="sim.2"><b>au / KDDI</b> — second line for rural reach; prepaid SIM from Yodobashi Akiba 1F or the airport.</li>
-        <li data-i18n="sim.3">Needs a dual-SIM phone. Both live before leaving Tokyo (target 29 Jul). Docomo + au ≈ near-total coverage incl. rural Kyushu.</li>
-      </ul>
+      <p class="note-hint" data-i18n="log.simSeePhone" style="margin-top:0">Phone / SIM plan → <b>☰ menu → Phone / SIM</b>.</p>
 
       <h3 data-i18n="log.bike">Bicycle — Tokyo</h3>
       <ul class="tight">
@@ -735,6 +734,37 @@
         <li data-i18n="bike.3"><b>Rules:</b> from 1 Apr 2026, cyclists 16+ get "blue-ticket" fines — no phone while riding, obey signals, lights at night.</li>
       </ul>
 
+    </div>
+  </section>
+
+  <!-- PHONE / SIM -->
+  <section class="block" id="phone">
+    <h2 data-i18n="h.phone">Phone / SIM — Sakura Mobile</h2>
+    <div class="body">
+      <p class="note-hint" data-i18n="ph.intro">Primary line for the trip: real Japanese number + Docomo coverage for driving / countryside. Not a short tourist data pack.</p>
+      <h3 style="margin-top:0" data-i18n="ph.plan">Plan (locked in)</h3>
+      <ul class="tight">
+        <li data-i18n="ph.1"><b>Sakura Mobile Voice + Data</b> — monthly (long-term product), not Travel eSIM.</li>
+        <li data-i18n="ph.2"><b>100 GB / month</b> · ~¥10,980 + tax ≈ <b>¥12,078</b> tax incl. · activation <b>¥5,500</b> tax incl.</li>
+        <li data-i18n="ph.3"><b>Network:</b> NTT <b>docomo 5G/4G</b> · Physical SIM or eSIM · tethering OK.</li>
+        <li data-i18n="ph.4"><b>Calls / SMS:</b> Japanese 070/080/090 number · call/SMS usage billed separately (not in the monthly data fee).</li>
+        <li data-i18n="ph.5"><b>Airport:</b> arrive/depart <b>Narita Terminal 2</b> (JAL international). Use T2 if the order form asks.</li>
+        <li data-i18n="ph.6"><b>Go live:</b> before leaving Tokyo (target <b>29 Jul</b>). Test a real call + SMS + maps.</li>
+      </ul>
+      <h3 data-i18n="ph.cancelH">Cancel / billing (important)</h3>
+      <ul class="tight">
+        <li data-i18n="ph.c1">Recurring monthly · <b>minimum ~1 calendar month</b> · no 2-year lock · auto-renews until you terminate.</li>
+        <li data-i18n="ph.c2">Terminate in <b>My Page by the 25th</b> of the last month you want · service ends on the <b>last day of that month</b>.</li>
+        <li data-i18n="ph.c3">Last month is <b>not prorated</b> · no refund for unused data.</li>
+        <li data-i18n="ph.c4"><b>This trip:</b> ~28 Jul–28 Aug spans two calendar months. Submit cancel <b>by 25 Aug</b> so September is not billed. Reminder: <b>20 Aug</b>.</li>
+        <li data-i18n="ph.c5">Rough cost: activation + ~1–2 months of the 100 GB plan + any call/SMS. Skip au/Navitime second line unless you want pure data backup.</li>
+      </ul>
+      <h3 data-i18n="ph.linkH">Links</h3>
+      <ul class="tight">
+        <li><a href="https://www.sakuramobile.jp/monthly/voice/" target="_blank" rel="noopener">sakuramobile.jp — Voice + Data</a></li>
+        <li><a href="https://www.sakuramobile.jp/monthly/price/" target="_blank" rel="noopener">sakuramobile.jp — Monthly pricing</a></li>
+        <li data-i18n="ph.note">Travel eSIMs are data-only and short packs — wrong product for calls. Use <b>Monthly Voice + Data</b>.</li>
+      </ul>
     </div>
   </section>
 
@@ -932,6 +962,7 @@ const T = {
   'nav.lodging': {en:"Lodging", ja:"宿泊"},
   'nav.todo':    {en:"To-do (owner)", ja:"やること（管理者）"},
   'nav.logistics':{en:"Logistics", ja:"移動・買い物"},
+  'nav.phone':   {en:"Phone / SIM", ja:"携帯 / SIM"},
   'nav.share':   {en:"Share", ja:"共有"},
   'nav.game':    {en:"Bobby's game", ja:"ボビーのゲーム"},
   'nav.menu':    {en:"Menu", ja:"メニュー"},
@@ -1024,15 +1055,45 @@ const T = {
             ja:"<s><b>レンタカー</b></s> ✓ 予約済み — トヨタ博多駅店・C2 フルPKG、<b>7/31 15:30 → 8/23 20:00</b>。残り：7/31 夜の 9h 近くの駐車場。"},
   'todo.r9':{en:"<s><b>Rebook R9 Kanzaki</b></s> ✓ done — nights <b>3–7 Aug</b> (was 1–7). Nights 1–2 at Mika &amp; Kentaro’s.",
              ja:"<s><b>R9 神埼の再予約</b></s> ✓ 完了 — 泊 <b>8/3〜7</b>（旧 8/1〜7）。8/1〜2 は Mika &amp; Kentaro 宅。"},
-  'todo.5':{en:"<b>SIMs</b> — order <b>Sakura Mobile</b> (Docomo) before the trip; add <b>au / KDDI</b> as the second line. Both live before leaving Tokyo.",
-            ja:"<b>SIM</b> — 出発前に <b>Sakura Mobile</b>（ドコモ）を注文、2回線目に <b>au / KDDI</b> を追加。東京を出る前に両方開通。"},
+  'todo.5':{en:"<b>Phone / SIM</b> — Sakura <b>Voice+Data 100 GB</b> (Docomo monthly). Live by 29 Jul. <b>Cancel by 25 Aug</b> in My Page (see ☰ Phone / SIM).",
+            ja:"<b>携帯 / SIM</b> — Sakura <b>Voice+Data 100GB</b>（ドコモ月額）。7/29 までに開通。<b>8/25 までに</b> My Page で解約（☰ 携帯 / SIM 参照）。"},
   'todo.6':{en:"<b>Shinkansen</b> — book both legs on SmartEX: <b>31 Jul</b> Tokyo→Hakata (<b>arrive before 15:30</b> car pickup — morning train), <b>24 Aug</b> Hakata→Tokyo.",
             ja:"<b>新幹線</b> — SmartEX で両区間を予約：<b>7/31</b> 東京→博多（レンタカー <b>15:30 より前に到着</b> — 朝の便）、<b>8/24</b> 博多→東京。"},
 
   'log.car':{en:"Rental car — booked ✓", ja:"レンタカー — 予約済み ✓"},
   'log.akiba':{en:"Akiba day — Thu 30 Jul (Yodobashi Multimedia Akiba)", ja:"秋葉原の日 — 7/30(木)（ヨドバシ マルチメディア Akiba）"},
-  'log.sim':{en:"Mobile — two SIMs", ja:"携帯 — SIM 2枚"},
+  'log.simSeePhone':{en:"Phone / SIM plan → <b>☰ menu → Phone / SIM</b>.", ja:"携帯 / SIM の詳細 → <b>☰ メニュー → 携帯 / SIM</b>。"},
   'log.bike':{en:"Bicycle — Tokyo", ja:"自転車 — 東京"},
+  'h.phone':{en:"Phone / SIM — Sakura Mobile", ja:"携帯 / SIM — Sakura Mobile"},
+  'ph.intro':{en:"Primary line for the trip: real Japanese number + Docomo coverage for driving / countryside. Not a short tourist data pack.",
+              ja:"旅のメイン回線：日本の電話番号＋運転・地方向けのドコモ電波。短期観光用データパックではありません。"},
+  'ph.plan':{en:"Plan (locked in)", ja:"プラン（方針）"},
+  'ph.1':{en:"<b>Sakura Mobile Voice + Data</b> — monthly (long-term product), not Travel eSIM.",
+          ja:"<b>Sakura Mobile Voice + Data</b> — 月額（長期向け）。Travel eSIM ではない。"},
+  'ph.2':{en:"<b>100 GB / month</b> · ~¥10,980 + tax ≈ <b>¥12,078</b> tax incl. · activation <b>¥5,500</b> tax incl.",
+          ja:"<b>100 GB / 月</b> · 約¥10,980＋税 ≈ <b>¥12,078</b>（税込）· 初期費用 <b>¥5,500</b>（税込）。"},
+  'ph.3':{en:"<b>Network:</b> NTT <b>docomo 5G/4G</b> · Physical SIM or eSIM · tethering OK.",
+          ja:"<b>回線：</b>NTT <b>ドコモ 5G/4G</b> · 物理SIMまたはeSIM · テザリング可。"},
+  'ph.4':{en:"<b>Calls / SMS:</b> Japanese 070/080/090 number · call/SMS usage billed separately (not in the monthly data fee).",
+          ja:"<b>通話 / SMS：</b>日本の 070/080/090 番号 · 通話・SMSは従量（月額データ料金に含まず）。"},
+  'ph.5':{en:"<b>Airport:</b> arrive/depart <b>Narita Terminal 2</b> (JAL international). Use T2 if the order form asks.",
+          ja:"<b>空港：</b>到着・出発は <b>成田 第2ターミナル</b>（JAL国際線）。注文フォームでは T2 を選択。"},
+  'ph.6':{en:"<b>Go live:</b> before leaving Tokyo (target <b>29 Jul</b>). Test a real call + SMS + maps.",
+          ja:"<b>開通：</b>東京を出る前（目標 <b>7/29</b>）。実際の通話・SMS・地図をテスト。"},
+  'ph.cancelH':{en:"Cancel / billing (important)", ja:"解約・請求（重要）"},
+  'ph.c1':{en:"Recurring monthly · <b>minimum ~1 calendar month</b> · no 2-year lock · auto-renews until you terminate.",
+           ja:"毎月自動更新 · <b>最短おおよそ1か月</b> · 2年縛りなし · 解約するまで継続。"},
+  'ph.c2':{en:"Terminate in <b>My Page by the 25th</b> of the last month you want · service ends on the <b>last day of that month</b>.",
+           ja:"使いたい最後の月の <b>25日までに My Page で解約申請</b> · サービスは <b>その月末</b> で終了。"},
+  'ph.c3':{en:"Last month is <b>not prorated</b> · no refund for unused data.",
+           ja:"最終月は <b>日割りなし</b> · 未使用データも返金なし。"},
+  'ph.c4':{en:"<b>This trip:</b> ~28 Jul–28 Aug spans two calendar months. Submit cancel <b>by 25 Aug</b> so September is not billed. Reminder: <b>20 Aug</b>.",
+           ja:"<b>今回の旅：</b>だいたい 7/28〜8/28 で2か月にまたがる。<b>8/25 まで</b>に解約して9月請求を防ぐ。リマインダー：<b>8/20</b>。"},
+  'ph.c5':{en:"Rough cost: activation + ~1–2 months of the 100 GB plan + any call/SMS. Skip au/Navitime second line unless you want pure data backup.",
+           ja:"目安：初期費用＋100GBプラン約1〜2か月＋通話/SMS。データ用バックアップが要らなければ au/Navitime の2回線目は不要。"},
+  'ph.linkH':{en:"Links", ja:"リンク"},
+  'ph.note':{en:"Travel eSIMs are data-only and short packs — wrong product for calls. Use <b>Monthly Voice + Data</b>.",
+             ja:"Travel eSIM はデータのみ・短期パック — 通話には不向き。<b>月額 Voice + Data</b> を使う。"},
   'car.1':{en:"<b>Toyota Rent a Car · Hakata Station Shop</b> — 1-12-8 Hakataeki Higashi, Hakata-ku · <code>+81 92-441-0100</code>. Class <b>C2</b>, AT, non-smoking, Full Package.",
            ja:"<b>トヨタレンタカー · 博多駅店</b> — 福岡市博多区博多駅東1-12-8 · <code>+81 92-441-0100</code>。クラス <b>C2</b>、AT、禁煙、フルパッケージ。"},
   'car.2':{en:"<b>Pick-up:</b> Fri <b>31 Jul 15:30</b> · <b>Return:</b> Sun <b>23 Aug 20:00</b> (same shop). Bring US license + IDP + passport (landing stamp).",
@@ -1046,7 +1107,7 @@ const T = {
 
   'ak.floor':{en:"Floor", ja:"階"}, 'ak.dept':{en:"Department", ja:"売り場"}, 'ak.errand':{en:"Errand", ja:"用事"},
   'ak.dept1':{en:"Mobile phones &amp; SIMs", ja:"携帯電話・SIM"},
-  'ak.err1':{en:"<b>au / KDDI</b> second SIM (prepaid visitor line)", ja:"<b>au / KDDI</b> の2枚目SIM（訪日者向けプリペイド）"},
+  'ak.err1':{en:"Optional — only if you want a data backup line", ja:"任意 — データ用バックアップ回線が欲しいときだけ"},
   'ak.dept2':{en:"Travel goods", ja:"旅行用品"},
   'ak.err2':{en:"Duffel / carry-cart for haul-home shopping", ja:"持ち帰り用の買い物向けダッフル／キャリーカート"},
   'ak.dept6':{en:"Bicycles &amp; accessories", ja:"自転車・用品"},
@@ -1055,13 +1116,6 @@ const T = {
   'ak.err8':{en:"Lunch", ja:"昼食"},
   'ak.note':{en:"Tax-free: bring passport to the register. Parking B2–B6. <i>Peace cigarettes not sold here</i> — buy at a konbini or tobacco shop (<span class=\"jp\">たばこ</span>).",
              ja:"免税：レジにパスポートを持参。駐車場は B2〜B6。<i>ピース（煙草）はここでは売っていない</i> — コンビニか<span class=\"jp\">たばこ</span>店で。"},
-
-  'sim.1':{en:"<b>Sakura Mobile</b> (NTT <b>Docomo</b>) — English-friendly; order before the trip, deliver to do-c or pick up at Narita.",
-           ja:"<b>Sakura Mobile</b>（NTT <b>ドコモ</b>回線）— 英語対応。出発前に注文し、do-c に配送するか成田で受け取り。"},
-  'sim.2':{en:"<b>au / KDDI</b> — second line for rural reach; prepaid SIM from Yodobashi Akiba 1F or the airport.",
-           ja:"<b>au / KDDI</b> — 地方での電波確保用の2回線目。ヨドバシ秋葉原1Fか空港でプリペイドSIM。"},
-  'sim.3':{en:"Needs a dual-SIM phone. Both live before leaving Tokyo (target 29 Jul). Docomo + au ≈ near-total coverage incl. rural Kyushu.",
-           ja:"デュアルSIM対応スマホが必要。東京を出る前に両方開通（目標 7/29）。ドコモ＋au で地方の九州を含めほぼ全域カバー。"},
 
   'bike.1':{en:"<b>How:</b> Docomo Bike Share or Hello Cycling apps (e-assist, ~¥1,000–2,000/day, docks at Ebisu &amp; across Shibuya, in-app pay, built-in lock, no helmet), or a full-day bike from CycleTrip (Akihabara) or a local Ebisu shop.",
             ja:"<b>方法：</b>ドコモ・バイクシェア や HELLO CYCLING のアプリ（電動アシスト、約¥1,000〜2,000/日、恵比寿・渋谷各所にポート、アプリ決済、鍵内蔵、ヘルメットなし）、または CycleTrip（秋葉原）や恵比寿の店で1日レンタル。"},
@@ -1470,10 +1524,10 @@ function setView(v){
 }
 
 /* ---------- Menu drawer + detail panels (calendar is home) ---------- */
-const PANEL_IDS = ['overview','board','flights','lodging','todo','logistics','share','game'];
+const PANEL_IDS = ['overview','board','flights','lodging','todo','phone','logistics','share','game'];
 const PANEL_TITLES = {
   overview:'h.overview', board:'h.board', flights:'h.flights', lodging:'h.lodging',
-  todo:'h.todo', logistics:'h.logistics', share:'h.share', game:'h.game'
+  todo:'h.todo', phone:'h.phone', logistics:'h.logistics', share:'h.share', game:'h.game'
 };
 let activePanel = null;
 
