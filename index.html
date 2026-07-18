@@ -900,23 +900,46 @@ function sbReq(url, opts, ms){
   const t = setTimeout(function(){ ctrl.abort(); }, ms || 12000);
   return fetch(url, Object.assign({}, opts, {signal:ctrl.signal})).finally(function(){ clearTimeout(t); });
 }
+/* PostgREST may return date as "YYYY-MM-DD" or a full ISO timestamp — always key as YYYY-MM-DD. */
+function normalizeDayKey(d){
+  if(d == null) return '';
+  const s = String(d);
+  if(/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+  return s;
+}
+function groupNotesByDay(rows){
+  const grouped = {};
+  (rows || []).forEach(function(r){
+    const k = normalizeDayKey(r.day);
+    if(!k) return;
+    r.day = k;
+    (grouped[k] = grouped[k] || []).push(r);
+  });
+  return grouped;
+}
 async function sbFetchNotes(){
   const r = await sbReq(SB_URL + '/rest/v1/japan_notes?select=*&order=created_at.asc', { headers: SB_HEADERS });
   if(!r.ok){ const e = new Error('load ' + r.status); e.status = r.status; throw e; }
   return r.json();
 }
 async function sbAddNote(day, author, body){
+  const dayKey = normalizeDayKey(day);
   const post = payload => sbReq(SB_URL + '/rest/v1/japan_notes', {
     method:'POST',
     headers: Object.assign({}, SB_HEADERS, {'Content-Type':'application/json', Prefer:'return=representation'}),
     body: JSON.stringify(payload)
   });
-  let r = await post({ day:day, author:author, body:body, device_id:deviceId });
+  let r = await post({ day:dayKey, author:author, body:body, device_id:deviceId });
   if(!r.ok && r.status === 400){
     // device_id column not migrated yet (v2 SQL) — never lose the note over it
-    r = await post({ day:day, author:author, body:body });
+    r = await post({ day:dayKey, author:author, body:body });
   }
-  if(!r.ok){ const e = new Error(await r.text()); e.status = r.status; throw e; }
+  if(!r.ok){
+    const txt = await r.text();
+    const e = new Error(txt || ('save ' + r.status));
+    e.status = r.status;
+    throw e;
+  }
   return r.json();
 }
 async function sbDeleteNote(id, secret){
@@ -1208,7 +1231,7 @@ const T = {
   'game.shotcap':{en:"In the browser · same rules, live on the web", ja:"ブラウザ内 · 同じルール、ウェブでそのまま"},
 
   /* modal + dynamic strings */
-  'm.notes':{en:"Notes", ja:"メモ"},
+  'm.notes':{en:"Family notes (public)", ja:"みんなのメモ（公開）"},
   'm.name':{en:"Your name", ja:"お名前"},
   'm.leave':{en:"Leave a note for Robert", ja:"ロバートへひとことどうぞ"},
   'm.close':{en:"Close", ja:"閉じる"},
@@ -1216,9 +1239,9 @@ const T = {
   'm.add':{en:"Add note", ja:"メモを追加"},
   'm.namePh':{en:"e.g. Mom", ja:"例：お母さん"},
   'm.bodyPh':{en:"A reminder, a question, a 'have fun!'…", ja:"ひとこと、質問、「楽しんでね！」など…"},
-  'noNotes':{en:"No notes yet — be the first.", ja:"まだメモはありません。最初のひとことをどうぞ。"},
+  'noNotes':{en:"No notes yet on this day — be the first. (Notes are public; no login.)", ja:"この日のメモはまだありません（メモは公開・ログイン不要）。"},
   'saving':{en:"Saving…", ja:"保存中…"},
-  'saved':{en:"Saved — thank you!", ja:"保存しました。ありがとう！"},
+  'saved':{en:"Saved — everyone can see it on this day.", ja:"保存しました。この日のみんなに見えます。"},
   'needName':{en:"Please add your name.", ja:"お名前を入力してください。"},
   'needBody':{en:"Write a note first.", ja:"メモを入力してください。"},
   'saveFail':{en:"Could not save. Please try again.", ja:"保存できませんでした。もう一度お試しください。"},
@@ -1489,7 +1512,7 @@ function renderCalendars(){
         cell.appendChild(lab);
       }
       const badge = document.createElement('div'); badge.className = 'cell-badge';
-      const cnt = (notesByDay[key]||[]).length;
+      const cnt = (notesByDay[normalizeDayKey(key)]||[]).length;
       if(cnt) badge.textContent = '💬 ' + cnt;
       cell.appendChild(badge);
       const aria = [(lang==='ja') ? (mo.name.ja + d + '日') : (mo.name.en.split(' ')[0] + ' ' + d)];
@@ -1855,9 +1878,13 @@ function noteCard(n, onDel){
 function renderNotes(){
   const box = document.getElementById('m-notes');
   box.textContent = '';
-  const list = notesByDay[currentDay] || [];
+  const dayKey = normalizeDayKey(currentDay);
+  const list = notesByDay[dayKey] || [];
+  const head = document.querySelector('.notes-h');
+  if(head) head.textContent = tr('m.notes') + (list.length ? ' (' + list.length + ')' : '');
   if(!list.length){
-    const e = document.createElement('div'); e.className='empty-notes'; e.textContent = tr('noNotes');
+    const e = document.createElement('div'); e.className='empty-notes';
+    e.textContent = tr('noNotes') + (dayKey ? ' · ' + dayKey : '');
     box.appendChild(e); return;
   }
   list.forEach(n => box.appendChild(noteCard(n, () => onDelete(n.id))));
@@ -1940,9 +1967,7 @@ async function loadAll(){
 
   if(results[0].status === 'fulfilled'){
     const rows = results[0].value;
-    const grouped = {};
-    rows.forEach(r => { (grouped[r.day] = grouped[r.day] || []).push(r); });
-    notesByDay = grouped;
+    notesByDay = groupNotesByDay(rows);
     _pollFails = 0;
     hideBanner();
     const sig = rows.map(r => r.id).join(',');
@@ -1984,6 +2009,7 @@ async function loadAll(){
 
 async function onSubmit(ev){
   ev.preventDefault();
+  if(!currentDay){ setMsg('saveFail', 'err'); return; }
   const name = document.getElementById('m-name').value.trim();
   const body = document.getElementById('m-body').value.trim();
   if(!name){ setMsg('needName', 'err'); return; }
@@ -1991,13 +2017,41 @@ async function onSubmit(ev){
   localStorage.setItem('japan_note_author', name);
   const btn = document.getElementById('m-submit');
   btn.disabled = true; setMsg('saving', '');
+  const dayKey = normalizeDayKey(currentDay);
   try{
-    await sbAddNote(currentDay, name, body);
+    const rows = await sbAddNote(dayKey, name, body);
+    const row = Array.isArray(rows) ? rows[0] : rows;
     document.getElementById('m-body').value='';
+    /* Optimistic UI: show the note immediately even if reload lags */
+    if(row && row.id){
+      row.day = normalizeDayKey(row.day) || dayKey;
+      const list = notesByDay[dayKey] ? notesByDay[dayKey].slice() : [];
+      if(!list.some(function(n){ return n.id === row.id; })) list.push(row);
+      notesByDay[dayKey] = list;
+      _notesSig = null;
+      renderNotes();
+      renderAll(); /* refresh 💬 badges on calendar */
+    }
     setMsg('saved', 'ok');
-    await loadAll();
+    const m = document.getElementById('m-msg');
+    if(m) m.textContent = tr('saved') + ' · ' + dayKey;
+    const notesBox = document.getElementById('m-notes');
+    if(notesBox && notesBox.scrollIntoView){
+      setTimeout(function(){ notesBox.scrollIntoView({block:'nearest', behavior:'smooth'}); }, 50);
+    }
+    try{ await loadAll(); }catch(_e){ /* already shown optimistically */ }
   }catch(e){
-    setMsg((typeof navigator !== 'undefined' && navigator.onLine === false) ? 'offlineSave' : 'saveFail', 'err');
+    console.warn('Japan note save failed:', e);
+    if(typeof navigator !== 'undefined' && navigator.onLine === false){
+      setMsg('offlineSave', 'err');
+    } else {
+      setMsg('saveFail', 'err');
+      const m = document.getElementById('m-msg');
+      if(m && e){
+        const detail = (e.status ? ('HTTP ' + e.status + ' ') : '') + (e.message || '');
+        if(detail.trim()) m.textContent = tr('saveFail') + ' — ' + detail.slice(0, 180);
+      }
+    }
   }finally{
     btn.disabled = false;
   }
