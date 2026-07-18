@@ -270,8 +270,64 @@
   ul.tight li{margin:4px 0}
 
   /* ---- View toggle ---- */
-  .viewtog{display:flex;gap:8px;margin:0 0 12px}
-  .viewtog .s7btn{min-width:96px}
+  .viewtog{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+  .viewtog .s7btn{min-width:72px;padding-left:10px;padding-right:10px}
+
+  /* ---- Week / Day views ---- */
+  .wv-nav,.dv-nav{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;
+  }
+  .wv-nav .wv-title,.dv-nav .dv-title{
+    flex:1;text-align:center;font-family:var(--f-head);font-size:14px;font-weight:bold;
+  }
+  .wv-grid{
+    display:grid;grid-template-columns:1fr;gap:0;
+    border:1px solid var(--black);background:var(--white);
+  }
+  @media (min-width:720px){
+    .wv-grid{grid-template-columns:repeat(7,1fr)}
+  }
+  .wv-day{
+    display:flex;flex-direction:column;align-items:stretch;width:100%;text-align:left;font:inherit;color:inherit;
+    border:none;border-bottom:1px solid var(--black);background:var(--white);padding:8px 10px;cursor:pointer;
+    min-height:72px;transition:background-color 60ms steps(2);
+  }
+  @media (min-width:720px){
+    .wv-day{border-bottom:none;border-right:1px solid var(--black);min-height:140px}
+    .wv-day:last-child{border-right:none}
+  }
+  .wv-day:hover{outline:2px solid var(--black);outline-offset:-2px;z-index:2}
+  .wv-day:focus-visible{outline:2px dotted var(--black);outline-offset:-3px;z-index:4}
+  .wv-day.today{box-shadow:inset 0 0 0 2px var(--black);z-index:2}
+  .wv-day.past{opacity:.55}
+  .wv-day.out{background:var(--platinum);opacity:.7}
+  .wv-head{display:flex;justify-content:space-between;align-items:baseline;gap:6px;margin-bottom:4px}
+  .wv-dow{font-size:11px;font-family:var(--f-head)}
+  .wv-num{font-size:16px;font-weight:700;font-family:var(--f-head)}
+  .wv-label{font-size:12px;font-weight:700;line-height:1.25;margin-bottom:2px}
+  .wv-sub{font-size:11px;color:#333;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;flex:1}
+  .wv-meta{margin-top:6px;font-size:10px;font-weight:700}
+  .wv-day.c-tokyo{background:var(--tokyo)} .wv-day.c-cap{background:var(--cap)}
+  .wv-day.c-kanzaki{background:var(--kanzaki)} .wv-day.c-kashima{background:var(--kashima)}
+  .wv-day.c-kuma{background:var(--kuma)} .wv-day.c-flight{background:var(--flight)}
+
+  .dv-panel{
+    border:1px solid var(--black);background:var(--white);padding:12px 14px;
+    box-shadow:2px 2px 0 var(--black);
+  }
+  .dv-panel.today{box-shadow:2px 2px 0 var(--black), inset 0 0 0 2px var(--black)}
+  .dv-tag{display:inline-block;font-size:11px;font-family:var(--f-head);padding:2px 8px;border:1px solid var(--black);margin-bottom:8px}
+  .dv-tag.c-tokyo,.dv-panel.c-tokyo{background:var(--tokyo)}
+  .dv-tag.c-cap,.dv-panel.c-cap{background:var(--cap)}
+  .dv-tag.c-kanzaki,.dv-panel.c-kanzaki{background:var(--kanzaki)}
+  .dv-tag.c-kashima,.dv-panel.c-kashima{background:var(--kashima)}
+  .dv-tag.c-kuma,.dv-panel.c-kuma{background:var(--kuma)}
+  .dv-tag.c-flight,.dv-panel.c-flight{background:var(--flight)}
+  .dv-label{font-size:18px;font-family:var(--f-head);font-weight:bold;margin:0 0 8px}
+  .dv-plan{font-size:13px;line-height:1.5;margin:0 0 12px;white-space:pre-wrap}
+  .dv-lodging{font-size:12px;color:#333;margin:0 0 12px;padding:8px 10px;background:var(--platinum);border:1px solid var(--plat-lo)}
+  .dv-notes-h{font-size:12px;font-family:var(--f-head);text-transform:uppercase;letter-spacing:.4px;margin:14px 0 8px}
+  .dv-actions{margin-top:12px}
 
   /* ---- Calendar: S7 shared-border month grid ---- */
   .cal{margin-top:6px}
@@ -562,9 +618,13 @@
       <div id="banner" class="banner"></div>
       <div class="viewtog" role="group" aria-label="View / 表示">
         <button type="button" id="v-grid" class="s7btn" data-i18n="view.grid">▦ Month</button>
+        <button type="button" id="v-week" class="s7btn" data-i18n="view.week">▤ Week</button>
+        <button type="button" id="v-day" class="s7btn" data-i18n="view.day">▣ Day</button>
         <button type="button" id="v-list" class="s7btn" data-i18n="view.list">☰ List</button>
       </div>
       <div id="calendars"></div>
+      <div id="weekView" style="display:none"></div>
+      <div id="dayView" style="display:none"></div>
       <div id="agenda" style="display:none"></div>
       <p class="cal-foot" data-i18n="cal.foot"><b>*</b> = suggested day-trip from the Kumamoto base — not booked, weather-dependent (Aug is typhoon season; Miyazaki most exposed).</p>
     </div>
@@ -1259,8 +1319,16 @@ const T = {
 
   /* header window + views */
   'hero.title':{en:"Japan 2026 — Robert's Trip", ja:"日本 2026 — ロバートの旅程"},
-  'view.grid':{en:"▦ Month", ja:"▦ 月表示"},
-  'view.list':{en:"☰ List", ja:"☰ リスト"},
+  'view.grid':{en:"▦ Month", ja:"▦ 月"},
+  'view.week':{en:"▤ Week", ja:"▤ 週"},
+  'view.day':{en:"▣ Day", ja:"▣ 日"},
+  'view.list':{en:"☰ List", ja:"☰ 一覧"},
+  'view.prev':{en:"← Prev", ja:"← 前"},
+  'view.next':{en:"Next →", ja:"次 →"},
+  'view.todayBtn':{en:"Today", ja:"今日"},
+  'view.openModal':{en:"Leave a note / full day", ja:"メモを残す / この日を開く"},
+  'view.noPlan':{en:"No plan on this day (outside trip coloring).", ja:"この日の旅程ラベルはありません。"},
+  'view.night':{en:"Tonight", ja:"今夜"},
 
   /* now / countdown strip */
   'now.until':{en:"days until departure", ja:"出発まで（日）"},
@@ -1353,7 +1421,12 @@ let dayEdits = {};        // 'YYYY-MM-DD' -> override row from japan_day_edits
 let boardMsgs = [];
 let currentDay = null;
 let adminSecret = localStorage.getItem('japan_admin_secret') || null;
-let view = (localStorage.getItem('japan_view') === 'list') ? 'list' : 'grid';
+let view = (function(){
+  const v = localStorage.getItem('japan_view');
+  return (v === 'list' || v === 'week' || v === 'day' || v === 'grid') ? v : 'grid';
+})();
+let weekAnchor = null;  /* YYYY-MM-DD of the Sunday starting the visible week */
+let dayCursor = null;   /* YYYY-MM-DD for day view */
 let _lastTrigger = null;
 let _notesSig = null;
 let _editsSig = null;
@@ -1582,31 +1655,257 @@ function renderAgenda(){
   wrap.appendChild(frag);
 }
 
-/* ---------- Focus render (phone simple mode): a rolling two-week list.
-   Window = today + 13 days, clamped inside the trip: before departure it
-   shows the first two weeks; near/after the end it shows the last two. */
-function focusStartKey(){
-  const tk = todayKey();
-  let s = tk < TRIP_START ? TRIP_START : tk;
-  const p = keyParts(TRIP_END);
-  const last = new Date(p[0], p[1]-1, p[2] - 13);
-  const lastKey = last.getFullYear() + '-' + pad(last.getMonth()+1) + '-' + pad(last.getDate());
-  if(s > lastKey) s = lastKey;
-  return s;
+/* ---------- Date helpers (local calendar arithmetic) ---------- */
+function dateFromKey(key){
+  const p = keyParts(normalizeDayKey(key));
+  return new Date(p[0], p[1]-1, p[2]);
 }
+function keyFromDate(dt){
+  return dt.getFullYear() + '-' + pad(dt.getMonth()+1) + '-' + pad(dt.getDate());
+}
+function addDaysKey(key, n){
+  const dt = dateFromKey(key);
+  dt.setDate(dt.getDate() + n);
+  return keyFromDate(dt);
+}
+/** Sunday-start week (matches month grid DOW row). */
+function startOfWeekKey(key){
+  const dt = dateFromKey(key);
+  dt.setDate(dt.getDate() - dt.getDay());
+  return keyFromDate(dt);
+}
+function clampTripKey(key){
+  const k = normalizeDayKey(key);
+  if(k < TRIP_START) return TRIP_START;
+  if(k > TRIP_END) return TRIP_END;
+  return k;
+}
+function ensureViewCursors(){
+  const tk = todayKey();
+  const fallback = (tk >= TRIP_START && tk <= TRIP_END) ? tk : TRIP_START;
+  if(!dayCursor) dayCursor = fallback;
+  if(!weekAnchor) weekAnchor = startOfWeekKey(fallback);
+}
+function formatRangeTitle(a, b){
+  const da = dateFromKey(a), db = dateFromKey(b);
+  if(lang === 'ja'){
+    return (da.getMonth()+1) + '/' + da.getDate() + ' – ' + (db.getMonth()+1) + '/' + db.getDate();
+  }
+  const ma = MON_EN[da.getMonth()].slice(0,3), mb = MON_EN[db.getMonth()].slice(0,3);
+  if(da.getMonth() === db.getMonth()) return ma + ' ' + da.getDate() + ' – ' + db.getDate();
+  return ma + ' ' + da.getDate() + ' – ' + mb + ' ' + db.getDate();
+}
+function formatDayTitle(key){
+  const p = keyParts(key);
+  const dt = dateFromKey(key);
+  if(lang === 'ja') return p[0] + '年' + p[1] + '月' + p[2] + '日（' + DOW.ja[dt.getDay()] + '）';
+  return DOW.en[dt.getDay()] + ', ' + MON_EN[p[1]-1] + ' ' + p[2] + ', ' + p[0];
+}
+
 function renderFocus(){
-  /* Retired with calendar-first home (list view covers the same need). */
+  /* Retired with calendar-first home (list / week / day cover the same need). */
   return;
+}
+
+/* ---------- Week view ---------- */
+function renderWeek(){
+  const wrap = document.getElementById('weekView');
+  if(!wrap) return;
+  wrap.textContent = '';
+  ensureViewCursors();
+  const tk = todayKey();
+  const start = weekAnchor;
+  const end = addDaysKey(start, 6);
+
+  const nav = document.createElement('div'); nav.className = 'wv-nav';
+  const prev = document.createElement('button'); prev.type = 'button'; prev.className = 's7btn';
+  prev.textContent = tr('view.prev');
+  prev.addEventListener('click', function(){ weekAnchor = addDaysKey(weekAnchor, -7); renderWeek(); });
+  const title = document.createElement('div'); title.className = 'wv-title';
+  title.textContent = formatRangeTitle(start, end);
+  const next = document.createElement('button'); next.type = 'button'; next.className = 's7btn';
+  next.textContent = tr('view.next');
+  next.addEventListener('click', function(){ weekAnchor = addDaysKey(weekAnchor, 7); renderWeek(); });
+  nav.appendChild(prev); nav.appendChild(title); nav.appendChild(next);
+  wrap.appendChild(nav);
+
+  const jump = document.createElement('div'); jump.style.cssText = 'text-align:center;margin:0 0 10px';
+  const todayBtn = document.createElement('button'); todayBtn.type = 'button'; todayBtn.className = 's7btn';
+  todayBtn.textContent = tr('view.todayBtn');
+  todayBtn.addEventListener('click', function(){
+    const base = (tk >= TRIP_START && tk <= TRIP_END) ? tk : TRIP_START;
+    weekAnchor = startOfWeekKey(base);
+    renderWeek();
+  });
+  jump.appendChild(todayBtn);
+  wrap.appendChild(jump);
+
+  const grid = document.createElement('div'); grid.className = 'wv-grid';
+  for(let i = 0; i < 7; i++){
+    const key = addDaysKey(start, i);
+    const dt = dateFromKey(key);
+    const info = dayInfo(key);
+    const btn = document.createElement('button'); btn.type = 'button';
+    let cls = 'wv-day';
+    if(info) cls += ' c-' + info.cls;
+    if(key === tk) cls += ' today';
+    else if(key < tk && info) cls += ' past';
+    if(key < TRIP_START || key > TRIP_END) cls += ' out';
+    btn.className = cls;
+
+    const head = document.createElement('div'); head.className = 'wv-head';
+    const dow = document.createElement('span'); dow.className = 'wv-dow'; dow.textContent = DOW[lang][dt.getDay()];
+    const num = document.createElement('span'); num.className = 'wv-num'; num.textContent = String(dt.getDate());
+    head.appendChild(dow); head.appendChild(num);
+    btn.appendChild(head);
+
+    const lab = document.createElement('div'); lab.className = 'wv-label';
+    lab.textContent = info ? (lang === 'ja' ? info.label_ja : info.label) : '·';
+    btn.appendChild(lab);
+
+    const sub = document.createElement('div'); sub.className = 'wv-sub';
+    if(info) sub.textContent = lang === 'ja' ? info.detail_ja : info.detail;
+    btn.appendChild(sub);
+
+    const meta = document.createElement('div'); meta.className = 'wv-meta';
+    const cnt = (notesByDay[normalizeDayKey(key)] || []).length;
+    const bits = [];
+    if(cnt) bits.push('💬 ' + cnt);
+    if(info && info.edited) bits.push('✎');
+    const lodge = lodgingFor(key);
+    if(lodge) bits.push(lodge);
+    meta.textContent = bits.join(' · ');
+    btn.appendChild(meta);
+
+    btn.addEventListener('click', function(){
+      dayCursor = key;
+      openDay(key);
+    });
+    btn.addEventListener('dblclick', function(){
+      dayCursor = key;
+      setView('day');
+    });
+    grid.appendChild(btn);
+  }
+  wrap.appendChild(grid);
+}
+
+/* ---------- Day view ---------- */
+function renderDayView(){
+  const wrap = document.getElementById('dayView');
+  if(!wrap) return;
+  wrap.textContent = '';
+  ensureViewCursors();
+  const key = normalizeDayKey(dayCursor);
+  const tk = todayKey();
+  const info = dayInfo(key);
+
+  const nav = document.createElement('div'); nav.className = 'dv-nav';
+  const prev = document.createElement('button'); prev.type = 'button'; prev.className = 's7btn';
+  prev.textContent = tr('view.prev');
+  prev.addEventListener('click', function(){
+    dayCursor = addDaysKey(dayCursor, -1);
+    weekAnchor = startOfWeekKey(dayCursor);
+    renderDayView();
+  });
+  const title = document.createElement('div'); title.className = 'dv-title';
+  title.textContent = formatDayTitle(key);
+  const next = document.createElement('button'); next.type = 'button'; next.className = 's7btn';
+  next.textContent = tr('view.next');
+  next.addEventListener('click', function(){
+    dayCursor = addDaysKey(dayCursor, 1);
+    weekAnchor = startOfWeekKey(dayCursor);
+    renderDayView();
+  });
+  nav.appendChild(prev); nav.appendChild(title); nav.appendChild(next);
+  wrap.appendChild(nav);
+
+  const jump = document.createElement('div'); jump.style.cssText = 'text-align:center;margin:0 0 10px';
+  const todayBtn = document.createElement('button'); todayBtn.type = 'button'; todayBtn.className = 's7btn';
+  todayBtn.textContent = tr('view.todayBtn');
+  todayBtn.addEventListener('click', function(){
+    dayCursor = (tk >= TRIP_START && tk <= TRIP_END) ? tk : TRIP_START;
+    weekAnchor = startOfWeekKey(dayCursor);
+    renderDayView();
+  });
+  jump.appendChild(todayBtn);
+  wrap.appendChild(jump);
+
+  const panel = document.createElement('div');
+  panel.className = 'dv-panel' + (key === tk ? ' today' : '') + (info ? ' c-' + info.cls : '');
+  if(info){
+    panel.style.background = ''; /* class colors on children; keep white panel with tag */
+  }
+
+  if(info){
+    const tag = document.createElement('div'); tag.className = 'dv-tag c-' + info.cls;
+    tag.textContent = TAG_NAME[lang][info.cls] || info.cls;
+    panel.appendChild(tag);
+    const lab = document.createElement('div'); lab.className = 'dv-label';
+    lab.textContent = lang === 'ja' ? info.label_ja : info.label;
+    panel.appendChild(lab);
+    const plan = document.createElement('div'); plan.className = 'dv-plan';
+    plan.innerHTML = lang === 'ja' ? info.detail_ja : info.detail;
+    panel.appendChild(plan);
+  } else {
+    const lab = document.createElement('div'); lab.className = 'dv-label';
+    lab.textContent = formatDayTitle(key);
+    panel.appendChild(lab);
+    const plan = document.createElement('p'); plan.className = 'dv-plan';
+    plan.textContent = tr('view.noPlan');
+    panel.appendChild(plan);
+  }
+
+  const lodge = lodgingFor(key);
+  if(lodge){
+    const lo = document.createElement('div'); lo.className = 'dv-lodging';
+    lo.innerHTML = '<b>' + tr('view.night') + ':</b> ' + lodge;
+    panel.appendChild(lo);
+  }
+
+  const nh = document.createElement('div'); nh.className = 'dv-notes-h';
+  const list = notesByDay[key] || [];
+  nh.textContent = tr('m.notes') + (list.length ? ' (' + list.length + ')' : '');
+  panel.appendChild(nh);
+
+  const notesBox = document.createElement('div');
+  if(!list.length){
+    const e = document.createElement('div'); e.className = 'empty-notes';
+    e.textContent = tr('noNotes') + ' · ' + key;
+    notesBox.appendChild(e);
+  } else {
+    list.forEach(function(n){
+      notesBox.appendChild(noteCard(n, function(){ onDelete(n.id); }));
+    });
+  }
+  panel.appendChild(notesBox);
+
+  const actions = document.createElement('div'); actions.className = 'dv-actions';
+  const openBtn = document.createElement('button'); openBtn.type = 'button';
+  openBtn.className = 's7btn s7btn-default'; openBtn.textContent = tr('view.openModal');
+  openBtn.addEventListener('click', function(){ openDay(key); });
+  actions.appendChild(openBtn);
+  panel.appendChild(actions);
+
+  wrap.appendChild(panel);
 }
 
 /* ---------- View toggle ---------- */
 function setView(v){
-  view = (v === 'list') ? 'list' : 'grid';
+  const allowed = {grid:1, week:1, day:1, list:1};
+  view = allowed[v] ? v : 'grid';
   localStorage.setItem('japan_view', view);
+  ensureViewCursors();
   document.getElementById('calendars').style.display = (view === 'grid') ? '' : 'none';
+  document.getElementById('weekView').style.display = (view === 'week') ? '' : 'none';
+  document.getElementById('dayView').style.display = (view === 'day') ? '' : 'none';
   document.getElementById('agenda').style.display = (view === 'list') ? '' : 'none';
   document.getElementById('v-grid').classList.toggle('s7btn-inv', view === 'grid');
+  document.getElementById('v-week').classList.toggle('s7btn-inv', view === 'week');
+  document.getElementById('v-day').classList.toggle('s7btn-inv', view === 'day');
   document.getElementById('v-list').classList.toggle('s7btn-inv', view === 'list');
+  if(view === 'week') renderWeek();
+  if(view === 'day') renderDayView();
 }
 
 /* ---------- Menu drawer + detail panels (calendar is home) ---------- */
@@ -1722,6 +2021,8 @@ function renderAll(){
   renderNow();
   renderCalendars();
   renderAgenda();
+  renderWeek();
+  renderDayView();
   renderFocus();
   renderBoard();
 }
@@ -1763,6 +2064,8 @@ function setModalHeader(key){
 }
 function openDay(key){
   currentDay = key;
+  dayCursor = normalizeDayKey(key);
+  weekAnchor = startOfWeekKey(dayCursor);
   hideEditForm();
   setModalHeader(key);
   renderNotes();
@@ -2271,6 +2574,8 @@ document.getElementById('m-editform').addEventListener('submit', onEditSubmit);
 document.getElementById('e-cancel').addEventListener('click', hideEditForm);
 document.getElementById('e-revert').addEventListener('click', onEditRevert);
 document.getElementById('v-grid').addEventListener('click', () => setView('grid'));
+document.getElementById('v-week').addEventListener('click', () => setView('week'));
+document.getElementById('v-day').addEventListener('click', () => setView('day'));
 document.getElementById('v-list').addEventListener('click', () => setView('list'));
 document.getElementById('menuBtn').addEventListener('click', function(){
   if(document.documentElement.classList.contains('menu-open')) closeMenu();
