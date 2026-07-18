@@ -823,8 +823,15 @@
       <h3 data-i18n="log.bike">Bicycle — Tokyo</h3>
       <ul class="tight">
         <li data-i18n="bike.1"><b>How:</b> Docomo Bike Share or Hello Cycling apps (e-assist, ~¥1,000–2,000/day, docks at Ebisu &amp; across Shibuya, in-app pay, built-in lock, no helmet), or a full-day bike from CycleTrip (Akihabara) or a local Ebisu shop.</li>
-        <li data-i18n="bike.2"><b>Front (29 Jul):</b> short shakedown around Ebisu. <b>Tail (25 Aug):</b> Yamanote loop (~35 km), dawn start, 33–36°C. <b>(26 Aug):</b> Yokohama Chinatown / waterfront ride.</li>
+        <li data-i18n="bike.2"><b>Front (29 Jul):</b> short shakedown around Ebisu. <b>Tail (25 Aug):</b> Yamanote loop (~35 km), dawn start, 33–36°C — <a href="https://maps.app.goo.gl/ZuNKJTLa8C9Rr5G8A" target="_blank" rel="noopener">Google Maps route</a>. <b>(26 Aug):</b> Yokohama Chinatown / waterfront ride.</li>
         <li data-i18n="bike.3"><b>Rules:</b> from 1 Apr 2026, cyclists 16+ get "blue-ticket" fines — no phone while riding, obey signals, lights at night.</li>
+      </ul>
+
+      <h3 data-i18n="log.haul">Haul home — before NRT</h3>
+      <ul class="tight">
+        <li data-i18n="haul.1"><b>Peace cigarettes × ~200</b> (~4 cans) for the flight home — duty-free personal allowance ballpark. <b>Not at Yodobashi Akiba.</b></li>
+        <li data-i18n="haul.2"><b>Shop:</b> <b>Kagaya (かがや)</b> Shinjuku tobacco specialty — <a href="https://kagaya-smokeweb.com/" target="_blank" rel="noopener">kagaya-smokeweb.com</a>. Call/confirm stock for Peace cans before you go; buy on <b>26 Aug</b> (last full Tokyo day) or morning of 27th before bike return / Narita.</li>
+        <li data-i18n="haul.3"><b>Pack:</b> keep sealed; declare if asked. US returning resident allowance is often <b>200 cigarettes</b> duty-free — don’t overbuy without checking current CBP rules.</li>
       </ul>
 
     </div>
@@ -1185,6 +1192,13 @@ const T = {
   'log.akiba':{en:"Akiba day — Thu 30 Jul (Yodobashi Multimedia Akiba)", ja:"秋葉原の日 — 7/30(木)（ヨドバシ マルチメディア Akiba）"},
   'log.simSeePhone':{en:"Phone / SIM plan → <b>☰ menu → Phone / SIM</b>.", ja:"携帯 / SIM の詳細 → <b>☰ メニュー → 携帯 / SIM</b>。"},
   'log.bike':{en:"Bicycle — CycleTrip ✓ submitted", ja:"自転車 — CycleTrip ✓ 申込済み"},
+  'log.haul':{en:"Haul home — before NRT", ja:"持ち帰り — 成田前"},
+  'haul.1':{en:"<b>Peace cigarettes × ~200</b> (~4 cans) for the flight home — duty-free personal allowance ballpark. <b>Not at Yodobashi Akiba.</b>",
+            ja:"<b>ピース ~200本</b>（缶 ~4）を帰国用に。<b>ヨドバシ秋葉原では買えない。</b>"},
+  'haul.2':{en:"<b>Shop:</b> <b>Kagaya (かがや)</b> Shinjuku tobacco specialty — <a href=\"https://kagaya-smokeweb.com/\" target=\"_blank\" rel=\"noopener\">kagaya-smokeweb.com</a>. Call/confirm stock for Peace cans before you go; buy on <b>26 Aug</b> (last full Tokyo day) or morning of 27th before bike return / Narita.",
+            ja:"<b>店：</b><b>かがや</b>新宿のタバコ専門 — <a href=\"https://kagaya-smokeweb.com/\" target=\"_blank\" rel=\"noopener\">kagaya-smokeweb.com</a>。ピース缶の在庫を電話確認。<b>8/26</b>（東京の最後の丸1日）か 8/27 朝に購入。"},
+  'haul.3':{en:"<b>Pack:</b> keep sealed; declare if asked. US returning resident allowance is often <b>200 cigarettes</b> duty-free — don’t overbuy without checking current CBP rules.",
+            ja:"<b>梱包：</b>未開封のまま。米国帰国時の免税はだいたい <b>200本</b> — 超過は申告・関税の可能性。"},
   'food.0':{en:"<b>Breakfast default:</b> 7-Eleven — onigiri + natto + shishamo + ice coffee (most mornings).",
             ja:"<b>朝食デフォ：</b>セブン — おにぎり＋納豆＋ししゃも＋アイスコーヒー。"},
   'food.1':{en:"<b>東京 front (3 dinners):</b> <b>28 Jul</b> Moti Roppongi (nostalgia) · <b>29 Jul</b> らぁ麺 牡蠣と貝 (Tsukiji) · <b>30 Jul</b> 陳麻婆豆腐 新宿野村. Tail: Yokohama Chinatown.",
@@ -1260,13 +1274,13 @@ const T = {
   'ak.err6':{en:"Lock / lights / helmet if rental doesn't include", ja:"レンタルに含まれなければ 鍵／ライト／ヘルメット"},
   'ak.dept8':{en:"Restaurants", ja:"レストラン"},
   'ak.err8':{en:"Lunch", ja:"昼食"},
-  'ak.note':{en:"Tax-free: bring passport to the register. Parking B2–B6. <i>Peace cigarettes not sold here</i> — buy at a konbini or tobacco shop (<span class=\"jp\">たばこ</span>).",
-             ja:"免税：レジにパスポートを持参。駐車場は B2〜B6。<i>ピース（煙草）はここでは売っていない</i> — コンビニか<span class=\"jp\">たばこ</span>店で。"},
+  'ak.note':{en:"Tax-free: bring passport to the register. Parking B2–B6. <i>Peace cigarettes not sold here</i> — buy at <b>Kagaya (Shinjuku)</b> before departure (see Logistics → Haul home).",
+             ja:"免税：レジにパスポート。駐車場 B2〜B6。<i>ピースはヨドバシでは非売</i> — 帰国前に新宿・<b>かがや</b>（Logistics「持ち帰り」）。"},
 
   'bike.1':{en:"<b>How:</b> Docomo Bike Share or Hello Cycling apps (e-assist, ~¥1,000–2,000/day, docks at Ebisu &amp; across Shibuya, in-app pay, built-in lock, no helmet), or a full-day bike from CycleTrip (Akihabara) or a local Ebisu shop.",
             ja:"<b>方法：</b>ドコモ・バイクシェア や HELLO CYCLING のアプリ（電動アシスト、約¥1,000〜2,000/日、恵比寿・渋谷各所にポート、アプリ決済、鍵内蔵、ヘルメットなし）、または CycleTrip（秋葉原）や恵比寿の店で1日レンタル。"},
-  'bike.2':{en:"<b>Front (29 Jul):</b> short shakedown around Ebisu. <b>Tail (25 Aug):</b> Yamanote loop (~35 km), dawn start, 33–36°C. <b>(26 Aug):</b> Yokohama Chinatown / waterfront ride.",
-            ja:"<b>前半（7/29）：</b>恵比寿周辺で軽く慣らし走行。<b>後半（8/25）：</b>山手線一周（約35km）、早朝発、33〜36℃。<b>(8/26)：</b>横浜中華街／ウォーターフロント。"},
+  'bike.2':{en:"<b>Front (29 Jul):</b> short shakedown around Ebisu. <b>Tail (25 Aug):</b> Yamanote loop (~35 km), dawn start, 33–36°C — <a href=\"https://maps.app.goo.gl/ZuNKJTLa8C9Rr5G8A\" target=\"_blank\" rel=\"noopener\">Google Maps route</a>. <b>(26 Aug):</b> Yokohama Chinatown / waterfront ride.",
+            ja:"<b>前半（7/29）：</b>恵比寿周辺で慣らし。<b>後半（8/25）：</b>山手一周（約35km）早朝・暑さ注意 — <a href=\"https://maps.app.goo.gl/ZuNKJTLa8C9Rr5G8A\" target=\"_blank\" rel=\"noopener\">Google Maps ルート</a>。<b>(8/26)：</b>横浜中華街／ウォーターフロント。"},
   'bike.3':{en:"<b>Rules:</b> from 1 Apr 2026, cyclists 16+ get \"blue-ticket\" fines — no phone while riding, obey signals, lights at night.",
             ja:"<b>ルール：</b>2026年4月1日から16歳以上の自転車に「青切符」反則金 — ながらスマホ禁止、信号順守、夜はライト点灯。"},
 
@@ -1397,9 +1411,9 @@ const DAYS = {
   '2026-08-22':{cls:'kuma',   label:'Kumamoto', label_ja:'熊本', detail:'Repack — last night. <i>Owner:</i> last days for Sakura cancel-by-25 if not done.', detail_ja:'荷造り — 最終泊。<i>管理者：</i>Sakura 解約 8/25 まで。'},
   '2026-08-23':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'Check out AM → Hakata → return Toyota by <b>20:00</b>. Overnight 9h Hakata. Dinner flexible: Chinese, French, or shameless <b>Saizeriya</b> (Japan-authentic cheap Italian). Fukuoka has strong Chinese + yatai too.', detail_ja:'午前アウト→博多→車20:00返却。9h 博多。夕食：中華・フレンチ or 本気の <b>サイゼリヤ</b>。'},
   '2026-08-24':{cls:'tokyo',  label:'Wabash pickup 1/4', label_ja:'Wabash受取 1/4', detail:'<b>Purpose:</b> start res <b>2607-212</b> (4-day). Nozomi 18 → Shinagawa 14:25 → do-c → CycleTrip ~15:30–17:00. Same <b>WABASH RT L</b>. Bike ¥34,000 + <b>deposit ¥100,000</b> (cash refund faster). If train late vs 17:30, morning 25th.', detail_ja:'<b>目的：</b>予約 2607-212 開始。品川14:25→do-c→CycleTrip。保証金 ¥100,000。'},
-  '2026-08-25':{cls:'tokyo',  label:'Wabash day 2/4', label_ja:'Wabash 2/4', detail:'<b>Purpose:</b> main Yamanote (~35 km) + city on Wabash. Battery at do-c if removable. Konbini breakfast OK.', detail_ja:'<b>目的：</b>山手一周本命＋街。'},
-  '2026-08-26':{cls:'tokyo',  label:'Wabash day 3/4', label_ja:'Wabash 3/4', detail:'<b>Purpose:</b> still on the bike. Yokohama or more Tokyo. Last full free day before Narita.', detail_ja:'<b>目的：</b>自転車継続。横浜 or 東京。'},
-  '2026-08-27':{cls:'cap',    label:'Wabash return 4/4 · NRT', label_ja:'Wabash返却 · 成田', detail:'<b>Purpose:</b> return res <b>2607-212</b> by ~17:00–17:15 → dinner → 9h Narita. Deposit refund if bike OK.', detail_ja:'<b>目的：</b>2607-212 返却 ~17:00–17:15 → 夕食 → 成田9h。保証金返金。'},
+  '2026-08-25':{cls:'tokyo',  label:'Yamanote loop', label_ja:'山手一周', detail:'<b>Purpose:</b> main <b>Yamanote bike loop</b> (~35 km) on Wabash — dawn start, heat 33–36°C. <b>Route:</b> <a href="https://maps.app.goo.gl/ZuNKJTLa8C9Rr5G8A" target="_blank" rel="noopener">Google Maps</a>. Battery at do-c if removable. Konbini breakfast OK.', detail_ja:'<b>目的：</b>山手一周本命（~35 km）。<b>ルート:</b> <a href="https://maps.app.goo.gl/ZuNKJTLa8C9Rr5G8A" target="_blank" rel="noopener">Google Maps</a>。'},
+  '2026-08-26':{cls:'tokyo',  label:'Yokohama · Kagaya', label_ja:'横浜・かがや', detail:'<b>Purpose:</b> still on the bike. Yokohama or more Tokyo. <b>Errand:</b> <b>Kagaya (かがや) Shinjuku</b> — Peace cigarettes ~4 cans / ~200 sticks for haul-home. <a href="https://kagaya-smokeweb.com/" target="_blank" rel="noopener">kagaya-smokeweb.com</a> · confirm stock. Last full free day before Narita.', detail_ja:'<b>目的：</b>自転車継続。横浜 or 東京。<b>買い物：</b>新宿・かがやでピース缶 ~4（~200本）。'},
+  '2026-08-27':{cls:'cap',    label:'Return bike · NRT', label_ja:'返却・成田', detail:'<b>Purpose:</b> return res <b>2607-212</b> by ~17:00–17:15 → dinner → 9h Narita. Deposit refund if bike OK. <b>Peace cans</b> already bought (26th) — pack sealed for cabin/checked per airline rules.', detail_ja:'<b>目的：</b>2607-212 返却 ~17:00–17:15 → 夕食 → 成田9h。ピースは前日購入済みで梱包。'},
   '2026-08-28':{cls:'flight', label:'DEPART NRT', label_ja:'成田発', detail:'<b>Purpose:</b> fly home, no rush. 9h out 10:00. Security when ready → <b>JAL lounge</b> → <b>JL008 18:25</b> T2.', detail_ja:'<b>目的：</b>帰国・急がない。10:00アウト → ラウンジ → JL008 18:25。'}
 };
 const TAG_NAME = {
