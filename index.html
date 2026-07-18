@@ -725,19 +725,20 @@
         <li class="owner-only" data-i18n="car.5"><b>Price (owner):</b> ¥176,550 · free cancel 7+ days before 31 Jul (~through 24 Jul).</li>
       </ul>
 
-      <h3 data-i18n="log.food">Tokyo food goals (flexible)</h3>
+      <h3 data-i18n="log.food">Food notes (flexible)</h3>
       <ul class="tight">
-        <li data-i18n="food.1"><b>陳麻婆豆腐 新宿野村ビル店</b> (Chin Mapo Dofu · Shinjuku Nomura Bldg) — classic Chen-lineage mapo; Shinjuku. Book if possible (busy).</li>
-        <li data-i18n="food.2"><b>らぁ麺 牡蠣と貝</b> (Ramen Oyster &amp; Shell) — Tsukiji; rich Hiroshima-oyster broth ramen. Dinner-friendly first-night energy.</li>
-        <li data-i18n="food.3">Also still on the board: Yokohama Chinatown (trotter / mapo) on the tail.</li>
+        <li data-i18n="food.0"><b>Breakfast default:</b> 7-Eleven — onigiri + natto + shishamo + ice coffee (most mornings).</li>
+        <li data-i18n="food.1"><b>東京:</b> 陳麻婆豆腐 新宿野村ビル · らぁ麺 牡蠣と貝 (Tsukiji) · Yokohama Chinatown on the tail.</li>
+        <li data-i18n="food.2"><b>博多 (23 Aug night):</b> Chinese or French if you find a spot you like; or one <b>Saizeriya</b> meal (peak Japan-chain authenticity). Yatai / Hakata classics also fine.</li>
+        <li data-i18n="food.3"><b>28 Aug:</b> unhurried — JAL lounge after security until JL008 18:25.</li>
       </ul>
 
       <h3 data-i18n="log.bike">Bicycle — CycleTrip BASE Akihabara ✓</h3>
       <ul class="tight">
         <li data-i18n="bike.plan1"><b>Shop:</b> <a href="https://cycletrip.jp/en/" target="_blank" rel="noopener">CycleTrip BASE Akihabara</a> · 2-9 Kanda Sudacho · <code>+81 50-5530-5790</code> · to <b>17:30</b>.</li>
-        <li data-i18n="bike.plan2"><b>Front Tokyo plan:</b> land too late for 28 Jul (shop 17:30). Pickup <b>29 Jul ~09:30</b> · <b>2-day P4 E-Bike</b> (¥13,000) · return <b>30 Jul by 17:30</b> so <b>31 Jul</b> is clear for Nozomi. Confirm removable battery if charging overnight at do-c.</li>
-        <li data-i18n="bike.plan3"><b>Fallback:</b> 1-day only (¥6,500–7,500) if multi-day/battery awkward — open → Yodobashi + Yamanote → same-day return.</li>
-        <li data-i18n="bike.plan4"><b>Email shop</b> first. Optional second block on return Tokyo (24–26 Aug). Listing: <a href="https://cycletrip.jp/ja/detail.html?no=95255" target="_blank" rel="noopener">no=95255</a>.</li>
+        <li data-i18n="bike.plan2"><b>Front:</b> 28 Jul too late. Pickup <b>29 Jul ~09:30</b> · <b>2-day P4</b> (¥13,000) · return <b>30 Jul 17:30</b> (31 Jul = shinkansen only). Removable battery for do-c overnight if needed.</li>
+        <li data-i18n="bike.plan3"><b>Return Tokyo:</b> land Shinagawa <b>14:25</b> on 24 Aug → do-c → optional same-day CycleTrip before 17:30, keep through <b>27 Aug 17:30</b> return (then dinner + 9h Narita). Or start bike 25th if wiped. ~3–4 day P4 (deposit if 4+ days).</li>
+        <li data-i18n="bike.plan4"><b>Email shop</b> for both blocks. Listing: <a href="https://cycletrip.jp/ja/detail.html?no=95255" target="_blank" rel="noopener">no=95255</a>.</li>
         <li data-i18n="bike.plan5"><b>Rules:</b> blue-ticket fines 16+ — no phone while riding, signals, lights at night.</li>
       </ul>
 
@@ -1295,12 +1296,12 @@ const DAYS = {
   '2026-08-20':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Same optional menu. <i>Owner:</i> aim to submit <b>Sakura cancel</b> in My Page around now (by <b>25 Aug</b> for end 31 Aug).', detail_ja:'同・日帰り候補。<i>管理者：</i>この頃に <b>Sakura 解約</b>申請（<b>8/25</b> まで → 8/31 終了）。'},
   '2026-08-21':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Optional long drive day (e.g. Miyazaki coast) or onsen (Kurokawa/Beppu). Weather-dependent.', detail_ja:'ロングドライブ（例：宮崎）or 温泉（黒川／別府）。天候次第。'},
   '2026-08-22':{cls:'kuma',   label:'Kumamoto', label_ja:'熊本', detail:'Repack — last night. <i>Owner:</i> last days for Sakura cancel-by-25 if not done.', detail_ja:'荷造り — 最終泊。<i>管理者：</i>Sakura 解約 8/25 まで。'},
-  '2026-08-23':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'Check out AM → Hakata → return Toyota by <b>20:00</b>. Overnight 9h Hakata.', detail_ja:'午前アウト→博多→車 <b>20:00</b> まで返却。9h 博多。'},
-  '2026-08-24':{cls:'tokyo',  label:'→ Tokyo', label_ja:'東京へ', detail:'<b>SmartEX ✓</b> <b>Nozomi 18</b> Hakata <b>09:36</b> → Shinagawa <b>14:25</b>. Yamanote to Ebisu → <b>do-c Ebisu</b> (confirmed) — first of 3 tail nights.', detail_ja:'<b>SmartEX ✓</b> <b>のぞみ18</b> 博多 <b>09:36</b> → 品川 <b>14:25</b>。山手線で恵比寿 → <b>do-c 恵比寿</b>（確定）— 後半3泊の初日。'},
-  '2026-08-25':{cls:'tokyo',  label:'Yamanote e-bike*', label_ja:'山手e-bike*', detail:'Bike day (part of preferred <b>3-day P4 E-Bike</b> if battery-overnight OK at do-c; else 1-day P3/P4). CycleTrip Akiba · Yamanote ~35 km + city. Fallback: open → ride → return by 17:30. +81 50-5530-5790.', detail_ja:'自転車日（希望は do-c でバッテリー充電可なら <b>3日 P4 E-Bike</b>、ダメなら1日）。CycleTrip 秋葉原 · 山手〜35km。代替：開店→一周→17:30返却。'},
-  '2026-08-26':{cls:'tokyo',  label:'Yokohama / mapo*', label_ja:'横浜／麻婆*', detail:'Yokohama Chinatown / waterfront (bike or Suica). Mapo/trotter goals if not done earlier. Or catch <b>陳麻婆 新宿</b> / <b>牡蠣と貝 築地</b> if missed on the front stay. Last full day.', detail_ja:'横浜中華街／海辺。麻婆・豚足は前半で未了ならここ。or 新宿陳麻婆／築地牡蠣と貝のリベンジ。最後の丸一日。'},
-  '2026-08-27':{cls:'cap',    label:'9h Narita', label_ja:'成田泊', detail:'Check in 9h nine hours Narita Airport (T2, landside).', detail_ja:'9h ナインアワーズ成田空港（第2ターミナル・保安検査前）にチェックイン。'},
-  '2026-08-28':{cls:'flight', label:'DEPART NRT', label_ja:'成田発', detail:'18:25 JL008 → Boston. Capsule checkout 10:00 (no late checkout).', detail_ja:'18:25 JL008 → ボストン。カプセルは10:00チェックアウト（レイトチェックアウト不可）。'}
+  '2026-08-23':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'Check out AM → Hakata → return Toyota by <b>20:00</b>. Overnight 9h Hakata. Dinner flexible: Chinese, French, or shameless <b>Saizeriya</b> (Japan-authentic cheap Italian). Fukuoka has strong Chinese + yatai too.', detail_ja:'午前アウト→博多→車20:00返却。9h 博多。夕食：中華・フレンチ or 本気の <b>サイゼリヤ</b>。'},
+  '2026-08-24':{cls:'tokyo',  label:'→ Tokyo + bike?', label_ja:'東京着＋自転車？', detail:'<b>Nozomi 18</b> Hakata 09:36 → Shinagawa <b>14:25</b>. do-c check-in. If energy: CycleTrip by <b>17:30</b> start of <b>multi-day P4</b> (through 27th). Else rest; bike from 25th morning. Konbini breakfasts still valid.', detail_ja:'のぞみ18 09:36→品川14:25。do-c。元気なら17:30までに CycleTrip で複数日 P4 開始（27返却）。疲れたら休んで25朝から。'},
+  '2026-08-25':{cls:'tokyo',  label:'Yamanote e-bike*', label_ja:'山手e-bike*', detail:'Prime loop / city day on CycleTrip P4 (if multi-day from 24th, or pick up this morning). Yamanote ~35 km, laze + cruise. Battery charge at do-c if removable.', detail_ja:'CycleTrip P4 で山手・街乗り本命（24から借りていれば継続、でなければ今朝受取）。'},
+  '2026-08-26':{cls:'tokyo',  label:'Bike + Yokohama*', label_ja:'自転車＋横浜*', detail:'Still on the bike. Yokohama Chinatown / waterfront or more Tokyo. Last full free day before Narita.', detail_ja:'自転車継続。横浜中華街 or 東京ぶらぶら。成田前の最後の丸一日。'},
+  '2026-08-27':{cls:'cap',    label:'Bike return · 9h NRT', label_ja:'返却・成田泊', detail:'Return CycleTrip by <b>17:30</b> → dinner → <b>9h Narita T2</b> landside. No rush: next day is JAL + lounge.', detail_ja:'CycleTrip <b>17:30</b> まで返却 → 夕食 → <b>9h 成田 T2</b>。翌日 JAL＋ラウンジで余裕。'},
+  '2026-08-28':{cls:'flight', label:'DEPART NRT', label_ja:'成田発', detail:'9h out 10:00. <b>JL008 18:25</b> T2. JAL upgrade lounge — take your time, hang until boarding.', detail_ja:'9h 10:00アウト。<b>JL008 18:25</b>。JALアップグレードラウンジでゆっくり。'}
 };
 const TAG_NAME = {
   en:{tokyo:'Tokyo (do-c)', cap:'Capsule / transit', kanzaki:'Saga — Kanzaki', kashima:'Saga — Kashima', kuma:'Kumamoto', flight:'Flight day'},
