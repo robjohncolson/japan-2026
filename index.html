@@ -739,7 +739,7 @@
         <li data-i18n="bike.plan2"><b>Bike:</b> <b>A-20 YAMAHA WABASH RT L</b> (gravel E-Bike · quoted <b>P5</b>). In stock both blocks. Rider ~113 kg — Yamaha guideline ~100 kg; accept responsibility. Res nos. private.</li>
         <li data-i18n="bike.plan3"><b>Block A 2607-211:</b> <b>29–30 Jul</b> · bike ¥18,000 · no deposit · store pickup. Quote with full options ¥24,950 — trim light upgrade (redundant) + optional insurances.</li>
         <li data-i18n="bike.plan4"><b>Block B 2607-212:</b> <b>24–27 Aug</b> · bike ¥34,000 · <b>deposit ¥100,000</b> (cash = instant refund) · quote w/ options ¥45,750. Pickup after Shinagawa 14:25.</li>
-        <li data-i18n="bike.plan5"><b>Confirm pending:</b> battery+charger for do-c · drop light upgrade? · helmets? · then OK the quote. Cancel: 100% day-of / 50% day-before.</li>
+        <li data-i18n="bike.plan5"><b>⚠ 29 Jul = last Wed of month</b> (shop closed per footer) — confirm reserved pickup OK or shift to 30 Jul 1-day. Bring <b>passport</b>. Coverage optional at counter (theft 10% / damage 20% of fee). Cancel: 100% day-of / 50% day-before. Helmets required by law.</li>
       </ul>
 
       <h3 data-i18n="log.akiba">Akiba day — Thu 30 Jul (Yodobashi Multimedia Akiba)</h3>
@@ -1116,8 +1116,8 @@ const T = {
                 ja:"<b>A 2607-211:</b> <b>7/29–30</b> · 本体 ¥18,000 · 保証金なし。オプション満載だと ¥24,950 — ライト増設は不要の可能性。"},
   'bike.plan4':{en:"<b>Block B 2607-212:</b> <b>24–27 Aug</b> · bike ¥34,000 · <b>deposit ¥100,000</b> (cash = instant refund) · quote w/ options ¥45,750. Pickup after Shinagawa 14:25.",
                 ja:"<b>B 2607-212:</b> <b>8/24–27</b> · 本体 ¥34,000 · <b>保証金 ¥100,000</b>（現金なら即返金）。オプション満載 ¥45,750。"},
-  'bike.plan5':{en:"<b>Confirm pending:</b> battery+charger for do-c · drop light upgrade? · helmets? · then OK the quote. Cancel: 100% day-of / 50% day-before.",
-                ja:"<b>確認待ち：</b>バッテリー＋充電器 · ライト増設削除? · ヘルメット? · その後予約確定。キャンセル：当日100% / 前日50%。"},
+  'bike.plan5':{en:"<b>⚠ 29 Jul = last Wed of month</b> (shop closed per footer) — confirm reserved pickup OK or shift to 30 Jul 1-day. Bring <b>passport</b>. Coverage optional at counter (theft 10% / damage 20% of fee). Cancel: 100% day-of / 50% day-before. Helmets required by law.",
+                ja:"<b>⚠ 7/29は月末水曜</b>（定休の可能性）— 予約受取可否を確認 or 7/30 1日に変更。パスポート持参。保険は任意。ヘルメット義務。"},
   'arr.1':{en:"<b>JL007</b> land ~16:00 · <b>Terminal 2</b>.", ja:"<b>JL007</b> 着 ~16:00 · <b>第2ターミナル</b>。"},
   'arr.2':{en:"<b>Sakura:</b> Arrivals <b>1F · JAL ABC Counter</b> — pickup code / eSIM activation (passport + order email).",
            ja:"<b>Sakura:</b> 到着 <b>1F · JAL ABC</b> — 受取コード / eSIM（パスポート＋注文メール）。"},
@@ -1273,7 +1273,7 @@ function tr(k){ return (T[k] && T[k][lang] != null) ? T[k][lang] : (T[k] ? T[k].
 const DAYS = {
   '2026-07-27':{cls:'flight', label:'DEPART BOS', label_ja:'ボストン発', detail:'13:15 JL007 Boston (Logan, Term. E) → Tokyo Narita. Arrive NRT 16:00 the next day (28th).', detail_ja:'13:15 JL007 ボストン（ローガン空港 ターミナルE）→ 東京・成田。翌7/28 16:00 に成田着。'},
   '2026-07-28':{cls:'tokyo',  label:'Arrive · no bike', label_ja:'到着・自転車なし', detail:'<b>Purpose:</b> land + connect + sleep. JL007 → NRT T2 ~16:00 → Sakura (1F JAL ABC) → Suica → do-c ~18–19:00. CycleTrip open 9:30–17:30 — already closed. Dinner: Chin Mapo <b>or</b> oyster ramen (Tsukiji).', detail_ja:'<b>目的：</b>到着・回線・睡眠。T2~16:00 → Sakura → Suica → do-c。CycleTrip 閉店済み。夕食：陳麻婆 or 牡蠣と貝。'},
-  '2026-07-29':{cls:'tokyo',  label:'Wabash pickup 1/2', label_ja:'Wabash受取 1/2', detail:'<b>Purpose:</b> front bike day 1. Breakfast 7-Eleven. <b>CycleTrip ~09:30</b> — <b>A-20 WABASH RT L</b> · res <b>2607-211</b> · 29–30 Jul · bike ¥18,000 (P5). Return tomorrow ~17:00–17:15. Yodobashi / Yamanote / city. Dinner: mapo or oyster (whichever skipped).', detail_ja:'<b>目的：</b>前半自転車1日目。CycleTrip ~09:30 — <b>WABASH RT L</b> · 予約 2607-211。返却は明日~17:00–17:15。'},
+  '2026-07-29':{cls:'tokyo',  label:'Wabash pickup 1/2', label_ja:'Wabash受取 1/2', detail:'<b>Purpose:</b> front bike day 1. <b>⚠ Last Wed of July — shop may be CLOSED</b> (confirm with Ogawa). If open: ~09:30 CycleTrip — <b>WABASH RT L</b> res <b>2607-211</b>. Passport for ID. Return tomorrow ~17:00–17:15. Dinner: mapo or oyster.', detail_ja:'<b>目的：</b>前半自転車1日目。<b>⚠ 7月最終水曜＝定休の可能性</b>（小川さんに確認）。開いていれば09:30受取 2607-211。パスポート必須。'},
   '2026-07-30':{cls:'tokyo',  label:'Wabash return 2/2', label_ja:'Wabash返却 2/2', detail:'<b>Purpose:</b> full ride + return res <b>2607-211</b> by <b>~17:00–17:15</b> (close 17:30). Casio optional. 31 Jul = Nozomi only.', detail_ja:'<b>目的：</b>走行＋予約 2607-211 を ~17:00–17:15 返却。'},
   '2026-07-31':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'<b>Purpose:</b> Kyushu. <b>No bike.</b> Shinagawa · <b>Nozomi 21 09:37</b> → Hakata ~14:30 → Toyota <b>15:30</b> → coin P + 9h. <i>Owner:</i> R9 Kanzaki free cancel ends <b>tonight 23:59</b>.', detail_ja:'<b>目的：</b>九州へ。<b>自転車なし。</b>のぞみ21 09:37 → トヨタ15:30 → 9h。'},
   '2026-08-01':{cls:'kanzaki',label:'→ Mika’s', label_ja:'Mika宅へ', detail:'Drive rental car Hakata → Kanzaki. Stay at cousin Mika & husband Kentaro’s apartment (nights of 1–2 Aug). No night-game tournament conflict.', detail_ja:'レンタカーで博多→神埼。いとこ Mika と夫 Kentaro のアパートに滞在（8/1〜2 の夜）。ナイトゲーム大会の予定なし。'},
