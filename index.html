@@ -167,6 +167,7 @@
   html.home #todo,
   html.home #logistics,
   html.home #phone,
+  html.home #sleep,
   html.home #share,
   html.home #game{display:none !important}
 
@@ -179,6 +180,7 @@
   html.panel-open #todo,
   html.panel-open #logistics,
   html.panel-open #phone,
+  html.panel-open #sleep,
   html.panel-open #share,
   html.panel-open #game{display:none !important}
   html.panel-open #overview.panel-active,
@@ -188,6 +190,7 @@
   html.panel-open #todo.panel-active,
   html.panel-open #logistics.panel-active,
   html.panel-open #phone.panel-active,
+  html.panel-open #sleep.panel-active,
   html.panel-open #share.panel-active,
   html.panel-open #game.panel-active{display:block !important;margin-top:12px}
 
@@ -596,6 +599,7 @@
     <button type="button" class="drawer-link" data-go="flights" data-i18n="nav.flights">Flights</button>
     <button type="button" class="drawer-link" data-go="lodging" data-i18n="nav.lodging">Lodging</button>
     <button type="button" class="drawer-link" data-go="phone" data-i18n="nav.phone">Phone / SIM</button>
+    <button type="button" class="drawer-link" data-go="sleep" data-i18n="nav.sleep">Sleep / jet lag</button>
     <button type="button" class="drawer-link" data-go="logistics" data-i18n="nav.logistics">Logistics</button>
     <button type="button" class="drawer-link" data-go="game" data-i18n="nav.game">Bobby's game</button>
     <button type="button" class="drawer-link" data-go="share" data-i18n="nav.share">Share</button>
@@ -869,6 +873,49 @@
     </div>
   </section>
 
+  <!-- SLEEP / JET LAG / SUPPLEMENTS -->
+  <section class="block" id="sleep">
+    <h2 data-i18n="h.sleep">Sleep · jet lag · pack list</h2>
+    <div class="body">
+      <p class="note-hint" data-i18n="sl.intro">Boston baseline was ~2:00 a.m.–10:00 a.m. Shift earlier from <b>22 Jul</b>. Not medical advice — practical travel notes only.</p>
+
+      <h3 style="margin-top:0" data-i18n="sl.preH">Pre-shift (Boston, start 22 Jul)</h3>
+      <ul class="tight">
+        <li data-i18n="sl.pre1"><b>22 Jul:</b> bed 1:00 a.m. · wake 9:00 a.m.</li>
+        <li data-i18n="sl.pre2"><b>23 Jul:</b> bed midnight · wake 8:00 a.m.</li>
+        <li data-i18n="sl.pre3"><b>24 Jul:</b> bed 11:30 p.m. · wake 7:30 a.m.</li>
+        <li data-i18n="sl.pre4"><b>25–26 Jul:</b> bed ~11:00 p.m. · wake ~7:00 a.m.</li>
+        <li data-i18n="sl.pre5"><b>Light:</b> outdoor morning light · blue blockers <b>evenings only</b> (not all day).</li>
+      </ul>
+
+      <h3 data-i18n="sl.flyH">JL007 flight sleep (watch → Tokyo at gate)</h3>
+      <ul class="tight">
+        <li data-i18n="sl.fly1"><b>Takeoff:</b> 27 Jul <b>13:15 EDT</b> = Tokyo <b>02:15 JST 28 Jul</b> · land <b>16:00 JST</b>.</li>
+        <li data-i18n="sl.fly2"><b>0–30 min:</b> settle · water · <b>compression socks on</b> · bathroom.</li>
+        <li data-i18n="sl.fly3"><b>~30 min–5.5 h (Tokyo ~02:45–07:45):</b> <b>SLEEP</b> — mask, plugs, blockers if bright · optional melatonin once at start of block.</li>
+        <li data-i18n="sl.fly4"><b>~5.5 h → landing (Tokyo ~07:45–16:00):</b> <b>AWAKE</b> — blockers off · caffeine OK · walk aisle.</li>
+        <li data-i18n="sl.fly5"><b>Land → ~22:00–23:00:</b> stay up (Moti OK) · no long nap · then dark sleep.</li>
+      </ul>
+
+      <h3 data-i18n="sl.hormH">Melatonin / progesterone</h3>
+      <ul class="tight">
+        <li data-i18n="sl.horm1"><b>Melatonin:</b> OK for pre-shift nights + once at start of plane sleep if you already tolerate it.</li>
+        <li data-i18n="sl.horm2"><b>Progesterone:</b> only if already on your usual protocol — don’t start/escalate just for the flight.</li>
+      </ul>
+
+      <h3 data-i18n="sl.packH">30-day bare pack (minerals / Peat-ish)</h3>
+      <ul class="tight">
+        <li data-i18n="sl.pack1"><b>1.</b> Magnesium (threonate if sleep focus)</li>
+        <li data-i18n="sl.pack2"><b>2–3.</b> Vitamin E + Vitamin C</li>
+        <li data-i18n="sl.pack3"><b>4.</b> Aspirin (your usual low dose)</li>
+        <li data-i18n="sl.pack4"><b>5.</b> TTFD (thiamine)</li>
+        <li data-i18n="sl.pack5"><b>Optional:</b> zinc bisglycinate · calcium from food (tofu/sesame/fish) if possible</li>
+        <li data-i18n="sl.pack6"><b>Skip packing:</b> boron · vitamin A pills (food/liver when found) · anything not daily at home</li>
+      </ul>
+      <p class="note-hint" data-i18n="sl.foot">Japan food often covers fish/iodine/salt; mag + E/C + aspirin + TTFD is the core airlift. Original bottles · carry-on for the flight half.</p>
+    </div>
+  </section>
+
   <!-- SHARE / QR -->
   <section class="block" id="share">
     <h2 data-i18n="h.share">Open on your phone</h2>
@@ -1087,7 +1134,45 @@ const T = {
   'nav.todo':    {en:"To-do (owner)", ja:"やること（管理者）"},
   'nav.logistics':{en:"Logistics", ja:"移動・買い物"},
   'nav.phone':   {en:"Phone / SIM", ja:"携帯 / SIM"},
+  'nav.sleep':   {en:"Sleep / jet lag", ja:"睡眠・時差"},
   'nav.share':   {en:"Share", ja:"共有"},
+  'h.sleep':     {en:"Sleep · jet lag · pack list", ja:"睡眠・時差・荷物リスト"},
+  'sl.intro':{en:"Boston baseline was ~2:00 a.m.–10:00 a.m. Shift earlier from <b>22 Jul</b>. Not medical advice — practical travel notes only.",
+             ja:"ボストンでは ~2:00–10:00。 <b>7/22</b> から前倒し。医療助言ではなく旅行メモ。"},
+  'sl.preH':{en:"Pre-shift (Boston, start 22 Jul)", ja:"前倒し（ボストン・7/22〜）"},
+  'sl.pre1':{en:"<b>22 Jul:</b> bed 1:00 a.m. · wake 9:00 a.m.", ja:"<b>7/22:</b> 就寝 1:00 · 起床 9:00"},
+  'sl.pre2':{en:"<b>23 Jul:</b> bed midnight · wake 8:00 a.m.", ja:"<b>7/23:</b> 就寝 0:00 · 起床 8:00"},
+  'sl.pre3':{en:"<b>24 Jul:</b> bed 11:30 p.m. · wake 7:30 a.m.", ja:"<b>7/24:</b> 就寝 23:30 · 起床 7:30"},
+  'sl.pre4':{en:"<b>25–26 Jul:</b> bed ~11:00 p.m. · wake ~7:00 a.m.", ja:"<b>7/25–26:</b> 就寝 ~23:00 · 起床 ~7:00"},
+  'sl.pre5':{en:"<b>Light:</b> outdoor morning light · blue blockers <b>evenings only</b> (not all day).",
+             ja:"<b>光：</b>朝は屋外光 · ブルーライト眼鏡は <b>夜だけ</b>。"},
+  'sl.flyH':{en:"JL007 flight sleep (watch → Tokyo at gate)", ja:"JL007 機内睡眠（ゲートで時計を東京へ）"},
+  'sl.fly1':{en:"<b>Takeoff:</b> 27 Jul <b>13:15 EDT</b> = Tokyo <b>02:15 JST 28 Jul</b> · land <b>16:00 JST</b>.",
+             ja:"<b>離陸:</b> 7/27 <b>13:15 EDT</b> ＝ 東京 <b>7/28 02:15</b> · 到着 <b>16:00</b>。"},
+  'sl.fly2':{en:"<b>0–30 min:</b> settle · water · <b>compression socks on</b> · bathroom.",
+             ja:"<b>0–30分:</b> 落ち着く · 水 · <b>着圧ソックス</b> · トイレ。"},
+  'sl.fly3':{en:"<b>~30 min–5.5 h (Tokyo ~02:45–07:45):</b> <b>SLEEP</b> — mask, plugs, blockers if bright · optional melatonin once at start of block.",
+             ja:"<b>~30分–5.5時間（東京 ~02:45–07:45）:</b> <b>睡眠</b> — アイマスク・耳栓 · 必要ならメラトニン1回。"},
+  'sl.fly4':{en:"<b>~5.5 h → landing (Tokyo ~07:45–16:00):</b> <b>AWAKE</b> — blockers off · caffeine OK · walk aisle.",
+             ja:"<b>~5.5時間〜到着（東京 ~07:45–16:00）:</b> <b>起きている</b> — カフェインOK · 通路を歩く。"},
+  'sl.fly5':{en:"<b>Land → ~22:00–23:00:</b> stay up (Moti OK) · no long nap · then dark sleep.",
+             ja:"<b>到着〜22–23時:</b> 起き続ける（モティ可）· 長時間仮眠なし · 暗くして寝る。"},
+  'sl.hormH':{en:"Melatonin / progesterone", ja:"メラトニン / プロゲステロン"},
+  'sl.horm1':{en:"<b>Melatonin:</b> OK for pre-shift nights + once at start of plane sleep if you already tolerate it.",
+              ja:"<b>メラトニン:</b> 前倒しの夜＋機内睡眠ブロック開始時に1回（慣れている人）。"},
+  'sl.horm2':{en:"<b>Progesterone:</b> only if already on your usual protocol — don’t start/escalate just for the flight.",
+              ja:"<b>プロゲステロン:</b> いつもの用法のみ — フライトのために新規開始・増量しない。"},
+  'sl.packH':{en:"30-day bare pack (minerals / Peat-ish)", ja:"30日分の最小荷物（ミネラル等）"},
+  'sl.pack1':{en:"<b>1.</b> Magnesium (threonate if sleep focus)", ja:"<b>1.</b> マグネシウム（睡眠重視ならスレオネート）"},
+  'sl.pack2':{en:"<b>2–3.</b> Vitamin E + Vitamin C", ja:"<b>2–3.</b> ビタミンE ＋ C"},
+  'sl.pack3':{en:"<b>4.</b> Aspirin (your usual low dose)", ja:"<b>4.</b> アスピリン（いつもの低用量）"},
+  'sl.pack4':{en:"<b>5.</b> TTFD (thiamine)", ja:"<b>5.</b> TTFD（チアミン）"},
+  'sl.pack5':{en:"<b>Optional:</b> zinc bisglycinate · calcium from food (tofu/sesame/fish) if possible",
+              ja:"<b>任意:</b> 亜鉛 · カルシウムは食事（豆腐・ごま・魚）優先"},
+  'sl.pack6':{en:"<b>Skip packing:</b> boron · vitamin A pills (food/liver when found) · anything not daily at home",
+              ja:"<b>持たない:</b> ホウ素 · A剤（食事で）· 普段飲まないもの"},
+  'sl.foot':{en:"Japan food often covers fish/iodine/salt; mag + E/C + aspirin + TTFD is the core airlift. Original bottles · carry-on for the flight half.",
+             ja:"日本食で魚・ヨウ素・塩は足りやすい。マグ＋E/C＋アスピリン＋TTFDが核心。元のボトルで機内持ち込み。"},
   'nav.game':    {en:"Bobby's game", ja:"ボビーのゲーム"},
   'nav.menu':    {en:"Menu", ja:"メニュー"},
   'nav.menuAria':{en:"Open menu", ja:"メニューを開く"},
@@ -1938,10 +2023,10 @@ function setView(v){
 }
 
 /* ---------- Menu drawer + detail panels (calendar is home) ---------- */
-const PANEL_IDS = ['overview','board','flights','lodging','todo','phone','logistics','share','game'];
+const PANEL_IDS = ['overview','board','flights','lodging','todo','phone','sleep','logistics','share','game'];
 const PANEL_TITLES = {
   overview:'h.overview', board:'h.board', flights:'h.flights', lodging:'h.lodging',
-  todo:'h.todo', phone:'h.phone', logistics:'h.logistics', share:'h.share', game:'h.game'
+  todo:'h.todo', phone:'h.phone', sleep:'h.sleep', logistics:'h.logistics', share:'h.share', game:'h.game'
 };
 let activePanel = null;
 
