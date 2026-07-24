@@ -9007,5 +9007,53 @@
     "vault": "food/shinga-edogawabashi.md",
     "kind": "food",
     "far": false
+  },
+  {
+    "id": "juxiangyuan-kameido",
+    "name_en": "Juxiangyuan (Juxiangyen)",
+    "name_ja": "聚香園 / 聚香园",
+    "one_liner": "Yanbian Chinese · bone-in lamb + glass-noodle sandpot · garlic pickle dip · also Yanbian cold noodles",
+    "one_liner_ja": "延辺中華 · 羊腿粉丝砂锅（骨付き羊肉・春雨）· にんにく漬け · エンベン冷麺",
+    "address": "東京都江東区亀戸5-15-2",
+    "addr_geo": "江東区亀戸5-15-2",
+    "plus_code": null,
+    "lat": 35.699861,
+    "lng": 139.825847,
+    "hubs": [
+      "daytrip-east",
+      "other"
+    ],
+    "tags": [
+      "chinese",
+      "yanbian",
+      "lamb",
+      "sandpot",
+      "cold-noodles",
+      "lunch",
+      "dinner"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "03-6687-7268",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "note": "Daily; food/drink L.O. ~23:00. Cash/QR; card often no. Confirm day-of.",
+      "weekly": {
+        "mon": [["11:00", "23:30"]],
+        "tue": [["11:00", "23:30"]],
+        "wed": [["11:00", "23:30"]],
+        "thu": [["11:00", "23:30"]],
+        "fri": [["11:00", "23:30"]],
+        "sat": [["11:00", "23:30"]],
+        "sun": [["11:00", "23:30"]]
+      },
+      "closed": [],
+      "approx": true
+    },
+    "maps_query": "聚香園 亀戸 5-15-2",
+    "needs": [],
+    "vault": "food/juxiangyuan-kameido.md",
+    "kind": "food",
+    "far": true
   }
 ]
