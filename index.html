@@ -166,6 +166,7 @@
   html.home #lodging,
   html.home #todo,
   html.home #logistics,
+  html.home #koko,
   html.home #phone,
   html.home #sleep,
   html.home #share,
@@ -179,6 +180,7 @@
   html.panel-open #lodging,
   html.panel-open #todo,
   html.panel-open #logistics,
+  html.panel-open #koko,
   html.panel-open #phone,
   html.panel-open #sleep,
   html.panel-open #share,
@@ -189,6 +191,7 @@
   html.panel-open #lodging.panel-active,
   html.panel-open #todo.panel-active,
   html.panel-open #logistics.panel-active,
+  html.panel-open #koko.panel-active,
   html.panel-open #phone.panel-active,
   html.panel-open #sleep.panel-active,
   html.panel-open #share.panel-active,
@@ -568,6 +571,72 @@
     padding:8px 12px;margin:0 0 12px;font-size:13px;font-weight:700;
   }
   html.owner #ownerBanner.show{display:block}
+
+  /* ここどこ? — food map panel */
+  #koko .body{padding:12px 12px 16px}
+  .koko-banner{
+    background:#fff3cd;border:1px solid #b8860b;border-radius:2px;
+    padding:7px 10px;margin:0 0 10px;font-size:12px;font-weight:700;color:#5a4500;
+  }
+  .koko-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:6px}
+  #koko-geobtn{min-height:40px;padding:9px 16px;font-weight:700}
+  .koko-geohint{font-size:12px;color:var(--soft);margin:0 0 8px;display:none;line-height:1.4}
+  .koko-search{
+    width:100%;box-sizing:border-box;font-family:var(--f-head);font-size:13px;
+    border:1px solid var(--black);border-radius:500px;padding:10px 14px;margin-bottom:8px;
+    background:var(--white);color:var(--black);
+  }
+  .koko-search:focus-visible{outline:2px dotted var(--black);outline-offset:2px}
+  .koko-filters{
+    display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding:2px 0 9px;margin-bottom:8px;white-space:nowrap;
+    border-bottom:1px solid var(--stripe-dark);
+  }
+  .koko-chip{
+    flex:0 0 auto;font-family:var(--f-head);font-size:12px;
+    background:var(--white);color:var(--black);border:1px solid var(--black);
+    border-radius:500px;padding:8px 14px;cursor:pointer;min-height:40px;
+  }
+  .koko-chip:focus-visible{outline:2px dotted var(--black);outline-offset:2px}
+  .koko-chip-on{background:var(--black);color:var(--white)}
+  .koko-chip-sep{flex:0 0 auto;width:1px;align-self:stretch;background:var(--stripe-dark);margin:4px 2px}
+  .koko-status-line{font-size:13px;color:var(--soft);margin:4px 0 8px;display:none}
+  .koko-count{font-size:12px;color:var(--soft);margin:0 0 8px;font-weight:700}
+  .koko-list{display:flex;flex-direction:column;gap:10px}
+  .koko-row{
+    background:var(--white);border:1px solid var(--black);border-radius:2px;
+    box-shadow:1px 1px 0 0 var(--black);padding:10px 12px;
+  }
+  .koko-row-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .koko-name-wrap{display:flex;flex-direction:column;min-width:0}
+  .koko-name{font-family:var(--f-head);font-weight:700;font-size:15px;line-height:1.25}
+  .koko-name-sub{font-size:11px;color:var(--soft);margin-top:1px}
+  .koko-badge{
+    flex:0 0 auto;font-size:11px;font-weight:700;border-radius:500px;
+    padding:3px 9px;border:1px solid var(--black);white-space:nowrap;
+  }
+  .koko-badge-open{background:#1b5e20;color:#fff;border-color:#1b5e20}
+  .koko-badge-closed{background:var(--platinum);color:#5a5a5a}
+  .koko-badge-unknown{background:var(--white);color:var(--soft)}
+  .koko-oneliner{font-size:13px;margin:6px 0 0;line-height:1.4}
+  .koko-meta{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px;font-size:12px}
+  .koko-dist{font-weight:700;font-variant-numeric:tabular-nums}
+  .koko-hours{color:var(--soft)}
+  .koko-addr{font-size:11px;color:var(--soft);margin-top:4px;line-height:1.4}
+  .koko-hubs{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+  .koko-hubchip{
+    font-size:11px;background:var(--platinum);border:1px solid var(--plat-lo);
+    border-radius:500px;padding:2px 8px;color:var(--black);
+  }
+  .koko-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+  .koko-act{min-height:40px;display:inline-flex;align-items:center;text-decoration:none}
+  .koko-status-btn{font-weight:700}
+  .koko-st-btn-done{background:#1b5e20;color:#fff;border-color:#1b5e20}
+  .koko-st-btn-skip{background:var(--platinum)}
+  .koko-row.koko-st-done{opacity:.62}
+  .koko-row.koko-st-skip .koko-name{text-decoration:line-through}
+  .koko-empty{font-size:13px;color:var(--soft);text-align:center;padding:16px 0}
+  .koko-retry{margin-left:8px}
 </style>
 </head>
 <body>
@@ -601,6 +670,7 @@
     <button type="button" class="drawer-link" data-go="phone" data-i18n="nav.phone">Phone / SIM</button>
     <button type="button" class="drawer-link" data-go="sleep" data-i18n="nav.sleep">Sleep / jet lag</button>
     <button type="button" class="drawer-link" data-go="logistics" data-i18n="nav.logistics">Logistics</button>
+    <button type="button" class="drawer-link" data-go="koko" data-i18n="nav.koko">ここどこ?</button>
     <button type="button" class="drawer-link" data-go="game" data-i18n="nav.game">Bobby's game</button>
     <button type="button" class="drawer-link" data-go="share" data-i18n="nav.share">Share</button>
     <button type="button" class="drawer-link owner-only" data-go="todo" data-i18n="nav.todo">To-do (owner)</button>
@@ -1005,6 +1075,23 @@
     </div>
   </section>
 
+  <!-- ここどこ? — food map (lazy-loaded from food-places.json) -->
+  <section class="block" id="koko">
+    <h2 data-i18n="h.koko">ここどこ? · Food map</h2>
+    <div class="body">
+      <div class="koko-banner" data-i18n="koko.approxBanner">⚠ Hours are approximate — always confirm day-of</div>
+      <div class="koko-controls">
+        <button type="button" class="s7btn" id="koko-geobtn">📍 Show distances from me</button>
+      </div>
+      <div class="koko-geohint" id="koko-geohint"></div>
+      <input type="search" class="koko-search" id="koko-search" data-i18n-ph="koko.searchPh" placeholder="Search food, place, tag…" autocomplete="off">
+      <div class="koko-filters" id="koko-filters" role="group" data-i18n-aria="koko.filtersAria" aria-label="Filters"></div>
+      <div class="koko-status-line" id="koko-status" role="status"></div>
+      <div class="koko-count" id="koko-count"></div>
+      <div class="koko-list" id="koko-list"></div>
+    </div>
+  </section>
+
   <footer>
     <div data-i18n="foot.txt">Japan 2026 · built from the planning thread · details may change</div>
     <button id="adminBtn" type="button">🔒 Owner</button>
@@ -1198,6 +1285,35 @@ const T = {
   'nav.phone':   {en:"Phone / SIM", ja:"携帯 / SIM"},
   'nav.sleep':   {en:"Sleep / jet lag", ja:"睡眠・時差"},
   'nav.share':   {en:"Share", ja:"共有"},
+  'nav.koko':    {en:"ここどこ?", ja:"ここどこ？"},
+
+  /* ここどこ? — food map */
+  'h.koko':            {en:"ここどこ? · Food map", ja:"ここどこ？ 食べ物マップ"},
+  'koko.approxBanner': {en:"⚠ Hours are approximate — always confirm day-of", ja:"⚠ 営業時間は目安です。当日必ず確認を"},
+  'koko.showDist':     {en:"Show distances from me", ja:"現在地から距離を表示"},
+  'koko.updateDist':   {en:"update distances", ja:"距離を更新"},
+  'koko.locating':     {en:"📍 Locating…", ja:"📍 現在地を取得中…"},
+  'koko.geoHint':      {en:"Enable location to sort by distance", ja:"位置情報を許可すると距離順に並びます"},
+  'koko.searchPh':     {en:"Search food, place, tag…", ja:"料理・店名・タグで検索…"},
+  'koko.filtersAria':  {en:"Filters", ja:"フィルター"},
+  'koko.loading':      {en:"Loading places…", ja:"読み込み中…"},
+  'koko.loadErr':      {en:"Couldn't load places.", ja:"一覧を読み込めませんでした。"},
+  'koko.retry':        {en:"Retry", ja:"再試行"},
+  'koko.all':          {en:"All", ja:"すべて"},
+  'koko.openNow':      {en:"Open now", ja:"営業中"},
+  'koko.want':         {en:"Want", ja:"行きたい"},
+  'koko.doneChip':     {en:"Done", ja:"済"},
+  'koko.skip':         {en:"Skip", ja:"見送り"},
+  'koko.places':       {en:"places", ja:"軒"},
+  'koko.doneCount':    {en:"done", ja:"済"},
+  'koko.noMatch':      {en:"No matches — try clearing a filter.", ja:"該当なし — フィルターを外してみてください。"},
+  'koko.maps':         {en:"Maps", ja:"地図"},
+  'koko.call':         {en:"Call", ja:"電話"},
+  'koko.open':         {en:"Open", ja:"営業中"},
+  'koko.closed':       {en:"Closed", ja:"休業"},
+  'koko.unknown':      {en:"Hours unknown", ja:"営業時間不明"},
+  'koko.closedToday':  {en:"Closed today", ja:"本日休業"},
+  'koko.emptyData':    {en:"No places yet — check back soon.", ja:"まだ登録がありません。"},
   'h.sleep':     {en:"Sleep · jet lag · pack list", ja:"睡眠・時差・荷物リスト"},
   'sl.intro':{en:"Boston baseline was ~2:00 a.m.–10:00 a.m. Shift earlier from <b>22 Jul</b>. Not medical advice — practical travel notes only.",
              ja:"ボストンでは ~2:00–10:00。 <b>7/22</b> から前倒し。医療助言ではなく旅行メモ。"},
@@ -1834,6 +1950,7 @@ function setLang(l){
   if(activePanel && PANEL_TITLES[activePanel]){
     document.getElementById('panelLabel').textContent = tr(PANEL_TITLES[activePanel]);
   }
+  if(kokoInited) renderKoko();
   if(currentDay){ setModalHeader(currentDay); renderNotes(); }
 }
 
@@ -2207,10 +2324,10 @@ function setView(v){
 }
 
 /* ---------- Menu drawer + detail panels (calendar is home) ---------- */
-const PANEL_IDS = ['overview','board','flights','lodging','todo','phone','sleep','logistics','share','game'];
+const PANEL_IDS = ['overview','board','flights','lodging','todo','phone','sleep','logistics','koko','share','game'];
 const PANEL_TITLES = {
   overview:'h.overview', board:'h.board', flights:'h.flights', lodging:'h.lodging',
-  todo:'h.todo', phone:'h.phone', sleep:'h.sleep', logistics:'h.logistics', share:'h.share', game:'h.game'
+  todo:'h.todo', phone:'h.phone', sleep:'h.sleep', logistics:'h.logistics', koko:'h.koko', share:'h.share', game:'h.game'
 };
 let activePanel = null;
 
@@ -2243,6 +2360,7 @@ function openPanel(id){
   const titleKey = PANEL_TITLES[id];
   document.getElementById('panelLabel').textContent = titleKey ? tr(titleKey) : id;
   try{ history.replaceState(null,'','#'+id); }catch(e){}
+  if(id === 'koko') initKoko();
   window.scrollTo(0,0);
 }
 function goHome(){
@@ -2266,6 +2384,455 @@ function handleHash(){
   if(PANEL_IDS.indexOf(id) !== -1) openPanel(id);
 }
 window.addEventListener('hashchange', handleHash);
+
+/* ---------- ここどこ? — food map panel (lazy) ---------- */
+const HUB_META = {
+  'doc-ebisu':{en:'Ebisu (base)',ja:'恵比寿(拠点)'},
+  'meguro':{en:'Meguro / Gotanda',ja:'目黒・五反田'},
+  'shinjuku':{en:'Shinjuku',ja:'新宿'},
+  'shibuya-harajuku':{en:'Shibuya / Harajuku',ja:'渋谷・原宿'},
+  'tokyo-stn':{en:'Tokyo Station',ja:'東京駅'},
+  'ginza-nihonbashi':{en:'Ginza / Nihonbashi / Tsukiji',ja:'銀座・日本橋・築地'},
+  'jimbocho-kagurazaka':{en:'Jimbocho / Kagurazaka',ja:'神保町・神楽坂'},
+  'asakusa':{en:'Asakusa / Ueno',ja:'浅草・上野'},
+  'ikebukuro':{en:'Ikebukuro',ja:'池袋'},
+  'kamata-omori':{en:'Kamata / Omori',ja:'蒲田・大森'},
+  'yokohama':{en:'Yokohama',ja:'横浜'},
+  'kichijoji-koenji-nishiogi':{en:'Chuo Line West',ja:'中央線西側'},
+  'daytrip-north':{en:'Day trip N',ja:'日帰り北'},
+  'daytrip-east':{en:'Day trip E',ja:'日帰り東'},
+  'daytrip-west':{en:'Day trip W',ja:'日帰り西'},
+  'kyushu':{en:'Kyushu',ja:'九州'},
+  'other':{en:'Other',ja:'その他'}
+};
+const HUB_ORDER = Object.keys(HUB_META);
+const KOKO_DOW = ['sun','mon','tue','wed','thu','fri','sat'];
+const KOKO_PRI = {high:0, medium:1, low:2};
+
+let kokoData = null;         // parsed array (module cache)
+let kokoInited = false;      // panel opened at least once
+let kokoWired = false;       // static listeners bound
+let kokoLoading = false;
+let kokoLoadErr = false;
+let kokoCoords = null;       // {lat,lng} once GPS granted
+let kokoGeoState = 'idle';   // idle|locating|ok|denied|unavailable
+let kokoHubFilter = 'all';
+let kokoOpenNowOnly = false;
+let kokoStatusShow = {want:true, done:true, skip:false};
+let kokoQuery = '';
+let kokoStatusOverrides = (function(){
+  try{ return JSON.parse(localStorage.getItem('japan_koko_status') || '{}') || {}; }
+  catch(e){ return {}; }
+})();
+
+function saveKokoStatus(){
+  try{ localStorage.setItem('japan_koko_status', JSON.stringify(kokoStatusOverrides)); }catch(e){}
+}
+function kokoStatusFor(row){
+  const o = kokoStatusOverrides[row.id];
+  if(o === 'want' || o === 'done' || o === 'skip') return o;
+  return (row.status === 'done' || row.status === 'skip') ? row.status : 'want';
+}
+function cycleKokoStatus(id){
+  const r = (kokoData || []).find(function(x){ return x.id === id; });
+  const cur = r ? kokoStatusFor(r) : 'want';
+  const next = cur === 'want' ? 'done' : (cur === 'done' ? 'skip' : 'want');
+  kokoStatusOverrides[id] = next;
+  saveKokoStatus();
+  renderKoko();
+}
+
+/* haversine — meters */
+function kokoHaversine(lat1, lon1, lat2, lon2){
+  const R = 6371000, toRad = function(d){ return d * Math.PI / 180; };
+  const dLat = toRad(lat2 - lat1), dLon = toRad(lon2 - lon1);
+  const a = Math.sin(dLat/2)*Math.sin(dLat/2) +
+            Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*Math.sin(dLon/2)*Math.sin(dLon/2);
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(a)));
+}
+function kokoFmtDist(m){
+  if(m == null) return '—';
+  if(m < 1000) return Math.round(m) + ' m';
+  return (m/1000).toFixed(1) + ' km';
+}
+function kokoDistOf(row){
+  if(!kokoCoords || row.lat == null || row.lng == null) return null;
+  return kokoHaversine(kokoCoords.lat, kokoCoords.lng, row.lat, row.lng);
+}
+
+/* open-now — always evaluated in Asia/Tokyo regardless of device tz */
+function kokoTokyoNow(){
+  try{
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone:'Asia/Tokyo', weekday:'short', hour:'2-digit', minute:'2-digit', hour12:false
+    }).formatToParts(new Date());
+    let wd = '', hh = '0', mm = '0';
+    parts.forEach(function(p){
+      if(p.type === 'weekday') wd = p.value;
+      else if(p.type === 'hour') hh = p.value;
+      else if(p.type === 'minute') mm = p.value;
+    });
+    const map = {Sun:'sun',Mon:'mon',Tue:'tue',Wed:'wed',Thu:'thu',Fri:'fri',Sat:'sat'};
+    let h = parseInt(hh, 10); if(h === 24) h = 0;   // hour12:false can emit '24'
+    return { dow: map[wd] || 'mon', min: h*60 + parseInt(mm,10) };
+  }catch(e){
+    // never device-local — derive Tokyo (UTC+9) from epoch math read via getUTC*
+    const d = new Date(Date.now() + 9*3600*1000);
+    return { dow: KOKO_DOW[d.getUTCDay()], min: d.getUTCHours()*60 + d.getUTCMinutes() };
+  }
+}
+function kokoTokyoDateStr(){
+  try{ return new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Tokyo', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date()); }
+  catch(e){
+    // never device-local — Tokyo (UTC+9) calendar date via epoch math
+    const d = new Date(Date.now() + 9*3600*1000);
+    return d.getUTCFullYear() + '-' + String(d.getUTCMonth()+1).padStart(2,'0') + '-' + String(d.getUTCDate()).padStart(2,'0');
+  }
+}
+function kokoParseHM(s){
+  const m = /^(\d{1,2}):(\d{2})$/.exec(String(s == null ? '' : s).trim());
+  return m ? (parseInt(m[1],10)*60 + parseInt(m[2],10)) : null;
+}
+function kokoPrevDow(dow){
+  const i = KOKO_DOW.indexOf(dow);
+  return KOKO_DOW[(i + 6) % 7];
+}
+/* closed_ranges — OPTIONAL machine field: array of inclusive ["YYYY-MM-DD","YYYY-MM-DD"]
+   Asia/Tokyo date ranges the venue is closed/ended regardless of the weekly windows
+   (renovation closures, limited pop-up runs). String compare, inclusive both ends.
+   NOTE: hours.closed is display-only prose (full day names / sentences) and is NEVER
+   consumed by open-now — regular weekly closures are encoded as empty day arrays. */
+function kokoInClosedRange(h){
+  if(!h || !Array.isArray(h.closed_ranges) || !h.closed_ranges.length) return false;
+  const today = kokoTokyoDateStr();
+  if(!today) return false;
+  for(let i=0;i<h.closed_ranges.length;i++){
+    const r = h.closed_ranges[i];
+    if(Array.isArray(r) && r.length === 2 &&
+       typeof r[0] === 'string' && typeof r[1] === 'string' &&
+       today >= r[0] && today <= r[1]) return true;
+  }
+  return false;
+}
+function kokoOpenState(row){
+  const h = row.hours;
+  if(!h) return 'unknown';
+  if(kokoInClosedRange(h)) return 'closed';      // active range overrides weekly, even weekly:null
+  if(h.weekly == null) return 'unknown';
+  const now = kokoTokyoNow();
+  const today = h.weekly[now.dow] || [];
+  for(let i=0;i<today.length;i++){
+    const s = kokoParseHM(today[i][0]), e = kokoParseHM(today[i][1]);
+    if(s != null && e != null && now.min >= s && now.min < e) return 'open';
+  }
+  // yesterday windows that spill past midnight (end > 24:00) still cover early today
+  const yest = h.weekly[kokoPrevDow(now.dow)] || [];
+  for(let i=0;i<yest.length;i++){
+    const e = kokoParseHM(yest[i][1]);
+    if(e != null && e > 1440 && now.min < (e - 1440)) return 'open';
+  }
+  return 'closed';
+}
+function kokoFmtWindow(startMin, endMin){
+  const fmt = function(x){
+    let day = 0;
+    while(x >= 1440){ x -= 1440; day++; }
+    return String(Math.floor(x/60)).padStart(2,'0') + ':' + String(x%60).padStart(2,'0') + (day > 0 ? '+' + day : '');
+  };
+  return fmt(startMin) + '–' + fmt(endMin);
+}
+function kokoHoursSummary(row){
+  const h = row.hours;
+  if(kokoInClosedRange(h)) return (h && h.note) ? h.note : tr('koko.closedToday');
+  if(!h || h.weekly == null) return (h && h.note) ? h.note : tr('koko.unknown');
+  const now = kokoTokyoNow();
+  const today = h.weekly[now.dow] || [];
+  if(!today.length) return h.note || tr('koko.closedToday');
+  const parts = today.map(function(w){
+    const s = kokoParseHM(w[0]), e = kokoParseHM(w[1]);
+    return (s != null && e != null) ? kokoFmtWindow(s, e) : null;
+  }).filter(Boolean);
+  let out = parts.join(', ');
+  if(h.approx) out = '≈ ' + out;
+  return out;
+}
+
+/* geolocation — only after an explicit tap */
+function requestKokoGeo(){
+  if(!navigator.geolocation){ kokoGeoState = 'unavailable'; renderKoko(); return; }
+  kokoGeoState = 'locating'; renderKoko();
+  navigator.geolocation.getCurrentPosition(function(pos){
+    kokoCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+    kokoGeoState = 'ok'; renderKoko();
+  }, function(err){
+    // a failed/denied refresh must not keep sorting by a stale fix: drop coords so
+    // distances clear, the button reverts to "show distances", and the list falls
+    // back to hub→priority→name ordering (all handled by renderKoko when state!=='ok')
+    kokoCoords = null;
+    kokoGeoState = (err && err.code === 1) ? 'denied' : 'unavailable';
+    renderKoko();
+  }, { enableHighAccuracy:false, timeout:10000, maximumAge:60000 });
+}
+
+/* filter + sort */
+function kokoHubIndex(r){
+  let best = HUB_ORDER.length;
+  (Array.isArray(r.hubs) ? r.hubs : []).forEach(function(hb){
+    const i = HUB_ORDER.indexOf(hb);
+    if(i !== -1 && i < best) best = i;
+  });
+  return best;
+}
+function kokoSortRows(rows){
+  if(kokoCoords){
+    return rows.sort(function(a,b){
+      const da = kokoDistOf(a), db = kokoDistOf(b);
+      if(da == null && db == null) return (a.name_en||'').localeCompare(b.name_en||'');
+      if(da == null) return 1;
+      if(db == null) return -1;
+      return da - db;
+    });
+  }
+  return rows.sort(function(a,b){
+    const hi = kokoHubIndex(a) - kokoHubIndex(b);
+    if(hi) return hi;
+    const pa = KOKO_PRI[a.priority] != null ? KOKO_PRI[a.priority] : 1;
+    const pb = KOKO_PRI[b.priority] != null ? KOKO_PRI[b.priority] : 1;
+    if(pa !== pb) return pa - pb;
+    return (a.name_en||'').localeCompare(b.name_en||'');
+  });
+}
+function kokoVisibleRows(){
+  let rows = (kokoData || []).slice();
+  rows = rows.filter(function(r){ return kokoStatusShow[kokoStatusFor(r)]; });
+  if(kokoHubFilter !== 'all'){
+    rows = rows.filter(function(r){ return Array.isArray(r.hubs) && r.hubs.indexOf(kokoHubFilter) !== -1; });
+  }
+  if(kokoOpenNowOnly){
+    rows = rows.filter(function(r){ return kokoOpenState(r) === 'open'; });
+  }
+  const q = kokoQuery.trim().toLowerCase();
+  if(q){
+    rows = rows.filter(function(r){
+      const hay = [r.name_en, r.name_ja, r.one_liner, r.one_liner_ja]
+        .concat(Array.isArray(r.tags) ? r.tags : [])
+        .filter(Boolean).join(' ').toLowerCase();
+      return hay.indexOf(q) !== -1;
+    });
+  }
+  return kokoSortRows(rows);
+}
+
+/* data load */
+function initKoko(){
+  kokoInited = true;
+  wireKoko();
+  if(kokoData || kokoLoading){ renderKoko(); return; }
+  loadKokoData();
+}
+function loadKokoData(){
+  kokoLoading = true; kokoLoadErr = false;
+  renderKoko();
+  sbReq('food-places.json', { headers:{ 'Accept':'application/json' } }, 12000).then(function(r){
+    if(!r.ok) throw new Error('http ' + r.status);
+    return r.json();
+  }).then(function(arr){
+    kokoData = Array.isArray(arr) ? arr : [];
+    kokoLoading = false; kokoLoadErr = false;
+    renderKoko();
+  }).catch(function(){
+    kokoLoading = false; kokoLoadErr = true;
+    renderKoko();
+  });
+}
+function wireKoko(){
+  if(kokoWired) return;
+  kokoWired = true;
+  const geoBtn = document.getElementById('koko-geobtn');
+  if(geoBtn) geoBtn.addEventListener('click', requestKokoGeo);
+  const search = document.getElementById('koko-search');
+  if(search) search.addEventListener('input', function(){ kokoQuery = search.value || ''; renderKoko(); });
+}
+
+/* render */
+function kokoChip(label, active, onClick){
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'koko-chip' + (active ? ' koko-chip-on' : '');
+  b.setAttribute('aria-pressed', active ? 'true' : 'false');
+  b.textContent = label;
+  b.addEventListener('click', onClick);
+  return b;
+}
+function renderKokoFilters(){
+  const el = document.getElementById('koko-filters');
+  if(!el) return;
+  el.textContent = '';
+  el.appendChild(kokoChip(tr('koko.all'), kokoHubFilter === 'all', function(){ kokoHubFilter = 'all'; renderKoko(); }));
+  el.appendChild(kokoChip(tr('koko.openNow'), kokoOpenNowOnly, function(){ kokoOpenNowOnly = !kokoOpenNowOnly; renderKoko(); }));
+  const present = {};
+  (kokoData || []).forEach(function(r){ (Array.isArray(r.hubs)?r.hubs:[]).forEach(function(hb){ present[hb] = true; }); });
+  HUB_ORDER.forEach(function(hb){
+    if(!present[hb]) return;
+    const meta = HUB_META[hb];
+    el.appendChild(kokoChip(meta[lang] || meta.en, kokoHubFilter === hb, function(){ kokoHubFilter = hb; renderKoko(); }));
+  });
+  const sep = document.createElement('span');
+  sep.className = 'koko-chip-sep'; sep.setAttribute('aria-hidden','true');
+  el.appendChild(sep);
+  [['want','koko.want'],['done','koko.doneChip'],['skip','koko.skip']].forEach(function(pair){
+    const key = pair[0];
+    el.appendChild(kokoChip(tr(pair[1]), !!kokoStatusShow[key], function(){ kokoStatusShow[key] = !kokoStatusShow[key]; renderKoko(); }));
+  });
+}
+function kokoRowEl(row){
+  const status = kokoStatusFor(row);
+  const card = document.createElement('div');
+  card.className = 'koko-row koko-st-' + status;
+
+  const head = document.createElement('div');
+  head.className = 'koko-row-head';
+  const nameWrap = document.createElement('div');
+  nameWrap.className = 'koko-name-wrap';
+  const primaryName = (lang === 'ja' && row.name_ja) ? row.name_ja : row.name_en;
+  const otherName = (lang === 'ja' && row.name_ja) ? row.name_en : row.name_ja;
+  const nameEl = document.createElement('span');
+  nameEl.className = 'koko-name';
+  nameEl.textContent = (row.priority === 'high' ? '★ ' : '') + (primaryName || row.name_en || '—');
+  nameWrap.appendChild(nameEl);
+  if(otherName && otherName !== primaryName){
+    const sub = document.createElement('span');
+    sub.className = 'koko-name-sub';
+    sub.textContent = otherName;
+    nameWrap.appendChild(sub);
+  }
+  head.appendChild(nameWrap);
+  const st = kokoOpenState(row);
+  const badge = document.createElement('span');
+  badge.className = 'koko-badge koko-badge-' + st;
+  badge.textContent = st === 'open' ? tr('koko.open') : (st === 'closed' ? tr('koko.closed') : tr('koko.unknown'));
+  head.appendChild(badge);
+  card.appendChild(head);
+
+  const ol = (lang === 'ja' && row.one_liner_ja) ? row.one_liner_ja : row.one_liner;
+  if(ol){
+    const p = document.createElement('div');
+    p.className = 'koko-oneliner'; p.textContent = ol;
+    card.appendChild(p);
+  }
+
+  const meta = document.createElement('div');
+  meta.className = 'koko-meta';
+  if(kokoCoords){
+    const dEl = document.createElement('span');
+    dEl.className = 'koko-dist'; dEl.textContent = kokoFmtDist(kokoDistOf(row));
+    meta.appendChild(dEl);
+  }
+  const hrs = document.createElement('span');
+  hrs.className = 'koko-hours'; hrs.textContent = kokoHoursSummary(row);
+  meta.appendChild(hrs);
+  card.appendChild(meta);
+
+  if(row.address){
+    const a = document.createElement('div');
+    a.className = 'koko-addr'; a.textContent = row.address;
+    card.appendChild(a);
+  }
+
+  if(Array.isArray(row.hubs) && row.hubs.length){
+    const hw = document.createElement('div');
+    hw.className = 'koko-hubs';
+    row.hubs.forEach(function(hb){
+      const m2 = HUB_META[hb];
+      if(!m2) return;
+      const c = document.createElement('span');
+      c.className = 'koko-hubchip'; c.textContent = m2[lang] || m2.en;
+      hw.appendChild(c);
+    });
+    card.appendChild(hw);
+  }
+
+  const act = document.createElement('div');
+  act.className = 'koko-actions';
+  const mapsA = document.createElement('a');
+  mapsA.className = 's7btn koko-act';
+  mapsA.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(row.maps_query || row.address || row.name_en || '');
+  mapsA.target = '_blank'; mapsA.rel = 'noopener';
+  mapsA.textContent = '🗺 ' + tr('koko.maps');
+  act.appendChild(mapsA);
+  if(row.phone){
+    const telA = document.createElement('a');
+    telA.className = 's7btn koko-act';
+    telA.href = 'tel:' + String(row.phone).replace(/[^+0-9]/g,'');
+    telA.textContent = '📞 ' + tr('koko.call');
+    act.appendChild(telA);
+  }
+  const stBtn = document.createElement('button');
+  stBtn.type = 'button';
+  stBtn.className = 's7btn koko-act koko-status-btn koko-st-btn-' + status;
+  stBtn.textContent = status === 'done' ? ('✓ ' + tr('koko.doneChip')) : (status === 'skip' ? tr('koko.skip') : tr('koko.want'));
+  stBtn.addEventListener('click', function(){ cycleKokoStatus(row.id); });
+  act.appendChild(stBtn);
+  card.appendChild(act);
+  return card;
+}
+function renderKoko(){
+  if(!document.getElementById('koko')) return;
+  const statusEl = document.getElementById('koko-status');
+  const listEl = document.getElementById('koko-list');
+  const countEl = document.getElementById('koko-count');
+  const geoBtn = document.getElementById('koko-geobtn');
+  const geoHint = document.getElementById('koko-geohint');
+  if(!statusEl || !listEl) return;
+
+  if(geoBtn){
+    if(kokoGeoState === 'locating') geoBtn.textContent = tr('koko.locating');
+    else if(kokoGeoState === 'ok') geoBtn.textContent = '↻ ' + tr('koko.updateDist');
+    else geoBtn.textContent = '📍 ' + tr('koko.showDist');
+  }
+  if(geoHint){
+    if(kokoGeoState === 'denied' || kokoGeoState === 'unavailable'){
+      geoHint.textContent = tr('koko.geoHint'); geoHint.style.display = 'block';
+    } else {
+      geoHint.textContent = ''; geoHint.style.display = 'none';
+    }
+  }
+
+  statusEl.textContent = ''; statusEl.style.display = 'none';
+  if(kokoLoading){
+    statusEl.style.display = 'block'; statusEl.textContent = tr('koko.loading');
+  } else if(kokoLoadErr){
+    statusEl.style.display = 'block';
+    const span = document.createElement('span');
+    span.textContent = tr('koko.loadErr');
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 's7btn koko-retry'; btn.textContent = tr('koko.retry');
+    btn.addEventListener('click', loadKokoData);
+    statusEl.appendChild(span); statusEl.appendChild(btn);
+  }
+
+  renderKokoFilters();
+
+  listEl.textContent = '';
+  if(kokoLoading || kokoLoadErr){ if(countEl) countEl.textContent = ''; return; }
+  if(!kokoData || !kokoData.length){
+    if(countEl) countEl.textContent = '';
+    const p = document.createElement('p');
+    p.className = 'koko-empty'; p.textContent = tr('koko.emptyData');
+    listEl.appendChild(p);
+    return;
+  }
+  const rows = kokoVisibleRows();
+  const doneN = rows.filter(function(r){ return kokoStatusFor(r) === 'done'; }).length;
+  if(countEl) countEl.textContent = rows.length + ' ' + tr('koko.places') + ' · ' + doneN + ' ' + tr('koko.doneCount');
+  if(!rows.length){
+    const p = document.createElement('p');
+    p.className = 'koko-empty'; p.textContent = tr('koko.noMatch');
+    listEl.appendChild(p);
+    return;
+  }
+  rows.forEach(function(r){ listEl.appendChild(kokoRowEl(r)); });
+}
 
 /* ---------- "Now" countdown strip ---------- */
 const NIGHTS = [
