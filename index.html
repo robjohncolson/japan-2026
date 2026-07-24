@@ -572,7 +572,7 @@
   }
   html.owner #ownerBanner.show{display:block}
 
-  /* ここどこ? — food map panel */
+  /* ここどこ? — nearby map panel */
   #koko .body{padding:12px 12px 16px}
   .koko-banner{
     background:#fff3cd;border:1px solid #b8860b;border-radius:2px;
@@ -637,6 +637,56 @@
   .koko-row.koko-st-skip .koko-name{text-decoration:line-through}
   .koko-empty{font-size:13px;color:var(--soft);text-align:center;padding:16px 0}
   .koko-retry{margin-left:8px}
+  /* ここどこ? — constellation view */
+  .koko-viewtog{display:flex;gap:6px;margin:0 0 8px}
+  .koko-viewtog .koko-chip{flex:1 1 0;text-align:center}
+  .koko-kinds{
+    display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding:2px 0 9px;margin-bottom:8px;white-space:nowrap;border-bottom:1px solid var(--stripe-dark);
+  }
+  .koko-cctl{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+  #koko-usegps{min-height:40px;font-weight:700}
+  .koko-hubpick{
+    display:flex;gap:6px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    padding:2px 0;flex:1 1 180px;min-width:0;white-space:nowrap;
+  }
+  .koko-svgwrap{width:100%}
+  .koko-svg{
+    display:block;width:100%;height:60vh;max-height:560px;min-height:320px;
+    background:var(--white);border:1px solid var(--black);border-radius:2px;
+    box-shadow:inset 1px 1px 0 var(--plat-lo);touch-action:manipulation;
+  }
+  .koko-edge{stroke:var(--plat-lo);stroke-width:1}
+  .koko-edgelbl{font-family:var(--f-head);font-size:8.5px;fill:var(--soft)}
+  .koko-node-g{cursor:pointer}
+  .koko-node-g:focus-visible{outline:none}
+  .koko-node-g:focus-visible .koko-node-dot{stroke:var(--black);stroke-width:3;stroke-dasharray:2.5 2}
+  .koko-node-hit{fill:transparent}
+  .koko-node-dot{stroke:var(--black);stroke-width:1.5}
+  .koko-node-open{fill:#1b5e20}
+  .koko-node-closed{fill:#9a9a9a}
+  .koko-node-center-dot{fill:var(--black);stroke:var(--black)}
+  .koko-node-lbl{
+    font-family:var(--f-head);font-size:11px;fill:var(--black);text-anchor:middle;
+    paint-order:stroke;stroke:var(--white);stroke-width:3px;stroke-linejoin:round;
+  }
+  .koko-caption{font-size:12px;color:var(--soft);text-align:center;margin:8px 0 0;font-weight:700}
+  .koko-cempty{font-size:13px;color:var(--soft);text-align:center;padding:24px 12px;line-height:1.55}
+  /* detail sheet — reuses .overlay/.sheet; koko-specific rows */
+  .kd-row{margin:0 0 10px;font-size:13px;line-height:1.45}
+  .kd-badge{display:inline-block;font-size:11px;font-weight:700;border-radius:500px;padding:3px 9px;border:1px solid var(--black);margin-right:6px}
+  .kd-badge-open{background:#1b5e20;color:#fff;border-color:#1b5e20}
+  .kd-badge-closed{background:var(--platinum);color:#5a5a5a}
+  .kd-badge-unknown{background:var(--white);color:var(--soft)}
+  .kd-sub{font-size:12px;color:var(--soft)}
+  .kd-disclaim{font-size:11px;color:#5a4500;background:#fff3cd;border:1px solid #b8860b;border-radius:2px;padding:6px 9px;margin:8px 0}
+  .kd-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .kd-act{min-height:40px;display:inline-flex;align-items:center;text-decoration:none;font-weight:700}
+  .kd-tel{color:#00008b;text-decoration:underline;font-weight:700;word-break:break-all;font-variant-numeric:tabular-nums}
+  /* koko-scoped ≥40×40 tap target — does NOT touch the global .x used elsewhere */
+  #kd-close{min-width:40px;min-height:40px;font-size:18px}
+  /* card is pointer-clickable (opens the detail sheet); keyboard uses the "Details" button */
+  .koko-row{cursor:pointer}
 </style>
 </head>
 <body>
@@ -1075,20 +1125,34 @@
     </div>
   </section>
 
-  <!-- ここどこ? — food map (lazy-loaded from food-places.json) -->
+  <!-- ここどこ? — proximity constellation (lazy-loaded from koko-places.json) -->
   <section class="block" id="koko">
-    <h2 data-i18n="h.koko">ここどこ? · Food map</h2>
+    <h2 id="koko-heading" tabindex="-1" data-i18n="h.koko">ここどこ? · Nearby map</h2>
     <div class="body">
       <div class="koko-banner" data-i18n="koko.approxBanner">⚠ Hours are approximate — always confirm day-of</div>
-      <div class="koko-controls">
-        <button type="button" class="s7btn" id="koko-geobtn">📍 Show distances from me</button>
-      </div>
-      <div class="koko-geohint" id="koko-geohint"></div>
-      <input type="search" class="koko-search" id="koko-search" data-i18n-ph="koko.searchPh" placeholder="Search food, place, tag…" autocomplete="off">
-      <div class="koko-filters" id="koko-filters" role="group" data-i18n-aria="koko.filtersAria" aria-label="Filters"></div>
+      <div class="koko-viewtog" id="koko-viewtog" role="group" data-i18n-aria="koko.viewAria" aria-label="View"></div>
+      <div class="koko-kinds" id="koko-kinds" role="group" data-i18n-aria="koko.kindsAria" aria-label="Categories"></div>
       <div class="koko-status-line" id="koko-status" role="status"></div>
-      <div class="koko-count" id="koko-count"></div>
-      <div class="koko-list" id="koko-list"></div>
+      <!-- CONSTELLATION (default) -->
+      <div id="koko-con">
+        <div class="koko-cctl" id="koko-cctl"></div>
+        <div class="koko-svgwrap">
+          <svg id="koko-svg" class="koko-svg" viewBox="0 0 360 440" preserveAspectRatio="xMidYMid meet" role="group" data-i18n-aria="koko.svgAria" aria-label="Nearby places constellation"></svg>
+        </div>
+        <p class="koko-caption" id="koko-caption"></p>
+        <p class="koko-cempty" id="koko-cempty" style="display:none"></p>
+      </div>
+      <!-- LIST (v1 fallback) -->
+      <div id="koko-listwrap" hidden>
+        <div class="koko-controls">
+          <button type="button" class="s7btn" id="koko-geobtn">📍 Show distances from me</button>
+        </div>
+        <div class="koko-geohint" id="koko-geohint"></div>
+        <input type="search" class="koko-search" id="koko-search" data-i18n-ph="koko.searchPh" placeholder="Search places…" autocomplete="off">
+        <div class="koko-filters" id="koko-filters" role="group" data-i18n-aria="koko.filtersAria" aria-label="Filters"></div>
+        <div class="koko-count" id="koko-count"></div>
+        <div class="koko-list" id="koko-list"></div>
+      </div>
     </div>
   </section>
 
@@ -1153,6 +1217,22 @@
   </div>
 </div>
 
+<!-- ここどこ? — place detail sheet -->
+<div class="overlay" id="koko-detail-ov">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="kd-name">
+    <div class="sheet-head">
+      <div>
+        <h3 id="kd-name">—</h3>
+        <div class="dow kd-sub" id="kd-namesub"></div>
+      </div>
+      <button class="x" id="kd-close" aria-label="Close" data-i18n-aria="m.close">×</button>
+    </div>
+    <div class="sheet-body" id="kd-body"></div>
+  </div>
+</div>
+
+<!-- vendored D3 force-layout bundle (local, no CDN) — must load before the inline app script -->
+<script src="koko-d3.min.js"></script>
 <script>
 "use strict";
 
@@ -1287,14 +1367,14 @@ const T = {
   'nav.share':   {en:"Share", ja:"共有"},
   'nav.koko':    {en:"ここどこ?", ja:"ここどこ？"},
 
-  /* ここどこ? — food map */
-  'h.koko':            {en:"ここどこ? · Food map", ja:"ここどこ？ 食べ物マップ"},
+  /* ここどこ? — nearby map */
+  'h.koko':            {en:"ここどこ? · Nearby map", ja:"ここどこ？ 近くマップ"},
   'koko.approxBanner': {en:"⚠ Hours are approximate — always confirm day-of", ja:"⚠ 営業時間は目安です。当日必ず確認を"},
   'koko.showDist':     {en:"Show distances from me", ja:"現在地から距離を表示"},
   'koko.updateDist':   {en:"update distances", ja:"距離を更新"},
   'koko.locating':     {en:"📍 Locating…", ja:"📍 現在地を取得中…"},
   'koko.geoHint':      {en:"Enable location to sort by distance", ja:"位置情報を許可すると距離順に並びます"},
-  'koko.searchPh':     {en:"Search food, place, tag…", ja:"料理・店名・タグで検索…"},
+  'koko.searchPh':     {en:"Search places…", ja:"場所を検索…"},
   'koko.filtersAria':  {en:"Filters", ja:"フィルター"},
   'koko.loading':      {en:"Loading places…", ja:"読み込み中…"},
   'koko.loadErr':      {en:"Couldn't load places.", ja:"一覧を読み込めませんでした。"},
@@ -1309,11 +1389,32 @@ const T = {
   'koko.noMatch':      {en:"No matches — try clearing a filter.", ja:"該当なし — フィルターを外してみてください。"},
   'koko.maps':         {en:"Maps", ja:"地図"},
   'koko.call':         {en:"Call", ja:"電話"},
+  'koko.details':      {en:"Details", ja:"詳細"},
   'koko.open':         {en:"Open", ja:"営業中"},
   'koko.closed':       {en:"Closed", ja:"休業"},
   'koko.unknown':      {en:"Hours unknown", ja:"営業時間不明"},
   'koko.closedToday':  {en:"Closed today", ja:"本日休業"},
   'koko.emptyData':    {en:"No places yet — check back soon.", ja:"まだ登録がありません。"},
+  'koko.you':          {en:"You", ja:"あなた"},
+  'koko.viewCon':      {en:"⭐ Constellation", ja:"⭐ 星図"},
+  'koko.viewList':     {en:"☰ List", ja:"☰ 一覧"},
+  'koko.viewAria':     {en:"View", ja:"表示"},
+  'koko.kindsAria':    {en:"Categories", ja:"カテゴリ"},
+  'koko.svgAria':      {en:"Nearby places constellation", ja:"近くの場所のコンステレーション"},
+  'koko.kindAll':      {en:"All", ja:"すべて"},
+  'koko.kindFood':     {en:"Food", ja:"食"},
+  'koko.kindSleep':    {en:"Sleep", ja:"宿"},
+  'koko.kindTransport':{en:"Transport", ja:"移動"},
+  'koko.kindErrands':  {en:"Errands", ja:"用事"},
+  'koko.showFar':      {en:"Show far (Yokohama etc.)", ja:"遠方も表示(横浜など)"},
+  'koko.useLoc':       {en:"📍 Use my location", ja:"📍 現在地を使う"},
+  'koko.center':       {en:"Center — tap to change", ja:"中心 — タップで変更"},
+  'koko.hubPick':      {en:"Center hub", ja:"中心の拠点"},
+  'koko.caption':      {en:"{n} places within {r} km", ja:"{r} km圏内に{n}件"},
+  'koko.cEmpty':       {en:"No noteworthy spots nearby — try “Show far” or another hub.", ja:"近くに候補がありません — 「遠方も表示」や別の拠点をお試しください。"},
+  'koko.googleMaps':   {en:"Google Maps", ja:"Google マップ"},
+  'koko.navitime':     {en:"Navitime", ja:"NAVITIME"},
+  'koko.detailHours':  {en:"Today", ja:"本日"},
   'h.sleep':     {en:"Sleep · jet lag · pack list", ja:"睡眠・時差・荷物リスト"},
   'sl.intro':{en:"Boston baseline was ~2:00 a.m.–10:00 a.m. Shift earlier from <b>22 Jul</b>. Not medical advice — practical travel notes only.",
              ja:"ボストンでは ~2:00–10:00。 <b>7/22</b> から前倒し。医療助言ではなく旅行メモ。"},
@@ -2385,27 +2486,51 @@ function handleHash(){
 }
 window.addEventListener('hashchange', handleHash);
 
-/* ---------- ここどこ? — food map panel (lazy) ---------- */
+/* ---------- ここどこ? — nearby map panel (lazy) ---------- */
+/* HUB_META v2 — {en, ja, lat, lng, far}. NO compass N/E/W wording anywhere.
+   far:true → hidden from the hub picker + list hub chips until "Show far" is on.
+   Per charter: kyushu is NOT far (family base mid-trip); far only for Yokohama + the
+   three day-trip areas. 'other' has no anchor and never appears in the picker. */
 const HUB_META = {
-  'doc-ebisu':{en:'Ebisu (base)',ja:'恵比寿(拠点)'},
-  'meguro':{en:'Meguro / Gotanda',ja:'目黒・五反田'},
-  'shinjuku':{en:'Shinjuku',ja:'新宿'},
-  'shibuya-harajuku':{en:'Shibuya / Harajuku',ja:'渋谷・原宿'},
-  'tokyo-stn':{en:'Tokyo Station',ja:'東京駅'},
-  'ginza-nihonbashi':{en:'Ginza / Nihonbashi / Tsukiji',ja:'銀座・日本橋・築地'},
-  'jimbocho-kagurazaka':{en:'Jimbocho / Kagurazaka',ja:'神保町・神楽坂'},
-  'asakusa':{en:'Asakusa / Ueno',ja:'浅草・上野'},
-  'ikebukuro':{en:'Ikebukuro',ja:'池袋'},
-  'kamata-omori':{en:'Kamata / Omori',ja:'蒲田・大森'},
-  'yokohama':{en:'Yokohama',ja:'横浜'},
-  'kichijoji-koenji-nishiogi':{en:'Chuo Line West',ja:'中央線西側'},
-  'daytrip-north':{en:'Day trip N',ja:'日帰り北'},
-  'daytrip-east':{en:'Day trip E',ja:'日帰り東'},
-  'daytrip-west':{en:'Day trip W',ja:'日帰り西'},
-  'kyushu':{en:'Kyushu',ja:'九州'},
+  'doc-ebisu':{en:'Ebisu (base)',ja:'恵比寿(拠点)',lat:35.6467,lng:139.7101,far:false},
+  'meguro':{en:'Meguro / Gotanda',ja:'目黒・五反田',lat:35.6339,lng:139.7158,far:false},
+  'shinjuku':{en:'Shinjuku',ja:'新宿',lat:35.6896,lng:139.7006,far:false},
+  'shibuya-harajuku':{en:'Shibuya / Harajuku',ja:'渋谷・原宿',lat:35.6595,lng:139.7005,far:false},
+  'tokyo-stn':{en:'Tokyo Station',ja:'東京駅',lat:35.6812,lng:139.7671,far:false},
+  'ginza-nihonbashi':{en:'Ginza / Tsukiji',ja:'銀座・築地',lat:35.6717,lng:139.7650,far:false},
+  'jimbocho-kagurazaka':{en:'Jimbocho / Kagurazaka',ja:'神保町・神楽坂',lat:35.6958,lng:139.7576,far:false},
+  'asakusa':{en:'Asakusa / Ueno',ja:'浅草・上野',lat:35.7118,lng:139.7967,far:false},
+  'ikebukuro':{en:'Ikebukuro',ja:'池袋',lat:35.7295,lng:139.7109,far:false},
+  'kamata-omori':{en:'Kamata / Omori',ja:'蒲田・大森',lat:35.5624,lng:139.7160,far:false},
+  'kichijoji-koenji-nishiogi':{en:'Kichijoji / Koenji',ja:'吉祥寺・高円寺・西荻',lat:35.7032,lng:139.5797,far:false},
+  'yokohama':{en:'Yokohama',ja:'横浜',lat:35.4658,lng:139.6223,far:true},
+  'daytrip-north':{en:'Warabi / Saitama',ja:'蕨・埼玉',lat:35.8267,lng:139.6800,far:true},
+  'daytrip-east':{en:'Kitasenju / Noda',ja:'北千住・野田',lat:35.7495,lng:139.8050,far:true},
+  'daytrip-west':{en:'Fuchu',ja:'府中',lat:35.6699,lng:139.4774,far:true},
+  'kyushu':{en:'Kyushu',ja:'九州',lat:33.5902,lng:130.4017,far:false},
   'other':{en:'Other',ja:'その他'}
 };
 const HUB_ORDER = Object.keys(HUB_META);
+function kokoHubIsFar(id){ return !!(HUB_META[id] && HUB_META[id].far); }
+function kokoPickerHubs(){
+  return HUB_ORDER.filter(function(id){
+    if(id === 'other') return false;
+    if(!HUB_META[id] || HUB_META[id].lat == null) return false;
+    if(kokoHubIsFar(id) && !kokoFar) return false;
+    return true;
+  });
+}
+/* kind → group mapping + glyphs (charter-frozen) */
+const KOKO_KIND_GROUPS = {
+  all:null, food:['food'], sleep:['lodging'], transport:['transport','sim'], errands:['errand','activity']
+};
+const KOKO_KIND_GLYPH = { food:'🍜', lodging:'🏨', transport:'🚲', sim:'📶', errand:'🛍', activity:'🧘' };
+function kokoKindOf(r){ return (r && r.kind) ? r.kind : 'food'; }
+function kokoKindGlyph(r){ return KOKO_KIND_GLYPH[kokoKindOf(r)] || '📍'; }
+function kokoKindMatch(r){
+  const grp = KOKO_KIND_GROUPS[kokoKind];
+  return !grp || grp.indexOf(kokoKindOf(r)) !== -1;
+}
 const KOKO_DOW = ['sun','mon','tue','wed','thu','fri','sat'];
 const KOKO_PRI = {high:0, medium:1, low:2};
 
@@ -2420,6 +2545,12 @@ let kokoHubFilter = 'all';
 let kokoOpenNowOnly = false;
 let kokoStatusShow = {want:true, done:true, skip:false};
 let kokoQuery = '';
+let kokoView = 'constellation';  // 'constellation' (default) | 'list'
+let kokoKind = 'all';            // all|food|sleep|transport|errands
+let kokoFar = false;             // "Show far" — governs hub picker + list only (NOT constellation)
+let kokoCenterMode = 'hub';      // 'gps' | 'hub'
+let kokoHubId = 'doc-ebisu';     // selected hub anchor when not in GPS mode
+let _kokoSheetTrigger = null;    // {id, kind:'node'|'card'} — data, NOT an element (survives re-render)
 let kokoStatusOverrides = (function(){
   try{ return JSON.parse(localStorage.getItem('japan_koko_status') || '{}') || {}; }
   catch(e){ return {}; }
@@ -2458,6 +2589,15 @@ function kokoFmtDist(m){
 function kokoDistOf(row){
   if(!kokoCoords || row.lat == null || row.lng == null) return null;
   return kokoHaversine(kokoCoords.lat, kokoCoords.lng, row.lat, row.lng);
+}
+/* initial bearing (radians) from point 1 to point 2 — 0 = due north, +clockwise (E = +π/2).
+   Screen target uses (sinθ, -cosθ): north → straight up, east → right. */
+function kokoBearingRad(lat1, lon1, lat2, lon2){
+  const toRad = function(d){ return d * Math.PI / 180; };
+  const p1 = toRad(lat1), p2 = toRad(lat2), dl = toRad(lon2 - lon1);
+  const y = Math.sin(dl) * Math.cos(p2);
+  const x = Math.cos(p1) * Math.sin(p2) - Math.sin(p1) * Math.cos(p2) * Math.cos(dl);
+  return Math.atan2(y, x);
 }
 
 /* open-now — always evaluated in Asia/Tokyo regardless of device tz */
@@ -2563,7 +2703,7 @@ function requestKokoGeo(){
   kokoGeoState = 'locating'; renderKoko();
   navigator.geolocation.getCurrentPosition(function(pos){
     kokoCoords = { lat: pos.coords.latitude, lng: pos.coords.longitude };
-    kokoGeoState = 'ok'; renderKoko();
+    kokoGeoState = 'ok'; kokoCenterMode = 'gps'; renderKoko();
   }, function(err){
     // a failed/denied refresh must not keep sorting by a stale fix: drop coords so
     // distances clear, the button reverts to "show distances", and the list falls
@@ -2605,6 +2745,13 @@ function kokoSortRows(rows){
 function kokoVisibleRows(){
   let rows = (kokoData || []).slice();
   rows = rows.filter(function(r){ return kokoStatusShow[kokoStatusFor(r)]; });
+  rows = rows.filter(kokoKindMatch);
+  if(!kokoFar && kokoView === 'list'){
+    // LIST default: hide far rows using the row's OWN far boolean (every row has it).
+    // This correctly hides hubs:['other'] far rows (Narita/Kyoto) that no hub-based
+    // check would catch. Constellation eligibility ignores far entirely (see kokoConstellationSet).
+    rows = rows.filter(function(r){ return r.far !== true; });
+  }
   if(kokoHubFilter !== 'all'){
     rows = rows.filter(function(r){ return Array.isArray(r.hubs) && r.hubs.indexOf(kokoHubFilter) !== -1; });
   }
@@ -2633,7 +2780,7 @@ function initKoko(){
 function loadKokoData(){
   kokoLoading = true; kokoLoadErr = false;
   renderKoko();
-  sbReq('food-places.json', { headers:{ 'Accept':'application/json' } }, 12000).then(function(r){
+  sbReq('koko-places.json', { headers:{ 'Accept':'application/json' } }, 12000).then(function(r){
     if(!r.ok) throw new Error('http ' + r.status);
     return r.json();
   }).then(function(arr){
@@ -2674,7 +2821,9 @@ function renderKokoFilters(){
   (kokoData || []).forEach(function(r){ (Array.isArray(r.hubs)?r.hubs:[]).forEach(function(hb){ present[hb] = true; }); });
   HUB_ORDER.forEach(function(hb){
     if(!present[hb]) return;
+    if(kokoHubIsFar(hb) && !kokoFar) return;   // far hub chips hidden until "Show far"
     const meta = HUB_META[hb];
+    if(!meta) return;
     el.appendChild(kokoChip(meta[lang] || meta.en, kokoHubFilter === hb, function(){ kokoHubFilter = hb; renderKoko(); }));
   });
   const sep = document.createElement('span');
@@ -2754,6 +2903,18 @@ function kokoRowEl(row){
 
   const act = document.createElement('div');
   act.className = 'koko-actions';
+  // inner action controls must not also trigger the card's open-sheet handler
+  act.addEventListener('click', function(e){ e.stopPropagation(); });
+  // explicit, tabbable "Details" control — the keyboard/AT path to the sheet (card itself is
+  // pointer-only; nesting focusable controls under a role=button card is invalid for AT)
+  const detBtn = document.createElement('button');
+  detBtn.type = 'button';
+  detBtn.className = 's7btn koko-act koko-details-btn';
+  detBtn.setAttribute('data-koko-id', row.id);
+  detBtn.setAttribute('aria-label', tr('koko.details') + ': ' + (primaryName || row.name_en || '—'));
+  detBtn.textContent = 'ⓘ ' + tr('koko.details');
+  detBtn.addEventListener('click', function(){ openKokoSheet(row); });
+  act.appendChild(detBtn);
   const mapsA = document.createElement('a');
   mapsA.className = 's7btn koko-act';
   mapsA.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(row.maps_query || row.address || row.name_en || '');
@@ -2774,20 +2935,256 @@ function kokoRowEl(row){
   stBtn.addEventListener('click', function(){ cycleKokoStatus(row.id); });
   act.appendChild(stBtn);
   card.appendChild(act);
+
+  // pointer affordance only: clicking the card outside .koko-actions opens the sheet. No
+  // role/tabindex/keydown on the card — the "Details" button (and Maps/Call/status) are the
+  // keyboard-operable controls, so bubbled Enter/Space is never hijacked from them.
+  card.addEventListener('click', function(){ openKokoSheet(row); });
   return card;
 }
-function renderKoko(){
-  if(!document.getElementById('koko')) return;
-  const statusEl = document.getElementById('koko-status');
+/* ---- view toggle + kind chips (shared, above both views) ---- */
+function renderKokoViewTog(){
+  const el = document.getElementById('koko-viewtog');
+  if(!el) return;
+  el.textContent = '';
+  el.appendChild(kokoChip(tr('koko.viewCon'), kokoView === 'constellation', function(){ kokoView = 'constellation'; renderKoko(); }));
+  el.appendChild(kokoChip(tr('koko.viewList'), kokoView === 'list', function(){ kokoView = 'list'; renderKoko(); }));
+}
+function renderKokoKinds(){
+  const el = document.getElementById('koko-kinds');
+  if(!el) return;
+  el.textContent = '';
+  [['all','koko.kindAll'],['food','koko.kindFood'],['sleep','koko.kindSleep'],['transport','koko.kindTransport'],['errands','koko.kindErrands']].forEach(function(p){
+    el.appendChild(kokoChip(tr(p[1]), kokoKind === p[0], function(){ kokoKind = p[0]; renderKoko(); }));
+  });
+  const sep = document.createElement('span');
+  sep.className = 'koko-chip-sep'; sep.setAttribute('aria-hidden','true');
+  el.appendChild(sep);
+  el.appendChild(kokoChip(tr('koko.showFar'), kokoFar, function(){
+    kokoFar = !kokoFar;
+    // Constellation CENTER is preserved (a GPS center or a selected hub, even a far one like
+    // Yokohama, stays exactly as-is). But the LIST hub filter must reset: its far-hub chip
+    // hides when far turns off, so leaving kokoHubFilter on a far hub would strand an empty
+    // "No matches" list with no visible cause.
+    if(!kokoFar && kokoHubIsFar(kokoHubFilter)) kokoHubFilter = 'all';
+    renderKoko();
+  }));
+}
+
+/* ---- proximity engine (charter-frozen algorithm) ---- */
+function kokoActiveCenter(){
+  if(kokoCenterMode === 'gps' && kokoCoords){
+    return { lat:kokoCoords.lat, lng:kokoCoords.lng, label:tr('koko.you'), isYou:true };
+  }
+  const h = HUB_META[kokoHubId] || HUB_META['doc-ebisu'];
+  return { lat:h.lat, lng:h.lng, label:(h[lang] || h.en), isYou:false };
+}
+function kokoConstellationSet(){
+  const c = kokoActiveCenter();
+  // eligible: has coords, not skipped, kind matches. NO far gate here (charter amendment):
+  // the 5.0 km radius cap already excludes far venues unless you're physically near them.
+  const elig = (kokoData || []).filter(function(r){
+    if(r.lat == null || r.lng == null) return false;
+    if(kokoStatusFor(r) === 'skip') return false;
+    if(!kokoKindMatch(r)) return false;
+    return true;
+  }).map(function(r){
+    const m = kokoHaversine(c.lat, c.lng, r.lat, r.lng);
+    return { row:r, m:m, km:m/1000 };
+  });
+  elig.sort(function(a,b){ return a.m - b.m; });
+  function countWithin(rad){ let n = 0; for(let i=0;i<elig.length;i++){ if(elig[i].km <= rad) n++; } return n; }
+  let radius = 1.0;
+  while(countWithin(radius) < 5 && radius < 5.0){ radius = Math.min(5.0, radius + 0.5); }
+  const items = elig.filter(function(e){ return e.km <= radius; }).slice(0, 5);
+  let capR = items.length ? items[items.length - 1].km : radius;
+  capR = Math.max(1.0, capR);
+  capR = Math.round(capR * 10) / 10;
+  return { center:c, items:items, radius:radius, capR:capR };
+}
+
+/* ---- SVG constellation ---- */
+const KOKO_SVGNS = 'http://www.w3.org/2000/svg';
+function kokoSvgEl(name, attrs){
+  const e = document.createElementNS(KOKO_SVGNS, name);
+  if(attrs) for(const k in attrs){ e.setAttribute(k, attrs[k]); }
+  return e;
+}
+function kokoNodeLabel(row){
+  let nm = (lang === 'ja' && row.name_ja) ? row.name_ja : (row.name_en || row.name_ja || '—');
+  nm = kokoTruncLabel(nm);                     // width-aware truncation (CJK-heavy ~9 chars, Latin ~14)
+  const done = kokoStatusFor(row) === 'done' ? '✓ ' : '';
+  return done + kokoKindGlyph(row) + ' ' + nm;
+}
+/* Rendered label geometry for the 11px .koko-node-lbl font. Collision must size to the real
+   text box, not JS .length (emoji = 2 code units; CJK renders full-width). Iterate by code
+   point: emoji/pictograph glyph (widest), CJK/kana/full-width, space, else Latin. Slightly
+   over-estimated on purpose — conservative spacing keeps the real (narrower) text clear. */
+const KOKO_LBL_DY = 20;                       // label baseline offset below the dot (renderConstellation)
+const KOKO_LBL_ASC = 9, KOKO_LBL_DESC = 3;    // 11px text box extent above / below the baseline
+function kokoLabelWidthPx(label){
+  let w = 0;
+  for(const ch of String(label)){
+    const cp = ch.codePointAt(0);
+    if(cp >= 0x1F000 || (cp >= 0x2600 && cp <= 0x27BF) || (cp >= 0x2190 && cp <= 0x21FF)) w += 14;   // emoji / pictograph
+    else if(cp > 0x2E80) w += 11.5;           // CJK / kana / full-width
+    else if(cp === 0x20)  w += 3.4;           // space
+    else                  w += 6.2;           // Latin / ASCII
+  }
+  return w;
+}
+/* Width-aware truncation: cap the NAME at KOKO_LBL_MAXW px (and 14 code points). Wide CJK
+   names (~11.5px/char) collapse to ~9 chars + …; Latin names (~6.2px/char) keep ~14. Narrower
+   labels are what keep JA (name_ja) constellation labels from overlapping at dense hubs. */
+const KOKO_LBL_MAXW = 104;
+function kokoTruncLabel(nm){
+  nm = String(nm);
+  const cp = Array.from(nm);
+  if(cp.length <= 14 && kokoLabelWidthPx(nm) <= KOKO_LBL_MAXW) return nm;
+  let out = '';
+  for(let i=0;i<cp.length;i++){
+    if(Array.from(out).length >= 13 || kokoLabelWidthPx(out + cp[i] + '…') > KOKO_LBL_MAXW) break;
+    out += cp[i];
+  }
+  return out + '…';
+}
+function kokoNodeCollideR(label){ return Math.max(20, Math.min(64, kokoLabelWidthPx(label)/2 + 5)); }
+function kokoLayout(center, items, W, H){
+  const cx = W/2, cy = H/2, margin = 46;
+  const availR = Math.min(W, H)/2 - margin;
+  const R_svg = 0.85 * availR;
+  const maxKm = items.reduce(function(m, it){ return Math.max(m, it.km); }, 0) || 1;
+  const centerLabel = (center.isYou ? '📍 ' : '') + (center.label || '');
+  const nodes = [{ id:'__center__', fx:cx, fy:cy, isCenter:true,
+                   r:Math.max(18, Math.min(48, kokoLabelWidthPx(centerLabel)/2 + 6)), label:centerLabel }];
+  const links = [];
+  items.forEach(function(it, idx){
+    const theta = kokoBearingRad(center.lat, center.lng, it.row.lat, it.row.lng);
+    const dist = (it.km / maxKm) * R_svg;                 // furthest shown ≈ 85% of radius
+    const tx = cx + dist * Math.sin(theta);               // bearing-true initial position
+    const ty = cy - dist * Math.cos(theta);               // north = up, east = right
+    const label = kokoNodeLabel(it.row);
+    // collide radius sized to the rendered label box (see kokoNodeCollideR) — not label.length
+    nodes.push({ id:'n'+idx, x:tx, y:ty, tx:tx, ty:ty, dist:dist, r:kokoNodeCollideR(label), item:it, label:label });
+    links.push({ source:'__center__', target:'n'+idx, dist:dist });
+  });
+  if(nodes.length > 1 && window.d3 && d3.forceSimulation){
+    // custom bearing force: each tick nudge nodes toward their true-bearing target
+    const bearing = function(alpha){
+      for(let i=0;i<nodes.length;i++){ const n = nodes[i]; if(n.isCenter) continue;
+        n.vx += (n.tx - n.x) * 0.35 * alpha; n.vy += (n.ty - n.y) * 0.35 * alpha; }
+    };
+    bearing.initialize = function(){};
+    const sim = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(links).id(function(d){ return d.id; }).distance(function(l){ return l.dist; }).strength(0.6))
+      .force('charge', d3.forceManyBody().strength(-22))
+      .force('collide', d3.forceCollide().radius(function(d){ return d.r; }).strength(1).iterations(3))
+      .force('bearing', bearing)
+      .stop();
+    for(let i=0;i<400 && sim.alpha() > 0.015;i++){ sim.tick(); }
+    sim.stop();                                            // static constellation — no jitter
+  }
+  nodes.forEach(function(n){ if(n.isCenter) return;       // safety clamp inside viewBox
+    n.x = Math.max(margin, Math.min(W - margin, n.x));
+    n.y = Math.max(margin, Math.min(H - margin, n.y));
+  });
+  return { cx:cx, cy:cy, nodes:nodes };
+}
+function renderKokoCctl(){
+  const el = document.getElementById('koko-cctl');
+  if(!el) return;
+  el.textContent = '';
+  const gps = document.createElement('button');
+  gps.type = 'button'; gps.className = 's7btn'; gps.id = 'koko-usegps';
+  gps.setAttribute('aria-pressed', (kokoCenterMode === 'gps' && kokoCoords) ? 'true' : 'false');
+  if(kokoGeoState === 'locating') gps.textContent = tr('koko.locating');
+  else gps.textContent = (kokoCenterMode === 'gps' && kokoCoords) ? ('✓ ' + tr('koko.you')) : tr('koko.useLoc');
+  gps.addEventListener('click', requestKokoGeo);
+  el.appendChild(gps);
+  const pick = document.createElement('div');
+  pick.className = 'koko-hubpick'; pick.setAttribute('role','group'); pick.setAttribute('aria-label', tr('koko.hubPick'));
+  kokoPickerHubs().forEach(function(id){
+    const meta = HUB_META[id];
+    const active = (kokoCenterMode === 'hub' && kokoHubId === id);
+    pick.appendChild(kokoChip(meta[lang] || meta.en, active, function(){ kokoHubId = id; kokoCenterMode = 'hub'; renderKoko(); }));
+  });
+  el.appendChild(pick);
+}
+function renderConstellation(){
+  renderKokoCctl();
+  const svg = document.getElementById('koko-svg');
+  const cap = document.getElementById('koko-caption');
+  const empty = document.getElementById('koko-cempty');
+  if(!svg) return;
+  svg.textContent = '';
+  if(cap) cap.textContent = '';
+  if(empty) empty.style.display = 'none';
+  if(kokoLoading || kokoLoadErr) return;                  // shared status line shows loading/error
+  if(!kokoData || !kokoData.length){
+    if(empty){ empty.style.display = 'block'; empty.textContent = tr('koko.emptyData'); }
+    return;
+  }
+  const set = kokoConstellationSet();
+  if(!set.items.length){
+    if(empty){ empty.style.display = 'block'; empty.textContent = tr('koko.cEmpty'); }
+    return;
+  }
+  const vb = (svg.getAttribute('viewBox') || '0 0 360 440').split(/\s+/).map(Number);
+  const W = vb[2] || 360, H = vb[3] || 440;
+  const lay = kokoLayout(set.center, set.items, W, H);
+  // edges + km labels (drawn first, under nodes)
+  lay.nodes.forEach(function(n){
+    if(n.isCenter) return;
+    svg.appendChild(kokoSvgEl('line', { x1:lay.cx, y1:lay.cy, x2:n.x, y2:n.y, 'class':'koko-edge' }));
+    const mx = (lay.cx + n.x)/2, my = (lay.cy + n.y)/2;
+    const t = kokoSvgEl('text', { x:mx, y:my - 2, 'class':'koko-edgelbl', 'text-anchor':'middle' });
+    t.textContent = n.item.km.toFixed(1) + ' km';
+    svg.appendChild(t);
+  });
+  // center node (tap → hub picker)
+  const cg = kokoSvgEl('g', { 'class':'koko-node-g', tabindex:'0', role:'button' });
+  cg.setAttribute('aria-label', tr('koko.center') + ': ' + set.center.label);
+  cg.appendChild(kokoSvgEl('circle', { cx:lay.cx, cy:lay.cy, r:26, 'class':'koko-node-hit' }));
+  cg.appendChild(kokoSvgEl('circle', { cx:lay.cx, cy:lay.cy, r:9, 'class':'koko-node-dot koko-node-center-dot' }));
+  const cl = kokoSvgEl('text', { x:lay.cx, y:lay.cy + 22, 'class':'koko-node-lbl' });
+  cl.textContent = (set.center.isYou ? '📍 ' : '') + set.center.label;
+  cg.appendChild(cl);
+  const openHub = function(){ kokoCenterMode = 'hub'; renderKoko(); const c = document.getElementById('koko-cctl'); if(c) c.scrollIntoView({ block:'nearest' }); };
+  cg.addEventListener('click', openHub);
+  cg.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openHub(); } });
+  svg.appendChild(cg);
+  // place nodes
+  lay.nodes.forEach(function(n){
+    if(n.isCenter) return;
+    const row = n.item.row;
+    const st = kokoOpenState(row);
+    const g = kokoSvgEl('g', { 'class':'koko-node-g', tabindex:'0', role:'button', 'data-koko-id':row.id });
+    const openTxt = st === 'open' ? tr('koko.open') : (st === 'closed' ? tr('koko.closed') : tr('koko.unknown'));
+    const nm = (lang === 'ja' && row.name_ja) ? row.name_ja : (row.name_en || '');
+    g.setAttribute('aria-label', nm + ', ' + kokoFmtDist(n.item.m) + ', ' + openTxt);
+    g.appendChild(kokoSvgEl('circle', { cx:n.x, cy:n.y, r:26, 'class':'koko-node-hit' }));
+    g.appendChild(kokoSvgEl('circle', { cx:n.x, cy:n.y, r:7, 'class':'koko-node-dot ' + (st === 'open' ? 'koko-node-open' : 'koko-node-closed') }));
+    const lbl = kokoSvgEl('text', { x:n.x, y:n.y + 20, 'class':'koko-node-lbl' });
+    lbl.textContent = n.label;
+    g.appendChild(lbl);
+    const open = function(){ openKokoSheet(row); };
+    g.addEventListener('click', open);
+    g.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); open(); } });
+    svg.appendChild(g);
+  });
+  if(cap) cap.textContent = tr('koko.caption').replace('{n}', String(set.items.length)).replace('{r}', set.capR.toFixed(1));
+}
+
+/* ---- list view (v1) ---- */
+function renderKokoList(){
   const listEl = document.getElementById('koko-list');
   const countEl = document.getElementById('koko-count');
   const geoBtn = document.getElementById('koko-geobtn');
   const geoHint = document.getElementById('koko-geohint');
-  if(!statusEl || !listEl) return;
-
+  if(!listEl) return;
   if(geoBtn){
     if(kokoGeoState === 'locating') geoBtn.textContent = tr('koko.locating');
-    else if(kokoGeoState === 'ok') geoBtn.textContent = '↻ ' + tr('koko.updateDist');
+    else if(kokoGeoState === 'ok' || (kokoCenterMode === 'gps' && kokoCoords)) geoBtn.textContent = '↻ ' + tr('koko.updateDist');
     else geoBtn.textContent = '📍 ' + tr('koko.showDist');
   }
   if(geoHint){
@@ -2797,22 +3194,7 @@ function renderKoko(){
       geoHint.textContent = ''; geoHint.style.display = 'none';
     }
   }
-
-  statusEl.textContent = ''; statusEl.style.display = 'none';
-  if(kokoLoading){
-    statusEl.style.display = 'block'; statusEl.textContent = tr('koko.loading');
-  } else if(kokoLoadErr){
-    statusEl.style.display = 'block';
-    const span = document.createElement('span');
-    span.textContent = tr('koko.loadErr');
-    const btn = document.createElement('button');
-    btn.type = 'button'; btn.className = 's7btn koko-retry'; btn.textContent = tr('koko.retry');
-    btn.addEventListener('click', loadKokoData);
-    statusEl.appendChild(span); statusEl.appendChild(btn);
-  }
-
   renderKokoFilters();
-
   listEl.textContent = '';
   if(kokoLoading || kokoLoadErr){ if(countEl) countEl.textContent = ''; return; }
   if(!kokoData || !kokoData.length){
@@ -2832,6 +3214,161 @@ function renderKoko(){
     return;
   }
   rows.forEach(function(r){ listEl.appendChild(kokoRowEl(r)); });
+}
+
+/* ---- detail sheet ---- */
+function kokoNavitimeUrl(row){
+  // Best-effort NAVITIME deep link. navitime.co.jp/maps/ is anti-bot-blocked to automated
+  // fetchers (403) but loads in a real mobile browser; Google Maps is the guaranteed path.
+  if(row.lat != null && row.lng != null){
+    return 'https://www.navitime.co.jp/maps/?lat=' + encodeURIComponent(row.lat) + '&lon=' + encodeURIComponent(row.lng);
+  }
+  const q = row.maps_query || row.name_ja || row.name_en || '';
+  return 'https://www.navitime.co.jp/maps/?q=' + encodeURIComponent(q);
+}
+function fillKokoSheet(row){
+  const nameEl = document.getElementById('kd-name');
+  const subEl = document.getElementById('kd-namesub');
+  const body = document.getElementById('kd-body');
+  if(!nameEl || !body) return;
+  const primary = (lang === 'ja' && row.name_ja) ? row.name_ja : (row.name_en || row.name_ja || '—');
+  const other = (lang === 'ja' && row.name_ja) ? row.name_en : row.name_ja;
+  nameEl.textContent = kokoKindGlyph(row) + ' ' + primary;
+  subEl.textContent = (other && other !== primary) ? other : '';
+  body.textContent = '';
+  const st = kokoOpenState(row);
+  const hd = document.createElement('div'); hd.className = 'kd-row';
+  const badge = document.createElement('span');
+  badge.className = 'kd-badge kd-badge-' + st;
+  badge.textContent = st === 'open' ? tr('koko.open') : (st === 'closed' ? tr('koko.closed') : tr('koko.unknown'));
+  hd.appendChild(badge);
+  const hrs = document.createElement('span');
+  hrs.textContent = tr('koko.detailHours') + ': ' + kokoHoursSummary(row);
+  hd.appendChild(hrs);
+  body.appendChild(hd);
+  const dis = document.createElement('div'); dis.className = 'kd-disclaim'; dis.textContent = tr('koko.approxBanner');
+  body.appendChild(dis);
+  const ol = (lang === 'ja' && row.one_liner_ja) ? row.one_liner_ja : row.one_liner;
+  if(ol){ const p = document.createElement('div'); p.className = 'kd-row'; p.textContent = ol; body.appendChild(p); }
+  const c = kokoActiveCenter();
+  if(row.lat != null && row.lng != null){
+    const dr = document.createElement('div'); dr.className = 'kd-row kd-sub';
+    dr.textContent = kokoFmtDist(kokoHaversine(c.lat, c.lng, row.lat, row.lng)) + ' · ' + (c.isYou ? tr('koko.you') : c.label);
+    body.appendChild(dr);
+  }
+  if(row.address){ const a = document.createElement('div'); a.className = 'kd-row kd-sub'; a.textContent = row.address; body.appendChild(a); }
+  if(row.phone){
+    const pr = document.createElement('div'); pr.className = 'kd-row kd-phone';
+    const pa = document.createElement('a'); pa.className = 'kd-tel';
+    pa.href = 'tel:' + String(row.phone).replace(/[^+0-9]/g,'');
+    pa.textContent = '📞 ' + row.phone;                 // the number itself, readable, still tel-linked
+    pr.appendChild(pa); body.appendChild(pr);
+  }
+  const act = document.createElement('div'); act.className = 'kd-actions';
+  const gmaps = document.createElement('a'); gmaps.className = 's7btn kd-act';
+  gmaps.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(row.maps_query || row.address || row.name_en || '');
+  gmaps.target = '_blank'; gmaps.rel = 'noopener'; gmaps.textContent = '🗺 ' + tr('koko.googleMaps');
+  act.appendChild(gmaps);
+  const nav = document.createElement('a'); nav.className = 's7btn kd-act';
+  nav.href = kokoNavitimeUrl(row); nav.target = '_blank'; nav.rel = 'noopener'; nav.textContent = '🧭 ' + tr('koko.navitime');
+  act.appendChild(nav);
+  if(row.phone){
+    const tel = document.createElement('a'); tel.className = 's7btn kd-act';
+    tel.href = 'tel:' + String(row.phone).replace(/[^+0-9]/g,''); tel.textContent = '📞 ' + tr('koko.call');
+    act.appendChild(tel);
+  }
+  const status = kokoStatusFor(row);
+  const stBtn = document.createElement('button'); stBtn.type = 'button';
+  stBtn.id = 'kd-status-btn';
+  stBtn.className = 's7btn kd-act koko-status-btn koko-st-btn-' + status;
+  stBtn.textContent = status === 'done' ? ('✓ ' + tr('koko.doneChip')) : (status === 'skip' ? tr('koko.skip') : tr('koko.want'));
+  stBtn.addEventListener('click', function(){
+    cycleKokoStatus(row.id);   // re-renders the list/SVG behind the modal (detaches old triggers)
+    fillKokoSheet(row);        // rebuilds #kd-body → old stBtn is destroyed
+    // keep focus INSIDE the sheet on the freshly-built, connected status button (Tab trap alive)
+    const nb = document.getElementById('kd-status-btn');
+    if(nb) nb.focus();
+  });
+  act.appendChild(stBtn);
+  body.appendChild(act);
+}
+function kokoSheetOpen(){ const o = document.getElementById('koko-detail-ov'); return !!(o && o.classList.contains('open')); }
+/* Re-resolve the element to focus when the sheet closes. The trigger is stored as data
+   ({id, kind}) — never as an element — because the status cycle re-renders the list/SVG and
+   detaches the original node. Resolve the CURRENT DOM element for that row; if it no longer
+   exists (row filtered out by a status change), fall back to the view toggle, then the koko
+   heading. Only ever returns a connected element (or null); never focuses a detached node. */
+function kokoFindByRowId(container, id){
+  if(!container) return null;
+  const els = container.querySelectorAll('[data-koko-id]');
+  for(let i=0;i<els.length;i++){ if(els[i].getAttribute('data-koko-id') === id) return els[i]; }
+  return null;
+}
+function kokoResolveTrigger(){
+  const t = _kokoSheetTrigger;
+  if(t && t.id){
+    const el = (t.kind === 'node')
+      ? kokoFindByRowId(document.getElementById('koko-svg'), t.id)
+      : kokoFindByRowId(document.getElementById('koko-list'), t.id);
+    if(el && el.isConnected) return el;
+  }
+  const vt = document.getElementById('koko-viewtog');
+  const vb = vt && vt.querySelector('button');
+  if(vb && vb.isConnected) return vb;
+  const h = document.getElementById('koko-heading');
+  return (h && h.isConnected) ? h : null;
+}
+function openKokoSheet(row){
+  const ov = document.getElementById('koko-detail-ov');
+  if(!ov || !row) return;
+  // store trigger as DATA (not the live element) so it survives the status-cycle re-render
+  _kokoSheetTrigger = { id: row.id, kind: (kokoView === 'list' ? 'card' : 'node') };
+  fillKokoSheet(row);
+  ov.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ const x = document.getElementById('kd-close'); if(x) x.focus(); }, 0);
+}
+function closeKokoSheet(){
+  const ov = document.getElementById('koko-detail-ov');
+  if(!ov) return;
+  ov.classList.remove('open');
+  const dayOpen = overlay && overlay.classList.contains('open');
+  if(!dayOpen) document.body.style.overflow = '';
+  const target = kokoResolveTrigger();
+  _kokoSheetTrigger = null;
+  if(target && target.isConnected && target.focus) target.focus();   // never focus a detached node
+}
+
+/* ---- render dispatcher ---- */
+function renderKoko(){
+  if(!document.getElementById('koko')) return;
+  renderKokoViewTog();
+  renderKokoKinds();
+  const statusEl = document.getElementById('koko-status');
+  if(statusEl){
+    statusEl.textContent = ''; statusEl.style.display = 'none';
+    if(kokoLoading){
+      statusEl.style.display = 'block'; statusEl.textContent = tr('koko.loading');
+    } else if(kokoLoadErr){
+      statusEl.style.display = 'block';
+      const span = document.createElement('span'); span.textContent = tr('koko.loadErr');
+      const btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 's7btn koko-retry'; btn.textContent = tr('koko.retry');
+      btn.addEventListener('click', loadKokoData);
+      statusEl.appendChild(span); statusEl.appendChild(btn);
+    }
+  }
+  const con = document.getElementById('koko-con');
+  const lw = document.getElementById('koko-listwrap');
+  if(kokoView === 'constellation'){
+    if(con) con.hidden = false;
+    if(lw) lw.hidden = true;
+    renderConstellation();
+  } else {
+    if(con) con.hidden = true;
+    if(lw) lw.hidden = false;
+    renderKokoList();
+  }
 }
 
 /* ---------- "Now" countdown strip ---------- */
@@ -3432,6 +3969,25 @@ document.getElementById('cliffIcsBtn').addEventListener('click', downloadCliffIc
 document.getElementById('m-close').addEventListener('click', closeModal);
 overlay.addEventListener('click', e => { if(e.target === overlay) closeModal(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape' && overlay.classList.contains('open')) closeModal(); });
+
+/* ここどこ? detail sheet wiring (its own scrim, Escape + focus trap) */
+document.getElementById('kd-close').addEventListener('click', closeKokoSheet);
+document.getElementById('koko-detail-ov').addEventListener('click', function(e){
+  if(e.target === document.getElementById('koko-detail-ov')) closeKokoSheet();
+});
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && kokoSheetOpen()){ e.stopPropagation(); closeKokoSheet(); }
+}, true);   // capture: own Escape before the panel/day-modal handlers
+document.querySelector('#koko-detail-ov .sheet').addEventListener('keydown', function(e){
+  if(e.key !== 'Tab' || !kokoSheetOpen()) return;
+  const ov = document.getElementById('koko-detail-ov');
+  const nodes = ov.querySelectorAll('button, input, textarea, select, [href], [tabindex]');
+  const list = Array.prototype.filter.call(nodes, function(el){ return !el.disabled && el.offsetParent !== null; });
+  if(!list.length) return;
+  const first = list[0], last = list[list.length - 1];
+  if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+  else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+});
 document.getElementById('m-form').addEventListener('submit', onSubmit);
 document.getElementById('bd-form').addEventListener('submit', onBoardSubmit);
 document.getElementById('m-editbtn').addEventListener('click', showEditForm);
@@ -3460,6 +4016,7 @@ document.querySelectorAll('.langtog button').forEach(function(b){
 });
 document.addEventListener('keydown', function(e){
   if(e.key !== 'Escape') return;
+  if(kokoSheetOpen()) return;                                                /* koko sheet owns Escape */
   if(document.getElementById('overlay').classList.contains('open')) return; /* modal owns Escape */
   if(document.documentElement.classList.contains('menu-open')){ closeMenu(); return; }
   if(document.documentElement.classList.contains('panel-open')) goHome();

@@ -93,7 +93,9 @@
   },
   "maps_query": "ワッカ 八丁堀",
   "needs": [],
-  "vault": "food/wacca-spice-curry.md"
+  "vault": "food/wacca-spice-curry.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "tokki-trotter-noodles-yokohama",
@@ -201,7 +203,9 @@
   },
   "maps_query": "徳記 中華街 横浜",
   "needs": [],
-  "vault": "food/tokki-trotter-noodles.md"
+  "vault": "food/tokki-trotter-noodles.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "kyokarou-honkan-yokohama",
@@ -281,7 +285,9 @@
   },
   "maps_query": "京華樓 本館 中華街",
   "needs": [],
-  "vault": "food/kyokarou-sichuan.md"
+  "vault": "food/kyokarou-sichuan.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "kyokarou-odori-yokohama",
@@ -361,7 +367,9 @@
   },
   "maps_query": "京華樓 中華街大通り店 横浜",
   "needs": [],
-  "vault": "food/kyokarou-sichuan.md"
+  "vault": "food/kyokarou-sichuan.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "moti-roppongi",
@@ -372,7 +380,7 @@
   "address": "東京都港区六本木6-2-35 ハマ六本木ビル 3F",
   "addr_geo": "東京都港区六本木6-2-35",
   "hubs": [
-   "other"
+   "doc-ebisu"
   ],
   "tags": [
    "indian",
@@ -466,7 +474,9 @@
   "lat": 35.662037,
   "lng": 139.730408,
   "needs": [],
-  "vault": "food/moti-roppongi.md"
+  "vault": "food/moti-roppongi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "ivy-place-daikanyama",
@@ -545,7 +555,9 @@
   "maps_query": "アイビープレイス 代官山",
   "needs": [],
   "phone": "03-6415-3232",
-  "vault": "food/ivy-place-daikanyama.md"
+  "vault": "food/ivy-place-daikanyama.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "west-georgia-st-ebisu",
@@ -583,7 +595,9 @@
   "needs": [
    "hours"
   ],
-  "vault": "food/west-georgia-st-ebisu.md"
+  "vault": "food/west-georgia-st-ebisu.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "en-yakitori-gotanda",
@@ -681,7 +695,9 @@
   },
   "maps_query": "en. エン 五反田",
   "needs": [],
-  "vault": "food/en-yakitori-gotanda.md"
+  "vault": "food/en-yakitori-gotanda.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chacha-kobo-kiyosumi",
@@ -692,7 +708,7 @@
   "address": "1F 1-5-4 Miyoshi, Koto-ku, Tokyo",
   "addr_geo": "東京都江東区三好1-5-4",
   "hubs": [
-   "daytrip-east"
+   "tokyo-stn"
   ],
   "tags": [
    "brunch",
@@ -757,7 +773,9 @@
   "lng": 139.800644,
   "maps_query": "Chacha Kobo Kiyosumi Tokyo",
   "needs": [],
-  "vault": "food/chacha-kobo-kiyosumi.md"
+  "vault": "food/chacha-kobo-kiyosumi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chaka-pancakes-kitasenju",
@@ -830,7 +848,9 @@
   "lng": 139.799667,
   "maps_query": "Chaka 北千住",
   "needs": [],
-  "vault": "food/chaka-pancakes-kitasenju.md"
+  "vault": "food/chaka-pancakes-kitasenju.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "soup-curry-king-kichijoji",
@@ -908,7 +928,9 @@
   "lat": 35.705589,
   "lng": 139.577728,
   "one_liner_ja": "だし感のある和風スープカレーが吉祥寺の激戦区で光る、鶏肉カレーの人気店。",
-  "vault": "food/soup-curry-king-kichijoji.md"
+  "vault": "food/soup-curry-king-kichijoji.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "bangkok77-kabukicho-shinjuku",
@@ -988,7 +1010,9 @@
   "lng": 139.701736,
   "maps_query": "アジアンダイニング Bangkok77 新宿店",
   "needs": [],
-  "vault": "food/bangkok77-shinjuku.md"
+  "vault": "food/bangkok77-shinjuku.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "spontini-harajuku",
@@ -1066,7 +1090,9 @@
   "lat": 35.670097,
   "lng": 139.703827,
   "one_liner_ja": "神宮前のイタリアンピザ、テラス席とWi-Fiがあり年中無休",
-  "vault": "food/spontini-harajuku.md"
+  "vault": "food/spontini-harajuku.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "sumatra-curry-kyoueido-jimbocho",
@@ -1140,7 +1166,9 @@
   "plus_code": null,
   "one_liner_ja": "神保町の老舗カレー。黒くなるまで炒めたルーで深い苦みとコクが特徴、ハヤシライスも隠れた名物。",
   "needs": [],
-  "vault": "food/sumatra-curry-kyoueido-jimbocho.md"
+  "vault": "food/sumatra-curry-kyoueido-jimbocho.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "yamagatada-ginza",
@@ -1237,7 +1265,9 @@
   "plus_code": null,
   "lat": 35.671829,
   "lng": 139.767471,
-  "vault": "food/yamagatada-ginza.md"
+  "vault": "food/yamagatada-ginza.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "santora-edogawabashi",
@@ -1345,7 +1375,9 @@
   },
   "maps_query": "三ん寅 江戸川橋",
   "needs": [],
-  "vault": "food/santora-edogawabashi.md"
+  "vault": "food/santora-edogawabashi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "benten-narimasu",
@@ -1421,7 +1453,9 @@
   },
   "maps_query": "中華そば べんてん 成増",
   "needs": [],
-  "vault": "food/benten-narimasu.md"
+  "vault": "food/benten-narimasu.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "yosuko-saikan-jimbocho",
@@ -1499,7 +1533,9 @@
   },
   "maps_query": "揚子江菜館 神保町",
   "needs": [],
-  "vault": "food/hiyashi-chuuka-tokyo.md"
+  "vault": "food/hiyashi-chuuka-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chiisha-ikejiri-ohashi",
@@ -1591,7 +1627,9 @@
   },
   "maps_query": "鶏舎 池尻大橋",
   "needs": [],
-  "vault": "food/hiyashi-chuuka-tokyo.md"
+  "vault": "food/hiyashi-chuuka-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "ryuho-kagurazaka",
@@ -1666,7 +1704,9 @@
   },
   "maps_query": "龍朋 神楽坂",
   "needs": [],
-  "vault": "food/hiyashi-chuuka-tokyo.md"
+  "vault": "food/hiyashi-chuuka-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "hiyachu-nishiogikubo",
@@ -1741,7 +1781,9 @@
   },
   "maps_query": "HiyaChu 西荻",
   "needs": [],
-  "vault": "food/hiyashi-chuuka-tokyo.md"
+  "vault": "food/hiyashi-chuuka-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "isoji-yoyogi",
@@ -1815,7 +1857,9 @@
   },
   "maps_query": "麺恋処いそじ 代々木",
   "needs": [],
-  "vault": "food/hiyashi-chuuka-tokyo.md"
+  "vault": "food/hiyashi-chuuka-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "yajima-toyosu",
@@ -1886,7 +1930,9 @@
   },
   "maps_query": "やじ満 豊洲市場",
   "needs": [],
-  "vault": "food/hiyashi-chuuka-tokyo.md"
+  "vault": "food/hiyashi-chuuka-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "bazoku-asakusa",
@@ -1958,7 +2004,9 @@
   },
   "maps_query": "馬賊 浅草",
   "needs": [],
-  "vault": "food/hiyashi-chuuka-tokyo.md"
+  "vault": "food/hiyashi-chuuka-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "kozen-yushima",
@@ -1994,7 +2042,9 @@
    "coords",
    "hours"
   ],
-  "vault": "food/kozen-yushima-sudachi-soba.md"
+  "vault": "food/kozen-yushima-sudachi-soba.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "poisson-rouge-oimachi",
@@ -2092,7 +2142,9 @@
   },
   "maps_query": "ブラッスリー ポワソンルージュ 大井町",
   "needs": [],
-  "vault": "food/poisson-rouge-shinagawa.md"
+  "vault": "food/poisson-rouge-shinagawa.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chipao-malatang-tenjin",
@@ -2172,7 +2224,9 @@
   "plus_code": null,
   "lat": 33.590145,
   "lng": 130.395752,
-  "vault": "food/chipao-malatang-tenjin.md"
+  "vault": "food/chipao-malatang-tenjin.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chuan-chuan-xiang-ikebukuro",
@@ -2250,7 +2304,9 @@
   "plus_code": null,
   "lat": 35.73241,
   "lng": 139.710434,
-  "vault": "food/chuan-chuan-xiang-ikebukuro.md"
+  "vault": "food/chuan-chuan-xiang-ikebukuro.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "masaki-hinyuuka-shintokorozawa",
@@ -2347,7 +2403,9 @@
   "plus_code": null,
   "lat": 35.809151,
   "lng": 139.45845,
-  "vault": "food/masaki-hinyuuka-shintokorozawa.md"
+  "vault": "food/masaki-hinyuuka-shintokorozawa.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "natsuya-chuka-soba-shimomaruko",
@@ -2416,7 +2474,9 @@
   "lat": 35.5714,
   "lng": 139.683838,
   "plus_code": null,
-  "vault": "food/natsuya-chuka-soba-shimomaruko.md"
+  "vault": "food/natsuya-chuka-soba-shimomaruko.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "kohaku-ikebukuro",
@@ -2494,7 +2554,9 @@
   },
   "maps_query": "琥珀 池袋 しじみ",
   "needs": [],
-  "vault": "food/kohaku-ikebukuro.md"
+  "vault": "food/kohaku-ikebukuro.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "si-chuan-dou-hua-marunouchi",
@@ -2603,7 +2665,9 @@
   },
   "maps_query": "四川豆花飯荘 丸の内",
   "needs": [],
-  "vault": "food/fushun-douhua-tokyo.md"
+  "vault": "food/fushun-douhua-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "fuglen-asakusa",
@@ -2680,7 +2744,9 @@
   },
   "maps_query": "フグレン浅草 Fuglen Asakusa",
   "needs": [],
-  "vault": "food/fuglen-asakusa-coffee-jelly.md"
+  "vault": "food/fuglen-asakusa-coffee-jelly.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "benizuru-pancake-asakusa",
@@ -2755,7 +2821,9 @@
   "lat": 35.711967,
   "lng": 139.791901,
   "plus_code": "PQ6R+QQ Taito City",
-  "vault": "food/benizuru-pancake-asakusa.md"
+  "vault": "food/benizuru-pancake-asakusa.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "iyoshi-cola-jingumae",
@@ -2834,7 +2902,9 @@
   "lat": 35.6646,
   "lng": 139.703247,
   "needs": [],
-  "vault": "food/iyoshi-cola.md"
+  "vault": "food/iyoshi-cola.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "iyoshi-cola-asakusa-rokku",
@@ -2913,7 +2983,9 @@
   "lat": 35.712475,
   "lng": 139.792618,
   "needs": [],
-  "vault": "food/iyoshi-cola.md"
+  "vault": "food/iyoshi-cola.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "cuban-sand-pan-kamata",
@@ -2980,7 +3052,9 @@
   "lat": 35.55938,
   "lng": 139.725662,
   "needs": [],
-  "vault": "food/cuban-sand-pan-kamata.md"
+  "vault": "food/cuban-sand-pan-kamata.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chopsticks-koenji",
@@ -3080,7 +3154,9 @@
   },
   "maps_query": "チョップスティックス 高円寺",
   "needs": [],
-  "vault": "food/chopsticks-koenji-pho.md"
+  "vault": "food/chopsticks-koenji-pho.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chopsticks-kichijoji",
@@ -3178,7 +3254,9 @@
   },
   "maps_query": "チョップスティックス 吉祥寺",
   "needs": [],
-  "vault": "food/chopsticks-koenji-pho.md"
+  "vault": "food/chopsticks-koenji-pho.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chopsticks-shimokitazawa",
@@ -3268,7 +3346,9 @@
   },
   "maps_query": "チョップスティックス 下北沢",
   "needs": [],
-  "vault": "food/chopsticks-koenji-pho.md"
+  "vault": "food/chopsticks-koenji-pho.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "pho-viet-ikebukuro",
@@ -3374,7 +3454,9 @@
   },
   "maps_query": "Pho Viet Ikebukuro",
   "needs": [],
-  "vault": "food/chopsticks-koenji-pho.md"
+  "vault": "food/chopsticks-koenji-pho.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "yancha-malatang-koenji",
@@ -3451,7 +3533,9 @@
   "lat": 35.707893,
   "lng": 139.649673,
   "needs": [],
-  "vault": "food/yancha-malatang-koenji.md"
+  "vault": "food/yancha-malatang-koenji.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "yui-omori-niboshi",
@@ -3559,7 +3643,9 @@
   "lat": 35.58511,
   "lng": 139.729706,
   "needs": [],
-  "vault": "food/yui-omori-niboshi.md"
+  "vault": "food/yui-omori-niboshi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "vinefru-ginza",
@@ -3638,7 +3724,9 @@
   "lng": 139.770187,
   "maps_query": "VINEFRU 銀座",
   "needs": [],
-  "vault": "food/vinefru-ginza.md"
+  "vault": "food/vinefru-ginza.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "zabou-kurenai-ota",
@@ -3741,7 +3829,9 @@
   "plus_code": null,
   "lat": 36.261131,
   "lng": 139.376694,
-  "vault": "food/zabou-kurenai-ota.md"
+  "vault": "food/zabou-kurenai-ota.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "iki-oyster-tsukiji",
@@ -3816,7 +3906,9 @@
   "lat": 35.666775,
   "lng": 139.770111,
   "needs": [],
-  "vault": "food/iki-oyster-tsukiji-toyosu.md"
+  "vault": "food/iki-oyster-tsukiji-toyosu.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "iki-oyster-toyosu-senkyakubanrai",
@@ -3894,7 +3986,9 @@
   "lat": 35.643154,
   "lng": 139.780136,
   "needs": [],
-  "vault": "food/iki-oyster-tsukiji-toyosu.md"
+  "vault": "food/iki-oyster-tsukiji-toyosu.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "ramen-oyster-shell-tsukiji",
@@ -3974,7 +4068,9 @@
   },
   "maps_query": "らぁ麺 牡蠣と貝 築地",
   "needs": [],
-  "vault": "food/ramen-oyster-shell-tsukiji.md"
+  "vault": "food/ramen-oyster-shell-tsukiji.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "yakitori-doc-ebisu-basement",
@@ -4011,7 +4107,9 @@
    "coords",
    "hours"
   ],
-  "vault": "food/liver-vitamin-a-yakitori.md"
+  "vault": "food/liver-vitamin-a-yakitori.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "rechevre-friand-isetan-shinjuku",
@@ -4090,7 +4188,9 @@
   "lat": 35.691074,
   "lng": 139.704651,
   "one_liner_ja": "伊勢丹新宿デパ地下で買えるミートパイ(フリアン)。外はサクサク、中は肉汁たっぷり。",
-  "vault": "food/rechevre-friand-isetan.md"
+  "vault": "food/rechevre-friand-isetan.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "la-maison-du-ramen-bisque-higashijujo",
@@ -4165,7 +4265,9 @@
   "lat": 35.767986,
   "lng": 139.729507,
   "plus_code": null,
-  "vault": "food/la-maison-du-ramen-bisque.md"
+  "vault": "food/la-maison-du-ramen-bisque.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "french-noodle-factory-korakuen",
@@ -4244,7 +4346,9 @@
   "plus_code": null,
   "lat": 35.705814,
   "lng": 139.753983,
-  "vault": "food/french-noodle-factory-korakuen.md"
+  "vault": "food/french-noodle-factory-korakuen.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "mensho-district-core-yoyogi-uehara",
@@ -4323,7 +4427,9 @@
   "lat": 35.66946,
   "lng": 139.680283,
   "one_liner_ja": null,
-  "vault": "food/mensho-district-yoyogi-uehara.md"
+  "vault": "food/mensho-district-yoyogi-uehara.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "menya-shono-mensho-district",
@@ -4402,7 +4508,9 @@
   "lat": 35.66946,
   "lng": 139.680283,
   "one_liner_ja": "MENSHOグループ発祥の看板店、辛口の牡蠣ラーメンが名物。",
-  "vault": "food/mensho-district-yoyogi-uehara.md"
+  "vault": "food/mensho-district-yoyogi-uehara.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "gachi-aburasoba-mensho-district",
@@ -4481,7 +4589,9 @@
   "lat": 35.66946,
   "lng": 139.680283,
   "one_liner_ja": "スープなしの油そば専門店。太麺と背脂・タレのミックスが特徴。",
-  "vault": "food/mensho-district-yoyogi-uehara.md"
+  "vault": "food/mensho-district-yoyogi-uehara.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "nihon-abura-to-shimbashi",
@@ -4560,7 +4670,9 @@
   "vault": "food/nihon-abura-to-shimbashi.md",
   "lat": 35.666229,
   "lng": 139.755859,
-  "plus_code": null
+  "plus_code": null,
+  "kind": "food",
+  "far": false
  },
  {
   "id": "la-premiere-pousse-nishiogi",
@@ -4637,7 +4749,9 @@
   "lat": 35.703358,
   "lng": 139.599014,
   "needs": [],
-  "vault": "food/la-premiere-pousse-nishiogi.md"
+  "vault": "food/la-premiere-pousse-nishiogi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "yotsuya-ippindo-pepper-bun",
@@ -4710,7 +4824,9 @@
   "plus_code": null,
   "lat": 35.685722,
   "lng": 139.727646,
-  "vault": "food/yotsuya-ippindo-pepper-bun.md"
+  "vault": "food/yotsuya-ippindo-pepper-bun.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "butatama-tateishi",
@@ -4810,7 +4926,9 @@
   "plus_code": null,
   "lat": 35.736252,
   "lng": 139.843628,
-  "vault": "food/butatama-tateishi.md"
+  "vault": "food/butatama-tateishi.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "tokyo-bombay-ebisu-garden-place",
@@ -4889,7 +5007,9 @@
   },
   "maps_query": "東京ボンベイ 恵比寿",
   "needs": [],
-  "vault": "food/tokyo-bombay-ebisu.md"
+  "vault": "food/tokyo-bombay-ebisu.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "soba-yoshi-nihonbashi",
@@ -4958,7 +5078,9 @@
   "lat": 35.685383,
   "lng": 139.776596,
   "needs": [],
-  "vault": "food/soba-yoshi-nihonbashi.md"
+  "vault": "food/soba-yoshi-nihonbashi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "soba-yoshi-kyobashi",
@@ -5027,7 +5149,9 @@
   "lat": 35.676914,
   "lng": 139.771866,
   "needs": [],
-  "vault": "food/soba-yoshi-nihonbashi.md"
+  "vault": "food/soba-yoshi-nihonbashi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "soba-yoshi-kamiyacho",
@@ -5038,7 +5162,7 @@
   "address": "東京都港区虎ノ門3-22-11",
   "addr_geo": "東京都港区虎ノ門3-22-11",
   "hubs": [
-   "other"
+   "ginza-nihonbashi"
   ],
   "tags": [
    "soba",
@@ -5096,7 +5220,9 @@
   "lat": 35.661625,
   "lng": 139.747772,
   "needs": [],
-  "vault": "food/soba-yoshi-nihonbashi.md"
+  "vault": "food/soba-yoshi-nihonbashi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "benzaiten-coconut-warabi-shibuya",
@@ -5173,7 +5299,9 @@
   },
   "maps_query": "弁才天 渋谷マークシティ",
   "needs": [],
-  "vault": "food/benzaiten-koko-yashi-warabi.md"
+  "vault": "food/benzaiten-koko-yashi-warabi.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "rustic-noodles-noda",
@@ -5268,7 +5396,9 @@
   "vault": "food/rustic-noodles-noda.md",
   "lat": 35.949505,
   "lng": 139.864792,
-  "plus_code": null
+  "plus_code": null,
+  "kind": "food",
+  "far": true
  },
  {
   "id": "chin-mapo-shinjuku-nomura",
@@ -5366,7 +5496,9 @@
   "maps_query": "陳麻婆豆腐 新宿野村ビル店",
   "needs": [],
   "vault": "food/chin-mapo-shinjuku-nomura.md",
-  "phone": "050-5484-2544"
+  "phone": "050-5484-2544",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chin-mapo-shinjuku-southern-terrace",
@@ -5465,7 +5597,9 @@
   "maps_query": "陳麻婆豆腐 新宿サザンテラス店",
   "needs": [],
   "vault": "food/chin-mapo-shinjuku-nomura.md",
-  "phone": "03-6276-0234"
+  "phone": "03-6276-0234",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chin-mapo-minatomirai",
@@ -5544,7 +5678,9 @@
   "maps_query": "陳麻婆豆腐 みなとみらい店",
   "needs": [],
   "vault": "food/chin-mapo-shinjuku-nomura.md",
-  "phone": "045-682-2866"
+  "phone": "045-682-2866",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "chin-mapo-yokohama-cityhall-raxis",
@@ -5651,7 +5787,9 @@
   "maps_query": "陳麻婆豆腐 横浜市役所ラクシスフロント店",
   "needs": [],
   "vault": "food/chin-mapo-shinjuku-nomura.md",
-  "phone": "045-228-9771"
+  "phone": "045-228-9771",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "chin-mapo-tamaplaza",
@@ -5730,7 +5868,9 @@
   "maps_query": "陳麻婆豆腐 たまプラーザ店",
   "needs": [],
   "vault": "food/chin-mapo-shinjuku-nomura.md",
-  "phone": "045-905-5323"
+  "phone": "045-905-5323",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "chin-mapo-ariake-garden",
@@ -5808,7 +5948,9 @@
   "maps_query": "陳麻婆豆腐 有明ガーデン店",
   "needs": [],
   "vault": "food/chin-mapo-shinjuku-nomura.md",
-  "phone": "03-5962-1935"
+  "phone": "03-5962-1935",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "chin-mapo-keio-fuchu",
@@ -5886,7 +6028,9 @@
   "maps_query": "陳麻婆豆腐 京王府中店",
   "needs": [],
   "vault": "food/chin-mapo-shinjuku-nomura.md",
-  "phone": "042-306-7860"
+  "phone": "042-306-7860",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "think-milk-france-isetan",
@@ -5976,7 +6120,9 @@
   "lng": 139.704651,
   "maps_query": "Think ミルクフランス 伊勢丹新宿",
   "needs": [],
-  "vault": "food/think-milk-france-isetan.md"
+  "vault": "food/think-milk-france-isetan.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "miyarou-kamata",
@@ -6075,7 +6221,9 @@
   "lat": 35.561852,
   "lng": 139.712509,
   "plus_code": null,
-  "vault": "food/miyarou-kamata.md"
+  "vault": "food/miyarou-kamata.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "umenoki-kamata",
@@ -6182,7 +6330,9 @@
   "lng": 139.724335,
   "plus_code": null,
   "needs": [],
-  "vault": "food/umenoki-kamata.md"
+  "vault": "food/umenoki-kamata.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "bishin-shuka-yokohama",
@@ -6273,7 +6423,9 @@
   "lng": 139.645493,
   "maps_query": "備深酒家 香港路",
   "needs": [],
-  "vault": "food/bishin-shuka-yokohama.md"
+  "vault": "food/bishin-shuka-yokohama.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "hechikan-kannai",
@@ -6375,7 +6527,9 @@
   "lng": 139.631836,
   "maps_query": "丿貫 福富町",
   "needs": [],
-  "vault": "food/hechikan-kannai.md"
+  "vault": "food/hechikan-kannai.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "taco-street-dogenzaka",
@@ -6443,7 +6597,9 @@
   },
   "maps_query": "タコストリート 道玄坂",
   "needs": [],
-  "vault": "food/taco-street-conquistar-dogenzaka.md"
+  "vault": "food/taco-street-conquistar-dogenzaka.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "conquistar-dogenzaka",
@@ -6515,7 +6671,9 @@
   },
   "maps_query": "コンキスター 道玄坂",
   "needs": [],
-  "vault": "food/taco-street-conquistar-dogenzaka.md"
+  "vault": "food/taco-street-conquistar-dogenzaka.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "kaneda-kitte-marunouchi",
@@ -6593,7 +6751,9 @@
   },
   "maps_query": "かね田 KITTE",
   "needs": [],
-  "vault": "food/kaneda-kitte-tsukemen.md"
+  "vault": "food/kaneda-kitte-tsukemen.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "keraku-meguro",
@@ -6672,7 +6832,9 @@
   "lat": 35.633846,
   "lng": 139.717651,
   "plus_code": null,
-  "vault": "food/keraku-meguro-spice-curry.md"
+  "vault": "food/keraku-meguro-spice-curry.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "rockando-rokakando-ikebukuro",
@@ -6765,7 +6927,9 @@
   "plus_code": null,
   "lat": 35.732933,
   "lng": 139.704071,
-  "vault": "food/rockando-rokakando-ikebukuro.md"
+  "vault": "food/rockando-rokakando-ikebukuro.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "gansokujiraya-tokyo",
@@ -6776,7 +6940,7 @@
   "address": "東京都渋谷区道玄坂2-6-15 鈴井ビル3F",
   "addr_geo": "東京都渋谷区道玄坂2-6-15",
   "hubs": [
-   "other"
+   "shibuya-harajuku"
   ],
   "tags": [
    "whale",
@@ -6848,7 +7012,9 @@
   "phone": "03-3461-9145",
   "lat": 35.659145,
   "lng": 139.698502,
-  "plus_code": null
+  "plus_code": null,
+  "kind": "food",
+  "far": false
  },
  {
   "id": "tsukiji-no-kujira",
@@ -6924,7 +7090,9 @@
   "phone": "03-6659-2020",
   "lat": 35.665737,
   "lng": 139.77034,
-  "plus_code": null
+  "plus_code": null,
+  "kind": "food",
+  "far": false
  },
  {
   "id": "kujira-no-ibukuro-shimbashi",
@@ -7019,7 +7187,9 @@
   "phone": "03-6206-1185",
   "lat": 35.667286,
   "lng": 139.750992,
-  "plus_code": null
+  "plus_code": null,
+  "kind": "food",
+  "far": false
  },
  {
   "id": "isana-standing-shimbashi",
@@ -7092,7 +7262,9 @@
   "lat": 35.667049,
   "lng": 139.753433,
   "plus_code": null,
-  "phone": null
+  "phone": null,
+  "kind": "food",
+  "far": false
  },
  {
   "id": "toyosu-nakaoroshi-marine-resource-lab",
@@ -7165,7 +7337,9 @@
   "phone": "03-6633-4129",
   "lat": 35.643154,
   "lng": 139.780136,
-  "plus_code": null
+  "plus_code": null,
+  "kind": "food",
+  "far": false
  },
  {
   "id": "kurita-tsukiji-jyogai",
@@ -7244,7 +7418,9 @@
   "phone": "03-3541-6510",
   "lat": 35.665199,
   "lng": 139.771774,
-  "plus_code": null
+  "plus_code": null,
+  "kind": "food",
+  "far": false
  },
  {
   "id": "georgian-house-honjo-azumabashi",
@@ -7343,7 +7519,9 @@
   "lat": 35.708996,
   "lng": 139.80394,
   "needs": [],
-  "vault": "food/georgian-tokyo.md"
+  "vault": "food/georgian-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "ajika-kagurazaka",
@@ -7448,7 +7626,9 @@
   "lat": 35.701088,
   "lng": 139.737854,
   "needs": [],
-  "vault": "food/georgian-tokyo.md"
+  "vault": "food/georgian-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "sungari-shinjuku-higashiguchi",
@@ -7529,7 +7709,9 @@
   "lat": 35.696827,
   "lng": 139.700378,
   "needs": [],
-  "vault": "food/georgian-tokyo.md"
+  "vault": "food/georgian-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "sungari-shinjuku-sanchome",
@@ -7618,7 +7800,9 @@
   "lat": 35.693184,
   "lng": 139.702271,
   "needs": [],
-  "vault": "food/georgian-tokyo.md"
+  "vault": "food/georgian-tokyo.md",
+  "kind": "food",
+  "far": false
  },
  {
   "id": "deep-jyoti-aobadai",
@@ -7699,7 +7883,9 @@
   "plus_code": null,
   "lat": 35.545151,
   "lng": 139.516907,
-  "vault": "food/deep-jyoti-aobadai.md"
+  "vault": "food/deep-jyoti-aobadai.md",
+  "kind": "food",
+  "far": true
  },
  {
   "id": "bazoku-nippori",
@@ -7774,6 +7960,1816 @@
   },
   "maps_query": "馬賊 日暮里店",
   "vault": "food/hiyashi-chuuka-tokyo.md",
-  "needs": []
+  "needs": [],
+  "kind": "food",
+  "far": false
+ },
+ {
+  "id": "do-c-ebisu-capsule",
+  "kind": "lodging",
+  "name_en": "do-c (℃) Ebisu",
+  "name_ja": "ドシー恵比寿",
+  "one_liner": "Sauna-first capsule hotel (löyly sauna + water bath + capsule) in walkable Ebisu.",
+  "one_liner_ja": "サウナ付きカプセルホテル(恵比寿)。ロウリュサウナと水風呂で睡眠導入。",
+  "address": "〒150-0013 東京都渋谷区恵比寿1-8-1",
+  "addr_geo": "東京都渋谷区恵比寿",
+  "hubs": [
+   "doc-ebisu"
+  ],
+  "tags": [
+   "capsule-hotel",
+   "sauna",
+   "first-nights",
+   "jet-lag"
+  ],
+  "priority": "high",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "check candidate for first 3 nights in Tokyo; confirm check-in time",
+   "approx": true
+  },
+  "phone": "03-3449-5255",
+  "plus_code": null,
+  "lat": 35.647125,
+  "lng": 139.713943,
+  "maps_query": "ドシー恵比寿 do-c Ebisu capsule sauna",
+  "needs": [
+   "hours"
+  ],
+  "vault": "lodging/first-nights-tokyo-capsule.md",
+  "far": false
+ },
+ {
+  "id": "9h-nine-hours-akasaka",
+  "kind": "lodging",
+  "name_en": "9h nine hours Akasaka",
+  "name_ja": "ナインアワーズ赤坂・スリープラボ",
+  "one_liner": "Sleep-engineering capsule hotel in central Akasaka, quiet at night with good metro access.",
+  "one_liner_ja": "睡眠に特化したカプセルホテル(赤坂)。夜は静かで地下鉄アクセス良好。",
+  "address": "〒107-0052 東京都港区赤坂4-3-14",
+  "addr_geo": "東京都港区赤坂",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "capsule-hotel",
+   "first-nights",
+   "jet-lag"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "alternate candidate, not chosen; confirm check-in time",
+   "approx": true
+  },
+  "phone": "03-5545-1565",
+  "plus_code": null,
+  "lat": 35.668591,
+  "lng": 139.74234,
+  "maps_query": "9h nine hours Akasaka capsule hotel",
+  "needs": [
+   "hours"
+  ],
+  "vault": "lodging/first-nights-tokyo-capsule.md",
+  "far": false
+ },
+ {
+  "id": "nine-hours-narita-airport",
+  "kind": "lodging",
+  "name_en": "9h nine hours Narita Airport",
+  "name_ja": "ナインアワーズ成田空港",
+  "one_liner": "Capsule hotel inside Narita Airport for a zero-risk final night before the flight home.",
+  "one_liner_ja": "成田空港内のカプセルホテル。帰国前夜を空港内で過ごせる。",
+  "address": "千葉県成田市古込1-1 成田国際空港 第2ターミナル",
+  "addr_geo": "千葉県成田市古込1-1",
+  "lat": 35.773689,
+  "lng": 140.386032,
+  "plus_code": null,
+  "phone": "050-1807-3506",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "capsule-hotel",
+   "airport",
+   "final-night"
+  ],
+  "priority": "high",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "check-in/out times not specified in note",
+   "approx": true
+  },
+  "maps_query": "9h nine hours 成田空港",
+  "needs": [
+   "hours"
+  ],
+  "vault": "lodging/nine-hours-narita.md",
+  "far": true
+ },
+ {
+  "id": "cycletrip-base-akihabara",
+  "kind": "transport",
+  "name_en": "CycleTrip BASE Akihabara",
+  "name_ja": "サイクルトリップ ベース 秋葉原",
+  "one_liner": "Rental e-bike shop (Yamaha Wabash RT) near Akihabara/Kanda, for Yamanote loop day rides",
+  "one_liner_ja": "秋葉原・神田近くのレンタル電動アシスト自転車店(ヤマハWABASH RT)",
+  "address": "2-9 Kanda Sudacho, Chiyoda-ku · Miyagawa Bldg 1F · 101-0041",
+  "addr_geo": "東京都千代田区神田須田町2-9",
+  "lat": 35.695889,
+  "lng": 139.773926,
+  "plus_code": null,
+  "hubs": [
+   "jimbocho-kagurazaka"
+  ],
+  "tags": [
+   "rental-bike",
+   "e-bike",
+   "sightseeing",
+   "transport"
+  ],
+  "priority": "high",
+  "status": "want",
+  "phone": "+81 50-5530-5790",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "09:30",
+      "17:30"
+     ]
+    ],
+    "tue": [
+     [
+      "09:30",
+      "17:30"
+     ]
+    ],
+    "wed": [
+     [
+      "09:30",
+      "17:30"
+     ]
+    ],
+    "thu": [
+     [
+      "09:30",
+      "17:30"
+     ]
+    ],
+    "fri": [
+     [
+      "09:30",
+      "17:30"
+     ]
+    ],
+    "sat": [
+     [
+      "09:30",
+      "17:30"
+     ]
+    ],
+    "sun": [
+     [
+      "09:30",
+      "17:30"
+     ]
+    ]
+   },
+   "closed": [
+    "last Wednesday of every month"
+   ],
+   "note": "Closed last Wednesday of each month; return by ~17:00-17:15, shop closes 17:30",
+   "approx": true,
+   "closed_ranges": [
+    [
+     "2026-07-29",
+     "2026-07-29"
+    ],
+    [
+     "2026-08-26",
+     "2026-08-26"
+    ],
+    [
+     "2026-09-30",
+     "2026-09-30"
+    ]
+   ]
+  },
+  "maps_query": "CycleTrip BASE 秋葉原 神田須田町",
+  "needs": [],
+  "vault": "logistics/cycletrip-akihabara.md",
+  "far": false
+ },
+ {
+  "id": "toyota-rent-a-car-hakata",
+  "kind": "transport",
+  "name_en": "Toyota Rent a Car (Hakata)",
+  "name_ja": "トヨタレンタカー 博多駅前店",
+  "one_liner": "Pickup for Kyushu onsen-loop rental car (compact C1), pick up 29 Jul.",
+  "one_liner_ja": "九州温泉ループ用レンタカー(コンパクトC1)の受取店。7月29日受取予定。",
+  "address": "〒812-0013 福岡県福岡市博多区博多駅東1-12-8 トヨタレンタリース博多駅前ビル内",
+  "addr_geo": "福岡県福岡市博多区博多駅東1-12-8",
+  "lat": 33.590736,
+  "lng": 130.422638,
+  "plus_code": null,
+  "hubs": [
+   "kyushu"
+  ],
+  "tags": [
+   "car-rental",
+   "road-trip",
+   "onsen-loop",
+   "hakata"
+  ],
+  "priority": "high",
+  "status": "want",
+  "phone": "092-441-0100",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "08:00",
+      "20:00"
+     ]
+    ],
+    "tue": [
+     [
+      "08:00",
+      "20:00"
+     ]
+    ],
+    "wed": [
+     [
+      "08:00",
+      "20:00"
+     ]
+    ],
+    "thu": [
+     [
+      "08:00",
+      "20:00"
+     ]
+    ],
+    "fri": [
+     [
+      "08:00",
+      "20:00"
+     ]
+    ],
+    "sat": [
+     [
+      "08:00",
+      "20:00"
+     ]
+    ],
+    "sun": [
+     [
+      "08:00",
+      "20:00"
+     ]
+    ]
+   },
+   "closed": [
+    "Annual single-day closure on 8/25"
+   ],
+   "note": "Open daily 08:00-20:00 year-round; official site lists closure only on 8/25.",
+   "approx": true,
+   "closed_ranges": [
+    [
+     "2026-08-25",
+     "2026-08-25"
+    ]
+   ]
+  },
+  "maps_query": "トヨタレンタカー 博多駅",
+  "needs": [],
+  "vault": "logistics/kyushu-car-loop.md",
+  "far": false
+ },
+ {
+  "id": "jal-abc-counter-narita-t2",
+  "kind": "sim",
+  "name_en": "JAL ABC Counter (Narita T2 Arrivals) — Sakura Mobile eSIM Pickup",
+  "name_ja": "JAL ABC カウンター(成田空港第2ターミナル)",
+  "one_liner": "Sakura Mobile partner desk for airport eSIM QR pickup on arrival",
+  "one_liner_ja": "到着時にeSIMのQRコードを受け取るサクラモバイル提携カウンター",
+  "address": "成田空港 第2ターミナル 1F 到着ロビー (千葉県成田市古込1-1)",
+  "addr_geo": "千葉県成田市古込1-1",
+  "lat": 35.773689,
+  "lng": 140.386032,
+  "plus_code": null,
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "sim-pickup",
+   "airport",
+   "esim"
+  ],
+  "priority": "high",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "06:30",
+      "23:00"
+     ]
+    ],
+    "tue": [
+     [
+      "06:30",
+      "23:00"
+     ]
+    ],
+    "wed": [
+     [
+      "06:30",
+      "23:00"
+     ]
+    ],
+    "thu": [
+     [
+      "06:30",
+      "23:00"
+     ]
+    ],
+    "fri": [
+     [
+      "06:30",
+      "23:00"
+     ]
+    ],
+    "sat": [
+     [
+      "06:30",
+      "23:00"
+     ]
+    ],
+    "sun": [
+     [
+      "06:30",
+      "23:00"
+     ]
+    ]
+   },
+   "closed": [],
+   "note": "Arrivals 1F (International Arrival Lobby) counter — Sakura Mobile partner pickup: opens 06:30 daily, closes 1 hour after the final international flight arrival at Terminal 2, so closing time varies by daily schedule; 23:00 is an approximation. Open every day, no regular closing day. (Separate Departures 3F counter runs 07:00-21:00.)",
+   "approx": true
+  },
+  "phone": null,
+  "maps_query": "JAL ABC カウンター 成田空港第2ターミナル 到着ロビー",
+  "needs": [],
+  "vault": "logistics/sakura-mobile.md",
+  "far": true
+ },
+ {
+  "id": "kagaya-tobacco-shinjuku",
+  "kind": "errand",
+  "name_en": "Kagaya Tobacco Shop",
+  "name_ja": "かがや",
+  "one_liner": "Tobacco shop for Peace cigarette tins; call ahead to check stock.",
+  "one_liner_ja": "ピース缶の在庫を電話で確認してから訪問するたばこ店。",
+  "address": "〒160-0022 東京都新宿区新宿3-17-7 紀伊国屋ビル1F",
+  "addr_geo": "東京都新宿区",
+  "lat": 35.69389,
+  "lng": 139.703613,
+  "plus_code": null,
+  "hubs": [
+   "shinjuku"
+  ],
+  "tags": [
+   "tobacco",
+   "errand",
+   "shinjuku"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "12:00",
+      "19:00"
+     ]
+    ],
+    "tue": [
+     [
+      "12:00",
+      "19:00"
+     ]
+    ],
+    "wed": [
+     [
+      "12:00",
+      "19:00"
+     ]
+    ],
+    "thu": [
+     [
+      "12:00",
+      "19:00"
+     ]
+    ],
+    "fri": [
+     [
+      "12:00",
+      "19:00"
+     ]
+    ],
+    "sat": [
+     [
+      "12:00",
+      "19:00"
+     ]
+    ],
+    "sun": [
+     [
+      "12:00",
+      "19:00"
+     ]
+    ]
+   },
+   "closed": [
+    "No regular weekly closing day (定休日無し)",
+    "Closed New Year holidays",
+    "Closed ~3 inventory days per year (年3回棚卸休日)"
+   ],
+   "note": "Open daily 12:00-19:00 per official Shinjuku Tourism Association listing and Pipe Club Japan. Smoking-goods specialty shop, Shinjuku 3-17-7 Kinokuniya Bldg 1F.",
+   "approx": true
+  },
+  "phone": "03-3352-3689",
+  "maps_query": "かがや たばこ店 新宿",
+  "needs": [],
+  "vault": "logistics/kagaya-peace-cigarettes.md",
+  "far": false
+ },
+ {
+  "id": "yodobashi-akiba",
+  "kind": "errand",
+  "name_en": "Yodobashi Multimedia Akiba",
+  "name_ja": "ヨドバシカメラ マルチメディアAkiba",
+  "one_liner": "Electronics/toy megastore by Akihabara Stn — Whitewings gliders, Paper Nano, hobby floors",
+  "one_liner_ja": "秋葉原駅近くの大型店。おもちゃ・ホビー売り場でホワイトウイングス/あおぞらの紙飛行機キットを探す。",
+  "address": "1-1 Kanda-Hanaokacho, Chiyoda-ku, Tokyo",
+  "addr_geo": "東京都千代田区神田花岡町1-1",
+  "lat": 35.698639,
+  "lng": 139.774612,
+  "plus_code": null,
+  "hubs": [
+   "jimbocho-kagurazaka"
+  ],
+  "tags": [
+   "akihabara",
+   "electronics",
+   "electronics-store",
+   "hobby-shop",
+   "paper-craft",
+   "shopping",
+   "toy-store",
+   "toys"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "phone": "03-5209-1010",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "09:30",
+      "22:00"
+     ]
+    ],
+    "tue": [
+     [
+      "09:30",
+      "22:00"
+     ]
+    ],
+    "wed": [
+     [
+      "09:30",
+      "22:00"
+     ]
+    ],
+    "thu": [
+     [
+      "09:30",
+      "22:00"
+     ]
+    ],
+    "fri": [
+     [
+      "09:30",
+      "22:00"
+     ]
+    ],
+    "sat": [
+     [
+      "09:30",
+      "22:00"
+     ]
+    ],
+    "sun": [
+     [
+      "09:30",
+      "22:00"
+     ]
+    ]
+   },
+   "closed": [],
+   "note": "Main camera store 9:30-22:00 daily, open year-round (no regular closing day). Restaurant floor 8F 11:00-23:00; specialty floors B1F/7F 9:30-22:00; golf shop 9F 11:00-22:00; golf range & batting center 10:30-23:00. Verify exact holiday hours near visit.",
+   "approx": true
+  },
+  "maps_query": "ヨドバシカメラ マルチメディアAkiba 秋葉原",
+  "needs": [],
+  "vault": "logistics/whitewings-paper-gliders.md",
+  "far": false
+ },
+ {
+  "id": "jpaa-aozora-office-nihonbashi",
+  "kind": "errand",
+  "name_en": "Japan Paper Airplane Association (JPAA) / Aozora office",
+  "name_ja": "日本紙飛行機協会",
+  "one_liner": "Whitewings/Aozora kit maker's order desk — call ahead, good for bulk/competition materials.",
+  "one_liner_ja": "あおぞら(ホワイトウイングス)の事務所兼注文窓口。事前に電話連絡が望ましい。",
+  "address": "Sansei Building 3F, 3-12 Nihonbashi Odenma-cho, Chuo-ku, Tokyo",
+  "addr_geo": "東京都中央区日本橋大伝馬町3-12",
+  "lat": 35.689621,
+  "lng": 139.777863,
+  "plus_code": null,
+  "hubs": [
+   "ginza-nihonbashi"
+  ],
+  "tags": [
+   "paper-craft",
+   "call-first",
+   "specialty-shop"
+  ],
+  "priority": "low",
+  "status": "want",
+  "phone": "03-3639-5698",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "09:00",
+      "18:00"
+     ]
+    ],
+    "tue": [
+     [
+      "09:00",
+      "18:00"
+     ]
+    ],
+    "wed": [
+     [
+      "09:00",
+      "18:00"
+     ]
+    ],
+    "thu": [
+     [
+      "09:00",
+      "18:00"
+     ]
+    ],
+    "fri": [
+     [
+      "09:00",
+      "18:00"
+     ]
+    ],
+    "sat": [],
+    "sun": []
+   },
+   "closed": [
+    "Weekends and public holidays closed (office states weekday-only hours, \"平日9:00～18:00\")"
+   ],
+   "note": "Aozora shop-office (JPAA / Whitewings), Sansei Bldg 3F, Nihonbashi Odenmacho. Official site lists only weekday hours 9:00-18:00; Sat/Sun/holiday closure inferred from \"平日\" (weekday) framing, not explicitly enumerated. Phone 03-3639-5700. Primarily an office/shop, so phone ahead before visiting.",
+   "approx": true
+  },
+  "maps_query": "日本紙飛行機協会 日本橋大伝馬町",
+  "needs": [],
+  "vault": "logistics/whitewings-paper-gliders.md",
+  "far": false
+ },
+ {
+  "id": "origami-kaikan-ochanomizu",
+  "kind": "errand",
+  "name_en": "Origami Kaikan",
+  "name_ja": "お茶の水 おりがみ会館",
+  "one_liner": "Traditional washi/origami shop and gallery — mon-kiri and Chatani-adjacent papercraft books",
+  "one_liner_ja": "おりがみ会館 — 和紙、紋切り、折り紙建築に近い書籍",
+  "address": "Ochanomizu, Tokyo",
+  "addr_geo": "東京都文京区湯島1-7-14",
+  "hubs": [
+   "jimbocho-kagurazaka"
+  ],
+  "tags": [
+   "paper-craft",
+   "washi",
+   "origami",
+   "shopping",
+   "books"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "tue": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "wed": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "thu": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "fri": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "sat": [
+     [
+      "09:30",
+      "16:30"
+     ]
+    ],
+    "sun": []
+   },
+   "closed": [
+    "Sundays",
+    "National holidays (祝日) — includes Mon 20 Jul 2026 Marine Day and Tue 11 Aug 2026 Mountain Day",
+    "Summer vacation period (夏期休暇) — dates not published for 2026; a closed span typically falls in mid-August",
+    "Year-end/New Year (年末年始)"
+   ],
+   "note": "Both the main hall and gallery open 9:30-16:30. Closed Sun + national holidays. A 夏期休暇 (summer vacation) closure applies in the Jul-Aug window but exact 2026 dates are not published; confirm before visiting (TEL 03-3811-4025). Gallery may also close during exhibition changeover on otherwise-open days.",
+   "approx": true
+  },
+  "maps_query": "おりがみ会館 お茶の水",
+  "needs": [],
+  "phone": "03-3811-4025",
+  "vault": "logistics/paper-craft-souvenirs-cousins.md",
+  "lat": 35.702946,
+  "lng": 139.765488,
+  "plus_code": null,
+  "far": false
+ },
+ {
+  "id": "tokyu-hands-shinjuku",
+  "kind": "errand",
+  "name_en": "Tokyu Hands Shinjuku",
+  "name_ja": "東急ハンズ新宿店",
+  "one_liner": "Craft/hobby department store — craft knives, cutting mats, mon-kiri and geometric paper kits",
+  "one_liner_ja": "東急ハンズ新宿店 — カッター、カッティングマット、紋切り・幾何学ペーパーキット",
+  "address": "Shinjuku, Tokyo",
+  "addr_geo": "東京都渋谷区千駄ヶ谷5-24-2",
+  "hubs": [
+   "shinjuku"
+  ],
+  "tags": [
+   "paper-craft",
+   "craft-supplies",
+   "shopping"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "sat": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "sun": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ]
+   },
+   "closed": [],
+   "note": "Open daily 10:00-21:00 per official Hands Shinjuku store page (store.hands.net/shinjuku). No regular weekly closing day. Located in Takashimaya Times Square building; may rarely follow the building's occasional closures, none published.",
+   "approx": true
+  },
+  "maps_query": "東急ハンズ新宿店",
+  "needs": [],
+  "phone": "03-5361-3111",
+  "vault": "logistics/paper-craft-souvenirs-cousins.md",
+  "lat": 35.684647,
+  "lng": 139.703354,
+  "plus_code": null,
+  "far": false
+ },
+ {
+  "id": "loft-shinjuku-sanchome",
+  "kind": "errand",
+  "name_en": "Loft Shinjuku-Sanchome (Marui 3F)",
+  "name_ja": "新宿三丁目ロフト",
+  "one_liner": "Craft/stationery store alternative to Tokyu Hands for craft knives and mon-kiri kits",
+  "one_liner_ja": "ロフト — カッター、紋切りキットなど東急ハンズの代替",
+  "address": "東京都新宿区新宿3-30-13 新宿マルイ本館 3F",
+  "addr_geo": "東京都新宿区新宿3-30-13",
+  "hubs": [
+   "shinjuku"
+  ],
+  "tags": [
+   "paper-craft",
+   "craft-supplies",
+   "shopping"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "tue": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "wed": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "thu": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "fri": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "sat": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "sun": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ]
+   },
+   "closed": [],
+   "note": "Marui Main Bldg 3F · tax-free until 19:30",
+   "approx": true
+  },
+  "maps_query": "新宿三丁目ロフト マルイ",
+  "needs": [],
+  "phone": "03-3355-6210",
+  "vault": "logistics/paper-craft-souvenirs-cousins.md",
+  "lat": 35.691158,
+  "lng": 139.703949,
+  "plus_code": null,
+  "far": false
+ },
+ {
+  "id": "kinokuniya-shinjuku-main",
+  "kind": "errand",
+  "name_en": "Kinokuniya Shinjuku (main store)",
+  "name_ja": "紀伊國屋書店新宿本店",
+  "one_liner": "Large bookstore — best bet for 折り紙建築/立体切り紙/geometric papercraft books",
+  "one_liner_ja": "紀伊國屋書店新宿本店 — 折り紙建築・立体切り紙の書籍が最も充実",
+  "address": "Shinjuku, Tokyo",
+  "addr_geo": "東京都新宿区新宿3-17-7",
+  "hubs": [
+   "shinjuku"
+  ],
+  "tags": [
+   "paper-craft",
+   "books",
+   "shopping"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "sat": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ],
+    "sun": [
+     [
+      "10:00",
+      "21:00"
+     ]
+    ]
+   },
+   "closed": [
+    "Occasional irregular closures for building maintenance / New Year holidays not published on store page"
+   ],
+   "note": "Open daily 10:00-21:00 per official store page; no regular weekly closing day listed. Individual floors/annex may vary.",
+   "approx": true
+  },
+  "maps_query": "紀伊國屋書店 新宿本店",
+  "needs": [],
+  "phone": "03-3354-0131",
+  "vault": "logistics/paper-craft-souvenirs-cousins.md",
+  "lat": 35.691921,
+  "lng": 139.702774,
+  "plus_code": null,
+  "far": false
+ },
+ {
+  "id": "bikram-yoga-kanamecho",
+  "kind": "activity",
+  "name_en": "Bikram Yoga Kanamecho",
+  "name_ja": "ビクラムヨガ要町",
+  "one_liner": "Certified classic Bikram studio (90min/26+2), recommended, near Kanamecho Stn.",
+  "one_liner_ja": "要町駅近くの正統派ビクラムヨガスタジオ(90分・26+2ポーズ)。",
+  "address": "要町KTビル 4F, 1-1-11 Kanamecho, Toshima-ku",
+  "addr_geo": "東京都豊島区要町1-1-11",
+  "lat": 35.733059,
+  "lng": 139.698822,
+  "plus_code": null,
+  "hubs": [
+   "ikebukuro"
+  ],
+  "tags": [
+   "yoga",
+   "hot-yoga",
+   "bikram",
+   "fitness"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "phone": "03-5964-5445",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "09:30",
+      "15:00"
+     ],
+     [
+      "18:00",
+      "21:00"
+     ]
+    ],
+    "tue": [
+     [
+      "09:30",
+      "15:00"
+     ],
+     [
+      "18:00",
+      "21:00"
+     ]
+    ],
+    "wed": [
+     [
+      "09:30",
+      "15:00"
+     ],
+     [
+      "18:00",
+      "21:00"
+     ]
+    ],
+    "thu": [
+     [
+      "09:30",
+      "15:00"
+     ],
+     [
+      "18:00",
+      "21:00"
+     ]
+    ],
+    "fri": [
+     [
+      "09:30",
+      "15:00"
+     ],
+     [
+      "18:00",
+      "21:00"
+     ]
+    ],
+    "sat": [
+     [
+      "09:30",
+      "18:00"
+     ]
+    ],
+    "sun": [
+     [
+      "09:30",
+      "18:00"
+     ]
+    ]
+   },
+   "closed": [],
+   "note": "Reception/studio-open windows from official site (bikramyoga-tokyo.com), verbatim: MON-FRI 9:30-15:00 & 18:00-21:00, SAT-SUN 9:30-18:00. Year-round, no regular closing day (年中無休). These are studio-open windows, not individual 90-min class start times, which live in a monthly schedule image on /schedule not transcribed here; reserve ahead.",
+   "approx": true
+  },
+  "maps_query": "ビクラムヨガ要町 東京都豊島区",
+  "needs": [],
+  "vault": "logistics/bikram-yoga-tokyo.md",
+  "far": false
+ },
+ {
+  "id": "bikram-yoga-toranomon-akira-studio",
+  "kind": "activity",
+  "name_en": "Bikram Yoga Toranomon (Akira Studio)",
+  "name_ja": "ビクラムヨガ虎ノ門 (アキラスタジオ)",
+  "one_liner": "Bikram studio near Toranomon/Akasaka, sometimes English/guest-teacher classes.",
+  "one_liner_ja": "虎ノ門・赤坂近くのビクラムヨガスタジオ、英語クラスもあり。",
+  "address": "DG22ビル 6F, 1-3-18 Akasaka, Minato-ku",
+  "addr_geo": "東京都港区赤坂1-3-18",
+  "lat": 35.670509,
+  "lng": 139.744095,
+  "plus_code": null,
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "yoga",
+   "hot-yoga",
+   "bikram",
+   "fitness"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "phone": "03-5114-7756",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "06:30",
+      "21:30"
+     ]
+    ],
+    "tue": [
+     [
+      "06:30",
+      "21:30"
+     ]
+    ],
+    "wed": [
+     [
+      "06:30",
+      "21:30"
+     ]
+    ],
+    "thu": [
+     [
+      "06:30",
+      "21:30"
+     ]
+    ],
+    "fri": [
+     [
+      "06:30",
+      "21:30"
+     ]
+    ],
+    "sat": [
+     [
+      "06:30",
+      "21:30"
+     ]
+    ],
+    "sun": [
+     [
+      "06:30",
+      "21:30"
+     ]
+    ]
+   },
+   "closed": [
+    "Occasional special closures for building maintenance (water/power shutdowns) and year-end/New Year modified schedules (Dec 28-31, Jan 2-4); emergency closures for typhoons"
+   ],
+   "note": "Official site states business hours 6:30-21:30 daily; no regular closing day. These are studio operating/reception hours, not individual class times - elevator/reception opens only 30 min before each scheduled 90-min class. Confirm the day's timetable and reserve a drop-in in advance.",
+   "approx": true
+  },
+  "maps_query": "ビクラムヨガ アキラスタジオ 虎ノ門 赤坂",
+  "needs": [],
+  "vault": "logistics/bikram-yoga-tokyo.md",
+  "far": false
+ },
+ {
+  "id": "bikram-yoga-shinjuku",
+  "kind": "activity",
+  "name_en": "Bikram Yoga Shinjuku",
+  "name_ja": "ビクラムヨガ新宿",
+  "one_liner": "Standard global Bikram sequence near Shinjuku Stn, can be tricky to find first visit.",
+  "one_liner_ja": "新宿駅近くのビクラムヨガ、初回は見つけにくいことあり。",
+  "address": "FORECAST 新宿 SOUTH 1F, 4-3-17 Shinjuku",
+  "addr_geo": "東京都新宿区新宿4-3-17",
+  "lat": 35.688892,
+  "lng": 139.703674,
+  "plus_code": null,
+  "hubs": [
+   "shinjuku"
+  ],
+  "tags": [
+   "yoga",
+   "hot-yoga",
+   "bikram",
+   "fitness"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "phone": null,
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "Confirmed via two independent aggregator listings (kaatsu-nagoyasakae, yoga-park); not the official zenplace.co.jp studio page. Approximate after the Bikram->zen place rebrand.",
+   "approx": true
+  },
+  "maps_query": "ビクラムヨガ新宿 東京都新宿区",
+  "needs": [
+   "hours"
+  ],
+  "vault": "logistics/bikram-yoga-tokyo.md",
+  "far": false
+ },
+ {
+  "id": "kitte-marunouchi",
+  "kind": "errand",
+  "name_en": "KITTE Marunouchi",
+  "name_ja": "キッテ丸の内",
+  "one_liner": "JP Tower mall at Tokyo Stn Marunouchi South — regional food, crafts, rooftop garden.",
+  "one_liner_ja": "東京駅丸の内南口直結、JPタワー内の商業施設。地方グルメ・雑貨・屋上庭園。",
+  "address": "丸の内2-7-2 JP Tower, Chiyoda-ku",
+  "addr_geo": "東京都千代田区丸の内2-7-2",
+  "lat": 35.679085,
+  "lng": 139.764679,
+  "plus_code": null,
+  "phone": "03-3216-2811",
+  "hubs": [
+   "tokyo-stn"
+  ],
+  "tags": [
+   "mall",
+   "food-hall",
+   "rooftop-garden",
+   "gifts",
+   "station-amenity"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "tue": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "wed": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "thu": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "fri": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "sat": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ],
+    "sun": [
+     [
+      "11:00",
+      "20:00"
+     ]
+    ]
+   },
+   "closed": [
+    "Jan 1 + rare maintenance"
+   ],
+   "note": "Shops 11:00-20:00; restaurants/cafes 11:00-22:00 (store exceptions vary)",
+   "approx": true
+  },
+  "maps_query": "KITTE 丸の内 東京駅",
+  "needs": [],
+  "vault": "places/kitte-marunouchi.md",
+  "far": false
+ },
+ {
+  "id": "rurikoin-yase-kyoto",
+  "kind": "activity",
+  "name_en": "Rurikō-in Temple",
+  "name_ja": "瑠璃光院",
+  "one_liner": "Mirror-reflection maple temple in Yase; opens 3 seasonal windows only, timed-entry ticket",
+  "one_liner_ja": "八瀬の紅葉鏡面反射で有名な寺院。季節限定公開・時間指定チケット制",
+  "address": "京都府京都市左京区上高野東山55番地",
+  "addr_geo": "京都府京都市左京区八瀬",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "temple",
+   "seasonal",
+   "reflection",
+   "instagram-famous",
+   "booking-required"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "10:00",
+      "17:00"
+     ]
+    ],
+    "tue": [
+     [
+      "10:00",
+      "17:00"
+     ]
+    ],
+    "wed": [
+     [
+      "10:00",
+      "17:00"
+     ]
+    ],
+    "thu": [
+     [
+      "10:00",
+      "17:00"
+     ]
+    ],
+    "fri": [
+     [
+      "10:00",
+      "17:00"
+     ]
+    ],
+    "sat": [
+     [
+      "10:00",
+      "17:00"
+     ]
+    ],
+    "sun": [
+     [
+      "10:00",
+      "17:00"
+     ]
+    ]
+   },
+   "closed": [
+    "No closed days during the special-viewing period (may close for disasters/severe weather)"
+   ],
+   "note": "Seasonal special viewing (特別拝観) only. Summer 2026 window: Jul 1 - Aug 17, open daily 10:00-17:00, last entry (受付終了) 16:30. NO reservation required in summer; ¥2,000 adult (¥1,000 students w/ID). CLOSED Aug 18 after summer window ends; autumn 2026 window reopens Oct 1 (runs Oct 1 - Dec 13). closed_ranges Aug 18 - Sep 30 is now confirmed by the published autumn start date.",
+   "approx": true,
+   "closed_ranges": [
+    [
+     "2026-08-18",
+     "2026-09-30"
+    ]
+   ]
+  },
+  "maps_query": "瑠璃光院 八瀬 京都",
+  "needs": [],
+  "vault": "places/rurikoin-kyoto.md",
+  "lat": 35.078876,
+  "lng": 135.82756,
+  "plus_code": null,
+  "phone": null,
+  "far": true
+ },
+ {
+  "id": "eizan-railway-yase-hieizanguchi",
+  "kind": "transport",
+  "name_en": "Eizan Railway (Demachiyanagi to Yase-Hieizan-guchi)",
+  "name_ja": "叡山電鉄 出町柳-八瀬比叡山口",
+  "one_liner": "Scenic private rail line to Yase; ~15 min, not covered by JR Pass or Seishun 18",
+  "one_liner_ja": "出町柳から八瀬比叡山口までの叡山電鉄。JRパス・青春18きっぷ対象外",
+  "address": "京都市左京区八瀬野瀬町113 (八瀬比叡山口駅)",
+  "addr_geo": "京都府京都市左京区八瀬野瀬町113",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "train",
+   "private-rail",
+   "scenic",
+   "not-jr-pass"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "~15 min ride, ~¥280 one-way",
+   "approx": true
+  },
+  "maps_query": "叡山電鉄 八瀬比叡山口駅",
+  "needs": [
+   "hours"
+  ],
+  "vault": "places/rurikoin-kyoto.md",
+  "lat": 35.064751,
+  "lng": 135.8078,
+  "plus_code": null,
+  "phone": null,
+  "far": true
+ },
+ {
+  "id": "demachi-futaba-kyoto",
+  "kind": "food",
+  "name_en": "Demachi Futaba",
+  "name_ja": "出町ふたば",
+  "one_liner": "Legendary mame-mochi (bean rice cake) shop near Demachiyanagi station",
+  "one_liner_ja": "出町柳駅近くの豆餅で有名な老舗和菓子店",
+  "address": "京都府京都市上京区出町通今出川上ル青龍町236",
+  "addr_geo": "京都府京都市上京区",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "mochi",
+   "wagashi",
+   "legendary",
+   "takeout"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "08:30",
+      "17:30"
+     ]
+    ],
+    "tue": [],
+    "wed": [
+     [
+      "08:30",
+      "17:30"
+     ]
+    ],
+    "thu": [
+     [
+      "08:30",
+      "17:30"
+     ]
+    ],
+    "fri": [
+     [
+      "08:30",
+      "17:30"
+     ]
+    ],
+    "sat": [
+     [
+      "08:30",
+      "17:30"
+     ]
+    ],
+    "sun": [
+     [
+      "08:30",
+      "17:30"
+     ]
+    ]
+   },
+   "closed": [
+    "4th Wednesday of each month (第4水曜) closed",
+    "If a national holiday falls on a closure day, closed the following day instead",
+    "Extended New Year holidays"
+   ],
+   "note": "Closed Tuesdays and the 4th Wednesday monthly; sells out early on busy days. Hours per Kyoto-kan listing.",
+   "approx": true
+  },
+  "maps_query": "出町ふたば 京都",
+  "needs": [],
+  "phone": "075-231-1658",
+  "vault": "places/rurikoin-kyoto.md",
+  "lat": 35.029552,
+  "lng": 135.756714,
+  "plus_code": null,
+  "far": true
+ },
+ {
+  "id": "mt-hiei-enryakuji-kyoto",
+  "kind": "activity",
+  "name_en": "Mt. Hiei / Enryaku-ji",
+  "name_ja": "比叡山延暦寺",
+  "one_liner": "UNESCO Tendai Buddhist HQ, reached via cable car/ropeway from Yase-Hieizan-guchi",
+  "one_liner_ja": "八瀬比叡山口駅からケーブルカー・ロープウェイでアクセスする天台宗総本山、世界遺産",
+  "address": "〒520-0116 滋賀県大津市坂本本町4220",
+  "addr_geo": "滋賀県大津市坂本本町4220",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "temple",
+   "unesco",
+   "hiking",
+   "cable-car"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "09:00",
+      "16:00"
+     ]
+    ],
+    "tue": [
+     [
+      "09:00",
+      "16:00"
+     ]
+    ],
+    "wed": [
+     [
+      "09:00",
+      "16:00"
+     ]
+    ],
+    "thu": [
+     [
+      "09:00",
+      "16:00"
+     ]
+    ],
+    "fri": [
+     [
+      "09:00",
+      "16:00"
+     ]
+    ],
+    "sat": [
+     [
+      "09:00",
+      "16:00"
+     ]
+    ],
+    "sun": [
+     [
+      "09:00",
+      "16:00"
+     ]
+    ]
+   },
+   "closed": [
+    "Open year-round; no regular closing day. May close early or restrict entry due to strong winds, heavy snow, ceremonies, or special events."
+   ],
+   "note": "Summer 2026 (Mar-Nov season): all three areas (Todo, Saito, Yokawa) 9:00-16:00. Reception/last entry closes 15:45. In Dec and Jan-Feb, Saito & Yokawa open later at 9:30 (Todo stays 9:00); does not affect Jul-Aug.",
+   "approx": true
+  },
+  "maps_query": "延暦寺 比叡山 京都",
+  "needs": [],
+  "phone": "077-578-0001",
+  "vault": "places/rurikoin-kyoto.md",
+  "lat": 35.067127,
+  "lng": 135.852036,
+  "plus_code": null,
+  "far": true
+ },
+ {
+  "id": "kifune-shrine-kyoto",
+  "kind": "activity",
+  "name_en": "Kifune Shrine",
+  "name_ja": "貴船神社",
+  "one_liner": "Shrine north on the Eizan line, known for summer kawadoko riverbed dining nearby",
+  "one_liner_ja": "叡山線沿線の神社。夏は川床料理で有名",
+  "address": "〒601-1112 京都市左京区鞍馬貴船町180",
+  "addr_geo": "京都府京都市左京区鞍馬貴船町",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "shrine",
+   "kawadoko",
+   "river-dining",
+   "summer"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "06:00",
+      "20:00"
+     ]
+    ],
+    "tue": [
+     [
+      "06:00",
+      "20:00"
+     ]
+    ],
+    "wed": [
+     [
+      "06:00",
+      "20:00"
+     ]
+    ],
+    "thu": [
+     [
+      "06:00",
+      "20:00"
+     ]
+    ],
+    "fri": [
+     [
+      "06:00",
+      "20:00"
+     ]
+    ],
+    "sat": [
+     [
+      "06:00",
+      "20:00"
+     ]
+    ],
+    "sun": [
+     [
+      "06:00",
+      "20:00"
+     ]
+    ]
+   },
+   "closed": [
+    "Open year-round (年中無休), no regular closing day"
+   ],
+   "note": "Honmiya (main hall) worship hours. Summer period 5/1-11/30: 6:00-20:00 (applies to Jul-Aug 2026 trip). Winter period 12/1-4/30 not published on official info page (commonly cited as 6:00-18:00; irrelevant to summer trip). Reception/授与所 (amulets, blessings) 9:00-17:00, extended during nighttime illumination periods. Worship is free (参拝無料).",
+   "approx": true
+  },
+  "maps_query": "貴船神社 京都",
+  "needs": [],
+  "phone": "075-741-2016",
+  "vault": "places/rurikoin-kyoto.md",
+  "lat": 35.122063,
+  "lng": 135.762085,
+  "plus_code": null,
+  "far": true
+ },
+ {
+  "id": "kurama-dera-kyoto",
+  "kind": "activity",
+  "name_en": "Kurama-dera",
+  "name_ja": "鞍馬寺",
+  "one_liner": "Hiking temple connected to Kifune on foot, further north on the Eizan line",
+  "one_liner_ja": "貴船と徒歩でつながる鞍馬の山岳寺院",
+  "address": "〒601-1111 京都市左京区鞍馬本町1074番地",
+  "addr_geo": "京都府京都市左京区鞍馬本町",
+  "hubs": [
+   "other"
+  ],
+  "tags": [
+   "temple",
+   "hiking"
+  ],
+  "priority": "low",
+  "status": "want",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": {
+    "mon": [
+     [
+      "09:00",
+      "16:15"
+     ]
+    ],
+    "tue": [
+     [
+      "09:00",
+      "16:15"
+     ]
+    ],
+    "wed": [
+     [
+      "09:00",
+      "16:15"
+     ]
+    ],
+    "thu": [
+     [
+      "09:00",
+      "16:15"
+     ]
+    ],
+    "fri": [
+     [
+      "09:00",
+      "16:15"
+     ]
+    ],
+    "sat": [
+     [
+      "09:00",
+      "16:15"
+     ]
+    ],
+    "sun": [
+     [
+      "09:00",
+      "16:15"
+     ]
+    ]
+   },
+   "closed": [
+    "Open year-round; no regular weekly closing day"
+   ],
+   "note": "Main hall (本殿) reception 9:00-16:15 daily; 愛山費 admission collected at the gate (amount not shown on official page). Ushiwakamaru cable car first ascent ~8:40, last descent ~16:25, with periodic maintenance closures (Jul 6-9 full day, Jul 27 morning, Aug 27 morning). Last entry effectively bounded by 16:15 reception close.",
+   "approx": true
+  },
+  "maps_query": "鞍馬寺 京都",
+  "needs": [],
+  "phone": "075-741-2003",
+  "vault": "places/rurikoin-kyoto.md",
+  "lat": 35.132576,
+  "lng": 135.777466,
+  "plus_code": null,
+  "far": true
+ },
+ {
+  "id": "nine-hours-hakata",
+  "kind": "lodging",
+  "name_en": "9h nine hours Hakata Station",
+  "name_ja": "ナインアワーズ 博多駅",
+  "one_liner": "Capsule hotel by Hakata Station — Kyushu transit nights.",
+  "one_liner_ja": "博多駅近くのカプセルホテル。九州移動の前後泊に。",
+  "address": "〒812-0011 福岡県福岡市博多区博多駅前3-22-2",
+  "addr_geo": "福岡県福岡市博多区博多駅前3-22-2",
+  "plus_code": null,
+  "lat": 33.588947,
+  "lng": 130.416702,
+  "hubs": [
+   "kyushu"
+  ],
+  "tags": [
+   "hotel"
+  ],
+  "priority": "high",
+  "status": "want",
+  "phone": "050-1807-3481",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "Capsule hotel with self smart check-in. Overnight stay: check-in from 15:00 (reception accepted until 05:00 the next morning), check-out by 11:00; no late check-out. Daily check-out required even on consecutive stays. In-house cleaning 11:00-15:00 (pods unavailable during this window). Arrival after 05:00 results in cancellation without notice.",
+   "approx": true
+  },
+  "maps_query": "9h ninehours 博多",
+  "vault": null,
+  "needs": [
+   "hours"
+  ],
+  "far": false
+ },
+ {
+  "id": "r9-the-yard-kanzaki",
+  "kind": "lodging",
+  "name_en": "HOTEL R9 The Yard Kanzaki",
+  "name_ja": "HOTEL R9 The Yard 神埼",
+  "one_liner": "Container-cabin hotel in Kanzaki, Saga — family base.",
+  "one_liner_ja": "神埼のコンテナ型ホテル。佐賀滞在の拠点。",
+  "address": "〒842-0015 佐賀県神埼市神埼町尾崎4155-54",
+  "addr_geo": "佐賀県神埼市神埼町尾崎4155-54",
+  "plus_code": null,
+  "lat": 33.325321,
+  "lng": 130.351166,
+  "hubs": [
+   "kyushu"
+  ],
+  "tags": [
+   "hotel"
+  ],
+  "priority": "high",
+  "status": "want",
+  "phone": "0952-20-3642",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "Front desk 07:00-23:00 daily. Check-in 15:00-23:00, check-out by 10:00.",
+   "approx": true
+  },
+  "maps_query": "HOTEL R9 The Yard 神埼",
+  "vault": null,
+  "needs": [
+   "hours"
+  ],
+  "far": false
+ },
+ {
+  "id": "r9-sagakashima",
+  "kind": "lodging",
+  "name_en": "HOTEL R9 The Yard Sagakashima",
+  "name_ja": "HOTEL R9 The Yard 佐賀鹿島",
+  "one_liner": "Container-cabin hotel in Kashima, Saga — family base.",
+  "one_liner_ja": "鹿島のコンテナ型ホテル。佐賀滞在の拠点。",
+  "address": "〒849-1304 佐賀県鹿島市中村821-2",
+  "addr_geo": "佐賀県鹿島市中村821-2",
+  "plus_code": null,
+  "lat": 33.117092,
+  "lng": 130.087906,
+  "hubs": [
+   "kyushu"
+  ],
+  "tags": [
+   "hotel"
+  ],
+  "priority": "high",
+  "status": "want",
+  "phone": "0954-69-0111",
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "チェックイン 15:00〜23:00 / チェックアウト 10:00",
+   "approx": true
+  },
+  "maps_query": "HOTEL R9 The Yard 佐賀鹿島",
+  "vault": null,
+  "needs": [
+   "hours"
+  ],
+  "far": false
+ },
+ {
+  "id": "obi-house-kumamoto",
+  "kind": "lodging",
+  "name_en": "Obi House",
+  "name_ja": null,
+  "one_liner": "Self-check-in guesthouse rooms in central Kumamoto.",
+  "one_liner_ja": "熊本市中央区のセルフチェックイン型の宿。",
+  "address": "〒862-0924 熊本県熊本市中央区帯山1-24-25",
+  "addr_geo": "熊本県熊本市中央区帯山1-24-25",
+  "plus_code": null,
+  "lat": 32.801407,
+  "lng": 130.739197,
+  "hubs": [
+   "kyushu"
+  ],
+  "tags": [
+   "hotel"
+  ],
+  "priority": "medium",
+  "status": "want",
+  "phone": null,
+  "hours": {
+   "timezone": "Asia/Tokyo",
+   "weekly": null,
+   "closed": [],
+   "note": "",
+   "approx": true
+  },
+  "maps_query": "Obi House 熊本 帯山",
+  "vault": null,
+  "needs": [
+   "hours"
+  ],
+  "far": false
  }
 ]
