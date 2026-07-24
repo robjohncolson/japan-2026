@@ -3218,13 +3218,18 @@ function renderKokoList(){
 
 /* ---- detail sheet ---- */
 function kokoNavitimeUrl(row){
-  // Best-effort NAVITIME deep link. navitime.co.jp/maps/ is anti-bot-blocked to automated
-  // fetchers (403) but loads in a real mobile browser; Google Maps is the guaranteed path.
+  // NAVITIME: spot-style map with lat/lon + name works better than bare /maps/?lat&lon
+  // (old form often opened a blank/generic map). Keyword-only falls back to Google-style
+  // maps_query via the main maps page with freeword if possible.
+  const name = row.name_ja || row.maps_query || row.name_en || '';
   if(row.lat != null && row.lng != null){
-    return 'https://www.navitime.co.jp/maps/?lat=' + encodeURIComponent(row.lat) + '&lon=' + encodeURIComponent(row.lng);
+    return 'https://www.navitime.co.jp/maps/poi?lat=' + encodeURIComponent(row.lat)
+      + '&lon=' + encodeURIComponent(row.lng)
+      + '&name=' + encodeURIComponent(name);
   }
-  const q = row.maps_query || row.name_ja || row.name_en || '';
-  return 'https://www.navitime.co.jp/maps/?q=' + encodeURIComponent(q);
+  const q = row.maps_query || row.address || row.name_ja || row.name_en || '';
+  // Freeword on maps root — last resort when we have no coordinates
+  return 'https://www.navitime.co.jp/maps/?keyword=' + encodeURIComponent(q);
 }
 function fillKokoSheet(row){
   const nameEl = document.getElementById('kd-name');
