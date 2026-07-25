@@ -9161,5 +9161,68 @@
     "vault": "food/curry-shop-fennel-nishiogi.md",
     "kind": "food",
     "far": false
+  },
+  {
+    "id": "apetaito-itabashi",
+    "name_en": "Apetaito Itabashi (Appetite)",
+    "name_ja": "あぺたいと 板橋店",
+    "one_liner": "Double-sided yakisoba · crispy outside chewy inside · mega 10-portion challenge famous",
+    "one_liner_ja": "両面焼きそば · 外パリッ中モチッ · メガ10玉チャレンジ有名",
+    "address": "東京都板橋区板橋1-45-6 大坂ビル1F",
+    "addr_geo": "板橋区板橋1-45-6",
+    "plus_code": null,
+    "lat": 35.74713,
+    "lng": 139.71809,
+    "hubs": [
+      "ikebukuro"
+    ],
+    "tags": [
+      "yakisoba",
+      "izakaya",
+      "mega-portion",
+      "lunch",
+      "dinner"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "03-3579-4200",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "note": "Closed Sunday. Lunch L.O. 14:30 · dinner L.O. 22:30. Not Takashimadaira main or Kami-Itabashi.",
+      "weekly": {
+        "mon": [
+          ["11:30", "15:00"],
+          ["17:30", "23:00"]
+        ],
+        "tue": [
+          ["11:30", "15:00"],
+          ["17:30", "23:00"]
+        ],
+        "wed": [
+          ["11:30", "15:00"],
+          ["17:30", "23:00"]
+        ],
+        "thu": [
+          ["11:30", "15:00"],
+          ["17:30", "23:00"]
+        ],
+        "fri": [
+          ["11:30", "15:00"],
+          ["17:30", "23:00"]
+        ],
+        "sat": [
+          ["11:30", "15:00"],
+          ["17:30", "23:00"]
+        ],
+        "sun": []
+      },
+      "closed": ["sun"],
+      "approx": true
+    },
+    "maps_query": "あぺたいと 板橋 1-45-6",
+    "needs": [],
+    "vault": "food/apetaito-itabashi.md",
+    "kind": "food",
+    "far": false
   }
 ]
