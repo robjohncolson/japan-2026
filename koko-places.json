@@ -9055,5 +9055,66 @@
     "vault": "food/juxiangyuan-kameido.md",
     "kind": "food",
     "far": true
+  },
+  {
+    "id": "uchoku-kichijoji",
+    "name_en": "Uchoku (Uchikan)",
+    "name_ja": "迂直",
+    "one_liner": "Shoyu tsukemen only · flat noodles in katsuo-kombu dashi + thick soy dip · soup-wari +¥50",
+    "one_liner_ja": "醤油つけ麺専門 · 自家製平打ち×鰹昆布だし · 濃厚つけ汁 · スープ割り+¥50",
+    "address": "東京都武蔵野市吉祥寺本町1-8-16 コピス吉祥寺A館 B1F",
+    "addr_geo": "武蔵野市吉祥寺本町1-8-16",
+    "plus_code": null,
+    "lat": 35.704803,
+    "lng": 139.57929,
+    "hubs": [
+      "kichijoji-koenji-nishiogi"
+    ],
+    "tags": [
+      "tsukemen",
+      "ramen",
+      "shoyu",
+      "lunch",
+      "dinner",
+      "lines"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "note": "Closed Mon & Thu; irregular extra offs (often Mon). Not mall hours — check X @_uchoku day-of. Soup sold out risk.",
+      "weekly": {
+        "mon": [],
+        "tue": [
+          ["11:30", "15:00"],
+          ["18:00", "21:00"]
+        ],
+        "wed": [
+          ["11:30", "15:00"],
+          ["18:00", "21:00"]
+        ],
+        "thu": [],
+        "fri": [
+          ["11:30", "15:00"],
+          ["18:00", "21:00"]
+        ],
+        "sat": [
+          ["11:30", "15:00"],
+          ["18:00", "21:00"]
+        ],
+        "sun": [
+          ["11:30", "15:00"],
+          ["18:00", "21:00"]
+        ]
+      },
+      "closed": ["mon", "thu"],
+      "approx": true
+    },
+    "maps_query": "迂直 吉祥寺 コピス",
+    "needs": [],
+    "vault": "food/uchoku-kichijoji.md",
+    "kind": "food",
+    "far": false
   }
 ]
