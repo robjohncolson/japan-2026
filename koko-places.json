@@ -9116,5 +9116,50 @@
     "vault": "food/uchoku-kichijoji.md",
     "kind": "food",
     "far": false
+  },
+  {
+    "id": "curry-shop-fennel-nishiogi",
+    "name_en": "Curry Shop Fennel",
+    "name_ja": "カレーショップ フェンネル",
+    "one_liner": "Nishiogi spice curry · dense umami + deep spice · Tabelog curry hyakumeiten 2024/2026",
+    "one_liner_ja": "西荻スパイスカレー · 濃密な旨みとスパイス · カレー百名店2024/2026",
+    "address": "東京都杉並区松庵3-37-22 西荻マノン 2F",
+    "addr_geo": "杉並区松庵3-37-22",
+    "plus_code": null,
+    "lat": 35.701799,
+    "lng": 139.599258,
+    "hubs": [
+      "kichijoji-koenji-nishiogi"
+    ],
+    "tags": [
+      "curry",
+      "spice-curry",
+      "indian-curry",
+      "lunch",
+      "hyakumeiten"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "03-5941-9835",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "note": "Closed Mon/Tue; holiday Mon often open to L.O. ~15:00. Sun extended to 20:30 L.O. 20:00. Check X/IG for irregular closes.",
+      "weekly": {
+        "mon": [],
+        "tue": [],
+        "wed": [["11:30", "19:00"]],
+        "thu": [["11:30", "19:00"]],
+        "fri": [["11:30", "19:00"]],
+        "sat": [["11:30", "19:00"]],
+        "sun": [["11:30", "20:30"]]
+      },
+      "closed": ["mon", "tue"],
+      "approx": true
+    },
+    "maps_query": "カレーショップ フェンネル 西荻窪",
+    "needs": [],
+    "vault": "food/curry-shop-fennel-nishiogi.md",
+    "kind": "food",
+    "far": false
   }
 ]
