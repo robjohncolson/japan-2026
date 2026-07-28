@@ -9641,5 +9641,1601 @@
     "needs": [],
     "vault": null,
     "far": false
+  },
+  {
+    "id": "yoshinogari-park-east",
+    "kind": "activity",
+    "name_en": "Yoshinogari Historical Park (East Gate)",
+    "name_ja": "吉野ヶ里歴史公園（東口）",
+    "one_liner": "Yayoi-period moated settlement, ~10 min from R9 Kanzaki. ¥460, east gate for the ruins (parking ¥310). Shadeless — go at 9:00 or after 16:00 in Aug.",
+    "one_liner_ja": "弥生時代の環壕集落。R9から約10分。東口が遺跡側。真夏は朝か夕方に。",
+    "address": "佐賀県神埼郡吉野ヶ里町田手1843",
+    "addr_geo": "佐賀県神埼郡吉野ヶ里町",
+    "lat": 33.323581,
+    "lng": 130.390677,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "sight",
+      "yayoi",
+      "kanzaki"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Jun-Aug 9:00-18:00; closed only Dec 31 + 3rd Mon Jan. Park restaurant 10:30-16:00 sometimes has Kanzaki somen sets (0952-55-9205). Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "吉野ヶ里歴史公園 東口",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "inoue-seimen-kanzaki",
+    "kind": "errand",
+    "name_en": "Inoue Seimen Direct Shop (Kanzaki somen)",
+    "name_ja": "神の白糸 井上製麺 直売店",
+    "one_liner": "Kanzaki somen maker since 1873 — take-home noodles only; the eat-in Hyakunen-an is on long-term hiatus. Call before a special trip.",
+    "one_liner_ja": "1873年創業の神埼そうめん直売。持ち帰りのみ（百年庵は長期休業中）。要電話確認。",
+    "address": "佐賀県神埼市神埼町的1779",
+    "addr_geo": "佐賀県神埼市",
+    "lat": null,
+    "lng": null,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "somen",
+      "shopping",
+      "kanzaki"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0952-52-2625",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ]
+      },
+      "closed": [
+        "Closed Wednesdays"
+      ],
+      "note": "9:00-17:00, closed Wed; seasonal variation — call 0952-52-2625. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "井上製麺 直売店 神埼",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "kanzaki-station",
+    "kind": "transport",
+    "name_en": "Kanzaki Station (JR Nagasaki Main Line)",
+    "name_ja": "神埼駅",
+    "one_liner": "Rail escape hatch ~7 min from R9: locals every 20-40 min — Saga ~10 min, Hakata ~60-75 min via Tosu transfer.",
+    "one_liner_ja": "R9から約7分。普通列車のみ：佐賀約10分、博多は鳥栖乗換で約60-75分。",
+    "address": "佐賀県神埼市神埼町田道ヶ里2344-5",
+    "addr_geo": "佐賀県神埼市",
+    "lat": 33.315803,
+    "lng": 130.374339,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "train",
+      "kanzaki"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [],
+      "note": "Local + section-rapid only; expresses pass through.",
+      "approx": true
+    },
+    "maps_query": "神埼駅",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "familymart-kanzaki-hinokuma",
+    "kind": "errand",
+    "name_en": "FamilyMart Kanzaki Hinokuma",
+    "name_ja": "ファミリーマート神埼日の隈店",
+    "one_liner": "~150 m from the R9 front door — food/drink/copies. 7-Eleven with Seven Bank ATM ~900 m east on the same road.",
+    "one_liner_ja": "R9から約150m。ATMは約900m東のセブンイレブンへ。",
+    "address": "佐賀県神埼市神埼町尾崎4169-18",
+    "addr_geo": "佐賀県神埼市",
+    "lat": 33.326601,
+    "lng": 130.350776,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "konbini",
+      "kanzaki"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0952-55-7123",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "tue": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "wed": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "thu": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "fri": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sat": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sun": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Presumed 24h (standard FamilyMart; not individually verified).",
+      "approx": true
+    },
+    "maps_query": "ファミリーマート神埼日の隈店",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "marukyo-kanzaki",
+    "kind": "errand",
+    "name_en": "Marukyo Supermarket Kanzaki",
+    "name_ja": "マルキョウ神埼店",
+    "one_liner": "Nearest full supermarket to R9 Kanzaki (~3 km / 6-7 min) — groceries, bento, beer; the cabin has a microwave but no restaurant.",
+    "one_liner_ja": "R9神埼から車6-7分の最寄りスーパー。",
+    "address": "佐賀県神埼市神埼町枝ヶ里35-1",
+    "addr_geo": "佐賀県神埼市",
+    "lat": 33.30807,
+    "lng": 130.371324,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "supermarket",
+      "kanzaki"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0952-53-6048",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:30",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:30",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:30",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:30",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:30",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:30",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:30",
+            "22:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "9:30-22:00 daily per Tokubai flyer listing. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "マルキョウ神埼店",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "sazanka-no-yu-onsen",
+    "kind": "activity",
+    "name_en": "Higashisefuri Onsen Sazanka no Yu",
+    "name_ja": "ひがしせふり温泉 山茶花の湯",
+    "one_liner": "Best day-use onsen near Kanzaki (~15 min via Rte 385): open-air baths over the Saga plain, ¥830, restaurant inside, free parking.",
+    "one_liner_ja": "神埼から約15分の日帰り温泉。露天から佐賀平野。¥830。",
+    "address": "佐賀県神埼郡吉野ヶ里町石動76-4",
+    "addr_geo": "佐賀県神埼郡吉野ヶ里町",
+    "lat": 33.37015,
+    "lng": 130.405822,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "onsen",
+      "kanzaki"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0952-53-2619",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "10:00-23:00 (last entry 22:00); occasional maintenance days — 0952-53-2619. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "ひがしせふり温泉 山茶花の湯",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "niiyama-park-kanzaki",
+    "kind": "activity",
+    "name_en": "Niiyama Park + Aiai Bridge",
+    "name_ja": "仁比山公園（愛逢橋）",
+    "one_liner": "Closest zero-effort outing to R9 (~5 min): Jobaru riverside shade, 60 m wooden bridge, monkey shrine. Kunen-an garden next door is CLOSED in Aug (spring/Nov only).",
+    "one_liner_ja": "R9から約5分。城原川の木陰と愛逢橋。九年庵は8月非公開。",
+    "address": "佐賀県神埼市神埼町的 仁比山",
+    "addr_geo": "佐賀県神埼市",
+    "lat": null,
+    "lng": null,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "park",
+      "kanzaki"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0952-37-0107",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "06:00",
+            "22:30"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:30"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:30"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:30"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:30"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:30"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:30"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Open-air park, free, roughly 6:00-22:30.",
+      "approx": true
+    },
+    "maps_query": "仁比山公園",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "yutoku-inari-shrine",
+    "kind": "activity",
+    "name_en": "Yutoku Inari Shrine",
+    "name_ja": "祐徳稲荷神社",
+    "one_liner": "One of the three great Inari shrines, ~10 min from R9 Sagakashima. Grounds 24h; office 8:30-16:30; huge parking. Mornings easiest during Obon.",
+    "one_liner_ja": "日本三大稲荷。R9から約10分。境内24時間、授与所8:30-16:30。",
+    "address": "佐賀県鹿島市古枝乙1855",
+    "addr_geo": "佐賀県鹿島市",
+    "lat": 33.07361,
+    "lng": 130.10833,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "shrine",
+      "kashima"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0954-62-2151",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "tue": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "wed": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "thu": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "fri": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sat": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sun": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Grounds open 24h; shrine office ~8:30-16:30; garden/museum daytime paid. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "祐徳稲荷神社",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "michinoeki-kashima",
+    "kind": "activity",
+    "name_en": "Michi-no-eki Kashima (Ariake mudflats)",
+    "name_ja": "道の駅鹿島",
+    "one_liner": "Gatalympics site ~12 min south on R207: mudskipper flats + produce hall. Flats show only around LOW tide — check an Ariake tide table first.",
+    "one_liner_ja": "干潟展望とガタリンピック会場。干潮前後のみ干潟が見える — 潮見表を確認。",
+    "address": "佐賀県鹿島市大字音成甲4427-6",
+    "addr_geo": "佐賀県鹿島市",
+    "lat": 33.07492,
+    "lng": 130.14575,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "mudflats",
+      "kashima"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0954-63-1768",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Produce hall 9-18; mudflat hall 9-17; experience desk 9-17:30 (0954-60-5040); closed only Jan 1-2 + 2nd Wed Jul. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "道の駅鹿島",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "hizen-kashima-station",
+    "kind": "transport",
+    "name_en": "Hizen-Kashima Station (JR)",
+    "name_ja": "肥前鹿島駅",
+    "one_liner": "~15 min walk from R9. SPARSE service since 2022 shinkansen rerouting: Kasasagi to Hakata ~5 round trips/day; locals south have 1-2 h gaps. Car is primary.",
+    "one_liner_ja": "R9から徒歩約15分。2022年以降本数激減（かささぎ1日5往復）。車が基本。",
+    "address": "佐賀県鹿島市大字高津原4111-2",
+    "addr_geo": "佐賀県鹿島市",
+    "lat": 33.1144361,
+    "lng": 130.0977833,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "train",
+      "kashima"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [],
+      "note": "Staffed, Midori-no-Madoguchi. Reserve Kasasagi early around Obon.",
+      "approx": true
+    },
+    "maps_query": "肥前鹿島駅",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "takeo-onsen-motoyu",
+    "kind": "activity",
+    "name_en": "Takeo Onsen Motoyu (public bath)",
+    "name_ja": "武雄温泉 元湯",
+    "one_liner": "Japan's oldest wooden onsen bathhouse in use (1876), behind the vermilion Romon gate. ¥500, ~35-40 min from Kashima. Quietest at 6:30 open or late night.",
+    "one_liner_ja": "1876年の木造浴場。楼門の奥。¥500。鹿島から約35-40分。",
+    "address": "佐賀県武雄市武雄町大字武雄7425",
+    "addr_geo": "佐賀県武雄市",
+    "lat": 33.19694,
+    "lng": 130.01447,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "onsen",
+      "takeo"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0954-23-2001",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "06:30",
+            "23:45"
+          ]
+        ],
+        "tue": [
+          [
+            "06:30",
+            "23:45"
+          ]
+        ],
+        "wed": [
+          [
+            "06:30",
+            "23:45"
+          ]
+        ],
+        "thu": [
+          [
+            "06:30",
+            "23:45"
+          ]
+        ],
+        "fri": [
+          [
+            "06:30",
+            "23:45"
+          ]
+        ],
+        "sat": [
+          [
+            "06:30",
+            "23:45"
+          ]
+        ],
+        "sun": [
+          [
+            "06:30",
+            "23:45"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "6:30-23:45 (last entry 23:00); one cleaning day mid-Dec only. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "武雄温泉 元湯",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "siebold-no-yu-ureshino",
+    "kind": "activity",
+    "name_en": "Ureshino Onsen Siebold-no-yu",
+    "name_ja": "嬉野温泉 シーボルトの湯",
+    "one_liner": "Ureshino's skin-smoothing bicarbonate water for ¥450, ~30 min from Kashima, from 6:00. Closed 3rd Wed (Aug 19 — after the Kashima stay).",
+    "one_liner_ja": "美肌の湯を¥450で。鹿島から約30分。6時から。第3水曜休（8/19）。",
+    "address": "佐賀県嬉野市嬉野町大字下宿乙818-2",
+    "addr_geo": "佐賀県嬉野市",
+    "lat": 33.0965445,
+    "lng": 129.9855576,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "onsen",
+      "ureshino"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0954-43-1426",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "06:00",
+            "22:00"
+          ]
+        ]
+      },
+      "closed": [
+        "Closed 3rd Wednesday monthly"
+      ],
+      "note": "6:00-22:00 (last entry 21:30); closed 3rd Wed monthly; private bath ¥2,500/50 min. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "シーボルトの湯 嬉野",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "super-morinaga-kashima",
+    "kind": "errand",
+    "name_en": "Super Morinaga Kashima",
+    "name_ja": "スーパーモリナガ 鹿島店",
+    "one_liner": "Full supermarket ~700 m from R9 Sagakashima (10 min walk). Backup: 24h 7-Eleven Kashima-Nakamura ~5 min walk with Seven Bank ATM.",
+    "one_liner_ja": "R9から約700m（徒歩10分）のスーパー。近くに24hセブン＋ATM。",
+    "address": "佐賀県鹿島市大字高津原5104",
+    "addr_geo": "佐賀県鹿島市",
+    "lat": 33.11063416,
+    "lng": 130.08757038,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "supermarket",
+      "kashima"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0954-62-5105",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:30",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:30",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:30",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:30",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:30",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:30",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:30",
+            "21:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "9:30-21:00 per official store page. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "スーパーモリナガ 鹿島店",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "minematsu-unagi-kashima",
+    "kind": "food",
+    "name_en": "Honke Minematsu Unagi-ya (est. 1918)",
+    "name_ja": "本家 峰松うなぎ屋",
+    "one_liner": "Century-old charcoal kabayaki in Hizen Hamashuku, ~8 min from R9 — mostly takeout, minimal seating. Irregular closures: call first. Sells out by noon around Obon.",
+    "one_liner_ja": "1918年創業の炭火うなぎ。持ち帰り中心。不定休 — 要電話。お盆は昼までに売切れ。",
+    "address": "佐賀県鹿島市浜町甲4292",
+    "addr_geo": "佐賀県鹿島市",
+    "lat": 33.091325,
+    "lng": 130.119258,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "unagi",
+      "kashima"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0954-62-3725",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "08:00",
+            "18:00"
+          ]
+        ],
+        "tue": [
+          [
+            "08:00",
+            "18:00"
+          ]
+        ],
+        "wed": [
+          [
+            "08:00",
+            "18:00"
+          ]
+        ],
+        "thu": [
+          [
+            "08:00",
+            "18:00"
+          ]
+        ],
+        "fri": [
+          [
+            "08:00",
+            "18:00"
+          ]
+        ],
+        "sat": [
+          [
+            "08:00",
+            "18:00"
+          ]
+        ],
+        "sun": [
+          [
+            "08:00",
+            "18:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "8:00-18:00, irregular closures (不定休) — call 0954-62-3725 before driving out. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "峰松うなぎ屋 鹿島市",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "hizen-hamashuku-sakagura",
+    "kind": "activity",
+    "name_en": "Hizen Hamashuku Sake Brewery Street",
+    "name_ja": "肥前浜宿 酒蔵通り",
+    "one_liner": "Edo-era preserved brewery streetscape (Nabeshima's Fukuchiyo Shuzo etc.), ~8-10 min from R9; pairs with Minematsu unagi. Info house 10-17, closed Tue; some shops close for Obon.",
+    "one_liner_ja": "酒蔵通りの町並み。鍋島の富久千代酒造など。案内所10-17（火休）。",
+    "address": "佐賀県鹿島市浜町",
+    "addr_geo": "佐賀県鹿島市",
+    "lat": 33.095159,
+    "lng": 130.117051,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "sake",
+      "kashima"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0954-69-8004",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "tue": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "wed": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "thu": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "fri": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sat": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sun": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Street walkable anytime; Tsugiba info house 10:00-17:00 closed Tue; brewery shops daytime. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "肥前浜宿酒蔵通り",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "kumamoto-castle",
+    "kind": "activity",
+    "name_en": "Kumamoto Castle",
+    "name_ja": "熊本城",
+    "one_liner": "CLOSED indefinitely since the 7/28/2026 M7.1 quake (new stone-wall damage). Normal summer hours were 9:00-19:00. Check castle.kumamoto-guide.jp/news or 096-223-5011 before going.",
+    "one_liner_ja": "7/28地震で当面閉園（石垣被害）。再開は公式サイトで確認を。",
+    "address": "熊本県熊本市中央区本丸1-1",
+    "addr_geo": "熊本県熊本市",
+    "lat": 32.806028,
+    "lng": 130.705897,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "castle",
+      "kumamoto"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "096-223-5011",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [
+        "Closed indefinitely since 2026-07-28 earthquake — verify reopening"
+      ],
+      "note": "Closed indefinitely post-quake as of 2026-07-29; normally 9:00-17:00 (Jul-Aug to 19:00), closed Dec 29 only.",
+      "approx": true
+    },
+    "maps_query": "熊本城 天守閣",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "sakuranobaba-josaien",
+    "kind": "food",
+    "name_en": "Sakura-no-baba Josaien",
+    "name_ja": "桜の馬場 城彩苑",
+    "one_liner": "23-shop food village at the castle base: karashi renkon, ikinari dango, basashi, Kumamon goods; paid garage. Likely open while the castle is shut — call 096-288-5577 post-quake.",
+    "one_liner_ja": "城の麓の食のテーマパーク。城が閉まっていても営業の可能性 — 要確認。",
+    "address": "熊本県熊本市中央区二の丸1番1-1",
+    "addr_geo": "熊本県熊本市",
+    "lat": 32.803453,
+    "lng": 130.703621,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "food-hall",
+      "kumamoto"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "096-288-5577",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "18:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Shops 9-18, restaurants 11-18 (varies); closed Dec 30-31 only. Confirm operating post-quake. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "桜の馬場 城彩苑",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "suizenji-jojuen",
+    "kind": "activity",
+    "name_en": "Suizenji Jojuen Garden",
+    "name_ja": "水前寺成趣園",
+    "one_liner": "Momoyama strolling garden ~1.3 km walk from Obi House — the zero-car anchor. ¥500, open 365 days. Free entry in Aug 2026 if wearing yukata.",
+    "one_liner_ja": "Obiハウスから徒歩圏の桃山式庭園。¥500・年中無休。8月は浴衣で無料。",
+    "address": "熊本県熊本市中央区水前寺公園8-1",
+    "addr_geo": "熊本県熊本市",
+    "lat": 32.7910917,
+    "lng": 130.7345944,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "garden",
+      "kumamoto"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "096-383-0074",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "08:30",
+            "17:00"
+          ]
+        ],
+        "tue": [
+          [
+            "08:30",
+            "17:00"
+          ]
+        ],
+        "wed": [
+          [
+            "08:30",
+            "17:00"
+          ]
+        ],
+        "thu": [
+          [
+            "08:30",
+            "17:00"
+          ]
+        ],
+        "fri": [
+          [
+            "08:30",
+            "17:00"
+          ]
+        ],
+        "sat": [
+          [
+            "08:30",
+            "17:00"
+          ]
+        ],
+        "sun": [
+          [
+            "08:30",
+            "17:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "8:30-17:00 (last entry 16:30), open 365 days/year. Verify condition once post-quake. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "水前寺成趣園",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "kokutei-honten",
+    "kind": "food",
+    "name_en": "Kokutei Honten (Kumamoto ramen)",
+    "name_ja": "黒亭 本店",
+    "one_liner": "Canonical Kumamoto tonkotsu since 1957 — black garlic mayu oil, tamago-iri ramen. Near Kumamoto Stn, own parking. Closed-day info conflicts (possibly 3rd Thu) — call.",
+    "one_liner_ja": "1957年創業の熊本ラーメン。焦がしにんにく油。熊本駅近く・駐車場あり。",
+    "address": "熊本県熊本市西区二本木2丁目1-23",
+    "addr_geo": "熊本県熊本市",
+    "lat": 32.786154,
+    "lng": 130.691745,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "ramen",
+      "kumamoto"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "096-352-1648",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "10:30-21:00 LO 20:30 per official site; possible 3rd-Thu closure per city listing (= Aug 20) — call 096-352-1648. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "黒亭 本店",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "komurasaki-kamitori",
+    "kind": "food",
+    "name_en": "Komurasaki Kamitori (Kumamoto ramen)",
+    "name_ja": "こむらさき 上通中央店",
+    "one_liner": "1954 originator lineage — fried garlic chips, milder tonkotsu — inside the Kamitori arcade. Afternoon break 16:00-18:00.",
+    "one_liner_ja": "1954年からの老舗。上通アーケード内。16-18時は中休み。",
+    "address": "熊本県熊本市中央区上通町8-16",
+    "addr_geo": "熊本県熊本市",
+    "lat": 32.806092,
+    "lng": 130.711374,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "ramen",
+      "kumamoto"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "096-325-8972",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "11:00",
+            "16:00"
+          ],
+          [
+            "18:00",
+            "22:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "16:00"
+          ],
+          [
+            "18:00",
+            "22:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "16:00"
+          ],
+          [
+            "18:00",
+            "22:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "16:00"
+          ],
+          [
+            "18:00",
+            "22:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "16:00"
+          ],
+          [
+            "18:00",
+            "22:00"
+          ]
+        ],
+        "sat": [
+          [
+            "11:00",
+            "16:00"
+          ],
+          [
+            "18:00",
+            "22:00"
+          ]
+        ],
+        "sun": [
+          [
+            "11:00",
+            "16:00"
+          ],
+          [
+            "18:00",
+            "22:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "11-16 + 18-22; closed year-end only. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "こむらさき 上通中央店",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "yume-mart-obiyama",
+    "kind": "errand",
+    "name_en": "Yume Mart Obiyama",
+    "name_ja": "ゆめマート帯山",
+    "one_liner": "Nearest full supermarket to Obi House (~1.5 km, 5 min drive). WAS QUAKE-CLOSED 7/28-29 — check youme-mart.com reopened before relying on it.",
+    "one_liner_ja": "Obiハウス最寄りのスーパー。7/28地震で一時休業 — 再開確認を。",
+    "address": "熊本県熊本市中央区三郎1-1-3",
+    "addr_geo": "熊本県熊本市",
+    "lat": 32.800172,
+    "lng": 130.755369,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "supermarket",
+      "kumamoto"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "096-384-4711",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [
+        "Quake-closed as of 2026-07-29 — check reopening"
+      ],
+      "note": "Normally 9:00-23:00 daily; quake-closed as of 2026-07-29, reopening TBA — verify.",
+      "approx": true
+    },
+    "maps_query": "ゆめマート帯山",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "seven-eleven-obiyama4",
+    "kind": "errand",
+    "name_en": "7-Eleven Kumamoto Obiyama 4-chome",
+    "name_ja": "セブン-イレブン熊本帯山4丁目店",
+    "one_liner": "Closest 24h konbini to Obi House (~0.9 km, walkable) with Seven Bank ATM (foreign cards). Stock can thin after aftershocks.",
+    "one_liner_ja": "Obiハウスから徒歩圏の24hセブン。セブン銀行ATMあり。",
+    "address": "熊本県熊本市中央区帯山4丁目19-7",
+    "addr_geo": "熊本県熊本市",
+    "lat": 32.8044528,
+    "lng": 130.7476286,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "konbini",
+      "kumamoto"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "096-384-1191",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "tue": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "wed": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "thu": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "fri": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sat": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ],
+        "sun": [
+          [
+            "00:00",
+            "24:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "24h, no closed days. Verified 2026-07-29.",
+      "approx": true
+    },
+    "maps_query": "セブンイレブン 熊本帯山4丁目店",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "aso-nakadake-crater",
+    "kind": "activity",
+    "name_en": "Aso Nakadake Crater (status-gated)",
+    "name_ja": "阿蘇中岳火口",
+    "one_liner": "CLOSED: volcanic alert Level 2 since 6/21/2026 — 1 km exclusion, toll road + shuttle suspended. Kusasenri, Volcano Museum, Daikanbo rim still worth the drive. Check aso-volcano.jp morning-of.",
+    "one_liner_ja": "警戒レベル2で火口1km規制中（6/21〜）。草千里・大観峰は可。朝に aso-volcano.jp 確認。",
+    "address": "熊本県阿蘇市黒川 阿蘇山上",
+    "addr_geo": "熊本県阿蘇市",
+    "lat": 32.8835,
+    "lng": 131.097,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "volcano",
+      "aso"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [
+        "Volcanic alert Level 2 since 2026-06-21 — crater closed"
+      ],
+      "note": "Crater access closed at alert Level 2 as of 2026-07-29; normal Level-1 gate ~8:30-18:00 summer.",
+      "approx": true
+    },
+    "maps_query": "阿蘇山上ターミナル",
+    "needs": [],
+    "vault": null,
+    "far": false
   }
 ]

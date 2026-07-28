@@ -506,6 +506,19 @@
   .plan{font-size:14px;line-height:1.45;background:#FFFFCC;border:1px solid var(--black);padding:10px 12px;margin-bottom:8px;box-shadow:1px 1px 0 var(--black)}
   .plan a,.dv-plan a{color:#00c;text-decoration:underline;word-break:break-word}
   a.mlink{text-decoration:none;margin:0 2px;padding:0 1px}
+  .dv-step{display:inline}
+  .dv-step.done{opacity:.5;text-decoration:line-through}
+  .dv-check{width:16px;height:16px;margin:0 6px 0 0;vertical-align:-3px;accent-color:var(--black)}
+  .dv-chip{display:inline-block;border:1px solid var(--black);padding:0 4px;margin:0 4px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:1px;background:var(--platinum)}
+  .dv-chip-open{background:#b8e6b8}
+  .dv-chip-closed{background:#f0b8b8}
+  .err-row{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px dotted var(--black)}
+  .err-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--black)}
+  .err-row span{flex:1;font-size:13px}
+  .err-row.done span{opacity:.5;text-decoration:line-through}
+  .err-del{padding:0 6px;line-height:1.4}
+  .err-form{display:flex;gap:6px;margin-top:10px}
+  .err-form input{flex:1;min-width:0}
   .plan b,.dv-plan b{font-weight:700}
   .plan i,.dv-plan i{font-style:italic}
   .upd-chip{font-size:11px;color:var(--soft);margin:0 0 12px}
@@ -883,6 +896,13 @@
           <li data-i18n="todo.8"><b>Cancel cliffs:</b> R9 Kashima free to <b>5 Aug 23:59</b> (then ¥10,800) · Obi free to <b>13 Aug 23:59</b> (then full) · Sakura cancel by <b>25 Aug</b>.</li>
         </ol>
       </div>
+      <h3 data-i18n="err.h">Errands — this phone only</h3>
+      <p class="note-hint" data-i18n="err.hint">Saved only in this browser (localStorage) — never on the shared page or server.</p>
+      <div id="err-list"></div>
+      <form id="err-form" class="err-form">
+        <input id="err-input" type="text" maxlength="80" autocomplete="off" data-i18n-ph="err.ph" placeholder="Add an errand…">
+        <button type="submit" class="s7btn" data-i18n="err.add">Add</button>
+      </form>
     </div>
   </section>
 
@@ -1562,6 +1582,10 @@ const T = {
             ja:"<b>Suica</b> — 成田で物理カード（Samsung）。東京電車用にチャージ。"},
   'todo.8':{en:"<b>Cancel cliffs:</b> R9 Kashima free to <b>5 Aug 23:59</b> (then ¥10,800) · Obi free to <b>13 Aug 23:59</b> (then full) · Sakura cancel by <b>25 Aug</b>.",
             ja:"<b>キャンセル期限：</b>R9 鹿島 <b>8/5 23:59</b>（以降 ¥10,800）· Obi <b>8/13 23:59</b>（以降全額）· Sakura 解約 <b>8/25</b> まで。"},
+  'err.h':   {en:"Errands — this phone only", ja:"買い物メモ — この端末のみ"},
+  'err.hint':{en:"Saved only in this browser (localStorage) — never on the shared page or server.", ja:"このブラウザにのみ保存（localStorage）。共有ページやサーバーには載りません。"},
+  'err.ph':  {en:"Add an errand…", ja:"項目を追加…"},
+  'err.add': {en:"Add", ja:"追加"},
 
   'log.arrive':{en:"Landing day (28 Jul) — Narita T2", ja:"到着日（7/28）— 成田 T2"},
   'log.sx':{en:"SmartEX — shinkansen (book both)", ja:"SmartEX — 新幹線（往復予約）"},
@@ -1897,25 +1921,25 @@ const DAYS = {
   '2026-07-31':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'<b>Purpose:</b> Kyushu. <b>No bike.</b> Shinagawa · <b>Nozomi 21 09:37</b> → Hakata ~14:30 → Toyota <b>15:30</b> → coin P + 9h. <i>Owner:</i> R9 Kanzaki free cancel ends <b>tonight 23:59</b>.', detail_ja:'<b>目的：</b>九州へ。<b>自転車なし。</b>のぞみ21 09:37 → トヨタ15:30 → 9h。'},
   '2026-08-01':{cls:'kanzaki',label:'→ Mika’s', label_ja:'Mika宅へ', detail:'Drive rental car Hakata → Kanzaki. Stay at cousin Mika & husband Kentaro’s apartment (nights of 1–2 Aug). No night-game tournament conflict.', detail_ja:'レンタカーで博多→神埼。いとこ Mika と夫 Kentaro のアパートに滞在（8/1〜2 の夜）。ナイトゲーム大会の予定なし。'},
   '2026-08-02':{cls:'kanzaki',label:'Kenji lunch', label_ja:'健司さん昼食', detail:'Lunch together at Uncle Kenji’s house (confirmed). Second night at Mika & Kentaro’s apartment.', detail_ja:'叔父・健司さんの家で一緒に昼食（確定）。2泊目も Mika & Kentaro 宅。'},
-  '2026-08-03':{cls:'kanzaki',label:'→ R9 Kanzaki', label_ja:'R9 神埼へ', detail:'Check in R9 The Yard Kanzaki — first of 5 nights (3–7 Aug). Hotel site: <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a>', detail_ja:'R9 The Yard 神埼にチェックイン — 5泊の初日（8/3〜7）。ホテルサイト： <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a>'},
-  '2026-08-04':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9). Family: Kenji / Hitomi / Mika / Kentaro.', detail_ja:'佐賀・神埼（R9）。家族：Kenji／Hitomi／Mika／Kentaro。'},
-  '2026-08-05':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9). <i>Owner:</i> R9 Sagakashima free cancel ends <b>tonight 23:59</b> local (then cancel fee ¥10,800 of ¥74,700 stay).', detail_ja:'佐賀・神埼（R9）。<i>管理者：</i>R9 佐賀鹿島の無料キャンセルは <b>今夜 23:59</b> まで（以降キャンセル料 ¥10,800／宿泊 ¥74,700）。'},
-  '2026-08-06':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9).', detail_ja:'佐賀・神埼（R9）に滞在。'},
-  '2026-08-07':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9). Last night of the R9 Kanzaki booking (checkout AM 8th). Backbone stays flexible.', detail_ja:'佐賀・神埼（R9）。R9 神埼の最終泊（8日朝チェックアウト）。骨格は融通可。'},
-  '2026-08-08':{cls:'kashima',label:'Mika day · flex', label_ja:'Mikaと・融通日', detail:'Mika took the day off — outing together (plan TBD). R9 Sagakashima is booked from tonight if useful; family backbone said Kanzaki area ~through 9th / Kashima ~from 9th — shuffle freely. Hotel: <a href="https://hotel-r9.jp/hotels/sagakashima/" target="_blank" rel="noopener">hotel-r9.jp/hotels/sagakashima</a>', detail_ja:'Mika が休み — 一緒に外出（行き先 TBD）。R9 佐賀鹿島はこの夜から予約あり。家族向け骨格は神埼〜9日／鹿島〜9日頃 — 自由にずらしてOK。ホテル： <a href="https://hotel-r9.jp/hotels/sagakashima/" target="_blank" rel="noopener">hotel-r9.jp/hotels/sagakashima</a>'},
-  '2026-08-09':{cls:'kashima',label:'Kashima ~', label_ja:'鹿島〜', detail:'Around here in the flexible backbone: Kashima window. Hope to see Akimasa & Yoko when it works. R9 Sagakashima base.', detail_ja:'融通のきく骨格だとこのあたりから鹿島。都合のいいときにアキマサ・ようこに会えたらうれしい。拠点は R9 佐賀鹿島。'},
-  '2026-08-10':{cls:'kashima',label:'Kashima', label_ja:'鹿島', detail:'Saga — Kashima base.', detail_ja:'佐賀・鹿島に滞在。'},
-  '2026-08-11':{cls:'kashima',label:'Kashima', label_ja:'鹿島', detail:'Saga — Kashima base.', detail_ja:'佐賀・鹿島に滞在。'},
-  '2026-08-12':{cls:'kashima',label:'Kashima', label_ja:'鹿島', detail:'Saga — Kashima base.', detail_ja:'佐賀・鹿島に滞在。'},
-  '2026-08-13':{cls:'kashima',label:'Kashima · Obon', label_ja:'鹿島・お盆', detail:'Saga — Kashima. Obon begins. <i>Owner:</i> Obi free cancel ends <b>tonight 23:59</b> local (then full ¥36,720).', detail_ja:'佐賀・鹿島。お盆の入り。<i>管理者：</i>Obi の無料キャンセルは <b>今夜 23:59</b> まで（以降全額 ¥36,720）。'},
-  '2026-08-14':{cls:'kashima',label:'Kashima · Obon', label_ja:'鹿島・お盆', detail:'Saga — Kashima. Obon. Last night before Kumamoto.', detail_ja:'佐賀・鹿島に滞在。お盆。熊本へ移る前の最終日。'},
-  '2026-08-15':{cls:'kuma',   label:'→ Kumamoto', label_ja:'熊本へ', detail:'Drive to Kumamoto. Obi house B2 — check-in 15:00–18:00 (arrival ~15:00–16:00 approved). Smart Check-in: details arrive week-of. Narrow driveways if arriving by car. First of 8 nights (out 23 Aug AM).', detail_ja:'熊本へ。Obi house B2 — チェックイン 15:00〜18:00（到着 15:00〜16:00 承認済み）。スマートチェックイン：予約週に詳細が届く。車は細い道注意。8泊の初日（8/23 朝アウト）。'},
-  '2026-08-16':{cls:'kuma',   label:'Obon', label_ja:'お盆', detail:'Kumamoto base. Obon.', detail_ja:'熊本に滞在。お盆。'},
-  '2026-08-17':{cls:'kuma',   label:'Kumamoto', label_ja:'熊本', detail:'Kumamoto base.', detail_ja:'熊本に滞在。'},
-  '2026-08-18':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Optional from Kumamoto (car, weather): <b>Aso</b> ~1.5h · <b>Kurokawa</b> ~2h · <b>Takachiho</b> ~2.5h · <b>Beppu</b> ~2–2.5h · <b>Miyazaki</b> ~3h each way (long day OK). Not booked.', detail_ja:'熊本から任意（車・天候）：<b>阿蘇</b> 約1.5h · <b>黒川</b> 約2h · <b>高千穂</b> 約2.5h · <b>別府</b> 約2〜2.5h · <b>宮崎</b> 片道約3h（ロングデー可）。未予約。'},
+  '2026-08-03':{cls:'kanzaki',label:'→ R9 Kanzaki', label_ja:'R9 神埼へ', detail:'Check in R9 The Yard Kanzaki — first of 5 nights (3–7 Aug). Hotel site: <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a><br><b>Base kit:</b> ファミリーマート神埼日の隈店 ~150 m from the door (24h · ATM at the 7-Eleven ~900 m east) · マルキョウ supermarket ~6 min drive (9:30–22) · 神埼駅 ~7 min (locals: Saga ~10 min · Hakata ~60–75 via Tosu). Cabin has a microwave, no restaurant.', detail_ja:'R9 The Yard 神埼にチェックイン — 5泊の初日（8/3〜7）。ホテルサイト： <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a><br>目の前にファミマ・車6分でマルキョウ・神埼駅7分。'},
+  '2026-08-04':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9). Family: Kenji / Hitomi / Mika / Kentaro.<br><b>Solo fallback menu (family first — all ≤15 min):</b> 吉野ヶ里 Yayoi ruins 9:00–18:00 ¥460 · east gate · shadeless, go at 9 or after 16 · 山茶花の湯 onsen 10:00–23:00 ¥830 (open-air over the plain) · 仁比山公園 river shade + bridge ~5 min · Kanzaki somen: buy at 井上製麺 (9–17 · Wed closed · eat-in 百年庵 on hiatus) or somen set at the Yoshinogari park restaurant 10:30–16.', detail_ja:'佐賀・神埼（R9）。家族：Kenji／Hitomi／Mika／Kentaro。<br>一人時間：吉野ヶ里・山茶花の湯・仁比山・神埼そうめん（井上製麺）。'},
+  '2026-08-05':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9). <i>Owner:</i> R9 Sagakashima free cancel ends <b>tonight 23:59</b> local (then cancel fee ¥10,800 of ¥74,700 stay).<br>Solo fallback → 8/4 menu.', detail_ja:'佐賀・神埼（R9）。<i>管理者：</i>R9 佐賀鹿島の無料キャンセルは <b>今夜 23:59</b> まで（以降キャンセル料 ¥10,800／宿泊 ¥74,700）。'},
+  '2026-08-06':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9). Solo fallback → 8/4 menu · or a Fukuoka run: ~50–60 min by car via Rte 385 tunnel (toll), or train from 神埼駅.', detail_ja:'佐賀・神埼（R9）。一人時間は8/4メニュー or 福岡へ（車60分／電車）。'},
+  '2026-08-07':{cls:'kanzaki',label:'Kanzaki', label_ja:'神埼', detail:'Saga — Kanzaki base (R9). Last night of the R9 Kanzaki booking (checkout AM 8th). Backbone stays flexible.<br>Solo fallback → 8/4 menu.', detail_ja:'佐賀・神埼（R9）。R9 神埼の最終泊（8日朝チェックアウト）。骨格は融通可。'},
+  '2026-08-08':{cls:'kashima',label:'Mika day · flex', label_ja:'Mikaと・融通日', detail:'Mika took the day off — outing together (plan TBD). R9 Sagakashima is booked from tonight if useful; family backbone said Kanzaki area ~through 9th / Kashima ~from 9th — shuffle freely. Hotel: <a href="https://hotel-r9.jp/hotels/sagakashima/" target="_blank" rel="noopener">hotel-r9.jp/hotels/sagakashima</a><br><b>Kashima base kit:</b> スーパーモリナガ ~700 m (9:30–21) · 24h 7-Eleven + ATM ~5 min walk · 肥前鹿島駅 ~15 min walk — but only ~5 Kasasagi round trips/day to Hakata since the 2022 rerouting; the car is primary.', detail_ja:'Mika が休み — 一緒に外出（行き先 TBD）。R9 佐賀鹿島はこの夜から予約あり。家族向け骨格は神埼〜9日／鹿島〜9日頃 — 自由にずらしてOK。ホテル： <a href="https://hotel-r9.jp/hotels/sagakashima/" target="_blank" rel="noopener">hotel-r9.jp/hotels/sagakashima</a><br>徒歩圏：モリナガ・セブン・肥前鹿島駅（本数少・車が基本）。'},
+  '2026-08-09':{cls:'kashima',label:'Kashima ~', label_ja:'鹿島〜', detail:'Around here in the flexible backbone: Kashima window. Hope to see Akimasa & Yoko when it works. R9 Sagakashima base.<br>Anchor solo stop: 祐徳稲荷神社 ~10 min — one of the three great Inari, grounds open 24h (office 8:30–16:30), huge parking.', detail_ja:'融通のきく骨格だとこのあたりから鹿島。都合のいいときにアキマサ・ようこに会えたらうれしい。拠点は R9 佐賀鹿島。<br>一人時間の軸：祐徳稲荷神社（境内24h）。'},
+  '2026-08-10':{cls:'kashima',label:'Kashima', label_ja:'鹿島', detail:'Saga — Kashima base.<br><b>Solo menu:</b> 祐徳稲荷 (24h grounds · morning easiest) · 肥前浜宿 sake-brewery street ~8–10 min (Nabeshima brewers · info house 10–17, Tue closed) + 峰松うなぎ屋 next door (8–18 · mostly takeout · irregular days — call 0954-62-3725 first) · 道の駅鹿島 Ariake mudflats ~12 min (9–18 · flats show only near LOW tide — check a tide table).', detail_ja:'佐賀・鹿島に滞在。<br>一人メニュー：祐徳稲荷・肥前浜宿＋峰松うなぎ・道の駅鹿島（干潮時）。'},
+  '2026-08-11':{cls:'kashima',label:'Kashima', label_ja:'鹿島', detail:'Saga — Kashima base. Solo menu → 8/10. Note: Hamashuku info house is closed Tuesdays (= today).', detail_ja:'佐賀・鹿島に滞在。浜宿の案内所は火曜休（今日）。'},
+  '2026-08-12':{cls:'kashima',label:'Kashima', label_ja:'鹿島', detail:'Saga — Kashima base. Solo menu → 8/10 · or an onsen run: シーボルトの湯 嬉野 ~30 min (6:00–22:00 · ¥450 · bicarbonate skin-water) / 武雄温泉 元湯 ~35–40 min (6:30–23:45 · ¥500 · oldest wooden bathhouse in Japan, 1876).', detail_ja:'佐賀・鹿島に滞在。温泉：シーボルトの湯（嬉野）or 武雄温泉 元湯。'},
+  '2026-08-13':{cls:'kashima',label:'Kashima · Obon', label_ja:'鹿島・お盆', detail:'Saga — Kashima. Obon begins. <i>Owner:</i> Obi free cancel ends <b>tonight 23:59</b> local (then full ¥36,720).<br><i>Owner:</i> before the 23:59 call, re-check Kumamoto quake recovery (7/28 M7.1 — see 8/15 card): Obi House condition + water + roads.', detail_ja:'佐賀・鹿島。お盆の入り。<i>管理者：</i>Obi の無料キャンセルは <b>今夜 23:59</b> まで（以降全額 ¥36,720）。判断前に熊本の地震復旧（7/28 M7.1）を確認。'},
+  '2026-08-14':{cls:'kashima',label:'Kashima · Obon', label_ja:'鹿島・お盆', detail:'Saga — Kashima. Obon. Last night before Kumamoto.<br>Obon peak: unagi sells out by noon, small family shops close · shrine grounds, michi-no-eki, supermarket stay open.', detail_ja:'佐賀・鹿島に滞在。お盆。熊本へ移る前の最終日。うなぎは昼まで・小店は盆休みあり。'},
+  '2026-08-15':{cls:'kuma',   label:'→ Kumamoto', label_ja:'熊本へ', detail:'Drive to Kumamoto. Obi house B2 — check-in 15:00–18:00 (arrival ~15:00–16:00 approved). Smart Check-in: details arrive week-of. Narrow driveways if arriving by car. First of 8 nights (out 23 Aug AM).<br><b>⚠ Quake context (7/28 M7.1 · max 震度7 in Uki ~20 km S of the city):</b> before driving, check Obi host messages + NEXCO road info (Kyushu Expwy Ueki section was damaged) + JR app. Obon U-turn rush 8/15–16 — pad the drive.<br><b>Base kit:</b> 水前寺成趣園 walkable ~1.3 km · 24h 7-Eleven 帯山4丁目 + ATM ~0.9 km · ゆめマート supermarket ~5 min drive (was quake-closed — check it reopened).', detail_ja:'熊本へ。Obi house B2 — チェックイン 15:00〜18:00（到着 15:00〜16:00 承認済み）。スマートチェックイン：予約週に詳細が届く。車は細い道注意。8泊の初日（8/23 朝アウト）。<br><b>⚠ 7/28 地震（M7.1・宇城で震度7）</b>：出発前に Obi・道路（植木区間損傷）・JR を確認。お盆Uターン渋滞注意。'},
+  '2026-08-16':{cls:'kuma',   label:'Obon', label_ja:'お盆', detail:'Kumamoto base. Obon.<br><b>City menu (verify-first after the quake):</b> 水前寺成趣園 walkable · 8:30–17:00 · ¥500 · open 365 days (free in yukata this Aug) · <b>熊本城 CLOSED indefinitely</b> since the 7/28 quake — check the castle news page before going · 城彩苑 food village at the castle base 9–18 (likely open — call 096-288-5577) · ramen: 黒亭 本店 10:30–21 near Kumamoto Stn / こむらさき 上通 11–16 & 18–22.', detail_ja:'熊本に滞在。お盆。<br>市内（要確認）：水前寺成趣園（徒歩圏）・<b>熊本城は当面閉園</b>・城彩苑・黒亭／こむらさき。'},
+  '2026-08-17':{cls:'kuma',   label:'Kumamoto', label_ja:'熊本', detail:'Kumamoto base. City menu → 8/16 · downtown arcades via tram (Suizenji-Koen stop ~1.2 km south of the house).', detail_ja:'熊本に滞在。市内メニューは8/16参照。市電で繁華街へ。'},
+  '2026-08-18':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Optional from Kumamoto (car, weather): <b>Aso</b> ~1.5h · <b>Kurokawa</b> ~2h · <b>Takachiho</b> ~2.5h · <b>Beppu</b> ~2–2.5h · <b>Miyazaki</b> ~3h each way (long day OK). Not booked.<br><b>⚠ Aso crater CLOSED</b> — volcanic alert Level 2 since 6/21 (1 km exclusion · toll road + shuttle suspended). Kusasenri grassland, Volcano Museum, Daikanbo rim still worth the drive. Morning-of: aso-volcano.jp + JMA typhoon page · skip mountain roads in any rain (quake-loosened slopes).', detail_ja:'熊本から任意（車・天候）：<b>阿蘇</b> 約1.5h · <b>黒川</b> 約2h · <b>高千穂</b> 約2.5h · <b>別府</b> 約2〜2.5h · <b>宮崎</b> 片道約3h（ロングデー可）。未予約。<br><b>⚠ 阿蘇中岳は警戒レベル2で火口規制中</b>（草千里・大観峰は可）。朝に aso-volcano.jp と台風情報を確認。'},
   '2026-08-19':{cls:'kuma',   label:'Rest*', label_ja:'休養*', detail:'Flex / rest — or swap any day-trip from the menu (Aso / Kurokawa / Takachiho / Beppu / Miyazaki).', detail_ja:'休養 or 日帰り候補の入れ替え（阿蘇／黒川／高千穂／別府／宮崎）。'},
   '2026-08-20':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Same optional menu. <i>Owner:</i> aim to submit <b>Sakura cancel</b> in My Page around now (by <b>25 Aug</b> for end 31 Aug).', detail_ja:'同・日帰り候補。<i>管理者：</i>この頃に <b>Sakura 解約</b>申請（<b>8/25</b> まで → 8/31 終了）。'},
-  '2026-08-21':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Optional long drive day (e.g. Miyazaki coast) or onsen (Kurokawa/Beppu). Weather-dependent.', detail_ja:'ロングドライブ（例：宮崎）or 温泉（黒川／別府）。天候次第。'},
+  '2026-08-21':{cls:'kuma',   label:'Day-trip*', label_ja:'日帰り*', detail:'Optional long drive day (e.g. Miyazaki coast) or onsen (Kurokawa/Beppu). Weather-dependent — check the JMA typhoon page + quake road status before committing to mountain routes.', detail_ja:'ロングドライブ（例：宮崎）or 温泉（黒川／別府）。天候次第 — 台風・道路状況を確認。'},
   '2026-08-22':{cls:'kuma',   label:'Kumamoto', label_ja:'熊本', detail:'Repack — last night. <i>Owner:</i> last days for Sakura cancel-by-25 if not done.', detail_ja:'荷造り — 最終泊。<i>管理者：</i>Sakura 解約 8/25 まで。'},
   '2026-08-23':{cls:'cap',    label:'→ Hakata', label_ja:'博多へ', detail:'Check out AM → Hakata → return Toyota by <b>20:00</b>. Overnight 9h Hakata. Dinner flexible: Chinese, French, or shameless <b>Saizeriya</b> (Japan-authentic cheap Italian). Fukuoka has strong Chinese + yatai too.', detail_ja:'午前アウト→博多→車20:00返却。9h 博多。夕食：中華・フレンチ or 本気の <b>サイゼリヤ</b>。'},
   '2026-08-24':{cls:'tokyo',  label:'Wabash pickup 1/4', label_ja:'Wabash受取 1/4', detail:'<b>Purpose:</b> start res <b>2607-212</b> (4-day). Nozomi 18 → Shinagawa 14:25 → do-c → CycleTrip ~15:30–17:00. Same <b>WABASH RT L</b>. Bike ¥34,000 + <b>deposit ¥100,000</b> (cash refund faster). If train late vs 17:30, morning 25th.', detail_ja:'<b>目的：</b>予約 2607-212 開始。品川14:25→do-c→CycleTrip。保証金 ¥100,000。'},
@@ -1996,27 +2020,68 @@ function dayDetailHtml(info){
    Links are built with DOM APIs only: no HTML lives in these strings, so
    there is nothing to escape (the quote-in-string trap that broke T once). */
 const PLACE_LINKS = [
-  {m:['陳麻婆豆腐 新宿野村ビル店','陳麻婆野村','陳麻婆豆腐','陳麻婆','Chin Mapo'], q:'陳麻婆豆腐 新宿野村ビル店', lat:35.692776, lng:139.696732},
-  {m:['伊良コーラ神宮前','伊良コーラ 渋谷神宮前','Iyoshi Jingumae','Iyoshi Cola','伊良コーラ','Iyoshi','Jingumae'], q:'伊良コーラ 渋谷神宮前', lat:35.6646, lng:139.703247},
-  {m:['Asakusa Rokku','浅草六区'], q:'伊良コーラ 浅草六区', lat:35.712475, lng:139.792618},
-  {m:['Benizuru 紅鶴','紅鶴','Benizuru'], q:'紅鶴 パンケーキ 浅草', n:'紅鶴', lat:35.711967, lng:139.791901},
-  {m:['Chacha Kobo Kiyosumi','Chacha Kobo','茶々工房','Chacha','茶々'], q:'茶々工房 清澄 三好1-5-4', n:'茶々工房', lat:35.680717, lng:139.800644},
-  {m:['Chaka 茶香','茶香','Chaka'], q:'Chaka 北千住', lat:35.753342, lng:139.799667},
-  {m:['Fuglen Asakusa','フグレン浅草','Fuglen','フグレン'], q:'フグレン浅草 Fuglen Asakusa', n:'フグレン浅草', lat:35.71447, lng:139.793976},
-  {m:['Saint Marc','サンマルク'], q:'サンマルクカフェ 恵比寿東口店', n:'サンマルクカフェ 恵比寿東口店', lat:35.64805, lng:139.71002},
-  {m:['West Georgia','ウエストジョージア','Georgia'], q:'West Georgia St Ebisu', n:'ウエストジョージアストリート', lat:35.645714, lng:139.707626},
-  {m:['IVY PLACE','Ivy Place','アイビープレイス','IVY'], q:'アイビープレイス 代官山', lat:35.649677, lng:139.700333},
-  {m:['Uniqlo','UNIQLO','ユニクロ'], q:'ユニクロ 恵比寿店 キュープラザ恵比寿', n:'ユニクロ 恵比寿店', lat:35.6474987, lng:139.7101405},
-  {m:['Grand Stage','グランドステージ','ABC-MART','ABCマート'], q:'ABC-MART GRAND STAGE 渋谷店 宇田川町', n:'ABC-MART GRAND STAGE 渋谷店', lat:35.6600077, lng:139.6993588},
-  {m:['do-c','ドシー'], q:'ドシー恵比寿 do-c Ebisu capsule sauna', n:'ドシー恵比寿', lat:35.647125, lng:139.713943},
-  {m:['Isetan','伊勢丹'], q:'伊勢丹新宿店', lat:35.691074, lng:139.704651},
-  {m:['Kagaya','かがや'], q:'かがや たばこ店 新宿', n:'かがや', lat:35.69389, lng:139.703613},
-  {m:['Kinokuniya','紀伊國屋','紀伊国屋'], q:'紀伊國屋書店 新宿本店', lat:35.691921, lng:139.702774},
-  {m:['Yodobashi','ヨドバシ'], q:'ヨドバシカメラ マルチメディアAkiba 秋葉原', n:'ヨドバシカメラ マルチメディアAkiba', lat:35.698639, lng:139.774612},
-  {m:['モティ 六本木店','モティ六本木','モティ','Moti'], q:'モティ 六本木店', lat:35.662037, lng:139.730408},
+  {m:['陳麻婆豆腐 新宿野村ビル店','陳麻婆野村','陳麻婆豆腐','陳麻婆','Chin Mapo'], koko:'chin-mapo-shinjuku-nomura', q:'陳麻婆豆腐 新宿野村ビル店'},
+  {m:['伊良コーラ神宮前','伊良コーラ 渋谷神宮前','Iyoshi Jingumae','Iyoshi Cola','伊良コーラ','Iyoshi','Jingumae'], koko:'iyoshi-cola-jingumae', q:'伊良コーラ 渋谷神宮前'},
+  {m:['Asakusa Rokku','浅草六区'], koko:'iyoshi-cola-asakusa-rokku', q:'伊良コーラ 浅草六区'},
+  {m:['Benizuru 紅鶴','紅鶴','Benizuru'], koko:'benizuru-pancake-asakusa', q:'紅鶴 パンケーキ 浅草'},
+  {m:['Chacha Kobo Kiyosumi','Chacha Kobo','茶々工房','Chacha','茶々'], koko:'chacha-kobo-kiyosumi', q:'茶々工房 清澄 三好1-5-4'},
+  {m:['Chaka 茶香','茶香','Chaka'], koko:'chaka-pancakes-kitasenju', q:'Chaka 北千住'},
+  {m:['Fuglen Asakusa','フグレン浅草','Fuglen','フグレン'], koko:'fuglen-asakusa', q:'フグレン浅草 Fuglen Asakusa'},
+  {m:['Saint Marc','サンマルク'], koko:'saint-marc-cafe-ebisu-east', q:'サンマルクカフェ 恵比寿東口店'},
+  {m:['West Georgia','ウエストジョージア','Georgia'], koko:'west-georgia-st-ebisu', q:'West Georgia St Ebisu'},
+  {m:['IVY PLACE','Ivy Place','アイビープレイス','IVY'], koko:'ivy-place-daikanyama', q:'アイビープレイス 代官山'},
+  {m:['Uniqlo','UNIQLO','ユニクロ'], koko:'uniqlo-ebisu-qplaza', q:'ユニクロ 恵比寿店 キュープラザ恵比寿'},
+  {m:['Grand Stage','グランドステージ','ABC-MART','ABCマート'], koko:'abc-mart-grand-stage-shibuya', q:'ABC-MART GRAND STAGE 渋谷店 宇田川町'},
+  {m:['do-c','ドシー'], koko:'do-c-ebisu-capsule', q:'ドシー恵比寿 do-c Ebisu capsule sauna'},
+  {m:['Isetan','伊勢丹'], koko:'isetan-shinjuku-main', q:'伊勢丹新宿店'},
+  {m:['Kagaya','かがや'], koko:'kagaya-tobacco-shinjuku', q:'かがや たばこ店 新宿'},
+  {m:['Kinokuniya','紀伊國屋','紀伊国屋'], koko:'kinokuniya-shinjuku-main', q:'紀伊國屋書店 新宿本店'},
+  {m:['Yodobashi','ヨドバシ'], koko:'yodobashi-akiba', q:'ヨドバシカメラ マルチメディアAkiba 秋葉原'},
+  {m:['モティ 六本木店','モティ六本木','モティ','Moti'], koko:'moti-roppongi', q:'モティ 六本木店'},
   {m:['KITTE'], q:'KITTE丸の内', lat:35.679569, lng:139.764772},
-  {m:['Akasaka','赤坂'], q:'赤坂駅 東京メトロ', n:'赤坂', lat:35.672963, lng:139.736571}
+  {m:['Akasaka','赤坂'], q:'赤坂駅 東京メトロ', n:'赤坂', lat:35.672963, lng:139.736571},
+  /* Kyushu leg */
+  {m:['R9 The Yard Kanzaki','R9 神埼','R9 Kanzaki'], koko:'r9-the-yard-kanzaki', q:'HOTEL R9 The Yard 神埼'},
+  {m:['R9 Sagakashima','R9 佐賀鹿島','Sagakashima'], koko:'r9-sagakashima', q:'HOTEL R9 The Yard 佐賀鹿島'},
+  {m:['Obi house','Obi House'], koko:'obi-house-kumamoto', q:'Obi House 熊本 帯山'},
+  {m:['9h Hakata','9h 博多'], koko:'nine-hours-hakata', q:'ナインアワーズ博多'},
+  {m:['トヨタレンタカー','return Toyota','Toyota Hakata'], koko:'toyota-rent-a-car-hakata', q:'トヨタレンタカー 博多駅前店'},
+  {m:['吉野ヶ里','Yoshinogari'], koko:'yoshinogari-park-east', q:'吉野ヶ里歴史公園 東口'},
+  {m:['井上製麺','Inoue Seimen'], koko:'inoue-seimen-kanzaki', q:'井上製麺 直売店 神埼'},
+  {m:['神埼駅','Kanzaki Stn'], koko:'kanzaki-station', q:'神埼駅'},
+  {m:['ファミリーマート神埼','FamilyMart'], koko:'familymart-kanzaki-hinokuma', q:'ファミリーマート神埼日の隈店'},
+  {m:['マルキョウ','Marukyo'], koko:'marukyo-kanzaki', q:'マルキョウ神埼店'},
+  {m:['山茶花の湯','Sazanka'], koko:'sazanka-no-yu-onsen', q:'ひがしせふり温泉 山茶花の湯'},
+  {m:['仁比山','Niiyama'], koko:'niiyama-park-kanzaki', q:'仁比山公園'},
+  {m:['祐徳稲荷','Yutoku'], koko:'yutoku-inari-shrine', q:'祐徳稲荷神社'},
+  {m:['道の駅鹿島','Michi-no-eki Kashima'], koko:'michinoeki-kashima', q:'道の駅鹿島'},
+  {m:['肥前鹿島駅','Hizen-Kashima Stn'], koko:'hizen-kashima-station', q:'肥前鹿島駅'},
+  {m:['武雄温泉','Takeo Motoyu','Takeo'], koko:'takeo-onsen-motoyu', q:'武雄温泉 元湯'},
+  {m:['シーボルトの湯','Siebold','嬉野','Ureshino'], koko:'siebold-no-yu-ureshino', q:'シーボルトの湯 嬉野'},
+  {m:['スーパーモリナガ','モリナガ','Morinaga'], koko:'super-morinaga-kashima', q:'スーパーモリナガ 鹿島店'},
+  {m:['峰松','Minematsu'], koko:'minematsu-unagi-kashima', q:'峰松うなぎ屋 鹿島市'},
+  {m:['肥前浜宿','Hamashuku'], koko:'hizen-hamashuku-sakagura', q:'肥前浜宿酒蔵通り'},
+  {m:['熊本城','Kumamoto Castle'], koko:'kumamoto-castle', q:'熊本城 天守閣'},
+  {m:['城彩苑','Josaien'], koko:'sakuranobaba-josaien', q:'桜の馬場 城彩苑'},
+  {m:['水前寺','Suizenji'], koko:'suizenji-jojuen', q:'水前寺成趣園'},
+  {m:['黒亭','Kokutei'], koko:'kokutei-honten', q:'黒亭 本店'},
+  {m:['こむらさき','Komurasaki'], koko:'komurasaki-kamitori', q:'こむらさき 上通中央店'},
+  {m:['ゆめマート','Yume Mart'], koko:'yume-mart-obiyama', q:'ゆめマート帯山'},
+  {m:['阿蘇山上','中岳','Nakadake','阿蘇','Aso'], koko:'aso-nakadake-crater', q:'阿蘇山上ターミナル'},
+  {m:['黒川温泉','Kurokawa','黒川'], q:'黒川温泉'},
+  {m:['高千穂','Takachiho'], q:'高千穂峡'},
+  {m:['別府','Beppu'], q:'別府温泉'}
 ];
+/** Resolve a PLACE_LINKS entry against the koko atlas (single source of truth
+    for coords/queries/hours once koko-places.json is loaded); inline q is the
+    pre-load fallback. Returns {q, lat, lng, n, row}. */
+function placeLinkData(p){
+  if(p.koko && kokoData){
+    const r = kokoData.find(function(x){ return x.id === p.koko; });
+    if(r) return { q: r.maps_query || r.address || r.name_en || p.q, lat: r.lat, lng: r.lng, n: r.name_ja || r.name_en || p.q, row: r };
+  }
+  return { q: p.q, lat: p.lat != null ? p.lat : null, lng: p.lng != null ? p.lng : null, n: p.n || p.q, row: null };
+}
 function mkMapAnchor(href, glyph, title){
   const a = document.createElement('a');
   a.className = 'mlink'; a.href = href; a.target = '_blank'; a.rel = 'noopener';
@@ -2047,13 +2112,14 @@ function linkifyKnownPlaces(root){
         if(best === -1 || idx < best || (idx === best && v.length > len)){ best = idx; len = v.length; }
       });
       if(best === -1) continue;
+      const d = placeLinkData(p);
       const after = nodes[i].splitText(best + len);
       const frag = document.createDocumentFragment();
       frag.appendChild(mkMapAnchor(
-        'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(p.q), '🗺', 'Google Maps'));
-      if(p.lat != null && p.lng != null){
+        'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.q), '🗺', 'Google Maps'));
+      if(d.lat != null && d.lng != null){
         frag.appendChild(mkMapAnchor(
-          kokoNavitimeUrl({lat:p.lat, lng:p.lng, name_ja:p.n || p.q, maps_query:p.q}), '🧭', 'NAVITIME'));
+          kokoNavitimeUrl({lat:d.lat, lng:d.lng, name_ja:d.n, maps_query:d.q}), '🧭', 'NAVITIME'));
       }
       after.parentNode.insertBefore(frag, after);
       return; /* one glyph pair per place per container */
@@ -2092,6 +2158,154 @@ function linkifyPlaces(root){
   linkifyKnownPlaces(root);
   linkifyMapsHints(root);
 }
+
+/* ---------- Day-plan checklist + open-now chips ---------- */
+/* Authoring convention: a day-detail line that starts with ①–⑨ (flat siblings
+   separated by <br>) becomes a checkable stop. Done-state is per-phone
+   (localStorage), keyed by date. On today's card each stop also gets an
+   open/closed chip computed from the matching koko row's hours. */
+const STEP_MARKS = '①②③④⑤⑥⑦⑧⑨';
+function dayDoneGet(key){
+  try{ return JSON.parse(localStorage.getItem('japan_done_' + key)) || []; }catch(e){ return []; }
+}
+function dayDoneSet(key, arr){
+  try{ localStorage.setItem('japan_done_' + key, JSON.stringify(arr)); }catch(e){}
+}
+function stepOpenChip(stepText){
+  /* chip reflects the place mentioned EARLIEST in the step text (the stop
+     itself), not incidental later mentions (optional detours, dinner alts) */
+  let bestRow = null, bestAt = -1;
+  PLACE_LINKS.forEach(function(p){
+    if(!p.koko) return;
+    let at = -1;
+    p.m.forEach(function(v){
+      const idx = stepText.indexOf(v);
+      if(idx !== -1 && (at === -1 || idx < at)) at = idx;
+    });
+    if(at === -1 || (bestAt !== -1 && at >= bestAt)) return;
+    const row = placeLinkData(p).row;
+    if(!row || !row.hours) return;
+    bestRow = row; bestAt = at;
+  });
+  if(!bestRow) return null;
+  const st = kokoOpenState(bestRow);
+  if(st === 'unknown') return null;
+  const chip = document.createElement('span');
+  chip.className = 'dv-chip dv-chip-' + st;
+  let txt = st === 'open' ? tr('koko.open') : tr('koko.closed');
+  if(st === 'closed' && bestRow.hours.weekly){
+    const now = kokoTokyoNow();
+    const today = bestRow.hours.weekly[now.dow] || [];
+    if(today.length && kokoParseHM(today[0][0]) != null && now.min < kokoParseHM(today[0][0])){
+      txt += ' · ' + today[0][0] + '→';
+    }
+  }
+  chip.textContent = txt;
+  return chip;
+}
+function decorateDayPlan(planEl, key){
+  if(!planEl || !key) return;
+  const done = dayDoneGet(key);
+  const isToday = key === todayKey();
+  const kids = Array.prototype.slice.call(planEl.childNodes);
+  for(let i = 0; i < kids.length; i++){
+    const node = kids[i];
+    const txt = (node.textContent || '').trim();
+    if(!txt || STEP_MARKS.indexOf(txt.charAt(0)) === -1) continue;
+    const mark = txt.charAt(0);
+    const span = document.createElement('span');
+    span.className = 'dv-step' + (done.indexOf(mark) !== -1 ? ' done' : '');
+    planEl.insertBefore(span, node);
+    let n = node;
+    while(n && n.nodeName !== 'BR'){ const next = n.nextSibling; span.appendChild(n); n = next; }
+    const box = document.createElement('input');
+    box.type = 'checkbox'; box.className = 'dv-check';
+    box.checked = done.indexOf(mark) !== -1;
+    box.setAttribute('aria-label', mark);
+    box.addEventListener('change', function(){
+      const cur = dayDoneGet(key);
+      const at = cur.indexOf(mark);
+      if(box.checked && at === -1) cur.push(mark);
+      if(!box.checked && at !== -1) cur.splice(at, 1);
+      dayDoneSet(key, cur);
+      span.classList.toggle('done', box.checked);
+    });
+    span.insertBefore(box, span.firstChild);
+    if(isToday){
+      const chip = stepOpenChip(span.textContent || '');
+      if(chip && span.children.length > 1) span.insertBefore(chip, span.children[1].nextSibling);
+      else if(chip) span.appendChild(chip);
+    }
+  }
+}
+/** Re-render linkified surfaces once the koko atlas has loaded (coords/hours arrive). */
+function refreshPlaceLinksAfterKoko(){
+  applyStaticLang();
+  if(currentDay) setModalHeader(currentDay);
+  if(view === 'day') renderDayView();
+}
+
+/* ---------- Errands (owner panel, localStorage only — never shared) ---------- */
+const ERR_KEY = 'japan_errands_v1';
+const ERR_SEED = [
+  {t:"Diptyque soap ×6–8 (Isetan 1F)", d:false},
+  {t:"SXC-1 ×2 (Yodobashi)", d:false},
+  {t:"White Wings ×4 (Yodobashi)", d:false},
+  {t:"Paper Nano backup (Yodobashi)", d:false},
+  {t:"Okozukai envelopes ×5 (Kinokuniya)", d:false},
+  {t:"Wallets, Indenya tier (men)", d:false},
+  {t:"Peace tin ×1 (Kagaya 12:00+)", d:false}
+];
+function errGet(){
+  try{ const v = JSON.parse(localStorage.getItem(ERR_KEY)); return Array.isArray(v) ? v : null; }catch(e){ return null; }
+}
+function errSet(v){ try{ localStorage.setItem(ERR_KEY, JSON.stringify(v)); }catch(e){} }
+function renderErrands(){
+  const list = document.getElementById('err-list');
+  if(!list) return;
+  let items = errGet();
+  if(!items){ items = ERR_SEED.slice(); errSet(items); }
+  list.textContent = '';
+  items.forEach(function(it, i){
+    const row = document.createElement('div');
+    row.className = 'err-row' + (it.d ? ' done' : '');
+    const box = document.createElement('input');
+    box.type = 'checkbox'; box.checked = !!it.d;
+    box.addEventListener('change', function(){
+      const cur = errGet() || [];
+      if(cur[i]){ cur[i].d = box.checked; errSet(cur); }
+      row.classList.toggle('done', box.checked);
+    });
+    row.appendChild(box);
+    const txt = document.createElement('span');
+    txt.textContent = it.t;
+    row.appendChild(txt);
+    const del = document.createElement('button');
+    del.type = 'button'; del.className = 's7btn err-del'; del.textContent = '✕';
+    del.addEventListener('click', function(){
+      const cur = errGet() || [];
+      cur.splice(i, 1); errSet(cur);
+      renderErrands();
+    });
+    row.appendChild(del);
+    list.appendChild(row);
+  });
+}
+(function(){
+  const f = document.getElementById('err-form');
+  if(!f) return;
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    const inp = document.getElementById('err-input');
+    const t = (inp.value || '').trim();
+    if(!t) return;
+    const items = errGet() || ERR_SEED.slice();
+    items.push({t:t, d:false});
+    errSet(items);
+    inp.value = '';
+    renderErrands();
+  });
+})();
 
 const TRIP_START = '2026-07-27', TRIP_END = '2026-08-28';
 /* "today" is Japan's calendar day (JST, UTC+9, no DST) for every viewer —
@@ -2489,6 +2703,7 @@ function renderDayView(){
     const plan = document.createElement('div'); plan.className = 'dv-plan';
     plan.innerHTML = dayDetailHtml(info);
     linkifyPlaces(plan);
+    decorateDayPlan(plan, key);
     panel.appendChild(plan);
   } else {
     const lab = document.createElement('div'); lab.className = 'dv-label';
@@ -2914,6 +3129,7 @@ function loadKokoData(){
     kokoData = Array.isArray(arr) ? arr : [];
     kokoLoading = false; kokoLoadErr = false;
     renderKoko();
+    try{ refreshPlaceLinksAfterKoko(); }catch(e){}
   }).catch(function(){
     kokoLoading = false; kokoLoadErr = true;
     renderKoko();
@@ -3585,7 +3801,7 @@ function setModalHeader(key){
   const upd = document.getElementById('m-updated');
   if(info){
     tag.style.display=''; tag.textContent = TAG_NAME[lang][info.cls]; tag.className = 'tag c-'+info.cls;
-    plan.style.display=''; plan.innerHTML = dayDetailHtml(info); linkifyPlaces(plan);
+    plan.style.display=''; plan.innerHTML = dayDetailHtml(info); linkifyPlaces(plan); decorateDayPlan(plan, key);
   } else {
     tag.style.display='none'; plan.style.display='none'; plan.textContent = '';
   }
@@ -4178,6 +4394,8 @@ onAdminChange(); /* sets html.owner, cliff list, banner, notifications if unlock
 setView(view);
 handleHash();
 loadAll().then(handleHash);   // re-anchor deep links after async content shifts layout
+loadKokoData();               // boot-load the atlas: place links get coords/hours without opening Koko
+renderErrands();
 
 function schedulePoll(){
   if(_pollTimer) clearTimeout(_pollTimer);
