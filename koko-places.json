@@ -9326,5 +9326,320 @@
     "vault": "food/apetaito-itabashi.md",
     "kind": "food",
     "far": false
+  },
+  {
+    "id": "saint-marc-cafe-ebisu-east",
+    "kind": "food",
+    "name_en": "ST-MARC CAFE Ebisu East Exit",
+    "name_ja": "サンマルクカフェ 恵比寿東口店",
+    "one_liner": "Chain cafe for morning coffee + chocolate croissant (チョコクロ) — same building as do-c Ebisu, ground floor.",
+    "one_liner_ja": "朝コーヒーとチョコクロ。ドシー恵比寿と同じサン栄ビル1〜2F。",
+    "address": "東京都渋谷区恵比寿1-8-1 サン栄ビル 1〜2F",
+    "addr_geo": "東京都渋谷区",
+    "lat": 35.64805,
+    "lng": 139.71002,
+    "plus_code": null,
+    "hubs": [
+      "doc-ebisu"
+    ],
+    "tags": [
+      "cafe",
+      "breakfast",
+      "ebisu"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "07:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "07:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "07:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "07:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "07:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "07:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "07:00",
+            "23:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Official site: 7:00-23:00 daily, L.O. 22:30 (Tabelog lists 7:00-22:00). Verified 2026-07-29 from saint-marc-hd.com store page. Not the 駅前店 on the west side (恵比寿西1-8-8).",
+      "approx": true
+    },
+    "maps_query": "サンマルクカフェ 恵比寿東口店",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "uniqlo-ebisu-qplaza",
+    "kind": "errand",
+    "name_en": "UNIQLO Ebisu (Q Plaza)",
+    "name_ja": "ユニクロ 恵比寿店",
+    "one_liner": "Uniqlo in Q Plaza Ebisu 1F-2F — socks etc.; ~1 min from do-c. No Uniqlo in Atre Ebisu.",
+    "one_liner_ja": "キュープラザ恵比寿1・2階。靴下など。ドシーから徒歩1分。アトレにはユニクロ無し。",
+    "address": "東京都渋谷区恵比寿1-8-12 キュープラザ恵比寿 1〜2F",
+    "addr_geo": "東京都渋谷区",
+    "lat": 35.6474987,
+    "lng": 139.7101405,
+    "plus_code": null,
+    "hubs": [
+      "doc-ebisu"
+    ],
+    "tags": [
+      "clothing",
+      "errand",
+      "ebisu",
+      "shopping"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "10:00-21:00 daily per official map.uniqlo.com store locator (store 10101816), verified 2026-07-29. Men's + women's floors only (no kids/baby).",
+      "approx": true
+    },
+    "maps_query": "ユニクロ 恵比寿店 キュープラザ恵比寿",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "abc-mart-grand-stage-shibuya",
+    "kind": "errand",
+    "name_en": "ABC-MART GRAND STAGE Shibuya",
+    "name_ja": "ABC-MART GRAND STAGE 渋谷店",
+    "one_liner": "Flagship large-format shoe store near Center-gai — widest size runs (US12 ≈ JP30cm); tax-free counter.",
+    "one_liner_ja": "センター街近くの大型旗艦店。サイズ展開が広い（US12≈30cm）。免税カウンター有り。",
+    "address": "〒150-0042 東京都渋谷区宇田川町23-8",
+    "addr_geo": "東京都渋谷区",
+    "lat": 35.6600077,
+    "lng": 139.6993588,
+    "plus_code": null,
+    "hubs": [
+      "shibuya-harajuku"
+    ],
+    "tags": [
+      "shoes",
+      "errand",
+      "shibuya",
+      "shopping"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "03-6416-5395",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "11:00-21:00 daily per official abc-mart.net locator (store 2398), verified 2026-07-29. Old address 宇田川町27-6 is now the regular ABC-MART 渋谷店 — flagship is at 23-8. 30cm per-SKU stock not guaranteed; check store stock online or call.",
+      "approx": true
+    },
+    "maps_query": "ABC-MART GRAND STAGE 渋谷店 宇田川町",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "isetan-shinjuku-main",
+    "kind": "errand",
+    "name_en": "Isetan Shinjuku (Main Building)",
+    "name_ja": "伊勢丹新宿店 本館",
+    "one_liner": "Depachika B1 bakery row (Rechevre friand, trend bakery) + 1F fragrance/soap counters.",
+    "one_liner_ja": "本館B1デパ地下ベーカリー（レシェーヴル等）+1Fコスメ・フレグランス。",
+    "address": "〒160-0022 東京都新宿区新宿3-14-1",
+    "addr_geo": "東京都新宿区",
+    "lat": 35.691074,
+    "lng": 139.704651,
+    "plus_code": null,
+    "hubs": [
+      "shinjuku"
+    ],
+    "tags": [
+      "department-store",
+      "depachika",
+      "shinjuku",
+      "shopping"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "10:00-20:00 daily (7F restaurants 11:00-21:00), corroborated via official mistore.jp listings 2026-07-29. Coords = Shinjuku-dori main entrance (south edge of building footprint).",
+      "approx": true
+    },
+    "maps_query": "伊勢丹新宿店 本館",
+    "needs": [],
+    "vault": null,
+    "far": false
   }
 ]

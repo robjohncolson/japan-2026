@@ -505,6 +505,7 @@
   .sheet-body{padding:14px 16px;background:var(--white);margin:0 1px 1px}
   .plan{font-size:14px;line-height:1.45;background:#FFFFCC;border:1px solid var(--black);padding:10px 12px;margin-bottom:8px;box-shadow:1px 1px 0 var(--black)}
   .plan a,.dv-plan a{color:#00c;text-decoration:underline;word-break:break-word}
+  a.mlink{text-decoration:none;margin:0 2px;padding:0 1px}
   .plan b,.dv-plan b{font-weight:700}
   .plan i,.dv-plan i{font-style:italic}
   .upd-chip{font-size:11px;color:var(--soft);margin:0 0 12px}
@@ -1986,6 +1987,112 @@ function dayDetailHtml(info){
   if(!info) return '';
   return lang === 'ja' ? (info.detail_ja || '') : (info.detail || '');
 }
+
+/* ---------- Inline place links (Google Maps / NAVITIME) ---------- */
+/* Curated table for itinerary-critical stops. Variants (EN+JA) are matched
+   against rendered text; the first mention of each place per container gets
+   compact 🗺 (Google Maps) and — when coords are known — 🧭 (NAVITIME) links.
+   Coordinates mirror koko-places.json where the place exists in the atlas.
+   Links are built with DOM APIs only: no HTML lives in these strings, so
+   there is nothing to escape (the quote-in-string trap that broke T once). */
+const PLACE_LINKS = [
+  {m:['陳麻婆豆腐 新宿野村ビル店','陳麻婆野村','陳麻婆豆腐','陳麻婆','Chin Mapo'], q:'陳麻婆豆腐 新宿野村ビル店', lat:35.692776, lng:139.696732},
+  {m:['伊良コーラ神宮前','伊良コーラ 渋谷神宮前','Iyoshi Jingumae','Iyoshi Cola','伊良コーラ','Iyoshi','Jingumae'], q:'伊良コーラ 渋谷神宮前', lat:35.6646, lng:139.703247},
+  {m:['Asakusa Rokku','浅草六区'], q:'伊良コーラ 浅草六区', lat:35.712475, lng:139.792618},
+  {m:['Benizuru 紅鶴','紅鶴','Benizuru'], q:'紅鶴 パンケーキ 浅草', n:'紅鶴', lat:35.711967, lng:139.791901},
+  {m:['Chacha Kobo Kiyosumi','Chacha Kobo','茶々工房','Chacha','茶々'], q:'茶々工房 清澄 三好1-5-4', n:'茶々工房', lat:35.680717, lng:139.800644},
+  {m:['Chaka 茶香','茶香','Chaka'], q:'Chaka 北千住', lat:35.753342, lng:139.799667},
+  {m:['Fuglen Asakusa','フグレン浅草','Fuglen','フグレン'], q:'フグレン浅草 Fuglen Asakusa', n:'フグレン浅草', lat:35.71447, lng:139.793976},
+  {m:['Saint Marc','サンマルク'], q:'サンマルクカフェ 恵比寿東口店', n:'サンマルクカフェ 恵比寿東口店', lat:35.64805, lng:139.71002},
+  {m:['West Georgia','ウエストジョージア','Georgia'], q:'West Georgia St Ebisu', n:'ウエストジョージアストリート', lat:35.645714, lng:139.707626},
+  {m:['IVY PLACE','Ivy Place','アイビープレイス','IVY'], q:'アイビープレイス 代官山', lat:35.649677, lng:139.700333},
+  {m:['Uniqlo','UNIQLO','ユニクロ'], q:'ユニクロ 恵比寿店 キュープラザ恵比寿', n:'ユニクロ 恵比寿店', lat:35.6474987, lng:139.7101405},
+  {m:['Grand Stage','グランドステージ','ABC-MART','ABCマート'], q:'ABC-MART GRAND STAGE 渋谷店 宇田川町', n:'ABC-MART GRAND STAGE 渋谷店', lat:35.6600077, lng:139.6993588},
+  {m:['do-c','ドシー'], q:'ドシー恵比寿 do-c Ebisu capsule sauna', n:'ドシー恵比寿', lat:35.647125, lng:139.713943},
+  {m:['Isetan','伊勢丹'], q:'伊勢丹新宿店', lat:35.691074, lng:139.704651},
+  {m:['Kagaya','かがや'], q:'かがや たばこ店 新宿', n:'かがや', lat:35.69389, lng:139.703613},
+  {m:['Kinokuniya','紀伊國屋','紀伊国屋'], q:'紀伊國屋書店 新宿本店', lat:35.691921, lng:139.702774},
+  {m:['Yodobashi','ヨドバシ'], q:'ヨドバシカメラ マルチメディアAkiba 秋葉原', n:'ヨドバシカメラ マルチメディアAkiba', lat:35.698639, lng:139.774612},
+  {m:['モティ 六本木店','モティ六本木','モティ','Moti'], q:'モティ 六本木店', lat:35.662037, lng:139.730408},
+  {m:['KITTE'], q:'KITTE丸の内', lat:35.679569, lng:139.764772},
+  {m:['Akasaka','赤坂'], q:'赤坂駅 東京メトロ', n:'赤坂', lat:35.672963, lng:139.736571}
+];
+function mkMapAnchor(href, glyph, title){
+  const a = document.createElement('a');
+  a.className = 'mlink'; a.href = href; a.target = '_blank'; a.rel = 'noopener';
+  a.textContent = glyph; a.title = title;
+  return a;
+}
+/** Text nodes under root, document order, skipping anything already inside <a>. */
+function textNodesUnder(root){
+  const out = [];
+  const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: function(n){
+    let el = n.parentNode;
+    while(el && el !== root){ if(el.nodeName === 'A') return NodeFilter.FILTER_REJECT; el = el.parentNode; }
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  let n; while((n = w.nextNode())) out.push(n);
+  return out;
+}
+/** Insert 🗺/🧭 links after the first mention of each curated place. */
+function linkifyKnownPlaces(root){
+  PLACE_LINKS.forEach(function(p){
+    const nodes = textNodesUnder(root);
+    for(let i = 0; i < nodes.length; i++){
+      const t = nodes[i].nodeValue; if(!t) continue;
+      let best = -1, len = 0;
+      p.m.forEach(function(v){
+        const idx = t.indexOf(v);
+        if(idx === -1) return;
+        if(best === -1 || idx < best || (idx === best && v.length > len)){ best = idx; len = v.length; }
+      });
+      if(best === -1) continue;
+      const after = nodes[i].splitText(best + len);
+      const frag = document.createDocumentFragment();
+      frag.appendChild(mkMapAnchor(
+        'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(p.q), '🗺', 'Google Maps'));
+      if(p.lat != null && p.lng != null){
+        frag.appendChild(mkMapAnchor(
+          kokoNavitimeUrl({lat:p.lat, lng:p.lng, name_ja:p.n || p.q, maps_query:p.q}), '🧭', 'NAVITIME'));
+      }
+      after.parentNode.insertBefore(frag, after);
+      return; /* one glyph pair per place per container */
+    }
+  });
+}
+/** Turn plain-text "Maps: query [/ query2]" hints into tappable Maps links. */
+function linkifyMapsHints(root){
+  textNodesUnder(root).forEach(function(node){
+    const s = node.nodeValue || '';
+    const m = s.match(/Maps:\s*/);
+    if(!m || m.index == null) return;
+    const qStart = m.index + m[0].length;
+    const rel = s.slice(qStart).search(/[.。]/);
+    const qEnd = rel === -1 ? s.length : qStart + rel;
+    const raw = s.slice(qStart, qEnd);
+    if(!raw.trim()) return;
+    const tail = node.splitText(qStart);
+    tail.nodeValue = tail.nodeValue.slice(raw.length);
+    const frag = document.createDocumentFragment();
+    raw.split(' / ').forEach(function(part, i){
+      if(i) frag.appendChild(document.createTextNode(' / '));
+      const q = part.trim();
+      if(!q){ frag.appendChild(document.createTextNode(part)); return; }
+      const a = document.createElement('a');
+      a.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+      a.target = '_blank'; a.rel = 'noopener';
+      a.textContent = part;
+      frag.appendChild(a);
+    });
+    tail.parentNode.insertBefore(frag, tail);
+  });
+}
+function linkifyPlaces(root){
+  if(!root || !root.querySelectorAll) return;
+  linkifyKnownPlaces(root);
+  linkifyMapsHints(root);
+}
+
 const TRIP_START = '2026-07-27', TRIP_END = '2026-08-28';
 /* "today" is Japan's calendar day (JST, UTC+9, no DST) for every viewer —
    the strip answers "where is Robert now", not "what day is it for me" */
@@ -2036,6 +2143,7 @@ function relTime(iso){
 function applyStaticLang(){
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     const k = el.getAttribute('data-i18n'); if(T[k]) el.innerHTML = tr(k);
+    if(el.tagName === 'LI') linkifyPlaces(el);   /* content lists only, not buttons/labels */
   });
   document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
     const k = el.getAttribute('data-i18n-ph'); if(T[k]) el.placeholder = tr(k);
@@ -2380,6 +2488,7 @@ function renderDayView(){
     panel.appendChild(lab);
     const plan = document.createElement('div'); plan.className = 'dv-plan';
     plan.innerHTML = dayDetailHtml(info);
+    linkifyPlaces(plan);
     panel.appendChild(plan);
   } else {
     const lab = document.createElement('div'); lab.className = 'dv-label';
@@ -3476,7 +3585,7 @@ function setModalHeader(key){
   const upd = document.getElementById('m-updated');
   if(info){
     tag.style.display=''; tag.textContent = TAG_NAME[lang][info.cls]; tag.className = 'tag c-'+info.cls;
-    plan.style.display=''; plan.innerHTML = dayDetailHtml(info);
+    plan.style.display=''; plan.innerHTML = dayDetailHtml(info); linkifyPlaces(plan);
   } else {
     tag.style.display='none'; plan.style.display='none'; plan.textContent = '';
   }
