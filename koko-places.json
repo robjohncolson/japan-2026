@@ -703,8 +703,8 @@
     "id": "chacha-kobo-kiyosumi",
     "name_en": "Chacha Kobo Kiyosumi",
     "name_ja": "茶々工房Kiyosumi",
-    "one_liner": "Thick griddle matcha butter pancakes at Kiyosumi — east detour from Ebisu; open often 12:00 (confirm Maps/IG day-of)",
-    "one_liner_ja": "清澄白河の抹茶バターパンケーキ。恵比寿からは東へ寄り道。開始は12:00表記多い（要確認）",
+    "one_liner": "Matcha butter pancakes at Kiyosumi — reserve (Tabelog/online); 12:00–19:00 LO 18:00; closed Mon–Tue; east detour from Ebisu",
+    "one_liner_ja": "清澄白河の抹茶バターパンケーキ。要予約（食べログ等）。12:00–19:00 LO18:00・月火休。恵比寿からは寄り道",
     "address": "1F 1-5-4 Miyoshi, Koto City, Tokyo 135-0022",
     "addr_geo": "東京都江東区三好1-5-4",
     "hubs": [
@@ -716,7 +716,9 @@
       "dessert",
       "matcha",
       "pancake",
-      "pancakes"
+      "pancakes",
+      "reservation-recommended",
+      "sold-out-risk"
     ],
     "priority": "medium",
     "status": "want",
@@ -760,8 +762,8 @@
         "Monday",
         "Tuesday — confirm; IG listed 月・火定休"
       ],
-      "note": "IG @chacha.kiyosumi: 12:00–19:00 LO 18:00; 月・火定休. Older listings said 11:00 / Mon only — trust Maps/IG day-of. Kiyosumi-Shirakawa A3 ~3–5 min walk. Phone 080-6048-9443.",
-      "approx": true
+      "note": "Tabelog: Wed–Sun/hol 12:00–19:00 LO 18:00; closed Mon–Tue. Reservations available (online/Tabelog) — reviewers routinely book; walk-in possible weekday quiet but not reliable. IG @chacha.kiyosumi also DM. Phone 080-6048-9443. https://tabelog.com/tokyo/A1313/A131303/13294858/",
+      "approx": false
     },
     "phone": "080-6048-9443",
     "plus_code": null,
