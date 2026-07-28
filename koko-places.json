@@ -2750,8 +2750,8 @@
     "id": "benizuru-pancake-asakusa",
     "name_en": "Benizuru Pancake",
     "name_ja": "紅鶴",
-    "one_liner": "Easygoing Nishi-Asakusa counter serving both sweet and savory pancakes.",
-    "one_liner_ja": "浅草のパンケーキ店。甘い系も食事系もあるカウンター席。",
+    "one_liner": "Nishi-Asakusa fluffy pancakes · same-day 整理券 from 7:00 at shop · 120 plates/day · ¥1000 deposit/dish applied to bill · service 10:00–16:00 · pair Iyoshi Cola",
+    "one_liner_ja": "西浅草ふわふわパンケーキ。当日7:00〜店頭整理券・1日120食・1皿¥1000デポジット（会計に充当）· 10–16時。伊良コーラとセット向き",
     "address": "2 Chome-1-11 Nishiasakusa, Taito City, Tokyo 111-0035",
     "addr_geo": "東京都台東区西浅草2-1-11",
     "hubs": [
@@ -2761,9 +2761,12 @@
       "pancake",
       "dessert",
       "cafe",
-      "brunch"
+      "brunch",
+      "reservation-recommended",
+      "sold-out-risk",
+      "same-day-ticket"
     ],
-    "priority": "medium",
+    "priority": "high",
     "status": "want",
     "phone": "+81 3-3841-3910",
     "hours": {
@@ -2772,47 +2775,49 @@
         "mon": [
           [
             "10:00",
-            "17:00"
+            "16:00"
           ]
         ],
         "tue": [
           [
             "10:00",
-            "17:00"
+            "16:00"
           ]
         ],
-        "wed": [],
+        "wed": [
+          [
+            "10:00",
+            "16:00"
+          ]
+        ],
         "thu": [
           [
             "10:00",
-            "17:00"
+            "16:00"
           ]
         ],
         "fri": [
           [
             "10:00",
-            "17:00"
+            "16:00"
           ]
         ],
         "sat": [
           [
             "10:00",
-            "17:00"
+            "16:00"
           ]
         ],
         "sun": [
           [
             "10:00",
-            "17:00"
+            "16:00"
           ]
         ]
       },
-      "closed": [
-        "水曜定休 (Wednesday) per san-tatsu/muni-gurume; note rurubu spot page lists 無休 (no closing day) — sources conflict, confirm day-of",
-        "不定休 / New Year / Obon / Golden Week closures may apply"
-      ],
-      "note": "売り切れ次第閉店 (closes when sold out); actual close often earlier ~16:00-16:30 (rurubu spot page lists 10:00-16:00). Frequently opens up to ~1hr early; weekend numbered-ticket queue.",
-      "approx": true
+      "closed": [],
+      "note": "Same-day reservation tickets (整理券) start ~7:00 at the shop — not online night-before. 120 pancakes/day. ¥1,000 deposit per person per dish (credited at checkout). Even queuing may miss tickets. Eat 10:00–16:00. Pair with Iyoshi Asakusa Rokku. Confirm day-of on Maps/IG. Tabelog/official: 予約は朝7時より開始 · 1日120食.",
+      "approx": false
     },
     "maps_query": "紅鶴 パンケーキ 浅草",
     "needs": [],
