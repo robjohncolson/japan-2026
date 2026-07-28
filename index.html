@@ -512,6 +512,8 @@
   .dv-chip{display:inline-block;border:1px solid var(--black);padding:0 4px;margin:0 4px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:1px;background:var(--platinum)}
   .dv-chip-open{background:#b8e6b8}
   .dv-chip-closed{background:#f0b8b8}
+  a.dv-golink{display:inline-block;border:1px solid var(--black);background:var(--platinum);padding:1px 7px;margin:0 5px 0 0;text-decoration:none;font-size:13px;line-height:1.5;box-shadow:1px 1px 0 var(--black)}
+  a.dv-golink:active{box-shadow:none;transform:translate(1px,1px)}
   .err-row{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px dotted var(--black)}
   .err-row input[type=checkbox]{width:16px;height:16px;accent-color:var(--black)}
   .err-row span{flex:1;font-size:13px}
@@ -2173,22 +2175,30 @@ function dayDoneGet(key){
 function dayDoneSet(key, arr){
   try{ localStorage.setItem('japan_done_' + key, JSON.stringify(arr)); }catch(e){}
 }
-function stepOpenChip(stepText){
-  /* chip reflects the place mentioned EARLIEST in the step text (the stop
-     itself), not incidental later mentions (optional detours, dinner alts) */
-  let bestRow = null, bestAt = -1;
+/** The place mentioned EARLIEST in a step's text (the stop itself), not
+    incidental later mentions (optional detours, dinner alternatives).
+    Pass needRow=true to only consider places resolvable to a koko row. */
+function stepPrimaryPlace(stepText, needRow){
+  let best = null, bestAt = -1;
   PLACE_LINKS.forEach(function(p){
-    if(!p.koko) return;
+    if(needRow && !p.koko) return;
     let at = -1;
     p.m.forEach(function(v){
       const idx = stepText.indexOf(v);
       if(idx !== -1 && (at === -1 || idx < at)) at = idx;
     });
     if(at === -1 || (bestAt !== -1 && at >= bestAt)) return;
-    const row = placeLinkData(p).row;
-    if(!row || !row.hours) return;
-    bestRow = row; bestAt = at;
+    if(needRow){
+      const row = placeLinkData(p).row;
+      if(!row || !row.hours) return;
+    }
+    best = p; bestAt = at;
   });
+  return best;
+}
+function stepOpenChip(stepText){
+  const p = stepPrimaryPlace(stepText, true);
+  const bestRow = p ? placeLinkData(p).row : null;
   if(!bestRow) return null;
   const st = kokoOpenState(bestRow);
   if(st === 'unknown') return null;
@@ -2233,10 +2243,23 @@ function decorateDayPlan(planEl, key){
       span.classList.toggle('done', box.checked);
     });
     span.insertBefore(box, span.firstChild);
+    /* per-stop Google Maps button right after the checkbox — same primary
+       place as the chip logic (earliest mention = the stop itself) */
+    let ctl = box;
+    const pp = stepPrimaryPlace(span.textContent || '', false);
+    if(pp){
+      const d = placeLinkData(pp);
+      const go = document.createElement('a');
+      go.className = 'dv-golink';
+      go.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.q);
+      go.target = '_blank'; go.rel = 'noopener';
+      go.textContent = '🗺'; go.title = 'Google Maps';
+      span.insertBefore(go, box.nextSibling);
+      ctl = go;
+    }
     if(isToday){
       const chip = stepOpenChip(span.textContent || '');
-      if(chip && span.children.length > 1) span.insertBefore(chip, span.children[1].nextSibling);
-      else if(chip) span.appendChild(chip);
+      if(chip) span.insertBefore(chip, ctl.nextSibling);
     }
   }
 }
