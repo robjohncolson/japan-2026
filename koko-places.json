@@ -375,8 +375,8 @@
     "id": "moti-roppongi",
     "name_en": "Moti Roppongi",
     "name_ja": "モティ 六本木店",
-    "one_liner": "Roppongi Indian curry institution since 1978 — no pork or beef, authentic spice",
-    "one_liner_ja": "1978年創業、六本木の老舗インドカレー店。豚肉・牛肉不使用の本格スパイスカレー",
+    "one_liner": "Visited 28 Jul 2026 — amazing. Repeat: keema mutter current + naan + mixed pickles. Mutton biryani excellent but too much solo volume. Next: carrot dessert. Strong default-dinner candidate for Tokyo nights.",
+    "one_liner_ja": "2026/7/28訪問・最高。再訪はキーママターカレント＋ナン＋ミックスピクルス。マトンビリヤニは美味だが一人には多い。次はキャロットデザート。東京の夕食デフォ候補。",
     "address": "東京都港区六本木6-2-35 ハマ六本木ビル 3F",
     "addr_geo": "東京都港区六本木6-2-35",
     "hubs": [
@@ -6036,8 +6036,8 @@
     "id": "think-milk-france-isetan",
     "name_en": "Think (Milk France bakery counter)",
     "name_ja": "シンク",
-    "one_liner": "Pop-up bakery counter famed for Milk France — soft milky bread roll; go early, sells out fast",
-    "one_liner_ja": "ミルクフランスで話題のパン店「シンク」。早めに行かないと売り切れ注意",
+    "one_liner": "Isetan Shinjuku B1 trend-bakery pop-up ENDED 28 Jul 2026 (was 22–28 Jul). Milk France / campagne were the hits. For more: permanent shop near Uguisudani / Ueno-Sakuragi — not Isetan today.",
+    "one_liner_ja": "伊勢丹新宿B1トレンドベーカリー出店は2026/7/28終了（7/22–28）。ミルクフランス等。以降は鶯谷・上野桜木の本店へ。",
     "address": "東京都新宿区新宿3-14-1 伊勢丹新宿店 本館B1F デリ エ ブーランジュリー",
     "addr_geo": "東京都新宿区新宿3-14-1",
     "hubs": [
@@ -6050,66 +6050,31 @@
       "department-store",
       "sold-out-risk"
     ],
-    "priority": "medium",
-    "status": "want",
+    "priority": "low",
+    "status": "skip",
     "hours": {
       "timezone": "Asia/Tokyo",
       "weekly": {
-        "mon": [
-          [
-            "10:00",
-            "20:00"
-          ]
-        ],
-        "tue": [
-          [
-            "10:00",
-            "20:00"
-          ]
-        ],
-        "wed": [
-          [
-            "10:00",
-            "20:00"
-          ]
-        ],
-        "thu": [
-          [
-            "10:00",
-            "20:00"
-          ]
-        ],
-        "fri": [
-          [
-            "10:00",
-            "20:00"
-          ]
-        ],
-        "sat": [
-          [
-            "10:00",
-            "20:00"
-          ]
-        ],
-        "sun": [
-          [
-            "10:00",
-            "20:00"
-          ]
-        ]
+        "mon": [],
+        "tue": [],
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": []
       },
       "closed": [
-        "Time-limited 'trend bakery' pop-up (mistore listed Jul 24-30); presence during any given visit not guaranteed - confirm current listing via mistore before going"
+        "Pop-up ended: official window 2026-07-22–2026-07-28 (Isetan / think_tokyo). Not present 29 Jul+."
       ],
-      "note": "Pop-up documented Jul 24–30 only (mistore) · Hours = Isetan Shinjuku depachika store hours (10:00-20:00). Think is a rotating pop-up counter in 本館B1F; Milk France often sells out well before close - arrive near open.",
-      "approx": true,
+      "note": "Isetan Shinjuku 本館B1 トレンドベーカリー pop-up ENDED end of 28 Jul 2026. Permanent Think is near 鶯谷 / 上野桜木 — separate trip if milk France still wanted.",
+      "approx": false,
       "closed_ranges": [
         [
           "1900-01-01",
-          "2026-07-23"
+          "2026-07-21"
         ],
         [
-          "2026-07-31",
+          "2026-07-29",
           "2099-12-31"
         ]
       ]
@@ -7478,8 +7443,8 @@
     "kind": "lodging",
     "name_en": "do-c (℃) Ebisu",
     "name_ja": "ドシー恵比寿",
-    "one_liner": "Sauna-first capsule hotel (löyly sauna + water bath + capsule) in walkable Ebisu.",
-    "one_liner_ja": "サウナ付きカプセルホテル(恵比寿)。ロウリュサウナと水風呂で睡眠導入。",
+    "one_liner": "Sauna-first capsule in Ebisu. Check-out 11:00 / check-in 15:00 — ~4h gap: leave most bags at do-c; cash + ID stay on person in Patagonia Atom sling.",
+    "one_liner_ja": "恵比寿のサウナ付きカプセル。アウト11:00／イン15:00 — 約4時間の空きは荷物をdo-cに預け、現金と身分証はPatagonia Atomスリングで身につける。",
     "address": "〒150-0013 東京都渋谷区恵比寿1-8-1",
     "addr_geo": "東京都渋谷区恵比寿",
     "hubs": [
@@ -7497,8 +7462,8 @@
       "timezone": "Asia/Tokyo",
       "weekly": null,
       "closed": [],
-      "note": "check candidate for first 3 nights in Tokyo; confirm check-in time",
-      "approx": true
+      "note": "check-out 11:00 · check-in 15:00 (confirmed on trip). Bag store OK during gap; valuables on person.",
+      "approx": false
     },
     "phone": "03-3449-5255",
     "plus_code": null,
