@@ -11338,8 +11338,8 @@
     "id": "dollar-ranger-shinjuku",
     "name_en": "Dollar Ranger (currency exchange, Shinjuku West)",
     "name_ja": "ドルレンジャー 新宿西口店",
-    "one_liner": "Foreign-currency exchange - confirmed on the ground 29 Jul 2026, opens 10:00. The itinerary had described it as cheap packing/sundries; that was wrong. Useful for yen cash, not for packing supplies.",
-    "one_liner_ja": "外貨両替店（2026/7/29 現地確認・10:00開店）。計画では「安い梱包材・日用品」とされていたが誤り。現金両替用であって梱包材の店ではない。",
+    "one_liner": "Foreign-currency exchange - confirmed in person 29 Jul 2026, opens 10:00. Shares the 川安ビル 1F frontage with チケットレンジャー, a discount-ticket (金券) shop; same \"Ranger\" operation. The itinerary had called it cheap packing/sundries - wrong. Yen cash and discount tickets, no packing supplies.",
+    "one_liner_ja": "外貨両替（2026/7/29 現地確認・10:00開店）。川安ビル1Fはチケットレンジャー（金券ショップ）と同系列。計画の「安い梱包材・日用品」は誤り。現金両替・金券であって梱包材の店ではない。",
     "address": "東京都新宿区西新宿7-1-2 川安ビル1F",
     "addr_geo": "東京都新宿区西新宿7-1-2",
     "hubs": [
@@ -11347,6 +11347,7 @@
     ],
     "tags": [
       "currency-exchange",
+      "tickets",
       "errand"
     ],
     "priority": "medium",
@@ -11400,10 +11401,10 @@
       "closed": [
         "New Year period"
       ],
-      "note": "Opens 10:00 - confirmed in person 29 Jul 2026. Weekdays to 20:00, Sat/Sun/holidays to 19:00 per the NAVITIME listing; closing times not personally confirmed.",
-      "approx": true
+      "note": "Opens 10:00 - confirmed in person 29 Jul 2026. Weekdays to 20:00, Sat/Sun/holidays to 19:00 (listing for チケットレンジャー 新宿西口店 at the same 1F address). 川安ビル is B1+4F, built 1959, ~1 min from Shinjuku Stn.",
+      "approx": false
     },
-    "phone": null,
+    "phone": "03-6280-6801",
     "plus_code": null,
     "lat": null,
     "lng": null,
