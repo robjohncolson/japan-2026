@@ -8149,7 +8149,7 @@
     "kind": "errand",
     "name_en": "Origami Kaikan",
     "name_ja": "お茶の水 おりがみ会館",
-    "one_liner": "Traditional washi/origami shop and gallery — mon-kiri and Chatani-adjacent papercraft books",
+    "one_liner": "Traditional washi/origami shop and gallery — mon-kiri and Chatani-adjacent papercraft books. Candidate for washi ポチ袋 now that Kinokuniya is out: 09:30-16:30, and Ochanomizu sits on the Shinjuku-to-Akihabara line, so roughly a 5 min detour.",
     "one_liner_ja": "おりがみ会館 — 和紙、紋切り、折り紙建築に近い書籍",
     "address": "Ochanomizu, Tokyo",
     "addr_geo": "東京都文京区湯島1-7-14",
@@ -8227,10 +8227,10 @@
   {
     "id": "tokyu-hands-shinjuku",
     "kind": "errand",
-    "name_en": "Tokyu Hands Shinjuku",
-    "name_ja": "東急ハンズ新宿店",
-    "one_liner": "Craft/hobby department store — craft knives, cutting mats, mon-kiri and geometric paper kits",
-    "one_liner_ja": "東急ハンズ新宿店 — カッター、カッティングマット、紋切り・幾何学ペーパーキット",
+    "name_en": "Hands Shinjuku (formerly Tokyu Hands)",
+    "name_ja": "ハンズ 新宿店",
+    "one_liner": "Renamed to plain \"Hands\" in 2022 after Cainz bought the chain. ⚠ OPEN STATUS UNVERIFIED: the shinjuku.hands.net subdomain looks live but a directory lists it 閉店 and the page would not load. Confirm before relying on it - it is currently the packing-materials fallback.",
+    "one_liner_ja": "2022年のカインズ傘下入りで「ハンズ」に改称。⚠ 営業状況が未確認（閉店との記載あり・ページ未表示）。梱包材の代替候補なので要確認。",
     "address": "Shinjuku, Tokyo",
     "addr_geo": "東京都渋谷区千駄ヶ谷5-24-2",
     "hubs": [
@@ -8294,7 +8294,9 @@
       "approx": true
     },
     "maps_query": "東急ハンズ新宿店",
-    "needs": [],
+    "needs": [
+      "verify-open"
+    ],
     "phone": "03-5361-3111",
     "vault": "logistics/paper-craft-souvenirs-cousins.md",
     "lat": 35.684647,
@@ -8307,7 +8309,7 @@
     "kind": "errand",
     "name_en": "Loft Shinjuku-Sanchome (Marui 3F)",
     "name_ja": "新宿三丁目ロフト",
-    "one_liner": "Craft/stationery store alternative to Tokyu Hands for craft knives and mon-kiri kits",
+    "one_liner": "Craft/stationery store alternative to Tokyu Hands for craft knives and mon-kiri kits. ⚠ Do not confuse with 新宿LOFT in Kabukicho, the 1976 punk live house - a naive search lands on the rock club. This is the variety store at 新宿マルイ 本館 3F, 新宿3-30-13, opened 21 Nov 2025 and therefore missing from most map data.",
     "one_liner_ja": "ロフト — カッター、紋切りキットなど東急ハンズの代替",
     "address": "東京都新宿区新宿3-30-13 新宿マルイ本館 3F",
     "addr_geo": "東京都新宿区新宿3-30-13",
@@ -8385,16 +8387,16 @@
     "kind": "errand",
     "name_en": "Kinokuniya Shinjuku (main store)",
     "name_ja": "紀伊國屋書店新宿本店",
-    "one_liner": "Large bookstore — best bet for 折り紙建築/立体切り紙/geometric papercraft books",
-    "one_liner_ja": "紀伊國屋書店新宿本店 — 折り紙建築・立体切り紙の書籍が最も充実",
+    "one_liner": "Flagship bookstore. Walked it 29 Jul 2026: does NOT stock okozukai / ポチ袋 - stationery here is pens and notebooks. Do not route here for envelopes.",
+    "one_liner_ja": "大型書店。2026/7/29に確認：お年玉袋・ポチ袋の扱いなし（文具はペン・ノート中心）。ポチ袋目当てで来ないこと。",
     "address": "Shinjuku, Tokyo",
     "addr_geo": "東京都新宿区新宿3-17-7",
     "hubs": [
       "shinjuku"
     ],
     "tags": [
-      "paper-craft",
       "books",
+      "stationery",
       "shopping"
     ],
     "priority": "medium",
@@ -11338,7 +11340,7 @@
     "id": "dollar-ranger-shinjuku",
     "name_en": "Dollar Ranger (currency exchange, Shinjuku West)",
     "name_ja": "ドルレンジャー 新宿西口店",
-    "one_liner": "Foreign-currency exchange - confirmed in person 29 Jul 2026, opens 10:00. Shares the 川安ビル 1F frontage with チケットレンジャー, a discount-ticket (金券) shop; same \"Ranger\" operation. The itinerary had called it cheap packing/sundries - wrong. Yen cash and discount tickets, no packing supplies.",
+    "one_liner": "Foreign-currency exchange - used 29 Jul 2026 at 160.55 JPY/USD, no commission, a 0.77% spread against mid-market. Genuinely the good rate for cash. Shares 川安ビル 1F with チケットレンジャー (金券 shop). The itinerary had called it cheap packing/sundries - wrong.",
     "one_liner_ja": "外貨両替（2026/7/29 現地確認・10:00開店）。川安ビル1Fはチケットレンジャー（金券ショップ）と同系列。計画の「安い梱包材・日用品」は誤り。現金両替・金券であって梱包材の店ではない。",
     "address": "東京都新宿区西新宿7-1-2 川安ビル1F",
     "addr_geo": "東京都新宿区西新宿7-1-2",
@@ -11401,7 +11403,7 @@
       "closed": [
         "New Year period"
       ],
-      "note": "Opens 10:00 - confirmed in person 29 Jul 2026. Weekdays to 20:00, Sat/Sun/holidays to 19:00 (listing for チケットレンジャー 新宿西口店 at the same 1F address). 川安ビル is B1+4F, built 1959, ~1 min from Shinjuku Stn.",
+      "note": "Opens 10:00 - confirmed in person 29 Jul 2026. Weekdays to 20:00, Sat/Sun/holidays to 19:00 (listing for チケットレンジャー 新宿西口店 at the same 1F address). 川安ビル is B1+4F, built 1959, ~1 min from Shinjuku Stn. Rate verified 29 Jul 2026: 160.55 JPY/USD, 802,750 yen for 5,000 USD, no commission. Mid-market was 161.8, so a 1.25 yen spread = 0.77%. Street counters run 2-4% and airports 5-8%, so the best-rate reputation is verified, not merely repeated.",
       "approx": false
     },
     "phone": "03-6280-6801",
@@ -11420,10 +11422,10 @@
     "id": "muji-shinjuku-dori",
     "name_en": "MUJI Shinjuku-dori",
     "name_ja": "無印良品 新宿通り",
-    "one_liner": "Household goods and food MUJI on Shinjuku-dori - the branch to use for the small laundry detergent. 10:00-21:00.",
-    "one_liner_ja": "新宿通りの生活雑貨・食品の無印。洗剤（小）はここ。10:00-21:00。",
-    "address": null,
-    "addr_geo": null,
+    "one_liner": "Household goods and food MUJI on Shinjuku-dori, B1-3F, 10:00-21:00 daily. Laundry detergent is B1 in 掃除・洗濯用品. Same block as Kinokuniya (3-17-7). This is the 新宿通り branch - NOT Lumine Shinjuku, which opens 11:00.",
+    "one_liner_ja": "新宿通りの生活雑貨・食品の無印（B1-3F・10:00-21:00）。洗剤はB1の掃除・洗濯用品。紀伊國屋（3-17-7）と同ブロック。ルミネ店（11:00開店）ではない。",
+    "address": "東京都新宿区新宿3-17-1 いさみやビル B1-3F",
+    "addr_geo": "東京都新宿区新宿3-17-1",
     "hubs": [
       "shinjuku"
     ],
@@ -11480,8 +11482,8 @@
         ]
       },
       "closed": [],
-      "note": "10:00-21:00 per store listing. Shinjuku has 4 MUJI branches - Lumine Shinjuku is 11:00-21:00, so confirm which one you are heading to.",
-      "approx": true
+      "note": "10:00-21:00 daily per the official store page (muji.com/jp/ja/shop/detail/045237). Shinjuku has four MUJI branches; Lumine Shinjuku opens 11:00.",
+      "approx": false
     },
     "phone": null,
     "plus_code": null,
@@ -11489,7 +11491,6 @@
     "lng": null,
     "maps_query": "無印良品 新宿通り",
     "needs": [
-      "address",
       "coords"
     ],
     "vault": "errands/muji-shinjuku.md",
