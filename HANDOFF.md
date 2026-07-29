@@ -120,9 +120,11 @@ the wrong *kind of thing*.
   clean-out and must be collected tonight (lockers bill by calendar day).
 - **30 Jul (tomorrow)**: Yamanote loop on a rental bike, 09:30 pickup, ~17:15
   return. **The 50L rides the loop**, so the clean-out gap does not apply to it.
-  **No Akiba leg** — the haul dissolved when Yodobashi had neither item. Evening
-  is Shinjuku: Indenya wallet at Isetan (+ メンズ館) and Kagaya tin before 19:00.
-  Diptyque is fully off Tokyo — decided 29 Jul, bought in Fukuoka instead.
+  **No Akiba leg** — the haul dissolved when Yodobashi had neither item. The day
+  reduced to bike + one errand: the Indenya wallet at Isetan (+ メンズ館, by
+  20:00). Kagaya tin cancelled (taste test: Seven Stars preferred — konbini
+  item). Diptyque off Tokyo entirely — bought in Fukuoka. Dinner flex,
+  probably Moti again.
 
 ## Suggested next steps
 

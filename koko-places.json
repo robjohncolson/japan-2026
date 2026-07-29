@@ -7914,8 +7914,8 @@
     "kind": "errand",
     "name_en": "Kagaya Tobacco Shop",
     "name_ja": "かがや",
-    "one_liner": "Tobacco shop for Peace cigarette tins; call ahead to check stock.",
-    "one_liner_ja": "ピース缶の在庫を電話で確認してから訪問するたばこ店。",
+    "one_liner": "CLOSED OUT 29 Jul: bought a 10-pack of Peace as a taste test, verdict is Seven Stars is preferred - so the Peace tin is cancelled and no return visit is needed. Seven Stars is a konbini staple, buyable anywhere. Shop was fine; the errand just ended.",
+    "one_liner_ja": "完了（7/29）：ピース10本入りを試し買い→セブンスターの方が好みと判明。缶ピースは中止・再訪不要。セブンスターはコンビニで買える。",
     "address": "〒160-0022 東京都新宿区新宿3-17-7 紀伊国屋ビル1F",
     "addr_geo": "東京都新宿区",
     "lat": 35.69389,
@@ -7930,7 +7930,7 @@
       "shinjuku"
     ],
     "priority": "medium",
-    "status": "want",
+    "status": "skip",
     "hours": {
       "timezone": "Asia/Tokyo",
       "weekly": {
