@@ -16,7 +16,7 @@ being edited. Treat every change as live.
 
 ## Non-obvious rules — read before editing `index.html`
 
-1. **Bump `CACHE` in `sw.js` on every content commit.** It went v149 → v158
+1. **Bump `CACHE` in `sw.js` on every content commit.** It went v149 → v167
    today. `koko-places.json` is in the precached shell, so without a bump the
    change does not reach an already-installed phone. Every content commit in
    `git log` bumps it; follow that.
@@ -116,10 +116,13 @@ the wrong *kind of thing*.
   What tightened is the **11:00–15:00 clean-out** — a bag parked outside a locker
   during the gap used to be tolerated, now reads as take-it-with-you. Observed,
   not confirmed with staff. Working answer: Ebisu Stn coin locker.
+- **29 Jul evening**: the 50L sat in an Ebisu Stn coin locker through the
+  clean-out and must be collected tonight (lockers bill by calendar day).
 - **30 Jul (tomorrow)**: Yamanote loop on a rental bike, 09:30 pickup, ~17:15
-  return. **The 50L rides the loop** and carries the Akiba haul, so the clean-out
-  gap does not apply to it and no locker leg is needed before pickup.
-- **29 Jul Option C stands**: browse Akiba today, buy tomorrow with bike + 50L.
+  return. **The 50L rides the loop**, so the clean-out gap does not apply to it.
+  **No Akiba leg** — the haul dissolved when Yodobashi had neither item. Evening
+  is Shinjuku: Indenya wallet at Isetan (+ メンズ館), Kagaya tin before 19:00,
+  and Diptyque only if the Fukuoka call fails.
 
 ## Suggested next steps
 
