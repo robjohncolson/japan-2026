@@ -2309,12 +2309,12 @@
       "closed": [
         "Year-end/New Year (unconfirmed)"
       ],
-      "note": "LO 22:30",
-      "approx": true
+      "note": "11:00-23:00 LO 22:30, no regular closing day. 1F of Nishitetsu Grand Hotel. Verified 2026-07-29.",
+      "approx": false
     },
     "maps_query": "チパオ麻辣湯 天神",
     "needs": [],
-    "phone": null,
+    "phone": "092-406-7731",
     "plus_code": null,
     "lat": 33.590145,
     "lng": 130.395752,
@@ -7749,7 +7749,7 @@
     "kind": "transport",
     "name_en": "Toyota Rent a Car (Hakata)",
     "name_ja": "トヨタレンタカー 博多駅前店",
-    "one_liner": "Pickup for Kyushu onsen-loop rental car (compact C1), pick up 29 Jul.",
+    "one_liner": "Car pickup 31 Jul 15:30. ⚠ BRANCH CONFUSION RISK (verified 29 Jul): two other Toyota branches near Hakata Stn carry operator-change labels - the reservation must be for 博多駅前店 at 博多駅東1-12-8 (092-441-0100, in front of Oriental Hotel), NOT 博多駅博多口店 at 博多駅前1-15-20.",
     "one_liner_ja": "九州温泉ループ用レンタカー(コンパクトC1)の受取店。7月29日受取予定。",
     "address": "〒812-0013 福岡県福岡市博多区博多駅東1-12-8 トヨタレンタリース博多駅前ビル内",
     "addr_geo": "福岡県福岡市博多区博多駅東1-12-8",
@@ -8865,14 +8865,12 @@
       "timezone": "Asia/Tokyo",
       "weekly": null,
       "closed": [],
-      "note": "Capsule hotel with self smart check-in. Overnight stay: check-in from 15:00 (reception accepted until 05:00 the next morning), check-out by 11:00; no late check-out. Daily check-out required even on consecutive stays. In-house cleaning 11:00-15:00 (pods unavailable during this window). Arrival after 05:00 results in cancellation without notice.",
+      "note": "Check-in from 15:00, checkout 11:00, self smart check-in, CASHLESS ONLY. Alt phone 092-292-4455. Verified 2026-07-29.",
       "approx": true
     },
     "maps_query": "9h ninehours 博多",
     "vault": null,
-    "needs": [
-      "hours"
-    ],
+    "needs": [],
     "far": false
   },
   {
@@ -8880,7 +8878,7 @@
     "kind": "lodging",
     "name_en": "HOTEL R9 The Yard Kanzaki",
     "name_ja": "HOTEL R9 The Yard 神埼",
-    "one_liner": "Container-cabin hotel in Kanzaki, Saga — family base.",
+    "one_liner": "Container hotel, opened Mar 2025. ⚠ HARD check-in cutoff 23:00 - late arrival is not possible at all. Front 07:00-23:00. Verified operating 29 Jul 2026.",
     "one_liner_ja": "神埼のコンテナ型ホテル。佐賀滞在の拠点。",
     "address": "〒842-0015 佐賀県神埼市神埼町尾崎4155-54",
     "addr_geo": "佐賀県神埼市神埼町尾崎4155-54",
@@ -9906,7 +9904,7 @@
     "one_liner": "Kanzaki somen maker since 1873 — take-home noodles only; the eat-in Hyakunen-an is on long-term hiatus. Call before a special trip.",
     "one_liner_ja": "1873年創業の神埼そうめん直売。持ち帰りのみ（百年庵は長期休業中）。要電話確認。",
     "address": "佐賀県神埼市神埼町的1779",
-    "addr_geo": "佐賀県神埼市",
+    "addr_geo": "佐賀県神埼市神埼町的1779",
     "lat": null,
     "lng": null,
     "plus_code": null,
@@ -10020,7 +10018,7 @@
     "one_liner": "~150 m from the R9 front door — food/drink/copies. 7-Eleven with Seven Bank ATM ~900 m east on the same road.",
     "one_liner_ja": "R9から約150m。ATMは約900m東のセブンイレブンへ。",
     "address": "佐賀県神埼市神埼町尾崎4169-18",
-    "addr_geo": "佐賀県神埼市",
+    "addr_geo": "佐賀県神埼市神埼町尾崎4169-18",
     "lat": 33.326601,
     "lng": 130.350776,
     "plus_code": null,
@@ -10081,7 +10079,7 @@
         ]
       },
       "closed": [],
-      "note": "Presumed 24h (standard FamilyMart; not individually verified).",
+      "note": "Store existence verified 2026-07-29 (few hundred m from HOTEL R9). 24h operation and phone still UNCONFIRMED - do not rely on it being open pre-dawn without a look at Maps.",
       "approx": true
     },
     "maps_query": "ファミリーマート神埼日の隈店",
@@ -10097,7 +10095,7 @@
     "one_liner": "Nearest full supermarket to R9 Kanzaki (~3 km / 6-7 min) — groceries, bento, beer; the cabin has a microwave but no restaurant.",
     "one_liner_ja": "R9神埼から車6-7分の最寄りスーパー。",
     "address": "佐賀県神埼市神埼町枝ヶ里35-1",
-    "addr_geo": "佐賀県神埼市",
+    "addr_geo": "佐賀県神埼市神埼町枝ヶ里35-1",
     "lat": 33.30807,
     "lng": 130.371324,
     "plus_code": null,
@@ -10270,50 +10268,50 @@
       "weekly": {
         "mon": [
           [
-            "06:00",
-            "22:30"
+            "09:00",
+            "20:00"
           ]
         ],
         "tue": [
           [
-            "06:00",
-            "22:30"
+            "09:00",
+            "20:00"
           ]
         ],
         "wed": [
           [
-            "06:00",
-            "22:30"
+            "09:00",
+            "20:00"
           ]
         ],
         "thu": [
           [
-            "06:00",
-            "22:30"
+            "09:00",
+            "20:00"
           ]
         ],
         "fri": [
           [
-            "06:00",
-            "22:30"
+            "09:00",
+            "20:00"
           ]
         ],
         "sat": [
           [
-            "06:00",
-            "22:30"
+            "09:00",
+            "20:00"
           ]
         ],
         "sun": [
           [
-            "06:00",
-            "22:30"
+            "09:00",
+            "20:00"
           ]
         ]
       },
       "closed": [],
-      "note": "Open-air park, free, roughly 6:00-22:30.",
-      "approx": true
+      "note": "CORRECTED 2026-07-29: gated hours 9:00-20:00, not open-air as previously assumed. Free entry, ~80 free parking.",
+      "approx": false
     },
     "maps_query": "仁比山公園",
     "needs": [],
@@ -11657,5 +11655,239 @@
     "vault": "errands/diptyque.md",
     "kind": "errand",
     "far": false
+  },
+  {
+    "id": "kusasenri-grassland-aso",
+    "name_en": "Kusasenri Grassland",
+    "name_ja": "草千里ヶ浜",
+    "one_liner": "Crater-plain grassland viewpoint on the Aso panorama line - free and always open; the paid lot (~¥500/car) is shared with the Volcano Museum. Horse rides ~9:00-16:00, cancelled in rain. Part of the verified 18 Aug fallback trio for the closed crater. Verified 29 Jul 2026.",
+    "one_liner_ja": "阿蘇パノラマライン沿いの草原展望地。見学自由・駐車約500円（火山博物館と共用）。乗馬〜16時・雨天中止。",
+    "address": "熊本県阿蘇市赤水 草千里ヶ浜",
+    "addr_geo": "熊本県阿蘇市赤水",
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "scenery",
+      "day-trip",
+      "aso"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [],
+      "note": "Grassland free and always accessible; horse concession ~9:00-16:00 (0967-34-1765), closed in rain. Verified 2026-07-29.",
+      "approx": true
+    },
+    "phone": null,
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "草千里ヶ浜 阿蘇",
+    "needs": [
+      "coords"
+    ],
+    "vault": "kyushu/aso.md",
+    "kind": "sight",
+    "far": true
+  },
+  {
+    "id": "aso-volcano-museum",
+    "name_en": "Aso Volcano Museum",
+    "name_ja": "阿蘇火山博物館",
+    "one_liner": "Indoor anchor at Kusasenri while the crater is closed - 9:00-17:00 (entry to 16:30), open 365 days, adults ¥880. Verified 29 Jul 2026.",
+    "one_liner_ja": "草千里の火山博物館。9:00-17:00（入館〜16:30）・年中無休・大人880円。火口閉鎖中の屋内の柱。",
+    "address": "熊本県阿蘇市赤水1930-1",
+    "addr_geo": "熊本県阿蘇市赤水1930-1",
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "museum",
+      "day-trip",
+      "aso"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "17:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Last entry ~16:30. 年中無休. Adults ¥880 / 65+ ¥700 / HS ¥700 / JHS ¥610 / elem ¥440. Verified 2026-07-29.",
+      "approx": false
+    },
+    "phone": "0967-34-2111",
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "阿蘇火山博物館",
+    "needs": [
+      "coords"
+    ],
+    "vault": "kyushu/aso.md",
+    "kind": "sight",
+    "far": true
+  },
+  {
+    "id": "daikanbo-lookout-aso",
+    "name_en": "Daikanbo Lookout",
+    "name_ja": "大観峰",
+    "one_liner": "North caldera-rim lookout (936 m) - free, open 24h, ~150 free parking spots, teahouse 8:30-17:00, ~15 min walk from parking to the tip. Rim roads - respect the rain rule (quake-loosened slopes). Verified 29 Jul 2026.",
+    "one_liner_ja": "カルデラ北縁の展望所（標高936m）。無料・24時間・駐車約150台無料・茶店8:30-17:00・駐車場から徒歩約15分。雨天は山道回避。",
+    "address": "熊本県阿蘇市山田",
+    "addr_geo": "熊本県阿蘇市山田",
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "scenery",
+      "day-trip",
+      "aso"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [],
+      "note": "Viewpoint always open; teahouse 8:30-17:00. Verified 2026-07-29.",
+      "approx": true
+    },
+    "phone": null,
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "大観峰 阿蘇",
+    "needs": [
+      "coords"
+    ],
+    "vault": "kyushu/aso.md",
+    "kind": "sight",
+    "far": true
+  },
+  {
+    "id": "saizeriya-canal-city-hakata",
+    "name_en": "Saizeriya Canal City Hakata",
+    "name_ja": "サイゼリヤ キャナルシティ博多店",
+    "one_liner": "The pinned branch for the 23 Aug Hakata night - Canal City North Bldg 1F, 住吉1-2-1, 10:00-23:00, ~12-15 min walk from 9h Hakata. There is NO Saizeriya inside Hakata Station itself. Verified 29 Jul 2026.",
+    "one_liner_ja": "8/23夜用に特定した店舗。キャナルシティ博多ノースビル1F（住吉1-2-1）・10:00-23:00・9hから徒歩12-15分。博多駅構内には店舗なし。",
+    "address": "福岡県福岡市博多区住吉1-2-1 キャナルシティ博多 ノースビル1F",
+    "addr_geo": "福岡県福岡市博多区住吉1-2-1",
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "dinner",
+      "cheap-eats",
+      "chain"
+    ],
+    "priority": "low",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "23:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Follows Canal City hours. Verified 2026-07-29.",
+      "approx": true
+    },
+    "phone": null,
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "サイゼリヤ キャナルシティ博多",
+    "needs": [
+      "coords"
+    ],
+    "vault": "kyushu/hakata.md",
+    "kind": "food",
+    "far": true
   }
 ]
