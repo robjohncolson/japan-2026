@@ -7566,8 +7566,8 @@
     },
     "phone": "03-3449-5255",
     "plus_code": null,
-    "lat": 35.647125,
-    "lng": 139.713943,
+    "lat": 35.6479739,
+    "lng": 139.7101631,
     "maps_query": "ドシー恵比寿 do-c Ebisu capsule sauna",
     "needs": [
       "hours"
@@ -11888,5 +11888,121 @@
     "vault": "kyushu/hakata.md",
     "kind": "food",
     "far": true
+  },
+  {
+    "id": "wash-and-dry-daikanyama",
+    "kind": "errand",
+    "name_en": "WASH&DRY DAIKANYAMA",
+    "name_ja": "WASH&DRY 代官山",
+    "one_liner": "Coin laundry ~15 min walk from do-c (Daikanyamacho 13-8). Wash+dry ~1h.",
+    "one_liner_ja": "do-cから徒歩約15分のコインランドリー。洗濯+乾燥で約1時間。",
+    "address": "東京都渋谷区代官山町13-8",
+    "addr_geo": "東京都渋谷区",
+    "lat": 35.650457,
+    "lng": 139.7048723,
+    "plus_code": null,
+    "hubs": [
+      "doc-ebisu"
+    ],
+    "tags": [
+      "laundry",
+      "ebisu",
+      "daikanyama"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": null,
+      "closed": [],
+      "note": "Hours unverified — coin laundries typically run early to late or 24h. Coords from the Google Maps pin in the owner's walking route (2026-07-30).",
+      "approx": true
+    },
+    "maps_query": "WASH&DRY DAIKANYAMA 代官山",
+    "needs": [],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "motherhouse-ebisu-mens",
+    "kind": "errand",
+    "name_en": "Motherhouse Ebisu Men's Store",
+    "name_ja": "マザーハウス 恵比寿メンズ店",
+    "one_liner": "Men's leather specialty shop directly across from do-c (吉原ビル1F): wallets, bags, leather-care counter, name engraving on tags.",
+    "one_liner_ja": "do-c向かいのメンズ革製品専門店。財布・鞄・レザーケア・刻印サービス。",
+    "address": "〒150-0013 東京都渋谷区恵比寿1-7-11 吉原ビル1F",
+    "addr_geo": "東京都渋谷区",
+    "lat": 35.6482,
+    "lng": 139.7097,
+    "plus_code": null,
+    "hubs": [
+      "doc-ebisu"
+    ],
+    "tags": [
+      "leather",
+      "wallets",
+      "shopping",
+      "ebisu"
+    ],
+    "priority": "high",
+    "status": "want",
+    "phone": null,
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "sat": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "11:00-20:00 per official motherhouse.co.jp store page (subject to temporary changes). Coords are block-level (across from do-c) — verified address, estimated pin. Checked 2026-07-30.",
+      "approx": true
+    },
+    "maps_query": "マザーハウス 恵比寿メンズ店",
+    "needs": [
+      "coords"
+    ],
+    "vault": null,
+    "far": false
   }
 ]
