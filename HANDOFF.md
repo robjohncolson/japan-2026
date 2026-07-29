@@ -72,10 +72,8 @@ Two traps found by running it in a browser rather than reading it:
   one is a one-line `PLAN_LEGS` edit. The footer says so in the UI — keep that.
 - `dollar-ranger-shinjuku` and `muji-shinjuku-dori` have **no coordinates**
   (`needs: ["coords"]`), so legs to them fall back to a blind 20 min.
-- The **open/closed chips** on each step still use the older
-  `stepPrimaryPlace()`, which is *not* skip-aware. Step ① therefore shows a red
-  "Closed" chip that is really about the vanished West Georgia St. Making
-  `stepOpenChip()` use `planResolveStop()` would fix it — not done today.
+- ~~The open/closed chips were not skip-aware~~ — fixed evening of 29 Jul;
+  `stepOpenChip()` now uses `planResolveStop()`.
 
 ## Data corrections made today
 
@@ -88,12 +86,22 @@ ground. Same failure shape: precise address, precise access note, wrong reality.
    repeat, food good not remarkable, the draw is AC and a chill room".
 2. **Dollar Ranger** (西新宿7-1-2 川安ビル1F) — the plan called it cheap
    packing/sundries. It is a **foreign-currency exchange**, confirmed in person,
-   sharing the 1F with チケットレンジャー, a 金券 shop. Opens 10:00.
+   sharing the 1F with チケットレンジャー, a 金券 shop. Opens 10:00. Used 29 Jul:
+   160.55 JPY/USD on a 161.8 mid-market, 0.77% spread, no commission.
+3. **Yodobashi Akiba stocked NEITHER target item** — no Casio SXC-1, no
+   Whitewings gliders (walked 29 Jul). The browse-today/buy-tomorrow structure
+   was moot. Fallbacks: instrument shops (Ishibashi/Shimamura) for the Casio,
+   紙飛行機協会 03-3639-5698 for the gliders. No Akiba leg on 30 Jul.
+4. **Kinokuniya does not stock okozukai / ポチ袋** — walked 29 Jul. Solved the
+   same day at the Daiso in the Yodobashi Akiba building; socks likewise done
+   at the Uniqlo there. Shoes errand closed (current pair fine).
+5. **Diptyque ×8 bottles are GIFTS for the Kyushu relatives** — so they must be
+   in hand 31 Jul–23 Aug; buying on the Tokyo tail is wrong. Plan: call
+   DIPTYQUE 福岡 (天神2-8-35, opened 27 Feb 2026, only Kyushu source — Iwataya
+   does not carry the brand) to confirm 8 bottles; if not, buy at Isetan 30 Jul.
 
-**Open item from this:** two lines still reference the wrong premise — "tiny
-Ranger bits" in today's buy-if-light list and "heavy Ranger packing" in
-tomorrow's big-items list. They are flagged in the day text but **not re-homed**.
-Cheap packing materials need a real source (Daiso / Seria / Can Do / Tokyu Hands).
+**Resolved later the same day:** the packing-materials "errand" was an artifact
+of the wrong Dollar Ranger description and was deleted, not re-homed.
 
 Also corrected: **SXC-1 is a Casio drum machine, not a watch** — the day card
 said "×2 watches". No watches are being bought on this trip.
@@ -115,8 +123,15 @@ the wrong *kind of thing*.
 
 ## Suggested next steps
 
-1. Make `stepOpenChip()` skip-aware (see above) — small, removes a wrong red chip.
-2. Add coordinates for `dollar-ranger-shinjuku` and `muji-shinjuku-dori`.
-3. Re-home the packing-materials errand to a real shop.
+1. Call DIPTYQUE 福岡 to confirm 8 bottles (phone number still needed — not in
+   the atlas yet); that call decides where the gift soap is bought.
+2. Verification sweep of the Kyushu-leg places: five itinerary items failed on
+   contact in one Tokyo day (West Georgia, Dollar Ranger, SXC-1, Whitewings,
+   Kinokuniya ポチ袋). The Kyushu data comes from the same source and a phantom
+   stop costs far more by car.
+3. Add coordinates for the six entries with `coords` in `needs`.
 4. Reconcile the private vault with the file edits made today.
 5. Correct `PLAN_LEGS` from experience as legs are actually travelled.
+6. The errands panel (ERR_SEED) is per-phone localStorage — seed edits do not
+   reach an already-seeded phone, so the owner's list may still show stale
+   items like "SXC-1 ×2 (Yodobashi)". A seed-version migration would fix it.
