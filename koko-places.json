@@ -9662,6 +9662,86 @@
     "far": false
   },
   {
+    "id": "abc-mart-grand-stage-lumine-est",
+    "name_en": "ABC-MART GRAND STAGE Lumine Est Shinjuku",
+    "name_ja": "ABC-MART GRAND STAGE ルミネエスト新宿店",
+    "one_liner": "GRAND STAGE format - the large-format banner, so the one likely to carry US12 / JP30, unlike a standard ABC-MART. ~3 min from Shinjuku east exit, next to Isetan and Kinokuniya. Closes 21:00, later than Isetan, so it does not compete for the last-stop slot.",
+    "one_liner_ja": "GRAND STAGE業態＝大型店なのでUS12／30cmの在庫が期待できる（通常のABCマートは薄い）。新宿駅東口3分・伊勢丹／紀伊國屋の隣接。21時閉店で伊勢丹（20時）より遅い。",
+    "address": "東京都新宿区新宿3-38-1 ルミネエスト新宿",
+    "addr_geo": "東京都新宿区新宿3-38-1",
+    "hubs": [
+      "shinjuku"
+    ],
+    "tags": [
+      "shoes",
+      "shopping",
+      "errand"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:30",
+            "21:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "Weekdays 11:00-21:00, Sat/Sun/holidays 10:30-21:00, following Lumine Est hours. Sibling GRAND STAGE at Lumine Shinjuku (ルミネ2 5F, 新宿3-38-2, 03-6279-0441) runs 11:00-21:00.",
+      "approx": true
+    },
+    "phone": null,
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "ABC-MART GRAND STAGE ルミネエスト新宿",
+    "needs": [
+      "coords"
+    ],
+    "vault": null,
+    "kind": "errand",
+    "far": false
+  },
+  {
     "id": "isetan-shinjuku-main",
     "kind": "errand",
     "name_en": "Isetan Shinjuku (Main Building)",
