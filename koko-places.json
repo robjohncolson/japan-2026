@@ -8913,7 +8913,7 @@
     "kind": "lodging",
     "name_en": "HOTEL R9 The Yard Sagakashima",
     "name_ja": "HOTEL R9 The Yard 佐賀鹿島",
-    "one_liner": "Container-cabin hotel in Kashima, Saga — family base.",
+    "one_liner": "Container hotel, opened Oct 2025. Check-in 15:00 with HARD 23:00 cutoff, checkout 10:00, front 07:00-23:00, 42 free parking spots, ~17 min walk / 3 min taxi from Hizen-Kashima Stn. Verified operating 29 Jul 2026.",
     "one_liner_ja": "鹿島のコンテナ型ホテル。佐賀滞在の拠点。",
     "address": "〒849-1304 佐賀県鹿島市中村821-2",
     "addr_geo": "佐賀県鹿島市中村821-2",
@@ -8948,8 +8948,8 @@
     "kind": "lodging",
     "name_en": "Obi House",
     "name_ja": null,
-    "one_liner": "Self-check-in guesthouse rooms in central Kumamoto.",
-    "one_liner_ja": "熊本市中央区のセルフチェックイン型の宿。",
+    "one_liner": "⚠ POST-QUAKE CONDITION UNVERIFIED (as of 29 Jul, one day after the shindo-7 quake). This is a renovated ~55-year-old wooden nagaya minpaku (超隠れ家宿 obi house, opened 2019, one group/day) - exactly the building type at risk. CONTACT THE HOST BEFORE the 13 Aug free-cancel deadline: management Higo Smile 096-223-7333 (9:00-18:00) or via Booking.com. IG @obi__house.",
+    "one_liner_ja": "⚠ 地震後の建物状況が未確認（7/28 震度7の翌日時点）。築約55年の長屋改装型民泊。<b>8/13の無料キャンセル期限前に必ずホストへ確認</b>：管理 ひごスマイル 096-223-7333（9-18時）またはBooking.com経由。",
     "address": "〒862-0924 熊本県熊本市中央区帯山1-24-25",
     "addr_geo": "熊本県熊本市中央区帯山1-24-25",
     "plus_code": null,
@@ -8963,7 +8963,7 @@
     ],
     "priority": "medium",
     "status": "want",
-    "phone": null,
+    "phone": "096-223-7333",
     "hours": {
       "timezone": "Asia/Tokyo",
       "weekly": null,
@@ -10326,7 +10326,7 @@
     "one_liner": "One of the three great Inari shrines, ~10 min from R9 Sagakashima. Grounds 24h; office 8:30-16:30; huge parking. Mornings easiest during Obon.",
     "one_liner_ja": "日本三大稲荷。R9から約10分。境内24時間、授与所8:30-16:30。",
     "address": "佐賀県鹿島市古枝乙1855",
-    "addr_geo": "佐賀県鹿島市",
+    "addr_geo": "佐賀県鹿島市古枝乙1855",
     "lat": 33.07361,
     "lng": 130.10833,
     "plus_code": null,
@@ -10464,7 +10464,7 @@
         ]
       },
       "closed": [],
-      "note": "Produce hall 9-18; mudflat hall 9-17; experience desk 9-17:30 (0954-60-5040); closed only Jan 1-2 + 2nd Wed Jul. Verified 2026-07-29.",
+      "note": "Refined 2026-07-29: produce hall 9:00-18:00 · mudflat hall 1F (experience desk + kaki-yaki) 9:00-17:30 · 2F mini-aquarium 9:00-18:00. Mudflat experience mid-Apr-Oct, TIDE-DEPENDENT - check the tide-slot calendar on michinoekikashima.jp first. Summer holidays: individuals join WITHOUT reservation; 10+ groups reserve. ¥900 (small children ¥600), cash/PayPay. Experience desk 0954-60-5040.",
       "approx": true
     },
     "maps_query": "道の駅鹿島",
@@ -10498,7 +10498,7 @@
       "timezone": "Asia/Tokyo",
       "weekly": null,
       "closed": [],
-      "note": "Staffed, Midori-no-Madoguchi. Reserve Kasasagi early around Obon.",
+      "note": "Midori-no-Madoguchi still operates but on SHORT hours: 7:30-15:00 with a 12:00-13:00 lunch closure (2026 JR Kyushu list). Buy/reserve Kasasagi tickets inside that window.",
       "approx": true
     },
     "maps_query": "肥前鹿島駅",
@@ -10575,7 +10575,7 @@
         ]
       },
       "closed": [],
-      "note": "6:30-23:45 (last entry 23:00); one cleaning day mid-Dec only. Verified 2026-07-29.",
+      "note": "6:30-23:45, last entry 23:00. Adult ¥500, child ¥250. One mid-Dec cleaning day only. Verified 2026-07-29.",
       "approx": true
     },
     "maps_query": "武雄温泉 元湯",
@@ -10654,7 +10654,7 @@
       "closed": [
         "Closed 3rd Wednesday monthly"
       ],
-      "note": "6:00-22:00 (last entry 21:30); closed 3rd Wed monthly; private bath ¥2,500/50 min. Verified 2026-07-29.",
+      "note": "6:00-22:00, last admission 21:30. Closed 3rd Wed (19 Aug 2026 - after the stay window). Adult ¥420, 70+ ¥320, elem ¥210. Verified 2026-07-29.",
       "approx": true
     },
     "maps_query": "シーボルトの湯 嬉野",
@@ -10669,8 +10669,8 @@
     "name_ja": "スーパーモリナガ 鹿島店",
     "one_liner": "Full supermarket ~700 m from R9 Sagakashima (10 min walk). Backup: 24h 7-Eleven Kashima-Nakamura ~5 min walk with Seven Bank ATM.",
     "one_liner_ja": "R9から約700m（徒歩10分）のスーパー。近くに24hセブン＋ATM。",
-    "address": "佐賀県鹿島市大字高津原5104",
-    "addr_geo": "佐賀県鹿島市",
+    "address": "佐賀県鹿島市高津原5104",
+    "addr_geo": "佐賀県鹿島市高津原5104",
     "lat": 33.11063416,
     "lng": 130.08757038,
     "plus_code": null,
@@ -10744,10 +10744,10 @@
     "kind": "food",
     "name_en": "Honke Minematsu Unagi-ya (est. 1918)",
     "name_ja": "本家 峰松うなぎ屋",
-    "one_liner": "Century-old charcoal kabayaki in Hizen Hamashuku, ~8 min from R9 — mostly takeout, minimal seating. Irregular closures: call first. Sells out by noon around Obon.",
-    "one_liner_ja": "1918年創業の炭火うなぎ。持ち帰り中心。不定休 — 要電話。お盆は昼までに売切れ。",
+    "one_liner": "CATEGORY CORRECTED 29 Jul: primarily a TAKEAWAY charcoal kabayaki shop, not a sit-down unagi restaurant - eat-in exists but NO rice or set meals are served, kabayaki only (~¥1,500-4,000/eel). Call in the morning to reserve eels (0954-62-3725, 不定休). Pair with rice from a konbini or Super Morinaga.",
+    "one_liner_ja": "分類訂正（7/29）：基本は炭火かばやきの持ち帰り店。店内飲食可だがご飯・定食なし（かばやきのみ、1尾約1,500〜4,000円）。午前中に電話予約推奨（0954-62-3725・不定休）。ご飯はコンビニ／スーパーで。",
     "address": "佐賀県鹿島市浜町甲4292",
-    "addr_geo": "佐賀県鹿島市",
+    "addr_geo": "佐賀県鹿島市浜町甲4292",
     "lat": 33.091325,
     "lng": 130.119258,
     "plus_code": null,
@@ -10821,7 +10821,7 @@
     "kind": "activity",
     "name_en": "Hizen Hamashuku Sake Brewery Street",
     "name_ja": "肥前浜宿 酒蔵通り",
-    "one_liner": "Edo-era preserved brewery streetscape (Nabeshima's Fukuchiyo Shuzo etc.), ~8-10 min from R9; pairs with Minematsu unagi. Info house 10-17, closed Tue; some shops close for Obon.",
+    "one_liner": "Sake brewery street, walkable 24h. Corrected 29 Jul: info house (継場) 10:00-17:00 CLOSED TUESDAYS (4 and 11 Aug fall in the stay). Tastings: Hizennya (光武酒造場) free walk-in 9:30-17:00. Fukuchiyo/Nabeshima 鍋島 has NO public tours or tastings - brewery access is auberge guests only; buy bottles at local shops instead.",
     "one_liner_ja": "酒蔵通りの町並み。鍋島の富久千代酒造など。案内所10-17（火休）。",
     "address": "佐賀県鹿島市浜町",
     "addr_geo": "佐賀県鹿島市",
@@ -10921,7 +10921,7 @@
       "closed": [
         "Closed indefinitely since 2026-07-28 earthquake — verify reopening"
       ],
-      "note": "Closed indefinitely post-quake as of 2026-07-29; normally 9:00-17:00 (Jul-Aug to 19:00), closed Dec 29 only.",
+      "note": "CLOSED indefinitely since the 28 Jul 2026 quake (official X, 28 Jul): 27-28 stone-wall collapse points, 3 cracks in the keep; ALL August events cancelled as of 29 Jul. No reopening date or partial-access route announced - closure very likely spans 15-22 Aug. Watch castle.kumamoto-guide.jp.",
       "approx": true
     },
     "maps_query": "熊本城 天守閣",
@@ -10998,7 +10998,7 @@
         ]
       },
       "closed": [],
-      "note": "Shops 9-18, restaurants 11-18 (varies); closed Dec 30-31 only. Confirm operating post-quake. Verified 2026-07-29.",
+      "note": "Open, but SOME shops quake-closed for inspection as of 29 Jul; the adjacent castle closure may thin the district. Shops 9-18 otherwise. Info desk 096-288-5577 (9:30-17:30) - call near the stay.",
       "approx": true
     },
     "maps_query": "桜の馬場 城彩苑",
@@ -11075,7 +11075,7 @@
         ]
       },
       "closed": [],
-      "note": "8:30-17:00 (last entry 16:30), open 365 days/year. Verify condition once post-quake. Verified 2026-07-29.",
+      "note": "Closed 29 Jul only for post-quake safety check; official site confirms NORMAL OPENING resumes 30 Jul. 8:30-17:00, last entry 16:30, 365 days. Verified 2026-07-29.",
       "approx": true
     },
     "maps_query": "水前寺成趣園",
@@ -11152,7 +11152,7 @@
         ]
       },
       "closed": [],
-      "note": "10:30-21:00 LO 20:30 per official site; possible 3rd-Thu closure per city listing (= Aug 20) — call 096-352-1648. Verified 2026-07-29.",
+      "note": "⚠ Post-quake operation UNVERIFIED as of 29 Jul - last official notice is dated 27 Jul (pre-quake) and other Kumamoto restaurants posted quake closures. Call 096-352-1648 or check kokutei.co.jp before visiting. Normal hours 10:30-21:00 LO 20:30.",
       "approx": true
     },
     "maps_query": "黒亭 本店",
@@ -11257,7 +11257,7 @@
         ]
       },
       "closed": [],
-      "note": "11-16 + 18-22; closed year-end only. Verified 2026-07-29.",
+      "note": "11:00-16:00 LO 15:30 · 18:00-22:00 LO 21:30 (refined 29 Jul). No quake closure found, but Kamitori was shaken - same-day call prudent (096-325-8972).",
       "approx": true
     },
     "maps_query": "こむらさき 上通中央店",
@@ -11293,7 +11293,7 @@
       "closed": [
         "Quake-closed as of 2026-07-29 — check reopening"
       ],
-      "note": "Normally 9:00-23:00 daily; quake-closed as of 2026-07-29, reopening TBA — verify.",
+      "note": "CLOSED as of 29 Jul - operator Izumi suspended ALL 35 Kumamoto stores (5 Yume Town, 27 Yume Mart, 3 Sunny) after the quake; reopening store-by-store, no date for Obiyama. Monitor izumi.jp/tenpo.",
       "approx": true
     },
     "maps_query": "ゆめマート帯山",
@@ -11308,8 +11308,8 @@
     "name_ja": "セブン-イレブン熊本帯山4丁目店",
     "one_liner": "Closest 24h konbini to Obi House (~0.9 km, walkable) with Seven Bank ATM (foreign cards). Stock can thin after aftershocks.",
     "one_liner_ja": "Obiハウスから徒歩圏の24hセブン。セブン銀行ATMあり。",
-    "address": "熊本県熊本市中央区帯山4丁目19-7",
-    "addr_geo": "熊本県熊本市",
+    "address": "熊本県熊本市中央区帯山4-19-7",
+    "addr_geo": "熊本県熊本市中央区帯山4-19-7",
     "lat": 32.8044528,
     "lng": 130.7476286,
     "plus_code": null,
@@ -11370,7 +11370,7 @@
         ]
       },
       "closed": [],
-      "note": "24h, no closed days. Verified 2026-07-29.",
+      "note": "⚠ Do NOT rely on 24h: ~100 Kumamoto 7-Elevens were closed and ~30 without power on the morning of 29 Jul. This store-level status is unconfirmed - check Maps on arrival day. The earlier \"Verified 2026-07-29\" stamp predates the quake reality.",
       "approx": true
     },
     "maps_query": "セブンイレブン 熊本帯山4丁目店",
@@ -11406,7 +11406,7 @@
       "closed": [
         "Volcanic alert Level 2 since 2026-06-21 — crater closed"
       ],
-      "note": "Crater access closed at alert Level 2 as of 2026-07-29; normal Level-1 gate ~8:30-18:00 summer.",
+      "note": "JMA Level 2 reconfirmed 24 Jul 2026 (~1 km hazard radius): crater road CLOSED, Sanko shuttle suspended. Separate from the 28 Jul quake (volcanic). Sunasenri closed for works to 31 Jul. Hiking via Sensuikyo/Sarayama routes still possible. Recheck aso-volcano.jp + JMA before mid-Aug.",
       "approx": true
     },
     "maps_query": "阿蘇山上ターミナル",
@@ -11640,17 +11640,16 @@
         ]
       },
       "closed": [],
-      "note": "11:00-20:00. Owner Maps link (29 Jul): https://maps.app.goo.gl/4xkEwLdE5few74Jk8 - use it for navigation; coords/phone not yet extracted (Google 403s the session proxy).",
+      "note": "11:00-20:00, phone 092-406-0280 (official store locator, retrieved 29 Jul). CALL to set aside 8 identical bottles. Owner Maps link: https://maps.app.goo.gl/4xkEwLdE5few74Jk8. Fukuoka unaffected by the Kumamoto quake.",
       "approx": true
     },
-    "phone": null,
+    "phone": "092-406-0280",
     "plus_code": null,
     "lat": null,
     "lng": null,
     "maps_query": "ディプティック 福岡 天神2-8-35",
     "needs": [
-      "coords",
-      "phone"
+      "coords"
     ],
     "vault": "errands/diptyque.md",
     "kind": "errand",

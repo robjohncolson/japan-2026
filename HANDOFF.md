@@ -132,10 +132,17 @@ the wrong *kind of thing*.
    owner checked the Maps listing; the boutique is bigger than the Isetan
    counter. Owner link is in the atlas entry. Still worth a set-aside call for
    8 identical bottles; coords/phone still needed (Google 403s this proxy).
-2. Verification sweep of the Kyushu-leg places: five itinerary items failed on
-   contact in one Tokyo day (West Georgia, Dollar Ranger, SXC-1, Whitewings,
-   Kinokuniya ポチ袋). The Kyushu data comes from the same source and a phantom
-   stop costs far more by car.
+2. ~~Kyushu verification sweep~~ — DONE, evening 29 Jul, four parallel agents,
+   30 atlas places + day-card cross-check. Results: Fukuoka/Kanzaki 11/11
+   confirmed; Kashima 6 confirmed 3 corrected (Minematsu is takeaway kabayaki
+   with no rice; Nabeshima has no public tastings; Madoguchi 7:30-15:00);
+   Aso fallback trio + Saizeriya pin added to atlas. TOP OPEN ITEM: Obi House
+   (15-22 Aug lodging) is a ~55-year-old wooden nagaya whose post-quake state
+   is unverifiable online - host must be contacted (Higo Smile 096-223-7333)
+   well before the 13 Aug 23:59 free-cancel deadline. Kumamoto quake (28 Jul,
+   shindo 7) also closed the castle indefinitely, all 35 Izumi supermarkets,
+   and ~100 7-Elevens; Suizenji reopened 30 Jul. Diptyque Fukuoka phone found:
+   092-406-0280.
 3. Add coordinates for the six entries with `coords` in `needs`.
 4. Reconcile the private vault with the file edits made today.
 5. Correct `PLAN_LEGS` from experience as legs are actually travelled.
