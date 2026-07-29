@@ -11576,5 +11576,85 @@
     "vault": "errands/muji-shinjuku.md",
     "kind": "errand",
     "far": false
+  },
+  {
+    "id": "diptyque-fukuoka-tenjin",
+    "name_en": "DIPTYQUE Fukuoka (Tenjin)",
+    "name_ja": "ディプティック 福岡",
+    "one_liner": "First Diptyque boutique in Kyushu - opened 27 Feb 2026, so it is missing from older guides. 11:00-20:00, Tenjin. Iwataya does NOT carry the brand. Relevant as the by-car alternative to hauling 8 bottles of liquid soap from Tokyo, though buying on the Tokyo tail (24-27 Aug) means carrying it even less.",
+    "one_liner_ja": "九州初のディプティック直営店（2026/2/27開店のため旧情報には未掲載）。11:00-20:00・天神。岩田屋は取扱なし。液体ソープ8本を東京から運ぶ代わりに車で回収できる選択肢。",
+    "address": "福岡県福岡市中央区天神2-8-35 天神住友生命FJビジネスセンター 1F",
+    "addr_geo": "福岡県福岡市中央区天神2-8-35",
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "shopping",
+      "errand",
+      "fragrance"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "sat": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "11:00",
+            "20:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "11:00-20:00. Opened 27 Feb 2026 as the first Kyushu boutique. Call ahead for 8 identical bottles - a new single boutique may not hold that depth.",
+      "approx": true
+    },
+    "phone": null,
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "ディプティック 福岡 天神2-8-35",
+    "needs": [
+      "coords"
+    ],
+    "vault": "errands/diptyque.md",
+    "kind": "errand",
+    "far": false
   }
 ]
