@@ -121,13 +121,15 @@ the wrong *kind of thing*.
 - **30 Jul (tomorrow)**: Yamanote loop on a rental bike, 09:30 pickup, ~17:15
   return. **The 50L rides the loop**, so the clean-out gap does not apply to it.
   **No Akiba leg** — the haul dissolved when Yodobashi had neither item. Evening
-  is Shinjuku: Indenya wallet at Isetan (+ メンズ館), Kagaya tin before 19:00,
-  and Diptyque only if the Fukuoka call fails.
+  is Shinjuku: Indenya wallet at Isetan (+ メンズ館) and Kagaya tin before 19:00.
+  Diptyque is fully off Tokyo — decided 29 Jul, bought in Fukuoka instead.
 
 ## Suggested next steps
 
-1. Call DIPTYQUE 福岡 to confirm 8 bottles (phone number still needed — not in
-   the atlas yet); that call decides where the gift soap is bought.
+1. ~~Decide where the gift soap is bought~~ — DECIDED 29 Jul: Fukuoka. The
+   owner checked the Maps listing; the boutique is bigger than the Isetan
+   counter. Owner link is in the atlas entry. Still worth a set-aside call for
+   8 identical bottles; coords/phone still needed (Google 403s this proxy).
 2. Verification sweep of the Kyushu-leg places: five itinerary items failed on
    contact in one Tokyo day (West Georgia, Dollar Ranger, SXC-1, Whitewings,
    Kinokuniya ポチ袋). The Kyushu data comes from the same source and a phantom

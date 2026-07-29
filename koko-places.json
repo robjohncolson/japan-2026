@@ -11581,8 +11581,8 @@
     "id": "diptyque-fukuoka-tenjin",
     "name_en": "DIPTYQUE Fukuoka (Tenjin)",
     "name_ja": "ディプティック 福岡",
-    "one_liner": "First Diptyque boutique in Kyushu - opened 27 Feb 2026, so it is missing from older guides. 11:00-20:00, Tenjin. Iwataya does NOT carry the brand, so this is the ONLY Kyushu source. Matters because the 8 bottles are gifts for the Kyushu relatives: buying here means the car carries them instead of the Shinkansen. Call ahead - a new single boutique may not stock 8 identical bottles.",
-    "one_liner_ja": "九州初のディプティック直営店（2026/2/27開店のため旧情報には未掲載）。11:00-20:00・天神。岩田屋は取扱なし。液体ソープ8本を東京から運ぶ代わりに車で回収できる選択肢。",
+    "one_liner": "DECIDED 29 Jul: the ×8 gift bottles are bought HERE, not at Isetan - the owner checked the Maps listing and the Fukuoka boutique is bigger and better than the Tokyo Isetan counter. 11:00-20:00, Tenjin, opened 27 Feb 2026, only Kyushu source (Iwataya does not carry the brand). Optional reassurance: call ahead that 8 identical bottles are in stock.",
+    "one_liner_ja": "決定（7/29）：贈答用8本はここで購入（伊勢丹ではなく）。オーナー確認では福岡店の方が伊勢丹カウンターより大きく充実。11:00-20:00・天神・2026/2/27開店・九州唯一（岩田屋は取扱なし）。念のため8本の在庫を事前電話推奨。",
     "address": "福岡県福岡市中央区天神2-8-35 天神住友生命FJビジネスセンター 1F",
     "addr_geo": "福岡県福岡市中央区天神2-8-35",
     "hubs": [
@@ -11642,7 +11642,7 @@
         ]
       },
       "closed": [],
-      "note": "11:00-20:00. Opened 27 Feb 2026 as the first Kyushu boutique. CALL AHEAD for 8 identical bottles; if they cannot confirm, fall back to Isetan Shinjuku before leaving Tokyo, because Iwataya does not carry the brand and there is no other Kyushu source.",
+      "note": "11:00-20:00. Owner Maps link (29 Jul): https://maps.app.goo.gl/4xkEwLdE5few74Jk8 - use it for navigation; coords/phone not yet extracted (Google 403s the session proxy).",
       "approx": true
     },
     "phone": null,
@@ -11651,7 +11651,8 @@
     "lng": null,
     "maps_query": "ディプティック 福岡 天神2-8-35",
     "needs": [
-      "coords"
+      "coords",
+      "phone"
     ],
     "vault": "errands/diptyque.md",
     "kind": "errand",
