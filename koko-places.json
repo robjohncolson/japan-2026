@@ -11333,5 +11333,167 @@
     "needs": [],
     "vault": null,
     "far": false
+  },
+  {
+    "id": "dollar-ranger-shinjuku",
+    "name_en": "Dollar Ranger (Shinjuku West)",
+    "name_ja": "ドルレンジャー 新宿西口店",
+    "one_liner": "The plan lists this as cheap packing/sundries, but the shop at this exact address (and matching the exact access note - Shinjuku-nishiguchi D5 1 min / Seibu-Shinjuku 2 min) is a FOREIGN CURRENCY EXCHANGE. Unconfirmed - verify before making the trip for packing supplies.",
+    "one_liner_ja": "計画では「安い梱包材・日用品」とあるが、この住所・アクセス（新宿西口D5徒歩1分／西武新宿徒歩2分）に一致するのは<b>外貨両替</b>店の様子。未確認 - 梱包材目当てなら要確認。",
+    "address": "東京都新宿区西新宿7-1-2 川安ビル1F",
+    "addr_geo": "東京都新宿区西新宿7-1-2",
+    "hubs": [
+      "shinjuku"
+    ],
+    "tags": [
+      "errand",
+      "shopping"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "20:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "19:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "19:00"
+          ]
+        ]
+      },
+      "closed": [
+        "New Year period"
+      ],
+      "note": "Weekdays 10:00-20:00, Sat/Sun/holidays 10:00-19:00 (per NAVITIME listing for this address). Category listed as currency exchange, not variety goods.",
+      "approx": true
+    },
+    "phone": null,
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "ドルレンジャー 新宿西口 西新宿7-1-2",
+    "needs": [
+      "coords",
+      "category-check"
+    ],
+    "vault": "errands/dollar-ranger-shinjuku.md",
+    "kind": "errand",
+    "far": false
+  },
+  {
+    "id": "muji-shinjuku-dori",
+    "name_en": "MUJI Shinjuku-dori",
+    "name_ja": "無印良品 新宿通り",
+    "one_liner": "Household goods and food MUJI on Shinjuku-dori - the branch to use for the small laundry detergent. 10:00-21:00.",
+    "one_liner_ja": "新宿通りの生活雑貨・食品の無印。洗剤（小）はここ。10:00-21:00。",
+    "address": null,
+    "addr_geo": null,
+    "hubs": [
+      "shinjuku"
+    ],
+    "tags": [
+      "shopping",
+      "errand"
+    ],
+    "priority": "low",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "tue": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "wed": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "thu": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "fri": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "sat": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ],
+        "sun": [
+          [
+            "10:00",
+            "21:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "10:00-21:00 per store listing. Shinjuku has 4 MUJI branches - Lumine Shinjuku is 11:00-21:00, so confirm which one you are heading to.",
+      "approx": true
+    },
+    "phone": null,
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "無印良品 新宿通り",
+    "needs": [
+      "address",
+      "coords"
+    ],
+    "vault": "errands/muji-shinjuku.md",
+    "kind": "errand",
+    "far": false
   }
 ]
