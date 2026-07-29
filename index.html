@@ -512,6 +512,22 @@
   .dv-chip{display:inline-block;border:1px solid var(--black);padding:0 4px;margin:0 4px;font-size:10px;font-weight:700;text-decoration:none;vertical-align:1px;background:var(--platinum)}
   .dv-chip-open{background:#b8e6b8}
   .dv-chip-closed{background:#f0b8b8}
+  /* ---- timeline validator ---- */
+  .tl-box{border:1px solid var(--black);background:var(--platinum);margin:10px 0 0;padding:8px;
+    box-shadow:inset 1px 1px 0 var(--plat-hi),inset -1px -1px 0 var(--plat-lo)}
+  .tl-head{font-family:var(--f-head);font-size:12px;font-weight:700;margin:0 0 6px;display:flex;
+    align-items:center;gap:8px;flex-wrap:wrap}
+  .tl-head input{font:inherit;font-size:12px;width:62px;border:1px solid var(--black);padding:1px 3px;
+    background:var(--white);box-shadow:inset 1px 1px 0 var(--plat-lo)}
+  .tl-row{font-size:12px;line-height:1.55;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
+  .tl-t{font-variant-numeric:tabular-nums;font-weight:700;min-width:40px}
+  .tl-name{flex:1 1 auto;min-width:88px}
+  .tl-flag{font-size:10px;font-weight:700;border:1px solid var(--black);padding:0 4px}
+  .tl-ok{background:#b8e6b8}
+  .tl-early{background:#f5e6a8}
+  .tl-late{background:#f0b8b8}
+  .tl-unk{background:var(--plat-hi)}
+  .tl-note{font-size:11px;opacity:.75;margin:5px 0 0}
   a.dv-golink{display:inline-block;border:1px solid var(--black);background:var(--platinum);padding:1px 7px;margin:0 5px 0 0;text-decoration:none;font-size:13px;line-height:1.5;box-shadow:1px 1px 0 var(--black)}
   a.dv-golink:active{box-shadow:none;transform:translate(1px,1px)}
   .err-row{display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px dotted var(--black)}
@@ -1399,6 +1415,13 @@ const T = {
   /* ここどこ? — nearby map */
   'h.koko':            {en:"ここどこ? · Nearby map", ja:"ここどこ？ 近くマップ"},
   'koko.approxBanner': {en:"⚠ Hours are approximate — always confirm day-of", ja:"⚠ 営業時間は目安です。当日必ず確認を"},
+  'tl.title':          {en:"Timeline", ja:"タイムライン"},
+  'tl.from':           {en:"leaving", ja:"出発"},
+  'tl.ok':             {en:"open", ja:"営業中"},
+  'tl.ends':           {en:"ends", ja:"終了"},
+  'tl.waiting':        {en:"waiting", ja:"待ち時間"},
+  'tl.untimed':        {en:"not timed (no atlas entry):", ja:"未計算（アトラス未登録）:"},
+  'tl.estimate':       {en:"leg times are estimates, not routed transit", ja:"移動時間は推定（実際の乗換検索ではない）"},
   'koko.showDist':     {en:"Show distances from me", ja:"現在地から距離を表示"},
   'koko.updateDist':   {en:"update distances", ja:"距離を更新"},
   'koko.locating':     {en:"📍 Locating…", ja:"📍 現在地を取得中…"},
@@ -2220,6 +2243,7 @@ function decorateDayPlan(planEl, key){
   if(!planEl || !key) return;
   const done = dayDoneGet(key);
   const isToday = key === todayKey();
+  const collected = [], untimed = [];
   const kids = Array.prototype.slice.call(planEl.childNodes);
   for(let i = 0; i < kids.length; i++){
     const node = kids[i];
@@ -2247,6 +2271,17 @@ function decorateDayPlan(planEl, key){
     /* per-stop Google Maps button right after the checkbox — same primary
        place as the chip logic (earliest mention = the stop itself) */
     let ctl = box;
+    /* collect for the timeline here: the checkbox is in but the 🗺 link and the
+       open/closed chip are not, so span.textContent is still the clean step text.
+       (`txt` is only the step's first text node — the mark — not the whole step.) */
+    const stepTxt = (span.textContent || '').trim();
+    const tp = planResolveStop(stepTxt);
+    if(tp && tp.row){
+      collected.push({ mark: mark, text: stepTxt, row: tp.row,
+        name: (lang === 'ja' && tp.row.name_ja) ? tp.row.name_ja : (tp.row.name_en || tp.link.m[0]) });
+    }else{
+      untimed.push(mark);
+    }
     const pp = stepPrimaryPlace(span.textContent || '', false);
     if(pp){
       const d = placeLinkData(pp);
@@ -2263,7 +2298,186 @@ function decorateDayPlan(planEl, key){
       if(chip) span.insertBefore(chip, ctl.nextSibling);
     }
   }
+  if(isToday){
+    try{ renderTimeline(planEl, collected, null, untimed); }
+    catch(e){ if(window.console) console.warn('timeline skipped', e); }
+  }
 }
+/* ---------- Day timeline validator ---------- */
+/* Walks the ①–⑫ stops in their written order from a start time and reports what
+   that order actually implies: doors you turn up at before opening, kitchens you
+   reach after last order, and dead time spent waiting. It does NOT reorder the
+   day — the written order encodes intent a solver cannot see (mapo lunch and Moti
+   dinner are both deliberate; Akiba is browse-only because the 50L is at do-c).
+   Leg times are ESTIMATES from straight-line distance with a transit fudge, not
+   routed transit. Pin the legs that matter in PLAN_LEGS. */
+/** Earliest-mentioned place in a step that can actually be a stop: has a koko
+    row with hours, and is not status:skip. A skipped place named first ("West
+    Georgia St. does not exist") must not become the stop for that step. */
+function planResolveStop(stepText){
+  const hits = [];
+  PLACE_LINKS.forEach(function(pl){
+    if(!pl.koko) return;
+    let at = -1;
+    pl.m.forEach(function(v){
+      const idx = stepText.indexOf(v);
+      if(idx !== -1 && (at === -1 || idx < at)) at = idx;
+    });
+    if(at === -1) return;
+    const row = placeLinkData(pl).row;
+    if(!row || !row.hours) return;
+    if(kokoStatusFor(row) === 'skip') return;
+    hits.push({ at: at, link: pl, row: row });
+  });
+  hits.sort(function(a, b){ return a.at - b.at; });
+  return hits.length ? hits[0] : null;
+}
+const PLAN_LEGS = {          /* door-to-door minutes, order-independent */
+  'doc-ebisu-capsule|isetan-shinjuku-main': 22,
+  'doc-ebisu-capsule|chin-mapo-shinjuku-nomura': 20,
+  'doc-ebisu-capsule|moti-roppongi': 20,
+  'doc-ebisu-capsule|yodobashi-akiba': 33,
+  'isetan-shinjuku-main|kinokuniya-shinjuku-main': 5,
+  'isetan-shinjuku-main|kagaya-tobacco-shinjuku': 6,
+  'kinokuniya-shinjuku-main|kagaya-tobacco-shinjuku': 2,
+  'chin-mapo-shinjuku-nomura|isetan-shinjuku-main': 14,
+  'chin-mapo-shinjuku-nomura|kinokuniya-shinjuku-main': 14,
+  'chin-mapo-shinjuku-nomura|yodobashi-akiba': 27,
+  'isetan-shinjuku-main|yodobashi-akiba': 26,
+  'yodobashi-akiba|moti-roppongi': 32,
+  'abc-mart-grand-stage-shibuya|moti-roppongi': 22,
+  'isetan-shinjuku-main|abc-mart-grand-stage-shibuya': 14
+};
+const PLAN_DEFAULT_DWELL = 30;
+function planLegMinutes(a, b){
+  const hit = PLAN_LEGS[a.id + '|' + b.id];
+  const rev = PLAN_LEGS[b.id + '|' + a.id];
+  if(hit != null) return { min: hit, est: false };
+  if(rev != null) return { min: rev, est: false };
+  if(a.lat == null || b.lat == null) return { min: 20, est: true, blind: true };
+  const km = kokoHaversine(a.lat, a.lng, b.lat, b.lng) / 1000;
+  if(km < 1.2) return { min: Math.max(4, Math.round(km * 13)), est: true };
+  return { min: Math.round(11 + km * 3.2), est: true };
+}
+/** "~1h" / "~90 min" / "~30分" in the step text beats the tag-based guess. */
+function planDwellFor(row, stepText){
+  const t = stepText || '';
+  let m = t.match(/~\s*(\d+(?:\.\d+)?)\s*h/i);
+  if(m) return Math.round(parseFloat(m[1]) * 60);
+  m = t.match(/~\s*(\d+)\s*(?:min|分)/i);
+  if(m) return parseInt(m[1], 10);
+  const tags = (row && row.tags) || [];
+  const has = function(x){ return tags.indexOf(x) !== -1; };
+  if(/\bLOCKED\b/i.test(t) && (has('dinner') || has('lunch'))) return 75;
+  if(has('lunch') || has('dinner') || has('ramen') || has('curry')) return 60;
+  if(has('department-store')) return 45;
+  if(/BROWSE/i.test(t)) return 40;
+  if(has('stand') || has('errand')) return 15;
+  return PLAN_DEFAULT_DWELL;
+}
+function planWindows(row, dow){
+  const h = row.hours;
+  if(!h || h.weekly == null) return null;
+  if(kokoInClosedRange(h)) return [];
+  return (h.weekly[dow] || []).map(function(w){
+    return [kokoParseHM(w[0]), kokoParseHM(w[1])];
+  }).filter(function(w){ return w[0] != null && w[1] != null; });
+}
+function planFmt(min){
+  let m = Math.round(min), d = 0;
+  while(m >= 1440){ m -= 1440; d++; }
+  return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0') + (d ? '+' + d : '');
+}
+/** steps: [{mark, text, row}] in written order. Returns per-stop arrival verdicts. */
+function planSimulate(steps, startMin, dow){
+  let t = startMin, wait = 0, anyEst = false;
+  const out = [];
+  for(let i = 0; i < steps.length; i++){
+    const s = steps[i];
+    let leg = null;
+    if(i > 0){
+      leg = planLegMinutes(steps[i - 1].row, s.row);
+      if(leg.est) anyEst = true;
+      t += leg.min;
+    }
+    const wins = planWindows(s.row, dow);
+    const r = { mark: s.mark, name: s.name, arrive: t, leg: leg, verdict: 'ok', detail: '' };
+    if(wins == null){
+      r.verdict = 'unknown'; r.detail = 'hours unknown';
+    }else if(!wins.length){
+      r.verdict = 'late'; r.detail = 'closed today';
+    }else if(wins.some(function(w){ return t >= w[0] && t < w[1]; })){
+      const w = wins.filter(function(w){ return t >= w[0] && t < w[1]; })[0];
+      if(w[1] - t <= 30) r.detail = 'only ' + (w[1] - t) + ' min before ' + planFmt(w[1]);
+    }else{
+      const next = wins.filter(function(w){ return w[0] > t; }).sort(function(x, y){ return x[0] - y[0]; })[0];
+      if(next){
+        r.verdict = 'early';
+        r.detail = 'opens ' + planFmt(next[0]) + ' · wait ' + (next[0] - t) + ' min';
+        wait += next[0] - t;
+        t = next[0];
+      }else{
+        r.verdict = 'late';
+        r.detail = 'shut at ' + planFmt(wins[wins.length - 1][1]);
+      }
+    }
+    r.dwell = planDwellFor(s.row, s.text);
+    t += r.dwell;
+    out.push(r);
+  }
+  return { rows: out, end: t, wait: wait, est: anyEst };
+}
+function renderTimeline(planEl, steps, startMin, untimed){
+  if(!planEl || !steps) return;
+  const old = planEl.querySelector('.tl-box');
+  if(old) old.remove();
+  if(steps.length < 2) return;
+  const now = kokoTokyoNow();
+  const start = startMin != null ? startMin : now.min;
+  const sim = planSimulate(steps, start, now.dow);
+
+  const box = document.createElement('div');
+  box.className = 'tl-box';
+  const head = document.createElement('div');
+  head.className = 'tl-head';
+  head.appendChild(document.createTextNode('⏱ ' + tr('tl.title') + ' — ' + tr('tl.from')));
+  const inp = document.createElement('input');
+  inp.type = 'time'; inp.value = planFmt(start).slice(0, 5);
+  inp.addEventListener('change', function(){
+    const v = kokoParseHM(inp.value);
+    if(v != null) renderTimeline(planEl, steps, v, untimed);
+  });
+  head.appendChild(inp);
+  box.appendChild(head);
+
+  sim.rows.forEach(function(r){
+    const row = document.createElement('div');
+    row.className = 'tl-row';
+    const t = document.createElement('span');
+    t.className = 'tl-t'; t.textContent = planFmt(r.arrive);
+    const n = document.createElement('span');
+    n.className = 'tl-name'; n.textContent = r.mark + ' ' + r.name;
+    row.appendChild(t); row.appendChild(n);
+    if(r.verdict !== 'ok' || r.detail){
+      const f = document.createElement('span');
+      f.className = 'tl-flag tl-' + (r.verdict === 'ok' ? 'ok' : r.verdict === 'unknown' ? 'unk' : r.verdict);
+      f.textContent = r.detail || tr('tl.ok');
+      row.appendChild(f);
+    }
+    box.appendChild(row);
+  });
+
+  const foot = document.createElement('div');
+  foot.className = 'tl-note';
+  const bits = [tr('tl.ends') + ' ' + planFmt(sim.end)];
+  if(sim.wait > 0) bits.push(tr('tl.waiting') + ' ' + sim.wait + ' min');
+  if(untimed && untimed.length) bits.push(tr('tl.untimed') + ' ' + untimed.join(' '));
+  bits.push(tr('tl.estimate'));
+  foot.textContent = bits.join(' · ');
+  box.appendChild(foot);
+  planEl.appendChild(box);
+}
+
 /** Re-render linkified surfaces once the koko atlas has loaded (coords/hours arrive). */
 function refreshPlaceLinksAfterKoko(){
   applyStaticLang();
