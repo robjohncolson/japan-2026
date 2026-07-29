@@ -11336,18 +11336,18 @@
   },
   {
     "id": "dollar-ranger-shinjuku",
-    "name_en": "Dollar Ranger (Shinjuku West)",
+    "name_en": "Dollar Ranger (currency exchange, Shinjuku West)",
     "name_ja": "ドルレンジャー 新宿西口店",
-    "one_liner": "The plan lists this as cheap packing/sundries, but the shop at this exact address (and matching the exact access note - Shinjuku-nishiguchi D5 1 min / Seibu-Shinjuku 2 min) is a FOREIGN CURRENCY EXCHANGE. Unconfirmed - verify before making the trip for packing supplies.",
-    "one_liner_ja": "計画では「安い梱包材・日用品」とあるが、この住所・アクセス（新宿西口D5徒歩1分／西武新宿徒歩2分）に一致するのは<b>外貨両替</b>店の様子。未確認 - 梱包材目当てなら要確認。",
+    "one_liner": "Foreign-currency exchange - confirmed on the ground 29 Jul 2026, opens 10:00. The itinerary had described it as cheap packing/sundries; that was wrong. Useful for yen cash, not for packing supplies.",
+    "one_liner_ja": "外貨両替店（2026/7/29 現地確認・10:00開店）。計画では「安い梱包材・日用品」とされていたが誤り。現金両替用であって梱包材の店ではない。",
     "address": "東京都新宿区西新宿7-1-2 川安ビル1F",
     "addr_geo": "東京都新宿区西新宿7-1-2",
     "hubs": [
       "shinjuku"
     ],
     "tags": [
-      "errand",
-      "shopping"
+      "currency-exchange",
+      "errand"
     ],
     "priority": "medium",
     "status": "want",
@@ -11400,7 +11400,7 @@
       "closed": [
         "New Year period"
       ],
-      "note": "Weekdays 10:00-20:00, Sat/Sun/holidays 10:00-19:00 (per NAVITIME listing for this address). Category listed as currency exchange, not variety goods.",
+      "note": "Opens 10:00 - confirmed in person 29 Jul 2026. Weekdays to 20:00, Sat/Sun/holidays to 19:00 per the NAVITIME listing; closing times not personally confirmed.",
       "approx": true
     },
     "phone": null,
@@ -11409,8 +11409,7 @@
     "lng": null,
     "maps_query": "ドルレンジャー 新宿西口 西新宿7-1-2",
     "needs": [
-      "coords",
-      "category-check"
+      "coords"
     ],
     "vault": "errands/dollar-ranger-shinjuku.md",
     "kind": "errand",
