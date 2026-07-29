@@ -612,8 +612,8 @@
     "id": "ebisu-food-hall",
     "name_en": "EBISU FOOD HALL",
     "name_ja": "エビスフードホール",
-    "one_liner": "Open-front food hall 2 min from Ebisu Station - craft beer, tapas and grill, doors from 9:00. The 29 Jul 2026 breakfast fallback after West Georgia St. turned out not to exist.",
-    "one_liner_ja": "恵比寿駅徒歩2分のオープンなフードホール。クラフトビール・タパス・グリル、9:00から。2026/7/29、West Georgia St.が存在しなかったため実際に行った店。",
+    "one_liner": "Went 29 Jul 2026 - would repeat. Food is good, not remarkable; the draw is strong AC, a chill open-front room and easy solo seating 2 min from Ebisu Stn, from 9:00. Became the breakfast after West Georgia St. turned out not to exist.",
+    "one_liner_ja": "2026/7/29訪問・再訪したい。料理は美味しいが飛び抜けてはいない。冷房が効いた開放的で落ち着く空間、恵比寿駅2分・9時〜が魅力。West Georgia St.が存在しなかったため実際に行った店。",
     "address": "東京都渋谷区恵比寿南1-1-9 シマヤビル1F",
     "addr_geo": "東京都渋谷区恵比寿南1-1-9",
     "hubs": [
@@ -625,7 +625,9 @@
       "cafe",
       "drink",
       "lunch",
-      "dinner"
+      "dinner",
+      "air-conditioned",
+      "solo-friendly"
     ],
     "priority": "medium",
     "status": "want",
