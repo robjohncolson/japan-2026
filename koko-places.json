@@ -11929,7 +11929,7 @@
     "kind": "errand",
     "name_en": "Motherhouse Ebisu Men's Store",
     "name_ja": "マザーハウス 恵比寿メンズ店",
-    "one_liner": "Men's leather specialty shop directly across from do-c (吉原ビル1F): wallets, bags, leather-care counter, name engraving on tags.",
+    "one_liner": "Men's leather specialty shop directly across from do-c (吉原ビル1F): wallets, bags. Phone stock checks OK; tax-free all stores; holds/transfers via customer service 03-6240-1415 (10:00-17:00 weekdays).",
     "one_liner_ja": "do-c向かいのメンズ革製品専門店。財布・鞄・レザーケア・刻印サービス。",
     "address": "〒150-0013 東京都渋谷区恵比寿1-7-11 吉原ビル1F",
     "addr_geo": "東京都渋谷区",
@@ -11947,7 +11947,7 @@
     ],
     "priority": "high",
     "status": "want",
-    "phone": null,
+    "phone": "080-9580-1544",
     "hours": {
       "timezone": "Asia/Tokyo",
       "weekly": {
@@ -11999,6 +11999,87 @@
       "approx": true
     },
     "maps_query": "マザーハウス 恵比寿メンズ店",
+    "needs": [
+      "coords"
+    ],
+    "vault": null,
+    "far": false
+  },
+  {
+    "id": "motherhouse-honten-akihabara",
+    "kind": "errand",
+    "name_en": "Motherhouse Honten (flagship)",
+    "name_ja": "マザーハウス本店",
+    "one_liner": "Company flagship with the deepest stock — ~200 m from Akihabara Stn Showa-dori exit (and the CycleTrip bike return). Best single-store odds for multiple identical wallets.",
+    "one_liner_ja": "最大の品揃えの本店。秋葉原駅昭和通り口から約200m（自転車返却地点のすぐそば）。",
+    "address": "東京都台東区台東1-10-7 邦洋秋葉原ビル1F",
+    "addr_geo": "東京都台東区",
+    "lat": null,
+    "lng": null,
+    "plus_code": null,
+    "hubs": [
+      "jimbocho-kagurazaka"
+    ],
+    "tags": [
+      "leather",
+      "wallets",
+      "shopping",
+      "akihabara"
+    ],
+    "priority": "high",
+    "status": "want",
+    "phone": "03-5817-8699",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "12:00",
+            "20:00"
+          ]
+        ],
+        "tue": [
+          [
+            "12:00",
+            "20:00"
+          ]
+        ],
+        "wed": [
+          [
+            "12:00",
+            "20:00"
+          ]
+        ],
+        "thu": [
+          [
+            "12:00",
+            "20:00"
+          ]
+        ],
+        "fri": [
+          [
+            "12:00",
+            "20:00"
+          ]
+        ],
+        "sat": [
+          [
+            "12:00",
+            "20:00"
+          ]
+        ],
+        "sun": [
+          [
+            "12:00",
+            "19:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "12:00-20:00 (Sun to 19:00) per official shop list, fetched 2026-07-30. NOON opening - not a morning stop.",
+      "approx": true
+    },
+    "maps_query": "マザーハウス本店 台東区台東1-10-7",
     "needs": [
       "coords"
     ],
