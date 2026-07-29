@@ -482,7 +482,7 @@
     "id": "ivy-place-daikanyama",
     "name_en": "IVY PLACE",
     "name_ja": "アイビープレイス",
-    "one_liner": "Garden-patio American breakfast by Daikanyama Tsutaya; nicer ambience than West Georgia St.",
+    "one_liner": "Garden-patio American breakfast by Daikanyama Tsutaya; the real sit-down American breakfast near do-c now that West Georgia St. is gone.",
     "one_liner_ja": "代官山ツタヤ隣のガーデンテラスで味わうアメリカンな朝食・ブランチ",
     "address": "16-15 Sarugaku-cho, Shibuya-ku, Tokyo 150-0033",
     "addr_geo": "東京都渋谷区猿楽町16-15",
@@ -563,8 +563,8 @@
     "id": "west-georgia-st-ebisu",
     "name_en": "West Georgia St.",
     "name_ja": "ウエストジョージアストリート",
-    "one_liner": "Waffle House-energy American breakfast plate, open early for a proper sit-down morning in Ebisu",
-    "one_liner_ja": "ウェッフルハウス風のアメリカン朝食プレート、朝早くから営業（恵比寿）",
+    "one_liner": "GONE - walked to 恵比寿南2-3-15 OKA7ビル3F on the morning of 29 Jul 2026 and there was no such shop. The Ebisu address was itself a temporary relocation; treat it as closed. Went to EBISU FOOD HALL nearby instead.",
+    "one_liner_ja": "閉店・不在 - 2026/7/29朝、恵比寿南2-3-15 OKA7ビル3Fに実際に行ったが店は存在せず。恵比寿の住所自体が仮移転先だった模様。代わりに近くのEBISU FOOD HALLへ。",
     "address": "東京都渋谷区恵比寿南2-3-15 OKA7ビル 3F",
     "addr_geo": "東京都渋谷区恵比寿南2-3-15",
     "hubs": [
@@ -576,26 +576,120 @@
       "brunch",
       "cafe",
       "dessert",
-      "pancake"
+      "pancake",
+      "closed"
     ],
-    "priority": "medium",
-    "status": "want",
+    "priority": "low",
+    "status": "skip",
     "hours": {
       "timezone": "Asia/Tokyo",
-      "weekly": null,
-      "closed": [],
-      "note": "opens ~8:00 per one diner report (Jul 2026); closing time and regular closing days unknown - confirm day-of on Google Maps",
-      "approx": true
+      "weekly": {
+        "mon": [],
+        "tue": [],
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": []
+      },
+      "closed": [
+        "Not present at the listed address when visited in person, 2026-07-29 (~8:00). Do not route here again."
+      ],
+      "note": "Previously reported 8:00-14:30 (LO 14:00). Moot - the shop was not at the address on 2026-07-29.",
+      "approx": false
     },
     "phone": null,
     "plus_code": null,
     "lat": 35.645714,
     "lng": 139.707626,
     "maps_query": "West Georgia St Ebisu",
-    "needs": [
-      "hours"
-    ],
+    "needs": [],
     "vault": "food/west-georgia-st-ebisu.md",
+    "kind": "food",
+    "far": false
+  },
+  {
+    "id": "ebisu-food-hall",
+    "name_en": "EBISU FOOD HALL",
+    "name_ja": "エビスフードホール",
+    "one_liner": "Open-front food hall 2 min from Ebisu Station - craft beer, tapas and grill, doors from 9:00. The 29 Jul 2026 breakfast fallback after West Georgia St. turned out not to exist.",
+    "one_liner_ja": "恵比寿駅徒歩2分のオープンなフードホール。クラフトビール・タパス・グリル、9:00から。2026/7/29、West Georgia St.が存在しなかったため実際に行った店。",
+    "address": "東京都渋谷区恵比寿南1-1-9 シマヤビル1F",
+    "addr_geo": "東京都渋谷区恵比寿南1-1-9",
+    "hubs": [
+      "doc-ebisu"
+    ],
+    "tags": [
+      "food-hall",
+      "breakfast",
+      "cafe",
+      "drink",
+      "lunch",
+      "dinner"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "09:00",
+            "23:00"
+          ]
+        ],
+        "tue": [
+          [
+            "09:00",
+            "23:00"
+          ]
+        ],
+        "wed": [
+          [
+            "09:00",
+            "23:00"
+          ]
+        ],
+        "thu": [
+          [
+            "09:00",
+            "23:00"
+          ]
+        ],
+        "fri": [
+          [
+            "09:00",
+            "23:00"
+          ]
+        ],
+        "sat": [
+          [
+            "09:00",
+            "23:00"
+          ]
+        ],
+        "sun": [
+          [
+            "09:00",
+            "23:00"
+          ]
+        ]
+      },
+      "closed": [
+        "Irregular holidays (不定休)"
+      ],
+      "note": "9:00-23:00, LO 22:00. Individual stalls inside may start later than the hall itself - confirm day-of.",
+      "approx": true
+    },
+    "phone": "03-5773-5959",
+    "plus_code": null,
+    "lat": null,
+    "lng": null,
+    "maps_query": "EBISU FOOD HALL 恵比寿南1-1-9",
+    "needs": [
+      "coords"
+    ],
+    "vault": "food/ebisu-food-hall.md",
     "kind": "food",
     "far": false
   },
