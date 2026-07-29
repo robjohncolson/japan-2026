@@ -11581,7 +11581,7 @@
     "id": "diptyque-fukuoka-tenjin",
     "name_en": "DIPTYQUE Fukuoka (Tenjin)",
     "name_ja": "ディプティック 福岡",
-    "one_liner": "First Diptyque boutique in Kyushu - opened 27 Feb 2026, so it is missing from older guides. 11:00-20:00, Tenjin. Iwataya does NOT carry the brand. Relevant as the by-car alternative to hauling 8 bottles of liquid soap from Tokyo, though buying on the Tokyo tail (24-27 Aug) means carrying it even less.",
+    "one_liner": "First Diptyque boutique in Kyushu - opened 27 Feb 2026, so it is missing from older guides. 11:00-20:00, Tenjin. Iwataya does NOT carry the brand, so this is the ONLY Kyushu source. Matters because the 8 bottles are gifts for the Kyushu relatives: buying here means the car carries them instead of the Shinkansen. Call ahead - a new single boutique may not stock 8 identical bottles.",
     "one_liner_ja": "九州初のディプティック直営店（2026/2/27開店のため旧情報には未掲載）。11:00-20:00・天神。岩田屋は取扱なし。液体ソープ8本を東京から運ぶ代わりに車で回収できる選択肢。",
     "address": "福岡県福岡市中央区天神2-8-35 天神住友生命FJビジネスセンター 1F",
     "addr_geo": "福岡県福岡市中央区天神2-8-35",
@@ -11593,7 +11593,7 @@
       "errand",
       "fragrance"
     ],
-    "priority": "medium",
+    "priority": "high",
     "status": "want",
     "hours": {
       "timezone": "Asia/Tokyo",
@@ -11642,7 +11642,7 @@
         ]
       },
       "closed": [],
-      "note": "11:00-20:00. Opened 27 Feb 2026 as the first Kyushu boutique. Call ahead for 8 identical bottles - a new single boutique may not hold that depth.",
+      "note": "11:00-20:00. Opened 27 Feb 2026 as the first Kyushu boutique. CALL AHEAD for 8 identical bottles; if they cannot confirm, fall back to Isetan Shinjuku before leaving Tokyo, because Iwataya does not carry the brand and there is no other Kyushu source.",
       "approx": true
     },
     "phone": null,
