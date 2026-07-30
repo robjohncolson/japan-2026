@@ -11084,6 +11084,87 @@
     "far": false
   },
   {
+    "id": "rairaitei-saga-shinei",
+    "kind": "food",
+    "name_en": "Rairaitei Saga Shinei",
+    "name_ja": "来来亭 佐賀新栄店",
+    "one_liner": "The rai-rai-tei from last trip — Kyoto-style shoyu chicken broth with back fat, thin noodles. Saga Pref's first branch (2022), ~20-25 min drive west of Kanzaki.",
+    "one_liner_ja": "京都風醤油の鶏ガラスープに背脂。佐賀県1号店（2022年）。神埼から車で約20〜25分。",
+    "address": "佐賀県佐賀市新栄東1丁目4-2",
+    "addr_geo": "佐賀県佐賀市",
+    "lat": null,
+    "lng": null,
+    "plus_code": null,
+    "hubs": [
+      "kyushu"
+    ],
+    "tags": [
+      "ramen",
+      "saga",
+      "lunch",
+      "dinner"
+    ],
+    "priority": "medium",
+    "status": "want",
+    "phone": "0952-37-1057",
+    "hours": {
+      "timezone": "Asia/Tokyo",
+      "weekly": {
+        "mon": [
+          [
+            "11:00",
+            "24:00"
+          ]
+        ],
+        "tue": [
+          [
+            "11:00",
+            "24:00"
+          ]
+        ],
+        "wed": [
+          [
+            "11:00",
+            "24:00"
+          ]
+        ],
+        "thu": [
+          [
+            "11:00",
+            "24:00"
+          ]
+        ],
+        "fri": [
+          [
+            "11:00",
+            "24:00"
+          ]
+        ],
+        "sat": [
+          [
+            "11:00",
+            "24:00"
+          ]
+        ],
+        "sun": [
+          [
+            "11:00",
+            "24:00"
+          ]
+        ]
+      },
+      "closed": [],
+      "note": "11:00-24:00 per Hot Pepper/Hitosara, fetched 2026-07-31. A few irregular closure days per year (sources conflict) - call 0952-37-1057 if it matters.",
+      "approx": true
+    },
+    "maps_query": "来来亭 佐賀新栄店",
+    "needs": [
+      "coords"
+    ],
+    "vault": null,
+    "far": false
+  },
+  {
     "id": "kokutei-honten",
     "kind": "food",
     "name_en": "Kokutei Honten (Kumamoto ramen)",
