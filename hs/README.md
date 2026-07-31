@@ -82,7 +82,14 @@ committed .ics is stale.
 ## Haskell in the browser (shipped)
 
 The "Right now λ" section at the top of the page runs `NowNext.hs` **on
-the visitor's phone**: `tools/get-microhs.sh` builds a pinned
+the visitor's phone** — today's card, tonight's lodging, current/next
+timed step, plus the atlas layer: which places are **open right now**
+(with closing times, region inferred from tonight's lodging, 24h
+konbini sorted last), what **opens within 90 minutes**, and which
+high-priority places are **closed today** (the "Honten is dark on
+Wednesdays" mistake, caught at decision time — including explicit
+closed dates and Obon ranges, and cross-midnight hours like 18:00–25:00).
+The machinery: `tools/get-microhs.sh` builds a pinned
 [MicroHs](https://github.com/augustss/MicroHs) (fetched via the Go
 module proxy, since github.com is blocked in the build sandbox), the
 apply script compiles `NowNext.hs` + `Schedule.hs` to combinators

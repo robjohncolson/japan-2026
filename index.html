@@ -1866,6 +1866,9 @@ const T = {
   'hs.now':{en:"Now", ja:"進行中"},
   'hs.next':{en:"Next", ja:"つぎ"},
   'hs.tomorrow':{en:"Tomorrow", ja:"明日"},
+  'hs.open':{en:"Open now", ja:"営業中"},
+  'hs.soon':{en:"Opens soon", ja:"まもなく開店"},
+  'hs.closedToday':{en:"Closed today", ja:"本日定休"},
   'hs.note':{en:"Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. Same Schedule.hs that generates this page.", ja:"このページを生成しているSchedule.hsを、MicroHsでコンビネータにコンパイルし、WebAssemblyでスマホ上で評価しています。"},
 
   'h.game':{en:"✦ Bored? Play Bobby's game — Moon Chorus", ja:"✦ ひまなとき — ボビーのゲーム『月の合唱』"},
@@ -4768,6 +4771,18 @@ if('serviceWorker' in navigator){
     if(j.now) lines.push('▶ ' + esc(t('hs.now')) + ' ' + esc(j.now.mark) + ' ' + esc(j.now.time) + ' — ' + esc(j.now.text));
     if(j.next) lines.push('⏭ ' + esc(t('hs.next')) + ' ' + esc(j.next.mark) + ' ' + esc(j.next.time) + ' — ' + esc(j.next.text));
     if(j.tomorrow) lines.push('→ ' + esc(t('hs.tomorrow')) + ': ' + esc(j.tomorrow));
+    function pname(i){ return esc(ja ? (i.ja || i.en) : i.en); }
+    if(j.open && j.open.items.length){
+      lines.push('🟢 ' + esc(t('hs.open')) + ' (' + esc(String(j.open.total)) + '): ' +
+        j.open.items.map(function(i){ return pname(i) + ' <span style="opacity:.6">~' + esc(i.until) + '</span>'; }).join(' · '));
+    }
+    if(j.soon && j.soon.length){
+      lines.push('🔜 ' + esc(t('hs.soon')) + ': ' +
+        j.soon.map(function(i){ return pname(i) + ' <span style="opacity:.6">' + esc(i.at) + '</span>'; }).join(' · '));
+    }
+    if(j.closedToday && j.closedToday.length){
+      lines.push('🚫 ' + esc(t('hs.closedToday')) + ': ' + j.closedToday.map(pname).join(' · '));
+    }
     out.innerHTML = lines.join('<br>');
     out.style.display = 'block';
   }

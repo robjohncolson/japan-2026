@@ -7,7 +7,9 @@
 -- Kept to simple Haskell2010 so both GHC and MicroHs compile it.
 module NowNext (main) where
 
+import Atlas (Hours (..), Place (..), places)
 import Data.Char (chr, isDigit, ord)
+import Data.List (isInfixOf, sortOn)
 import Schedule (days, nights)
 import System.Environment (getArgs)
 
@@ -120,6 +122,81 @@ timeline detail = increasing (-1) [(m, b, t) | (m, b) <- steps (plain detail), J
       | t > prev = (m, b, t) : increasing t r
       | otherwise = increasing prev r
 
+-- what's open right now ------------------------------------------------
+
+data Region = Kyushu | TokyoSide deriving (Eq)
+
+-- tonight's lodging tells us which side of the country we're on
+regionOf :: String -> Region
+regionOf lodging =
+  if any (`isInfixOf` lodging) ["Hakata", "Kanzaki", "Kuma", "Hitoyoshi", "Kumamoto", "Kagoshima", "Aso", "Fukuoka"]
+    then Kyushu
+    else TokyoSide
+
+inRegion :: Region -> Place -> Bool
+inRegion r p = case r of
+  Kyushu -> "kyushu" `elem` pHubs p
+  TokyoSide -> "kyushu" `notElem` pHubs p
+
+-- a place someone might walk into with free time
+walkIn :: Place -> Bool
+walkIn p = pStatus p /= "skip" && pKind p `elem` ["food", "activity", "sight", "errand"]
+
+hmMin :: String -> Maybe Int
+hmMin s = case span isDigit s of
+  (ds, ':' : m1 : m2 : _)
+    | not (null ds), length ds <= 2, isDigit m1, isDigit m2 ->
+        Just (read ds * 60 + read [m1, m2])
+  _ -> Nothing
+
+ivMins :: [(String, String)] -> [(Int, Int)]
+ivMins ivs = [(x, y) | (a, b) <- ivs, Just x <- [hmMin a], Just y <- [hmMin b]]
+
+dowKeys :: [String]
+dowKeys = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"]
+
+dayIvs :: Place -> Int -> [(Int, Int)]
+dayIvs p w = case hWeekly (pHours p) of
+  Just ds -> maybe [] ivMins (lookup (dowKeys !! w) ds)
+  Nothing -> []
+
+closedOn :: String -> Place -> Bool
+closedOn date p =
+  date `elem` hClosed h || any (\(a, b) -> a <= date && date <= b) (hClosedRanges h)
+  where
+    h = pHours p
+
+-- Just closing-minute if open at `now` (today's intervals, plus
+-- yesterday's that spill past midnight, e.g. 18:00–25:00)
+openUntil :: Int -> Int -> Place -> Maybe Int
+openUntil w now p =
+  case [b | (a, b) <- dayIvs p w, a <= now, now < b]
+    ++ [b - 1440 | (a, b) <- dayIvs p ((w + 6) `mod` 7), b > 1440, a <= now + 1440, now + 1440 < b] of
+    b : _ -> Just b
+    [] -> Nothing
+
+-- Just opening-minute if it opens within 90 min
+opensSoon :: Int -> Int -> Place -> Maybe Int
+opensSoon w now p =
+  case [a | (a, _) <- dayIvs p w, now < a, a <= now + 90] of
+    a : _ -> Just a
+    [] -> Nothing
+
+priRank :: Place -> Int
+priRank p = case pPriority p of "high" -> 0; "medium" -> 1; _ -> 2
+
+untilStr :: Int -> String
+untilStr t = if t >= 1440 then hmStr (t - 1440) ++ "+1" else hmStr t
+
+placeJson :: Place -> [(String, String)] -> String
+placeJson p extra =
+  obj
+    ( [ ("en", jstr (pNameEn p))
+      , ("ja", jstr (maybe (pNameEn p) id (pNameJa p)))
+      ]
+        ++ [(k, jstr v) | (k, v) <- extra]
+    )
+
 -- json ----------------------------------------------------------------
 
 jstr :: String -> String
@@ -162,6 +239,39 @@ answer epoch =
       stepJson (m, b, t) = obj [("mark", jstr [m]), ("time", jstr (hmStr t)), ("text", jstr (oneLine 90 b))]
       nextKey = dateKey (mDate (moment (epoch + 86400)))
       tomorrow = lookup nextKey days
+      wd = mWeekday mo
+      region = case lodging of ((en, _) : _) -> Just (regionOf en); [] -> Nothing
+      candidates r = [p | p <- places, walkIn p, inRegion r p, not (closedOn key p)]
+      -- always-open places (konbini) sort last: knowing they're open is no news
+      allDayish p = any (\(a, b) -> b - a >= 20 * 60) (dayIvs p wd)
+      openNow r =
+        sortOn (\(p, _) -> (allDayish p, priRank p, pNameEn p)) [(p, b) | p <- candidates r, Just b <- [openUntil wd nowMin p]]
+      soonList r =
+        sortOn (\(p, a) -> (priRank p, a)) $
+          [(p, a) | p <- candidates r, openUntil wd nowMin p == Nothing, Just a <- [opensSoon wd nowMin p]]
+      closedToday r =
+        [ p
+        | p <- places
+        , walkIn p
+        , inRegion r p
+        , pPriority p == "high"
+        , hWeekly (pHours p) /= Nothing
+        , null (dayIvs p wd) || closedOn key p
+        ]
+      atlasFields = case region of
+        Nothing -> []
+        Just r ->
+          let os = openNow r
+           in [ ( "open"
+                , obj
+                    [ ("total", show (length os))
+                    , ("items", "[" ++ intercalate "," [placeJson p [("until", untilStr b)] | (p, b) <- take 6 os] ++ "]")
+                    ]
+                )
+              , ("soon", "[" ++ intercalate "," [placeJson p [("at", hmStr a)] | (p, a) <- take 3 (soonList r)] ++ "]")
+              , ("closedToday", "[" ++ intercalate "," [placeJson p [] | p <- take 4 (closedToday r)] ++ "]")
+              ]
+      intercalate sep = foldr (\a b -> if null b then a else a ++ sep ++ b) ""
    in obj
         ( [ ("date", jstr key)
           , ("weekday", jstr (weekdayName (mWeekday mo)))
@@ -185,6 +295,7 @@ answer epoch =
                    Just c -> [("tomorrow", jstr (trim (plain (field "label" c))))]
                    Nothing -> [("tomorrow", "null")]
                )
+            ++ atlasFields
         )
 
 -- epoch seconds via first program argument, or stdin as fallback (the
