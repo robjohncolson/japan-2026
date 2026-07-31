@@ -11,6 +11,7 @@ ghc -O0 -outputdir hs/.build -o hs/.build/check -ihs hs/Check.hs 1>/dev/null
 hs/.build/check            # invariants first — refuse to splice a broken schedule
 hs/.build/check emit
 cp hs/.build/japan-2026.ics japan-2026.ics
+cp hs/.build/koko-places.json koko-places.json
 if [ -x hs/.microhs/bin/mhs ]; then
   MHSDIR=hs/.microhs/root hs/.microhs/bin/mhs -ihs NowNext -ohs-wasm/now-next.comb 2>/dev/null
   echo "recompiled hs-wasm/now-next.comb"

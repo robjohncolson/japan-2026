@@ -19,15 +19,16 @@
 -- deliberate record ("West Georgia does not exist").
 module Main (main) where
 
+import qualified Atlas
 import Data.Char (isDigit)
 import Data.List (isPrefixOf, sort, sortOn)
 import qualified Data.Map.Strict as M
-import Data.Maybe (fromMaybe, isJust, mapMaybe)
+import Data.Maybe (isJust, mapMaybe)
 import Data.Time.Calendar (Day, DayOfWeek (..), addDays, dayOfWeek)
 import Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
 import Emit (renderDays, renderNights)
+import EmitAtlas (renderAtlas)
 import Ics (renderIcs)
-import Json
 import qualified Schedule
 import System.Environment (getArgs)
 import System.Exit (exitFailure, exitSuccess)
@@ -99,25 +100,33 @@ scheduleNights =
   , Just t <- [parseDay b]
   ]
 
-decodePlaces :: JValue -> Either String [Place]
-decodePlaces v = do
-  rows <- maybe (Left "places: not an array") Right (jArray v)
-  mapM one rows
+-- the checker's view of Atlas.hs: names a card would use, status, and
+-- hours in minutes
+placesFromAtlas :: [Place]
+placesFromAtlas = map conv Atlas.places
   where
-    one o = do
-      pid <- maybe (Left "place without id") Right (jLookup "id" o >>= jString)
-      let s field = jLookup field o >>= jString
-          names = [n | Just n <- [s "name_ja", s "maps_query", s "name_en"], n /= ""]
-          status = fromMaybe "want" (s "status")
-          hours = jLookup "hours" o
-          weekly = hours >>= jLookup "weekly" >>= jObject >>= traverse dayIv
-          dayIv (k, JArr ivs) = (,) k <$> traverse iv ivs
-          dayIv (k, JNull) = Just (k, [])
-          dayIv _ = Nothing
-          iv (JArr [JStr a, JStr b]) = (,) <$> hhmm a <*> hhmm b
-          iv _ = Nothing
-          closed = fromMaybe [] (hours >>= jLookup "closed" >>= jArray >>= traverse jString)
-      Right (Place pid names status (M.fromList <$> weekly) closed)
+    conv ap =
+      Place
+        { pId = Atlas.pId ap
+        , pNames = [n | Just n <- [Atlas.pNameJa ap, Just (Atlas.pMapsQuery ap), Just (Atlas.pNameEn ap)], n /= ""]
+        , pStatus = Atlas.pStatus ap
+        , pWeekly = M.fromList . map (fmap minutes) <$> Atlas.hWeekly (Atlas.pHours ap)
+        , pClosed = Atlas.hClosed (Atlas.pHours ap)
+        }
+    minutes ivs = [(x, y) | (a, b) <- ivs, Just x <- [hhmm a], Just y <- [hhmm b]]
+
+-- every HH:MM literal in Atlas.hs must actually parse (the minutes
+-- conversion above silently drops broken ones, so catch them here)
+checkHoursSyntax :: [Finding]
+checkHoursSyntax =
+  [ Err (Atlas.pId p ++ ": unparseable time " ++ show t ++ " (" ++ d ++ ")")
+  | p <- Atlas.places
+  , Just w <- [Atlas.hWeekly (Atlas.pHours p)]
+  , (d, ivs) <- w
+  , (a, b) <- ivs
+  , t <- [a, b]
+  , hhmm t == Nothing
+  ]
 
 hhmm :: String -> Maybe Int
 hhmm s = case break (== ':') s of
@@ -254,35 +263,33 @@ emitMain = do
   writeU "hs/.build/days.js" (renderDays ++ "\n")
   writeU "hs/.build/nights.js" (renderNights ++ "\n")
   writeU "hs/.build/japan-2026.ics" renderIcs
-  putStrLn ("emitted hs/.build/days.js (" ++ show (length Schedule.days) ++ " cards), nights.js (" ++ show (length Schedule.nights) ++ " rows), japan-2026.ics")
+  writeU "hs/.build/koko-places.json" renderAtlas
+  putStrLn ("emitted hs/.build/days.js (" ++ show (length Schedule.days) ++ " cards), nights.js (" ++ show (length Schedule.nights) ++ " rows), japan-2026.ics, koko-places.json (" ++ show (length Atlas.places) ++ " places)")
 
 checkMain :: IO ()
 checkMain = do
-  placesRaw <- do h <- openFile "koko-places.json" ReadMode; hSetEncoding h utf8; hGetContents h
-  case parseJson placesRaw >>= decodePlaces of
-    Left e -> hPutStrLn stderr ("koko-places.json decode error: " ++ e) >> exitFailure
-    Right places -> do
-      let cards = scheduleCards
-          nights = scheduleNights
-          sections =
-            [ ("schedule schema (" ++ show (length Schedule.days) ++ " cards)", checkSchema)
-            , ("calendar coverage", checkCoverage cards)
-            , ("lodging coverage (" ++ show (length nights) ++ " rows)", checkNights nights)
-            , ("atlas integrity (" ++ show (length places) ++ " places)", checkAtlas places)
-            , ("mentions vs. reality", concatMap (checkMentions places) cards)
-            , ("explicit times vs. opening hours", concatMap (checkStepTimes places) cards)
-            ]
-          findings = concatMap snd sections
-          errs = length (filter isErr findings)
-          warns = length findings - errs
-      mapM_
-        ( \(title, fs) -> do
-            putStrLn (title ++ if null fs then " ✓" else "")
-            mapM_ (putStrLn . render) fs
-        )
-        sections
-      putStrLn ("-- " ++ show errs ++ " error(s), " ++ show warns ++ " warning(s)")
-      if errs > 0 then exitFailure else exitSuccess
+  let places = placesFromAtlas
+      cards = scheduleCards
+      nights = scheduleNights
+      sections =
+        [ ("schedule schema (" ++ show (length Schedule.days) ++ " cards)", checkSchema)
+        , ("calendar coverage", checkCoverage cards)
+        , ("lodging coverage (" ++ show (length nights) ++ " rows)", checkNights nights)
+        , ("atlas integrity (" ++ show (length places) ++ " places)", checkHoursSyntax ++ checkAtlas places)
+        , ("mentions vs. reality", concatMap (checkMentions places) cards)
+        , ("explicit times vs. opening hours", concatMap (checkStepTimes places) cards)
+        ]
+      findings = concatMap snd sections
+      errs = length (filter isErr findings)
+      warns = length findings - errs
+  mapM_
+    ( \(title, fs) -> do
+        putStrLn (title ++ if null fs then " ✓" else "")
+        mapM_ (putStrLn . render) fs
+    )
+    sections
+  putStrLn ("-- " ++ show errs ++ " error(s), " ++ show warns ++ " warning(s)")
+  if errs > 0 then exitFailure else exitSuccess
 
 main :: IO ()
 main = do

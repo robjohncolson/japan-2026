@@ -1,21 +1,26 @@
-# hs/ — the Haskell schedule
+# hs/ — the Haskell trip data
 
-**The itinerary's source of truth is `hs/Schedule.hs`.** The `DAYS` and
-`NIGHTS` blocks in `index.html` are generated output — do not hand-edit
-them (the checker's drift check will fail the build if you do). The page
-itself stays plain JS because it must run on GitHub Pages + offline
-phones mid-trip; what moved to Haskell is the data and every check that
-reasons about it.
+**All trip data lives in Haskell now.** The itinerary is
+`hs/Schedule.hs`; the 155-place atlas (statuses, opening hours, names,
+coordinates) is `hs/Atlas.hs`. The `DAYS`/`NIGHTS` blocks in
+`index.html`, `koko-places.json`, and `japan-2026.ics` are all
+generated output — do not hand-edit them (the checker's drift checks
+fail the build if you do). The page itself stays plain JS because it
+must run on GitHub Pages + offline phones mid-trip; what moved to
+Haskell is the data, every check that reasons about it, and the
+on-device "Right now λ" oracle.
 
-## Editing the schedule
+## Editing the schedule or the atlas
 
-1. Edit `hs/Schedule.hs` (cards are `(field, value)` pairs; strings are
-   ordinary Haskell literals, so apostrophes are safe — the emitter
-   escapes everything mechanically, which retired the single-quote
-   SyntaxError trap for good).
+1. Edit `hs/Schedule.hs` (cards are `(field, value)` pairs) or
+   `hs/Atlas.hs` (typed `Place`/`Hours` records). Strings are ordinary
+   Haskell literals, so apostrophes are safe — the emitters escape
+   everything mechanically, which retired the single-quote SyntaxError
+   trap for good.
 2. `./tools/apply-schedule.sh` — compiles, runs the invariant checks
-   (refusing to splice a broken schedule), emits the JS blocks, splices
-   them into `index.html`, and re-extracts as a syntax proof.
+   (refusing to emit from broken data), regenerates the JS blocks +
+   `koko-places.json` + the .ics + the browser combinator file, and
+   re-extracts as a syntax proof.
 3. Bump `CACHE` in `sw.js`, commit.
 
 ## Checking (CI-style, run before any commit)
@@ -60,12 +65,18 @@ committed .ics is stale.
 
 ## Files
 
-- `Schedule.hs` — the data (generated once from the page by
+- `Schedule.hs` — the itinerary (generated once from the page by
   `tools/gen-schedule-hs.py`, hand-owned since)
+- `Atlas.hs` — the place atlas (generated once from koko-places.json by
+  `tools/gen-atlas-hs.py`, hand-owned since; typed records, so a typo'd
+  status or a malformed HH:MM is a compile/check error, not a silent bug)
 - `Emit.hs` — renders the JS blocks (single-quoted, mechanically escaped)
+- `EmitAtlas.hs` — renders koko-places.json from Atlas.hs
 - `Ics.hs` — compiles the schedule to the iCalendar feed
 - `Check.hs` — invariants + `emit` mode
-- `Json.hs` — dependency-free JSON parser (surrogate pairs included)
+- `Json.hs` — dependency-free JSON parser (surrogate pairs included);
+  no longer on the check path now that the atlas is native Haskell —
+  kept for future tooling
 - needs GHC (boot libraries only — no cabal) and node
 
 ## Haskell in the browser (shipped)
