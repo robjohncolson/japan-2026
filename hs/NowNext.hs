@@ -10,6 +10,7 @@ module NowNext (main) where
 import Atlas (Hours (..), Place (..), places)
 import Data.Char (chr, isDigit, ord)
 import Data.List (isInfixOf, sortOn)
+import Geo (haversineKm)
 import Schedule (days, deadlines, nights)
 import System.Environment (getArgs)
 
@@ -185,6 +186,17 @@ opensSoon w now p =
 priRank :: Place -> Int
 priRank p = case pPriority p of "high" -> 0; "medium" -> 1; _ -> 2
 
+coord :: Place -> Maybe (Double, Double)
+coord p = case (pLat p, pLng p) of (Just a, Just b) -> Just (a, b); _ -> Nothing
+
+distKm :: Maybe (Double, Double) -> Place -> Maybe Double
+distKm here p = haversineKm <$> here <*> coord p
+
+fmtKm :: Double -> String
+fmtKm k
+  | k < 10 = show (fromIntegral (round (k * 10) :: Int) / 10 :: Double)
+  | otherwise = show (round k :: Int)
+
 untilStr :: Int -> String
 untilStr t = if t >= 1440 then hmStr (t - 1440) ++ "+1" else hmStr t
 
@@ -226,8 +238,8 @@ oneLine n s =
 field :: String -> [(String, String)] -> String
 field k card = case lookup k card of Just v -> v; Nothing -> ""
 
-answer :: Int -> String
-answer epoch =
+answer :: Int -> Maybe (Double, Double) -> String
+answer epoch here =
   let mo = moment epoch
       key = dateKey (mDate mo)
       nowMin = mMinute mo
@@ -242,10 +254,17 @@ answer epoch =
       wd = mWeekday mo
       region = case lodging of ((en, _) : _) -> Just (regionOf en); [] -> Nothing
       candidates r = [p | p <- places, walkIn p, inRegion r p, not (closedOn key p)]
-      -- always-open places (konbini) sort last: knowing they're open is no news
+      -- always-open places (konbini) sort last: knowing they're open is
+      -- no news — unless we know where you are, in which case pure
+      -- distance wins (the nearest konbini IS the answer sometimes)
       allDayish p = any (\(a, b) -> b - a >= 20 * 60) (dayIvs p wd)
+      openKey p = case distKm here p of
+        Just d -> (d, priRank p, pNameEn p)
+        Nothing -> case here of
+          Just _ -> (9999, priRank p, pNameEn p) -- no coords: sink when sorting by distance
+          Nothing -> (if allDayish p then 1 else 0, priRank p, pNameEn p)
       openNow r =
-        sortOn (\(p, _) -> (allDayish p, priRank p, pNameEn p)) [(p, b) | p <- candidates r, Just b <- [openUntil wd nowMin p]]
+        sortOn (\(p, _) -> openKey p) [(p, b) | p <- candidates r, Just b <- [openUntil wd nowMin p]]
       soonList r =
         sortOn (\(p, a) -> (priRank p, a)) $
           [(p, a) | p <- candidates r, openUntil wd nowMin p == Nothing, Just a <- [opensSoon wd nowMin p]]
@@ -274,12 +293,15 @@ answer epoch =
            in [ ( "open"
                 , obj
                     [ ("total", show (length os))
-                    , ("items", "[" ++ intercalate "," [placeJson p [("until", untilStr b)] | (p, b) <- take 6 os] ++ "]")
+                    , ( "items"
+                      , "[" ++ intercalate "," [placeJson p (("until", untilStr b) : kmField p) | (p, b) <- take 6 os] ++ "]"
+                      )
                     ]
                 )
-              , ("soon", "[" ++ intercalate "," [placeJson p [("at", hmStr a)] | (p, a) <- take 3 (soonList r)] ++ "]")
+              , ("soon", "[" ++ intercalate "," [placeJson p (("at", hmStr a) : kmField p) | (p, a) <- take 3 (soonList r)] ++ "]")
               , ("closedToday", "[" ++ intercalate "," [placeJson p [] | p <- take 4 (closedToday r)] ++ "]")
               ]
+      kmField p = case distKm here p of Just d -> [("km", fmtKm d)]; Nothing -> []
       intercalate sep = foldr (\a b -> if null b then a else a ++ sep ++ b) ""
    in obj
         ( [ ("date", jstr key)
@@ -308,16 +330,18 @@ answer epoch =
             ++ atlasFields
         )
 
--- epoch seconds via first program argument, or stdin as fallback (the
--- browser evaluator feeds the .comb through stdin, so argv is the only
--- free channel there)
+-- argv: epoch [lat lng] — or epoch on stdin (the browser evaluator
+-- feeds the .comb through stdin, so argv is the only free channel
+-- there; coordinates are optional and processed entirely on-device)
 main :: IO ()
 main = do
   args <- getArgs
   s <- case args of
     a : _ -> return a
     [] -> getContents
-  let epoch = case reads (dropWhile (== ' ') s) of
-        ((n, _) : _) -> n
-        [] -> 0
-  putStrLn (answer epoch)
+  let num v = case reads (dropWhile (== ' ') v) of ((n, _) : _) -> Just n; [] -> Nothing
+      epoch = case num s of Just n -> n; Nothing -> 0 :: Int
+      here = case args of
+        _ : la : lo : _ -> (,) <$> num la <*> num lo
+        _ -> Nothing
+  putStrLn (answer epoch here)

@@ -28,6 +28,7 @@ import Data.Time.Calendar (Day, DayOfWeek (..), addDays, dayOfWeek)
 import Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
 import Emit (renderDays, renderNights)
 import EmitAtlas (renderAtlas)
+import Geo (haversineKm)
 import Ics (renderIcs)
 import qualified Schedule
 import System.Environment (getArgs)
@@ -47,6 +48,7 @@ data Place = Place
   , pWeekly :: Maybe (M.Map String [(Int, Int)]) -- "mon".."sun" -> minute intervals
   , pClosed :: [String] -- explicit closed dates, "YYYY-MM-DD"
   , pRanges :: [(String, String)] -- inclusive closed date ranges (Obon, renovations)
+  , pCoord :: Maybe (Double, Double)
   }
 
 -- decoding -------------------------------------------------------------
@@ -116,6 +118,7 @@ placesFromAtlas = map conv Atlas.places
         , pWeekly = M.fromList . map (fmap minutes) <$> Atlas.hWeekly (Atlas.pHours ap)
         , pClosed = Atlas.hClosed (Atlas.pHours ap)
         , pRanges = Atlas.hClosedRanges (Atlas.pHours ap)
+        , pCoord = (,) <$> Atlas.pLat ap <*> Atlas.pLng ap
         }
     minutes ivs = [(x, y) | (a, b) <- ivs, Just x <- [hhmm a], Just y <- [hhmm b]]
 
@@ -281,6 +284,53 @@ checkStepTimes ps (DayText d txt) =
               Just (read digits * 60 + read [m1, m2])
           | otherwise = go r
 
+-- physics: consecutive timed steps whose resolved places are far apart
+-- with little time between them. 20 km/h is generous for walk+subway;
+-- anything above that needs a shinkansen or a rethink.
+checkStepGeometry :: [Place] -> DayText -> [Finding]
+checkStepGeometry ps (DayText d txt) =
+  concatMap pairCheck (zip located (drop 1 located))
+  where
+    marks = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫"
+    steps' s = case break (`elem` marks) s of
+      (_, []) -> []
+      (_, m : rest) -> let (body, rest') = break (`elem` marks) rest in (m, body) : steps' rest'
+    timed = [(m, t, body) | (m, body) <- steps' txt, Just t <- [stepTime body]]
+    stepTime body = go body
+      where
+        go [] = Nothing
+        go s@(c : r)
+          | isDigit c
+          , (digits, rest) <- span isDigit s
+          , length digits <= 2
+          , ':' : m1 : m2 : _ <- rest
+          , isDigit m1 && isDigit m2
+          , read digits < (24 :: Int) =
+              Just (read digits * 60 + read [m1, m2])
+          | otherwise = go r
+    located =
+      [ (m, t, p, c)
+      | (m, t, body) <- timed
+      , (_, p) : _ <- [[x | x@(_, q) <- mentionsIn body ps, pCoord q /= Nothing]]
+      , Just c <- [pCoord p]
+      ]
+    pairCheck ((m1, t1, p1, c1), (m2, t2, p2, c2))
+      | pId p1 /= pId p2
+      , t2 > t1
+      , dist > 1.5
+      , speed > 20 =
+          [ Warn
+              ( fmtDay d ++ " steps " ++ [m1] ++ "→" ++ [m2] ++ ": " ++ pId p1 ++ " → " ++ pId p2
+                  ++ " needs " ++ show (round speed :: Int) ++ " km/h ("
+                  ++ show (fromIntegral (round (dist * 10) :: Int) / 10 :: Double) ++ " km in "
+                  ++ show (t2 - t1) ++ " min)"
+              )
+          ]
+      | otherwise = []
+      where
+        dist = haversineKm c1 c2
+        speed = dist / (fromIntegral (t2 - t1) / 60)
+
 -- main -----------------------------------------------------------------
 
 writeU :: FilePath -> String -> IO ()
@@ -307,6 +357,7 @@ checkMain = do
         , ("atlas integrity (" ++ show (length places) ++ " places)", checkHoursSyntax ++ checkAtlas places)
         , ("mentions vs. reality", concatMap (checkMentions places) cards)
         , ("explicit times vs. opening hours", concatMap (checkStepTimes places) cards)
+        , ("step geometry (haversine)", concatMap (checkStepGeometry places) cards)
         ]
       findings = concatMap snd sections
       errs = length (filter isErr findings)

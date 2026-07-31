@@ -1871,7 +1871,7 @@ const T = {
   'hs.closedToday':{en:"Closed today", ja:"本日定休"},
   'hs.deadline':{en:"Deadline", ja:"期限"},
   'hs.tmrw':{en:"(tomorrow)", ja:"（明日）"},
-  'hs.note':{en:"Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. Same Schedule.hs that generates this page.", ja:"このページを生成しているSchedule.hsを、MicroHsでコンビネータにコンパイルし、WebAssemblyでスマホ上で評価しています。"},
+  'hs.note':{en:"Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. If you allow location, distances are computed on-device too — your position is never sent anywhere.", ja:"このページを生成しているSchedule.hsを、MicroHsでコンビネータにコンパイルし、WebAssemblyでスマホ上で評価しています。位置情報を許可すると距離も端末内で計算— 位置が送信されることはありません。"},
 
   'h.game':{en:"✦ Bored? Play Bobby's game — Moon Chorus", ja:"✦ ひまなとき — ボビーのゲーム『月の合唱』"},
   'game.desc':{en:"<b>Moon Chorus</b> (still at aim-dojo.vercel.app) — a browser rhythm-aim game Bobby built. Long before dinosaurs, the Moon kept a choir of distant minds. Their voices fell asleep inside glowing <b>Echo Orbs</b>. You are the <b>Listener</b>: step when the floor flashes, send a rainbow link through the gap, and land it while the orb glows so a lost voice can rejoin the chorus. Miss the glow and you only clink a closed shell. Nothing to install.",
@@ -4744,11 +4744,26 @@ if('serviceWorker' in navigator){
     if(!combP) combP = fetch('hs-wasm/now-next.comb').then(function(r){ if(!r.ok) throw 0; return r.arrayBuffer(); });
     return Promise.all([srcP, combP]);
   }
-  function runHs(src, comb){
+  function getGeo(){
+    return new Promise(function(resolve){
+      if(!navigator.geolocation){ resolve(null); return; }
+      var done = false;
+      function fin(v){ if(!done){ done = true; resolve(v); } }
+      navigator.geolocation.getCurrentPosition(
+        function(p){ fin([p.coords.latitude, p.coords.longitude]); },
+        function(){ fin(null); },
+        { timeout: 4000, maximumAge: 300000 }
+      );
+      setTimeout(function(){ fin(null); }, 4500);
+    });
+  }
+  function runHs(src, comb, geo){
     return new Promise(function(resolve, reject){
       var bytes = new Uint8Array(comb), sent = 0, done = false;
+      var argv = ['+RTS', '-r/dev/stdin', '-RTS', String(Math.floor(Date.now()/1000))];
+      if(geo) argv = argv.concat([String(geo[0]), String(geo[1])]);
       var cfg = {
-        arguments: ['+RTS', '-r/dev/stdin', '-RTS', String(Math.floor(Date.now()/1000))],
+        arguments: argv,
         thisProgram: 'mhseval',
         stdin: function(){ return sent < bytes.length ? bytes[sent++] : null; },
         print: function(s){
@@ -4776,11 +4791,15 @@ if('serviceWorker' in navigator){
     function pname(i){ return esc(ja ? (i.ja || i.en) : i.en); }
     if(j.open && j.open.items.length){
       lines.push('🟢 ' + esc(t('hs.open')) + ' (' + esc(String(j.open.total)) + '): ' +
-        j.open.items.map(function(i){ return pname(i) + ' <span style="opacity:.6">~' + esc(i.until) + '</span>'; }).join(' · '));
+        j.open.items.map(function(i){
+          return pname(i) + ' <span style="opacity:.6">' + (i.km ? esc(i.km) + 'km · ' : '') + '~' + esc(i.until) + '</span>';
+        }).join(' · '));
     }
     if(j.soon && j.soon.length){
       lines.push('🔜 ' + esc(t('hs.soon')) + ': ' +
-        j.soon.map(function(i){ return pname(i) + ' <span style="opacity:.6">' + esc(i.at) + '</span>'; }).join(' · '));
+        j.soon.map(function(i){
+          return pname(i) + ' <span style="opacity:.6">' + (i.km ? esc(i.km) + 'km · ' : '') + esc(i.at) + '</span>';
+        }).join(' · '));
     }
     if(j.closedToday && j.closedToday.length){
       lines.push('🚫 ' + esc(t('hs.closedToday')) + ': ' + j.closedToday.map(pname).join(' · '));
@@ -4799,7 +4818,7 @@ if('serviceWorker' in navigator){
     running = true;
     out.style.display = 'block';
     out.textContent = t('hs.loading');
-    fetchAssets().then(function(a){ return runHs(a[0], a[1]); }).then(function(j){
+    Promise.all([fetchAssets(), getGeo()]).then(function(r){ return runHs(r[0][0], r[0][1], r[1]); }).then(function(j){
       render(j);
       btn.textContent = t('hs.rerun');
       btn.removeAttribute('data-i18n');
