@@ -1,0 +1,749 @@
+v8.4
+669
+A _0 _20 @_365 @C' _0 _20 @@P _428 @Z _11 _20 @@@@B _434 @B _665 @C C' _667 _637 @@_451 C _151 _224 @@#32 @@@_123 _68 @_145 #0 @@@@Z U K @@@@@@@:668 @
+A C _666 @_516 @:667 @
+A U K3 @:666 @
+A C C' C @S' C' C @@C' C' C' S @@@C' C' C' S' C @@@@C' C' C' C' C' S @@@@@C' C' C' C' C' C' S' B _441 @@@@@@@@B S' B @B C' S' S' B @@@@B B B B' @@@B B B B _170 @@@@S' B @B' B C' O @@C'B B P @C _437 @fromUTF8 "date" @@@@_440 @@@@S' S' B @@B B O @@C'B B P @C _437 @fromUTF8 "weekday" @@@@B _440 @B _443 @_444 @@@@@S' C'B @B B O @@C'B B P @C _437 @fromUTF8 "weekdayJa" @@@@B _440 @B _445 @_444 @@@@@C' C' O @@C'B B P @C _437 @fromUTF8 "time" @@@@B _440 @_449 @@@K @@@@@@@@@B B B B B C'B B _170 @P S' O @S' P @C _437 @fromUTF8 "label" @@@C _437 @fromUTF8 "null" @@@@C' O @S' P @C _437 @fromUTF8 "labelJa" @@@C _437 @fromUTF8 "null" @@@@K @@_439 I @@@C S' S' O @@B C' P @C _437 @fromUTF8 "label" @@@@B _440 @B _452 @B _639 @_643 fromUTF8 "label" @@@@@@@C' C' O @@B C' P @C _437 @fromUTF8 "labelJa" @@@@B _440 @B _452 @B _639 @_643 fromUTF8 "label_ja" @@@@@@@K @@@_439 I @@@@@@@@@@B B B B C'B B _170 @C C C' Y @B B P K @@@B B C B @@@S' S' S' C'B @@@B B B B' @@@B B B B' @@@B' B C @C _57 _648 _232 @@@@@@@@C' S' S' C'B @@@B B B B' @@@B' B C @_57 _648 _232 @@@@@@B C' C' _108 @@P @@@@@@@_649 @@S' O @S' P @C _437 @fromUTF8 "lodgingEn" @@@C _437 @fromUTF8 "null" @@@@C' O @S' P @C _437 @fromUTF8 "lodgingJa" @@@C _437 @fromUTF8 "null" @@@@K @@_439 I @@@@Z U C C' C' @B S' O @@B C' P @C _437 @fromUTF8 "lodgingEn" @@@@_440 @@@C' C' O @@B C' P @C _437 @fromUTF8 "lodgingJa" @@@@_440 @@K @@@_439 I @@@@@@@@@@@B S' S' S' S' _170 @@@@C' C' C' C' O @@@@C'B B' B' B P @C _437 @fromUTF8 "now" @@@@@@B C' C @C' C @B Y @B B P K @@@B B S B @@@B B B Z @@@B B B Z @@@S' S' B @@B B S' S @@@B' B C @C _57 _60 @@@@@@C' S' B @@B B S' C @@@B' C' C' @_46 _60 @@C _73 _68 @@#120 @@@@@C'B _108 @@@@@@@@@fromUTF8 "null" @@@@Z @@@K @@@B C' C' C' C' _170 @@@@C' C' C' C' O @@@@C'B B' B' B P @C _437 @fromUTF8 "next" @@@@@@B C' C @C' C @B Y @B B P K @@@B B S B @@@B B B Z @@@B B B Z @@@C' S' B @@B B S' C @@@B' B C @C _134 _60 @@@@@@C'B _108 @@@@@@@@fromUTF8 "null" @@@@Z @@@K @@@C C C' _642 _387 _224 @@@B _650 @B _651 @B _654 @C _73 _68 @@#86400 @@@@@_655 @@C' O @S' P @C _437 @fromUTF8 "tomorrow" @@@C _437 @fromUTF8 "null" @@@@K @_439 I @@@@C' O @B P _437 _439 I @@fromUTF8 "tomorrow" @@@@B _440 @B _452 @B _639 @_643 fromUTF8 "label" @@@@@@@K @@@@@@@@P _109 @B _660 @_643 fromUTF8 "detail" @@@@@@C _642 _387 _224 @@@_655 @@@B _650 @_651 @@@_661 @@_654 @@U B B B _441 @@@C'B B' B O @B P fromUTF8 "mark" @@@B _440 @C O @K @@@@@@B C' O @B P fromUTF8 "time" @@@B _440 @_449 @@@@C' O @B P fromUTF8 "text" @@@B _440 @_664 #90 @@@@K @@@@@@@_439 I @@:665 @
+A C'B C' S @S' S @C' _57 _60 @@_75 @@C' C' _170 @@B _290 @C _208 _68 @@#1 @@@O #8230 @K @@@@I @@B _662 @B _663 @_110 C S C _151 _224 @@#10 @@I @@#32 @@@@@:664 @
+A B S U _109 @@Z Z B S' _108 @U K @@B _663 @U A @@@@_455 _513 @@@@@@_451 _513 @@:663 @
+A S U _109 @@Z Z _435 C'B _170 @_108 #32 @@@@@@:662 @
+A U K A @@:661 @
+A B B Y @B B B P _109 @@@@B B B C B @@@@C' S' C' S' B @@@@B B B B' @@@B B B B S @@@@B S' B @@B B C @@B C @_134 @@@@@@B B C' C' S' _108 @@@T3 @@@C @@@@@_60 @#-1 @@B Y B P K @@B C B @@S' S' B @@B B S @@B C _657 @@@@B C' C' C' _108 @@@T3 @@@@@@@B _659 @_639 @@@:660 @
+A C _455 C _372 _224 @@_658 @@@K P _109 @C'B C' S' _108 @@C'B P @B _452 @U K @@@@B _659 @U A @@@@_455 C _372 _224 @@_658 @@@@@@:659 @
+A fromUTF8 "|b^Q| |b^Q|!|b^Q|"|b^Q|#|b^Q|$|b^Q|%|b^Q|&|b^Q|'|b^Q|(|b^Q|)|b^Q|*|b^Q|+" @:658 @
+A C C C' Y @B B B B B S U _191 @@@@@@@B B B B B Z @@@@@B B B B B Z @@@@@C' C' C @@B B S' C' @B C' @B C' @_151 _51 @_123 _68 @_145 #0 @@@@@@@@B B B B B S U _250 fromUTF8 "\"hs/NowNext.hs\",92:8" @@@@@@@@@C'B B' B C' S' C' S' B @@@@@B B B B C' S @_355 @@@@@B S' B @B' B S @B _454 @_355 @@@@@B C'B B' B S @C _161 _224 @@#58 @@@@@S' C'B @B B S @@C _656 _224 @@@@B C'B _453 _355 @@@B S' S' B @@C C' _57 _60 @@_75 @#2 @@@@B S' B @P @@B S' B @B C'B @C _151 _224 @#58 @@@@@B S' B @P @@B S' B @B' P @@@B S' B @B S' S' B @@@C C' C' @B _226 @_355 @@_355 @@@@@B S' B @B' B' B S @C P _185 @Z B _454 @_355 @@@@@@@@@B S' S' B @@B B' @B B' @C C' _46 _60 @@_520 _637 @@#24 @@@@@@C' C'B @B B' @B B' @B B C @@B C' _454 @@B C C _451 C _151 _224 @@#32 @@@_186 @@@C' C'B @B B _226 @@C _372 _224 @@@@B C _453 _355 @@B P _186 @@B C'B C _151 _224 @#58 @@_186 @@@B P _186 @@B B P _186 @@@B B Z @@S' B @B' B _226 @B _454 @_458 @@@@C'B B' B _226 @C' _57 _60 @@_75 @#2 @@@@C'B B _226 @_355 @@_355 @@@@@@@@@@_451 C _151 _224 @@#32 @@@@@@@@@@B B B _192 @@@C'B B' B _73 _68 @@C' _40 _68 @@_520 _637 @@_123 _68 @_145 #60 @@@@@@B B _520 _637 @@@C'B O @C O @K @@@@@@@@@@@@@@@@@@@@@@C' C'B @B B S @@C B @C _208 _68 @@_123 _68 @_145 #1 @@@@@@C S C _151 _224 @@#32 @@I @@@@@@@_191 @@@@@#80 @@#0 @@#0 @_437 _439 I @@fromUTF8 "|b^@^S|b^@^T|b^H^R-|c^@^\~|o|=^^" @@@:657 @
+A B B B _454 @@@_372 @:656 @
+A O P fromUTF8 "2026-07-27" @@O P fromUTF8 "cls" @@fromUTF8 "flight" @@@O P fromUTF8 "label" @@fromUTF8 "DEPART BOS" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|c^C^\|c^B|9|c^C^H|c^C|3|g^Y|:" @@@O P fromUTF8 "detail" @@fromUTF8 "13:15 JL007 Boston (Logan, Term. E) |b^F^R Tokyo Narita. Arrive NRT 16:00 the next day (28th)." @@@O P fromUTF8 "detail_ja" @@fromUTF8 $116 13:15 JL007 ãƒœã‚¹ãƒˆãƒ³ï¼ˆãƒ­ãƒ¼ã‚¬ãƒ³ç©ºæ¸¯ ã‚¿ãƒ¼ãƒŸãƒŠãƒ«Eï¼‰â†’ æ±äº¬ãƒ»æˆç”°ã€‚ç¿Œ7/28 16:00 ã«æˆç”°ç€ã€‚@@@K @@@@@@@O P fromUTF8 "2026-07-28" @@O P fromUTF8 "cls" @@fromUTF8 "tokyo" @@@O P fromUTF8 "label" @@fromUTF8 "Arrive |B|7 Moti |b^\^S" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|e^H|0|g^]^@|c^C|;|c^C|"|c^C^F|c^B|#|b^\^S" @@@O P fromUTF8 "detail" @@fromUTF8 $487 <b>Purpose:</b> land + connect + sleep. JL007 â†’ NRT T2 ~16:00 â†’ Sakura â†’ QR <b>698004</b> â†’ Suica â†’ do-c. <b>Foot / subway only</b> (no bike). Stay up to ~22â€“23:00. <b>Dinner: Moti å…­æœ¬æœ¨ âœ“</b> â€” keema mutter current + naan + mixed pickles (repeat) Â· mutton biryani amazing but too much solo Â· next: carrot dessert Â· default-dinner candidate. Sleep plan: â˜° Sleep / jet lag. <b>do-c gap:</b> out 11:00 / in 15:00 Â· bags at desk Â· cash+ID in Patagonia Atom sling.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $215 <b>ç›®çš„ï¼š</b>åˆ°ç€ãƒ»å›ç·šã€‚å¾’æ­©ï¼åœ°ä¸‹é‰„ã®ã¿ã€‚<b>å¤•é£Ÿï¼šãƒ¢ãƒ†ã‚£âœ“</b>ï¼ˆã‚­ãƒ¼ãƒãƒã‚¿ãƒ¼ï¼‹ãƒŠãƒ³ï¼‹ãƒ”ã‚¯ãƒ«ã‚¹ï¼ãƒ“ãƒªãƒ¤ãƒ‹å¤šã‚ï¼æ¬¡ã¯ã‚­ãƒ£ãƒ­ãƒƒãƒˆï¼‰ã€‚do-c ã‚¢ã‚¦ãƒˆ11ãƒ»ã‚¤ãƒ³15ã€‚@@@K @@@@@@@O P fromUTF8 "2026-07-29" @@O P fromUTF8 "cls" @@fromUTF8 "tokyo" @@@O P fromUTF8 "label" @@fromUTF8 "Akiba browse |B|7 Shinjuku mapo |B|7 Moti" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|f^V|0|e|.|?|i|:|;|e|)^F|B|7|c^C|"|c^C^F|c^B|#|o|<^H|g|'^K|h^Q^I|c^A|/|d|8^K|h|&^K|o|<^I" @@@O P fromUTF8 "detail" @@fromUTF8 $4300 <b>Option C holds: browse today, buy tomorrow with bike + 50L.</b> <b>Remaining order:</b> MUJI, then Isetan last (closes 20:00), then Akiba browse, then Moti. <b>âš  THE 50L IS IN AN EBISU STN COIN LOCKER</b> (in at the 11:00â€“15:00 do-c clean-out) â€” <b>collect it tonight</b>: lockers bill by calendar day, and the <b>09:30 bike pickup on 30 Jul depends on having it</b>. Buy-if-light OK: small MUJI detergent Â· light envelopes. Initial D mapo from <b>8/1</b> only. <b>Skip Asakusa today</b> â€” tail + Benizuru 7am shop tickets + Iyoshi.<br>â‘  <b>Breakfast â€” West Georgia St. does not exist.</b> Walked to æµæ¯”å¯¿å—2-3-15 OKA7ãƒ“ãƒ«3F: no such shop. Treat as closed. <b>EBISU FOOD HALL instead âœ“</b> â€” æµæ¯”å¯¿å—1-1-9 ã‚·ãƒãƒ¤ãƒ“ãƒ«1F Â· ~2 min from Ebisu Stn Â· from 9:00. <b>Would repeat</b> â€” food good not remarkable, but strong AC and a chill room, easy solo.<br>â‘¡ <b>Dollar Ranger âœ“ DONE</b> â€” foreign-currency exchange (not packing/sundries; that note was wrong). <b>160.55 JPY/USD Â· Â¥802,750 for $5,000 Â· no commission.</b> Mid-market 161.8, so a 1.25 yen spread = <b>0.77%</b> â€” street counters run 2â€“4% and airports 5â€“8%. Best-rate reputation now <b>verified</b>, not repeated.<br>â‘¢ <b>Isetan âœ“ DONE</b> â€” Diptyque browsed and <b>the mens scent is a yes</b>. <b>LOCKED: 8 bottles, bought 30 Jul</b> on the Shinjuku dinner return with the 50L (~3.5â€“4 kg, too heavy for tonight). <b>Mens wallets confirmed present âœ“</b> â€” <b>closer look 30 Jul</b>, main building + ä¼Šå‹¢ä¸¹ãƒ¡ãƒ³ã‚ºé¤¨. <b>Ask for å°å‚³å±‹ / ç”²å·å°ä¼ by name</b>: Mitsukoshi-Isetan stocks Indenya including <b>Isetan-exclusive patterns</b>. Deerskin with lacquer, a Kofu craft â€” the answer to not wanting an expensive wallet for its own sake. å°å‚³å±‹ ä¸ŠåŸå‹‡ä¸ƒ is the ç·æœ¬å®¶; å°å‚³ã®å±±æœ¬ is a different inden house, so name the maker.<br>â‘£ <b>Kinokuniya â€” ERRAND FAILED âœ—</b> okozukai / ãƒãƒè¢‹ <b>not stocked</b>, walked it. It is a bookstore; stationery is pens and notebooks. <b>Do not route here for envelopes.</b><br>â‘¤ <b>Kagaya âœ“ DONE â€” and the taste test settled it: Seven Stars wins.</b> The Peace 10-pack was bought instead of the tin, tried, and <b>the tin is CANCELLED</b> â€” no return visit. Seven Stars is a konbini staple, buyable anywhere. The Â¥600 test just saved a tin-sized mistake.<br>â‘¥ <b>MUJI confirmed: ç„¡å°è‰¯å“ æ–°å®¿é€šã‚Š</b> â€” æ–°å®¿3-17-1 ã„ã•ã¿ã‚„ãƒ“ãƒ« B1-3F Â· <b>10:00â€“21:00 daily</b> Â· detergent is <b>B1, æƒé™¤ãƒ»æ´—æ¿¯ç”¨å“</b> Â· same block as Kinokuniya (3-17-7). <b>NOT Lumine</b> (opens 11:00).<br>â‘¦ <b>Lunch âœ“ DONE: é™³éº»å©†è±†è… æ–°å®¿é‡æ‘ B2F</b> â€” <b>very good, noteworthy.</b><br><b>Shoes CLOSED (was â‘¨) âœ—</b> â€” skipped, current shoes are fine; the real need was socks, <b>âœ“ done at the Akiba Uniqlo</b>. For the record: <b>GRAND STAGE ãƒ«ãƒŸãƒã‚¨ã‚¹ãƒˆæ–°å®¿</b> (east exit, 11:00â€“21:00) is the large-format branch that carries US12 â‰ˆ JP30, should shoes ever come back.<br>â‘§ <b>Akiba Yodobashi âœ“ WALKED â€” both target items ABSENT.</b> <b>No SXC-1</b> and <b>no White Wings</b> in the store. The browse/buy split is therefore moot: there was nothing to defer. <b>Wins anyway:</b> the building has a <b>Daiso</b> (ãƒãƒè¢‹ <b>âœ“ DONE</b> â€” closes the envelope errand Kinokuniya failed) and a <b>Uniqlo</b> (<b>socks âœ“ DONE</b>). <b>âš  Consequence: tomorrow has no reason to return to Akiba</b> â€” see 30 Jul. If the two items are still wanted they need a different kind of shop: instruments (Ishibashi / Shimamura) for the Casio, a specialist hobby shop for the gliders. <b>Note the pattern</b> â€” West Georgia, Dollar Ranger and now these two all came from the same source.<br>â‘© <b>Dinner LOCKED: Moti å…­æœ¬æœ¨</b> â€” <b>Hibiya Line runs Akihabaraâ†’Roppongi DIRECT, no transfer.</b> keema mutter + naan + mixed pickles Â· carrot dessert Â· <b>no other curries</b>.<br><b>Closed out:</b> <b>packing materials was never a real errand</b> â€” it was an artifact of the wrong "cheap packing/sundries" note on Dollar Ranger. Deleted, not re-homed. <b>ãƒãƒè¢‹: buy anywhere</b>, sold widely â€” no special trip, no Origami Kaikan detour. <b>Tonight the only hard item is the 50L from the Ebisu locker</b>; socks and everything else can slide.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $2938 <b>ã‚ªãƒ—ã‚·ãƒ§ãƒ³Cç¶™ç¶šï¼šä»Šæ—¥ã¯ä¸‹è¦‹ã€æ˜æ—¥ è‡ªè»¢è»Š+50Lã§è³¼å…¥ã€‚</b> <b>æ®‹ã‚Šã®é †åºï¼š</b>ç„¡å° â†’ ä¼Šå‹¢ä¸¹ï¼ˆæ–°å®¿æœ€å¾Œãƒ»20æ™‚é–‰åº—ï¼‰â†’ ç§‹è‘‰ä¸‹è¦‹ â†’ ãƒ¢ãƒ†ã‚£ã€‚<b>âš  50Lã¯æµæ¯”å¯¿é§…ã®ã‚³ã‚¤ãƒ³ãƒ­ãƒƒã‚«ãƒ¼</b>ï¼ˆ11:00ã€œ15:00ã®æ¸…æƒæ™‚é–“ã§é å…¥ï¼‰â€” <b>ä»Šå¤œå¿…ãšå›å</b>ï¼šãƒ­ãƒƒã‚«ãƒ¼ã¯æš¦æ—¥èª²é‡‘ã€ã‹ã¤<b>7/30 09:30ã®è‡ªè»¢è»Šå—å–ã«å¿…è¦</b>ã€‚<br>â‘  æœé£Ÿï¼šWest Georgia St.ã¯å­˜åœ¨ã›ãš â†’ <b>EBISU FOOD HALL âœ“</b>ï¼ˆæµæ¯”å¯¿å—1-1-9ãƒ»é§…2åˆ†ãƒ»9æ™‚ã€œï¼‰ã€‚å†è¨ªã‚ã‚Šã€‚<br>â‘¡ <b>ãƒ€ãƒ©ãƒ¼ãƒ¬ãƒ³ã‚¸ãƒ£ãƒ¼ âœ“å®Œäº†</b> â€” å¤–è²¨ä¸¡æ›¿ï¼ˆæ¢±åŒ…æã®åº—ã§ã¯ãªã„ï¼‰ã€‚<b>160.55å††/ãƒ‰ãƒ«ãƒ»5,000ãƒ‰ãƒ«ã§802,750å††ãƒ»æ‰‹æ•°æ–™ãªã—</b>ã€‚ä»²å€¤161.8ã«å¯¾ã—ã‚¹ãƒ—ãƒ¬ãƒƒãƒ‰1.25å††ï¼<b>0.77%</b>ï¼ˆè¡—ä¸­2ã€œ4%ãƒ»ç©ºæ¸¯5ã€œ8%ï¼‰ã€‚å¥½ãƒ¬ãƒ¼ãƒˆã‚’<b>å®Ÿåœ°ã§ç¢ºèª</b>ã€‚<br>â‘¢ <b>ä¼Šå‹¢ä¸¹ âœ“å®Œäº†</b> â€” ãƒ‡ã‚£ãƒ—ãƒ†ã‚£ãƒƒã‚¯ã®ãƒ¡ãƒ³ã‚ºã¯å¥½æ„Ÿè§¦ã€‚<b>ç¢ºå®šï¼š8æœ¬ã‚’7/30ã«è³¼å…¥</b>ï¼ˆæ–°å®¿å¤•é£Ÿæ™‚ãƒ»50Lä½¿ç”¨ï¼ç´„3.5ã€œ4kgï¼‰ã€‚<b>ç´³å£«è²¡å¸ƒã‚ã‚Š âœ“</b> â€” 7/30ã«æœ¬è…°ï¼ˆæœ¬é¤¨ï¼‹ãƒ¡ãƒ³ã‚ºé¤¨ï¼‰ã€‚<br>â‘£ <b>ç´€ä¼Šåœ‹å±‹ âœ— å¤±æ•—</b> â€” ãƒãƒè¢‹ã®å–æ‰±ãªã—ï¼ˆå®Ÿåœ°ç¢ºèªï¼‰ã€‚æ›¸åº—ã§ã‚ã‚Šæ–‡å…·ã¯ãƒšãƒ³ãƒ»ãƒãƒ¼ãƒˆã€‚<b>ãƒãƒè¢‹ç›®å½“ã¦ã§æ¥ãªã„ã€‚</b><br>â‘¤ <b>ã‹ãŒã‚„ âœ“å®Œäº† â€” è©¦ã—è²·ã„ã®çµè«–ï¼šã‚»ãƒ–ãƒ³ã‚¹ã‚¿ãƒ¼ã®å‹ã¡ã€‚</b>ç¼¶ãƒ”ãƒ¼ã‚¹ã¯<b>ä¸­æ­¢</b>ãƒ»å†è¨ªä¸è¦ï¼ˆã‚»ãƒ–ãƒ³ã‚¹ã‚¿ãƒ¼ã¯ã‚³ãƒ³ãƒ“ãƒ‹ã§å¯ï¼‰ã€‚10æœ¬å…¥ã‚Šã®è©¦ã—è²·ã„ãŒæ­£è§£ã ã£ãŸã€‚<br>â‘¥ <b>ç„¡å°è‰¯å“ æ–°å®¿é€šã‚Š</b>ï¼ˆæ–°å®¿3-17-1 ã„ã•ã¿ã‚„ãƒ“ãƒ« B1-3Fãƒ»10:00ã€œ21:00ï¼‰Â· æ´—å‰¤ã¯<b>B1 æƒé™¤ãƒ»æ´—æ¿¯ç”¨å“</b>Â· ç´€ä¼Šåœ‹å±‹ã¨åŒãƒ–ãƒ­ãƒƒã‚¯ã€‚<b>ãƒ«ãƒŸãƒåº—ã§ã¯ãªã„</b>ï¼ˆ11æ™‚é–‹åº—ï¼‰ã€‚<br>â‘¦ <b>æ˜¼ âœ“å®Œäº†ï¼šé™³éº»å©†è±†è… æ–°å®¿é‡æ‘ B2F</b> â€” <b>ã¨ã¦ã‚‚è‰¯ã„ã€‚</b><br><b>é´ã¯å®Œäº†æ‰±ã„ï¼ˆæ—§â‘¨ï¼‰âœ—</b> â€” è¦‹é€ã‚Šãƒ»ä»Šã®é´ã§ååˆ†ã€‚å®Ÿéœ€ã¯é´ä¸‹ã§<b>ç§‹è‘‰ã®ãƒ¦ãƒ‹ã‚¯ãƒ­ã§âœ“å®Œäº†</b>ã€‚å‚è€ƒï¼šGRAND STAGE ãƒ«ãƒŸãƒã‚¨ã‚¹ãƒˆæ–°å®¿ï¼ˆæ±å£ãƒ»11:00ã€œ21:00ï¼‰ãŒ30cmå¯¾å¿œã®å¤§å‹åº—ã€‚<br>â‘§ <b>ç§‹è‘‰ãƒ¨ãƒ‰ãƒã‚· âœ“å®Ÿåœ° â€” ç›®å½“ã¦ã®2ç‚¹ã¨ã‚‚åœ¨åº«ãªã—</b>ï¼ˆSXC-1ãªã—ãƒ»ãƒ›ãƒ¯ã‚¤ãƒˆã‚¦ã‚¤ãƒ³ã‚°ã‚¹ãªã—ï¼‰ã€‚ä¸‹è¦‹ï¼è³¼å…¥ã®åˆ‡ã‚Šåˆ†ã‘ã¯ç„¡æ„å‘³ã ã£ãŸã€‚<b>åç©«ï¼š</b>åŒãƒ“ãƒ«ã®<b>ãƒ€ã‚¤ã‚½ãƒ¼</b>ã§ãƒãƒè¢‹ <b>âœ“å®Œäº†</b>ï¼ˆç´€ä¼Šåœ‹å±‹ã®å¤±æ•—ã‚’è§£æ¶ˆï¼‰ã€<b>ãƒ¦ãƒ‹ã‚¯ãƒ­</b>ã§é´ä¸‹ <b>âœ“å®Œäº†</b>ã€‚<b>âš  æ˜æ—¥ã€ç§‹è‘‰ã«æˆ»ã‚‹ç†ç”±ã¯æ¶ˆæ»…</b>ã€‚2ç‚¹ãŒå¿…è¦ãªã‚‰æ¥½å™¨åº—ï¼ˆã‚¤ã‚·ãƒã‚·ï¼å³¶æ‘ï¼‰ãƒ»å°‚é–€ãƒ›ãƒ“ãƒ¼åº—ã¸ã€‚<br>â‘© <b>å¤•é£Ÿç¢ºå®šï¼šãƒ¢ãƒ†ã‚£å…­æœ¬æœ¨</b> â€” <b>æ—¥æ¯”è°·ç·šã§ç§‹è‘‰åŸâ†’å…­æœ¬æœ¨ã¯ç›´é€šãƒ»ä¹—æ›ãªã—ã€‚</b><br><b>æ•´ç†ï¼š</b><b>æ¢±åŒ…æã¯ãã‚‚ãã‚‚ä¸è¦</b>ï¼ˆãƒ€ãƒ©ãƒ¼ãƒ¬ãƒ³ã‚¸ãƒ£ãƒ¼ã®èª¤è¨˜è¿°ã®åæ®‹ãƒ»å‰Šé™¤ï¼‰ã€‚<b>ãƒãƒè¢‹ã¯ã©ã“ã§ã‚‚è²·ãˆã‚‹</b>ã®ã§å°‚ç”¨ã®å¯„ã‚Šé“ãªã—ã€‚<b>ä»Šå¤œã®å¿…é ˆã¯æµæ¯”å¯¿ãƒ­ãƒƒã‚«ãƒ¼ã®50Lã®ã¿ã€‚</b>@@@K @@@@@@@O P fromUTF8 "2026-07-30" @@O P fromUTF8 "cls" @@fromUTF8 "tokyo" @@@O P fromUTF8 "label" @@fromUTF8 "Wallets |C^W8 done |B|7 loop cut (heat)" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|h|2|!|e|8^C|C^W8|e|.^L|d|:^F|c^C|;|g^L^[|f^Z^Q|c^A|'|d|8^@|e^Q|(|d|8|-|f|-|"" @@@O P fromUTF8 "detail" @@fromUTF8 $517 <b>How it went:</b> the Yamanote loop was <b>cancelled for heat</b> (~35Â°C) â€” still ~40 km ridden across town on the Wabash, returned on time. <b>Wallets âœ“ COMPLETE â€” final count 8, none for the owner</b> (8 relatives): Motherhouse <b>æµæ¯”å¯¿ãƒ¡ãƒ³ã‚º 3</b> Â· <b>å°ç”°æ€¥æ–°å®¿ãƒ¡ãƒ³ã‚ºï¼ˆãƒãƒ«ã‚¯2Fï¼‰4</b> Â· <b>æœ¬åº— 1</b>. Laundry âœ“ WASH&DRY ä»£å®˜å±±, bag stored at do-c. Moti skipped â€” 7-11 dinner (natto Â· onigiri Â· umeboshi) and an early night for the <b>31 Jul Nozomi, Shinagawa 09:37</b>.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $439 <b>å®Ÿéš›ï¼š</b>çŒ›æš‘ï¼ˆç´„35Â°Cï¼‰ã§å±±æ‰‹ä¸€å‘¨ã¯<b>ä¸­æ­¢</b> â€” ãã‚Œã§ã‚‚éƒ½å†…ã‚’ç´„40kmèµ°è¡Œã—å®šåˆ»è¿”å´ã€‚<b>è²¡å¸ƒ âœ“ å®Œäº† â€” è¨ˆ8ç‚¹ï¼ˆè‡ªåˆ†ç”¨ãªã—ï¼‰</b>ï¼šæµæ¯”å¯¿ãƒ¡ãƒ³ã‚º3ãƒ»å°ç”°æ€¥æ–°å®¿ãƒ¡ãƒ³ã‚ºï¼ˆãƒãƒ«ã‚¯2Fï¼‰4ãƒ»æœ¬åº—1ã€‚æ´—æ¿¯ âœ“ WASH&DRYä»£å®˜å±±ã€‚ãƒ¢ãƒ†ã‚£ã¯è¦‹é€ã‚Šã€ã‚»ãƒ–ãƒ³ã‚¤ãƒ¬ãƒ–ãƒ³ã®å¤•é£Ÿï¼ˆç´è±†ãƒ»ãŠã«ãã‚Šãƒ»æ¢…å¹²ã—ï¼‰ã§æ—©ã‚ã«å°±å¯ â€” ç¿Œæœã¯ã®ãã¿å“å·9:37ã€‚@@@K @@@@@@@O P fromUTF8 "2026-07-31" @@O P fromUTF8 "cls" @@fromUTF8 "cap" @@@O P fromUTF8 "label" @@fromUTF8 "|b^F^R Hakata" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|e^M^Z|e|$^Z|c^A|8" @@@O P fromUTF8 "detail" @@fromUTF8 $1387 <b>Purpose:</b> Kyushu. <b>No bike.</b> Shinagawa Â· <b>Nozomi 21 09:37</b> â†’ Hakata <b>14:30</b> Â· Car 16 (rear) Seat 3-C Â· <b>QR ticket â€” screenshot it before the gate</b>.<br>â‘  <b>9h check-in first</b> (åšå¤šé§…å‰3-22-2 Â· from 15:00) â€” <b>ask the desk where to park overnight</b> (æœ€å¤§æ–™é‡‘ coin lot) Â· drop both bags: the small case from Uncle Kenji + the 50L Â· carry the Atom sling with <b>passport (landing stamp) Â· IDP Â· license</b>.<br>â‘¡ <b>Toyota 15:30</b> â€” <b>âš  confirm the reservation is åšå¤šé§…å‰åº—, åšå¤šé§…æ±1-12-8</b> (092-441-0100; two similarly named Hakata branches carry operator-change labels â€” do NOT go to åšå¤šé§…åšå¤šå£åº— at åšå¤šé§…å‰1-15-20) â†’ drive straight back and <b>park near 9h</b> at the lot the desk named.<br>â‘¢ Shower at 9h if wanted â†’ <b>subway to Tenjin</b> (ç©ºæ¸¯ç·š Â· 5 min): eat there Â· <b>DIPTYQUE ç¦å²¡ walk-in</b> â€” å¤©ç¥2-8-35 (å¤©ç¥ä½å‹ç”Ÿå‘½FJãƒ“ã‚¸ãƒã‚¹ã‚»ãƒ³ã‚¿ãƒ¼1F) Â· 11:00â€“20:00 Â· 092-406-0280 Â· <b>no set-aside call, taking the walk-in odds</b> Â· fallback: any Fukuoka day before 23 Aug â†’ subway back to 9h.<br>â‘£ Rest â€” the ~40 km ride in yesterdayâ€™s heat left some congestion: fluids + the 7-11 <b>ãƒŸãƒãƒ©ãƒ«in gels</b> (FeÂ·CaÂ·ZnÂ·CuÂ·Mg, some ~33% DV Â· Ã—3 bought Â· restock at Kyushu 7-11s). <i>Owner:</i> R9 Kanzaki free cancel ends <b>tonight 23:59</b>.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $1154 <b>ç›®çš„ï¼š</b>ä¹å·ã¸ã€‚<b>è‡ªè»¢è»Šãªã—ã€‚</b>ã®ãã¿21 09:37 â†’ åšå¤š14:30ï¼ˆ16å·è»Š3-Cãƒ»<b>QRä¹—è»Š â€” äº‹å‰ã«ã‚¹ã‚¯ã‚·ãƒ§</b>ï¼‰ã€‚<br>â‘ ã¾ãš<b>9hãƒã‚§ãƒƒã‚¯ã‚¤ãƒ³</b>ï¼ˆåšå¤šé§…å‰3-22-2ãƒ»15æ™‚ã€œï¼‰â€” <b>å¤œé–“é§è»Šå ´ã‚’ãƒ•ãƒ­ãƒ³ãƒˆã«ç›¸è«‡</b>ï¼ˆæœ€å¤§æ–™é‡‘ã®ã‚³ã‚¤ãƒ³Pï¼‰ãƒ»è·ç‰©2ã¤ï¼ˆã‚±ãƒ³ã‚¸å”çˆ¶ã•ã‚“ã®å°å‹ã‚±ãƒ¼ã‚¹ï¼‹50Lï¼‰ã‚’é ã‘ã€ã‚¢ãƒˆãƒ ã®ã‚¹ãƒªãƒ³ã‚°ã«<b>ãƒ‘ã‚¹ãƒãƒ¼ãƒˆãƒ»å›½éš›å…è¨±ãƒ»å…è¨±è¨¼</b>ã‚’æºè¡Œã€‚<br>â‘¡<b>ãƒˆãƒ¨ã‚¿15:30</b>ï¼ˆâš  äºˆç´„åº—èˆ—ã¯åšå¤šé§…å‰åº—ãƒ»åšå¤šé§…æ±1-12-8ã€‚åšå¤šå£åº—ã¨é–“é•ãˆãªã„ï¼‰â†’ ãã®ã¾ã¾æˆ»ã£ã¦<b>9hè¿‘ãã«é§è»Š</b>ã€‚<br>â‘¢ã‚·ãƒ£ãƒ¯ãƒ¼å¾Œã€<b>åœ°ä¸‹é‰„ã§å¤©ç¥ã¸</b>ï¼ˆç©ºæ¸¯ç·š5åˆ†ï¼‰ï¼šå¤©ç¥ã§é£Ÿäº‹ï¼‹<b>ãƒ‡ã‚£ãƒ—ãƒ†ã‚£ãƒƒã‚¯ç¦å²¡</b>ï¼ˆå¤©ç¥2-8-35ãƒ»11ã€œ20æ™‚ãƒ»<b>é›»è©±ãªã—ã§ç›´æ¥</b>ãƒ»ã€œ8/23ã®åˆ¥æ—¥ã§ã‚‚å¯ï¼‰â†’ 9hã¸æˆ»ã‚‹ã€‚<br>â‘£ä¼‘é¤Š â€” æ˜¨æ—¥ã®çŒ›æš‘40kmã§é¼»ã¥ã¾ã‚Šæ°—å‘³ï¼šæ°´åˆ†ï¼‹ã‚»ãƒ–ãƒ³ã®<b>ãƒŸãƒãƒ©ãƒ«inã‚¼ãƒªãƒ¼</b>ï¼ˆé‰„ãƒ»Caãƒ»äºœé‰›ãƒ»éŠ…ãƒ»Mgãƒ»Ã—3è³¼å…¥ã€ä¹å·ã®ã‚»ãƒ–ãƒ³ã§è£œå……ï¼‰ã€‚<i>ã‚ªãƒ¼ãƒŠãƒ¼ï¼š</i>R9ç¥åŸ¼ã®ç„¡æ–™ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã¯<b>ä»Šå¤œ23:59ã¾ã§</b>ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-01" @@O P fromUTF8 "cls" @@fromUTF8 "kanzaki" @@@O P fromUTF8 "label" @@fromUTF8 "|b^F^R Mika|b^@^Ys" @@@O P fromUTF8 "label_ja" @@fromUTF8 "Mika|e|.^E|c^A|8" @@@O P fromUTF8 "detail" @@fromUTF8 $650 Drive rental car Hakata â†’ Kanzaki. Stay at cousin Mika & husband Kentaroâ€™s apartment (nights of 1â€“2 Aug). No night-game tournament conflict.<br><b>Pitch for the evening: å±±èŒ¶èŠ±ã®æ¹¯ (Sazanka no Yu) with Kentaro</b> â€” best day-use onsen near Kanzaki, ~15 min via Rte 385 Â· open-air baths over the Saga plain Â· Â¥830 Â· 10:00â€“23:00 Â· restaurant inside, free parking. If Kentaro has a local favorite, that wins.<br><b>Ramen for any Saga-side day: æ¥æ¥äº­ ä½è³€æ–°æ „åº—</b> â€” the rai-rai-tei from last trip (Kyoto-style shoyu Â· back fat Â· thin noodles) Â· ä½è³€å¸‚æ–°æ „æ±1-4-2 Â· 11:00â€“24:00 Â· ~20â€“25 min west of Kanzaki.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $488 ãƒ¬ãƒ³ã‚¿ã‚«ãƒ¼ã§åšå¤šâ†’ç¥åŸ¼ã€‚ã„ã¨ã“ Mika ã¨å¤« Kentaro ã®ã‚¢ãƒ‘ãƒ¼ãƒˆã«æ»åœ¨ï¼ˆ8/1ã€œ2 ã®å¤œï¼‰ã€‚ãƒŠã‚¤ãƒˆã‚²ãƒ¼ãƒ å¤§ä¼šã®äºˆå®šãªã—ã€‚<br><b>å¤œã®ææ¡ˆï¼šKentaroã¨å±±èŒ¶èŠ±ã®æ¹¯</b>ï¼ˆç¥åŸ¼ã‹ã‚‰ç´„15åˆ†ãƒ»éœ²å¤©ã‹ã‚‰ä½è³€å¹³é‡ãƒ»Â¥830ãƒ»10ã€œ23æ™‚ãƒ»é£Ÿäº‹å‡¦ã‚ã‚Šï¼‰ã€‚åœ°å…ƒã®ãŠã™ã™ã‚ãŒã‚ã‚Œã°ãã¡ã‚‰å„ªå…ˆã€‚<br><b>ãƒ©ãƒ¼ãƒ¡ãƒ³ï¼ˆä½è³€æ–¹é¢ã®æ—¥ã«ï¼‰ï¼šæ¥æ¥äº­ ä½è³€æ–°æ „åº—</b>ï¼ˆæ–°æ „æ±1-4-2ãƒ»11ã€œ24æ™‚ãƒ»è»Šã§ç´„20ã€œ25åˆ†ï¼‰ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-02" @@O P fromUTF8 "cls" @@fromUTF8 "kanzaki" @@@O P fromUTF8 "label" @@fromUTF8 "Kenji lunch" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|e^A|%|e^O|8|c^A^U|c^B^S|f^X|<|i|#^_" @@@O P fromUTF8 "detail" @@fromUTF8 "Lunch together at Uncle Kenji|b^@^Ys house (confirmed). Second night at Mika & Kentaro|b^@^Ys apartment." @@@O P fromUTF8 "detail_ja" @@fromUTF8 "|e^O^T|g^H|6|c^C|;|e^A|%|e^O|8|c^A^U|c^B^S|c^A|.|e|.|6|c^A|'|d|8^@|g|7^R|c^A|+|f^X|<|i|#^_|o|<^H|g|"|:|e|.^Z|o|<^I|c^@^B2|f|3^J|g^[|.|c^B^B Mika & Kentaro |e|.^E|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-03" @@O P fromUTF8 "cls" @@fromUTF8 "kanzaki" @@@O P fromUTF8 "label" @@fromUTF8 "|b^F^R R9 Kanzaki" @@@O P fromUTF8 "label_ja" @@fromUTF8 "R9 |g|%^^|e^_|<|c^A|8" @@@O P fromUTF8 "detail" @@fromUTF8 $474 Check in R9 The Yard Kanzaki â€” first of 5 nights (3â€“7 Aug). Hotel site: <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a><br><b>Base kit:</b> ãƒ•ã‚¡ãƒŸãƒªãƒ¼ãƒãƒ¼ãƒˆç¥åŸ¼æ—¥ã®éšˆåº— ~150 m from the door (24h Â· ATM at the 7-Eleven ~900 m east) Â· ãƒãƒ«ã‚­ãƒ§ã‚¦ supermarket ~6 min drive (9:30â€“22) Â· ç¥åŸ¼é§… ~7 min (locals: Saga ~10 min Â· Hakata ~60â€“75 via Tosu). Cabin has a microwave, no restaurant.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $277 R9 The Yard ç¥åŸ¼ã«ãƒã‚§ãƒƒã‚¯ã‚¤ãƒ³ â€” 5æ³Šã®åˆæ—¥ï¼ˆ8/3ã€œ7ï¼‰ã€‚ãƒ›ãƒ†ãƒ«ã‚µã‚¤ãƒˆï¼š <a href="https://hotel-r9.jp/hotels/kanzaki/" target="_blank" rel="noopener">hotel-r9.jp/hotels/kanzaki</a><br>ç›®ã®å‰ã«ãƒ•ã‚¡ãƒŸãƒãƒ»è»Š6åˆ†ã§ãƒãƒ«ã‚­ãƒ§ã‚¦ãƒ»ç¥åŸ¼é§…7åˆ†ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-04" @@O P fromUTF8 "cls" @@fromUTF8 "kanzaki" @@@O P fromUTF8 "label" @@fromUTF8 "Kanzaki" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|g|%^^|e^_|<" @@@O P fromUTF8 "detail" @@fromUTF8 $491 Saga â€” Kanzaki base (R9). Family: Kenji / Hitomi / Mika / Kentaro.<br><b>Solo fallback menu (family first â€” all â‰¤15 min):</b> å‰é‡ãƒ¶é‡Œ Yayoi ruins 9:00â€“18:00 Â¥460 Â· east gate Â· shadeless, go at 9 or after 16 Â· å±±èŒ¶èŠ±ã®æ¹¯ onsen 10:00â€“23:00 Â¥830 (open-air over the plain) Â· ä»æ¯”å±±å…¬åœ’ river shade + bridge ~5 min Â· Kanzaki somen: buy at äº•ä¸Šè£½éºº (9â€“17 Â· Wed closed Â· eat-in ç™¾å¹´åºµ on hiatus) or somen set at the Yoshinogari park restaurant 10:30â€“16.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $172 ä½è³€ãƒ»ç¥åŸ¼ï¼ˆR9ï¼‰ã€‚å®¶æ—ï¼šKenjiï¼Hitomiï¼Mikaï¼Kentaroã€‚<br>ä¸€äººæ™‚é–“ï¼šå‰é‡ãƒ¶é‡Œãƒ»å±±èŒ¶èŠ±ã®æ¹¯ãƒ»ä»æ¯”å±±ãƒ»ç¥åŸ¼ãã†ã‚ã‚“ï¼ˆäº•ä¸Šè£½éººï¼‰ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-05" @@O P fromUTF8 "cls" @@fromUTF8 "kanzaki" @@@O P fromUTF8 "label" @@fromUTF8 "Kanzaki" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|g|%^^|e^_|<" @@@O P fromUTF8 "detail" @@fromUTF8 $176 Saga â€” Kanzaki base (R9). <i>Owner:</i> R9 Sagakashima free cancel ends <b>tonight 23:59</b> local (then cancel fee Â¥10,800 of Â¥74,700 stay).<br>Solo fallback â†’ 8/4 menu.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $174 ä½è³€ãƒ»ç¥åŸ¼ï¼ˆR9ï¼‰ã€‚<i>ç®¡ç†è€…ï¼š</i>R9 ä½è³€é¹¿å³¶ã®ç„¡æ–™ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã¯ <b>ä»Šå¤œ 23:59</b> ã¾ã§ï¼ˆä»¥é™ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ–™ Â¥10,800ï¼å®¿æ³Š Â¥74,700ï¼‰ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-06" @@O P fromUTF8 "cls" @@fromUTF8 "kanzaki" @@@O P fromUTF8 "label" @@fromUTF8 "Kanzaki" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|g|%^^|e^_|<" @@@O P fromUTF8 "detail" @@fromUTF8 $147 Saga â€” Kanzaki base (R9). Solo fallback â†’ 8/4 menu Â· or a Fukuoka run: ~50â€“60 min by car via Rte 385 tunnel (toll), or train from ç¥åŸ¼é§….@@@O P fromUTF8 "detail_ja" @@fromUTF8 "|d|=^P|h|3^@|c^C|;|g|%^^|e^_|<|o|<^HR9|o|<^I|c^@^B|d|8^@|d|:|:|f^Y^B|i^V^S|c^A|/8/4|c^C|!|c^C^K|c^C|%|c^C|< or |g|&^O|e|2|!|c^A|8|o|<^H|h|;^J60|e^H^F|o|<^O|i^[|;|h|;^J|o|<^I|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-07" @@O P fromUTF8 "cls" @@fromUTF8 "kanzaki" @@@O P fromUTF8 "label" @@fromUTF8 "Kanzaki" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|g|%^^|e^_|<" @@@O P fromUTF8 "detail" @@fromUTF8 $139 Saga â€” Kanzaki base (R9). Last night of the R9 Kanzaki booking (checkout AM 8th). Backbone stays flexible.<br>Solo fallback â†’ 8/4 menu.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $105 ä½è³€ãƒ»ç¥åŸ¼ï¼ˆR9ï¼‰ã€‚R9 ç¥åŸ¼ã®æœ€çµ‚æ³Šï¼ˆ8æ—¥æœãƒã‚§ãƒƒã‚¯ã‚¢ã‚¦ãƒˆï¼‰ã€‚éª¨æ ¼ã¯èé€šå¯ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-08" @@O P fromUTF8 "cls" @@fromUTF8 "kashima" @@@O P fromUTF8 "label" @@fromUTF8 "Mika day |B|7 flex" @@@O P fromUTF8 "label_ja" @@fromUTF8 "Mika|c^A|(|c^C|;|h^^^M|i^@^Z|f^W|%" @@@O P fromUTF8 "detail" @@fromUTF8 $547 Mika took the day off â€” outing together (plan TBD). R9 Sagakashima is booked from tonight if useful; family backbone said Kanzaki area ~through 9th / Kashima ~from 9th â€” shuffle freely. Hotel: <a href="https://hotel-r9.jp/hotels/sagakashima/" target="_blank" rel="noopener">hotel-r9.jp/hotels/sagakashima</a><br><b>Kashima base kit:</b> ã‚¹ãƒ¼ãƒ‘ãƒ¼ãƒ¢ãƒªãƒŠã‚¬ ~700 m (9:30â€“21) Â· 24h 7-Eleven + ATM ~5 min walk Â· è‚¥å‰é¹¿å³¶é§… ~15 min walk â€” but only ~5 Kasasagi round trips/day to Hakata since the 2022 rerouting; the car is primary.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $407 Mika ãŒä¼‘ã¿ â€” ä¸€ç·’ã«å¤–å‡ºï¼ˆè¡Œãå…ˆ TBDï¼‰ã€‚R9 ä½è³€é¹¿å³¶ã¯ã“ã®å¤œã‹ã‚‰äºˆç´„ã‚ã‚Šã€‚å®¶æ—å‘ã‘éª¨æ ¼ã¯ç¥åŸ¼ã€œ9æ—¥ï¼é¹¿å³¶ã€œ9æ—¥é ƒ â€” è‡ªç”±ã«ãšã‚‰ã—ã¦OKã€‚ãƒ›ãƒ†ãƒ«ï¼š <a href="https://hotel-r9.jp/hotels/sagakashima/" target="_blank" rel="noopener">hotel-r9.jp/hotels/sagakashima</a><br>å¾’æ­©åœï¼šãƒ¢ãƒªãƒŠã‚¬ãƒ»ã‚»ãƒ–ãƒ³ãƒ»è‚¥å‰é¹¿å³¶é§…ï¼ˆæœ¬æ•°å°‘ãƒ»è»ŠãŒåŸºæœ¬ï¼‰ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-09" @@O P fromUTF8 "cls" @@fromUTF8 "kashima" @@@O P fromUTF8 "label" @@fromUTF8 "Kashima ~" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|i|9|?|e|3|6|c^@^\" @@@O P fromUTF8 "detail" @@fromUTF8 $252 Around here in the flexible backbone: Kashima window. Hope to see Akimasa & Yoko when it works. R9 Sagakashima base.<br>Anchor solo stop: ç¥å¾³ç¨²è·ç¥ç¤¾ ~10 min â€” one of the three great Inari, grounds open 24h (office 8:30â€“16:30), huge parking.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $224 èé€šã®ããéª¨æ ¼ã ã¨ã“ã®ã‚ãŸã‚Šã‹ã‚‰é¹¿å³¶ã€‚éƒ½åˆã®ã„ã„ã¨ãã«ã‚¢ã‚­ãƒã‚µãƒ»ã‚ˆã†ã“ã«ä¼šãˆãŸã‚‰ã†ã‚Œã—ã„ã€‚æ‹ ç‚¹ã¯ R9 ä½è³€é¹¿å³¶ã€‚<br>ä¸€äººæ™‚é–“ã®è»¸ï¼šç¥å¾³ç¨²è·ç¥ç¤¾ï¼ˆå¢ƒå†…24hï¼‰ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-10" @@O P fromUTF8 "cls" @@fromUTF8 "kashima" @@@O P fromUTF8 "label" @@fromUTF8 "Kashima" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|i|9|?|e|3|6" @@@O P fromUTF8 "detail" @@fromUTF8 $752 Saga â€” Kashima base.<br><b>Solo menu:</b> ç¥å¾³ç¨²è· (24h grounds Â· morning easiest) Â· è‚¥å‰æµœå®¿ sake-brewery street ~8â€“10 min (info house 10â€“17, <b>Tue closed</b> Â· <b>tastings: Hizennya å…‰æ­¦ free walk-in 9:30â€“17</b> Â· <b>Nabeshima é‹å³¶ does NOT do public tastings</b> â€” auberge guests only, buy bottles at local shops) + å³°æ¾ã†ãªãå±‹ next door (<b>takeaway kabayaki only â€” no rice, no set meals</b> Â· 8â€“18 Â· call 0954-62-3725 in the morning to reserve eels Â· grab rice from a konbini) Â· é“ã®é§…é¹¿å³¶ Ariake mudflats ~12 min (produce 9â€“18 Â· <b>mudflat experience Â¥900, tide-slot dependent â€” check the calendar on michinoekikashima.jp</b> Â· desk 0954-60-5040 Â· individuals need no reservation in summer).@@@O P fromUTF8 "detail_ja" @@fromUTF8 $317 ä½è³€ãƒ»é¹¿å³¶ã«æ»åœ¨ã€‚<br>ä¸€äººãƒ¡ãƒ‹ãƒ¥ãƒ¼ï¼šç¥å¾³ç¨²è·ãƒ»è‚¥å‰æµœå®¿ï¼ˆè©¦é£²ã¯å…‰æ­¦ã®è‚¥å‰å±‹ãƒ»é‹å³¶ã¯ä¸€èˆ¬è©¦é£²ãªã—ï¼‰ï¼‹å³°æ¾ã†ãªãï¼ˆ<b>æŒã¡å¸°ã‚Šã‹ã°ã‚„ãã®ã¿ãƒ»ã”é£¯ãªã—</b>ãƒ»åˆå‰é›»è©±äºˆç´„ï¼‰ãƒ»é“ã®é§…é¹¿å³¶ï¼ˆå¹²æ½Ÿä½“é¨“900å††ãƒ»æ½®æ±ã‚«ãƒ¬ãƒ³ãƒ€ãƒ¼è¦ç¢ºèªï¼‰ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-11" @@O P fromUTF8 "cls" @@fromUTF8 "kashima" @@@O P fromUTF8 "label" @@fromUTF8 "Kashima" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|i|9|?|e|3|6" @@@O P fromUTF8 "detail" @@fromUTF8 "Saga |b^@^T Kashima base. Solo menu |b^F^R 8/10. Note: Hamashuku info house is closed Tuesdays (= today)." @@@O P fromUTF8 "detail_ja" @@fromUTF8 "|d|=^P|h|3^@|c^C|;|i|9|?|e|3|6|c^A|+|f|;^^|e^\|(|c^@^B|f|5^\|e|.|?|c^A|.|f|!^H|e^F^E|f^I^@|c^A|/|g^A|+|f^[^\|d|<^Q|o|<^H|d|;^J|f^W|%|o|<^I|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-12" @@O P fromUTF8 "cls" @@fromUTF8 "kashima" @@@O P fromUTF8 "label" @@fromUTF8 "Kashima" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|i|9|?|e|3|6" @@@O P fromUTF8 "detail" @@fromUTF8 $250 Saga â€” Kashima base. Solo menu â†’ 8/10 Â· or an onsen run: ã‚·ãƒ¼ãƒœãƒ«ãƒˆã®æ¹¯ å¬‰é‡ ~30 min (6:00â€“22:00 Â· Â¥450 Â· bicarbonate skin-water) / æ­¦é›„æ¸©æ³‰ å…ƒæ¹¯ ~35â€“40 min (6:30â€“23:45 Â· Â¥500 Â· oldest wooden bathhouse in Japan, 1876).@@@O P fromUTF8 "detail_ja" @@fromUTF8 "|d|=^P|h|3^@|c^C|;|i|9|?|e|3|6|c^A|+|f|;^^|e^\|(|c^@^B|f|8|)|f|3^I|o|<^Z|c^B|7|c^C|<|c^C^\|c^C|+|c^C^H|c^A|.|f|9|/|o|<^H|e|,^I|i^G^N|o|<^Ior |f|-|&|i^[^D|f|8|)|f|3^I |e^E^C|f|9|/|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-13" @@O P fromUTF8 "cls" @@fromUTF8 "kashima" @@@O P fromUTF8 "label" @@fromUTF8 "Kashima |B|7 Obon" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|i|9|?|e|3|6|c^C|;|c^A^J|g^[^F" @@@O P fromUTF8 "detail" @@fromUTF8 $514 Saga â€” Kashima. Obon begins. <i>Owner:</i> Obi free cancel ends <b>tonight 23:59</b> local (then full Â¥36,720).<br><i>Owner:</i> before the 23:59 call, re-check Kumamoto quake recovery (7/28 M7.1 â€” see 8/15 card): <b>Obi House condition (ask the host directly â€” Higo Smile 096-223-7333, 9â€“18æ™‚, or Booking chat; it is a ~55-year-old wooden nagaya and its post-quake state was unverifiable online 7/29)</b> + water + roads. <b>Do not wait for 8/13 to ask â€” message the host well before the deadline.</b>@@@O P fromUTF8 "detail_ja" @@fromUTF8 $203 ä½è³€ãƒ»é¹¿å³¶ã€‚ãŠç›†ã®å…¥ã‚Šã€‚<i>ç®¡ç†è€…ï¼š</i>Obi ã®ç„¡æ–™ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã¯ <b>ä»Šå¤œ 23:59</b> ã¾ã§ï¼ˆä»¥é™å…¨é¡ Â¥36,720ï¼‰ã€‚åˆ¤æ–­å‰ã«ç†Šæœ¬ã®åœ°éœ‡å¾©æ—§ï¼ˆ7/28 M7.1ï¼‰ã‚’ç¢ºèªã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-14" @@O P fromUTF8 "cls" @@fromUTF8 "kashima" @@@O P fromUTF8 "label" @@fromUTF8 "Kashima |B|7 Obon" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|i|9|?|e|3|6|c^C|;|c^A^J|g^[^F" @@@O P fromUTF8 "detail" @@fromUTF8 $171 Saga â€” Kashima. Obon. Last night before Kumamoto.<br>Obon peak: unagi sells out by noon, small family shops close Â· shrine grounds, michi-no-eki, supermarket stay open.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $120 ä½è³€ãƒ»é¹¿å³¶ã«æ»åœ¨ã€‚ãŠç›†ã€‚ç†Šæœ¬ã¸ç§»ã‚‹å‰ã®æœ€çµ‚æ—¥ã€‚ã†ãªãã¯æ˜¼ã¾ã§ãƒ»å°åº—ã¯ç›†ä¼‘ã¿ã‚ã‚Šã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-15" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "|b^F^R Kumamoto" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|g^F^J|f^\|,|c^A|8" @@@O P fromUTF8 "detail" @@fromUTF8 $819 Drive to Kumamoto. Obi house B2 â€” check-in 15:00â€“18:00 (arrival ~15:00â€“16:00 approved). Smart Check-in: details arrive week-of. Narrow driveways if arriving by car. First of 8 nights (out 23 Aug AM).<br><b>âš  Quake context (7/28 M7.1 Â· max éœ‡åº¦7 in Uki ~20 km S of the city):</b> before driving, check Obi host messages + NEXCO road info (Kyushu Expwy Ueki section was damaged) + JR app. <b>Obi contact: management Higo Smile 096-223-7333 (9:00â€“18:00)</b> or via Booking. Obon U-turn rush 8/15â€“16 â€” pad the drive.<br><b>Base kit:</b> æ°´å‰å¯ºæˆè¶£åœ’ walkable ~1.3 km Â· 7-Eleven å¸¯å±±4ä¸ç›® + ATM ~0.9 km (<b>âš  24h NOT guaranteed post-quake</b> â€” ~100 Kumamoto stores were closed 7/29; check Maps on arrival) Â· ã‚†ã‚ãƒãƒ¼ãƒˆ supermarket ~5 min drive (was quake-closed â€” check it reopened).@@@O P fromUTF8 "detail_ja" @@fromUTF8 $385 ç†Šæœ¬ã¸ã€‚Obi house B2 â€” ãƒã‚§ãƒƒã‚¯ã‚¤ãƒ³ 15:00ã€œ18:00ï¼ˆåˆ°ç€ 15:00ã€œ16:00 æ‰¿èªæ¸ˆã¿ï¼‰ã€‚ã‚¹ãƒãƒ¼ãƒˆãƒã‚§ãƒƒã‚¯ã‚¤ãƒ³ï¼šäºˆç´„é€±ã«è©³ç´°ãŒå±Šãã€‚è»Šã¯ç´°ã„é“æ³¨æ„ã€‚8æ³Šã®åˆæ—¥ï¼ˆ8/23 æœã‚¢ã‚¦ãƒˆï¼‰ã€‚<br><b>âš  7/28 åœ°éœ‡ï¼ˆM7.1ãƒ»å®‡åŸã§éœ‡åº¦7ï¼‰</b>ï¼šå‡ºç™ºå‰ã« Obiãƒ»é“è·¯ï¼ˆæ¤æœ¨åŒºé–“æå‚·ï¼‰ãƒ»JR ã‚’ç¢ºèªã€‚ãŠç›†Uã‚¿ãƒ¼ãƒ³æ¸‹æ»æ³¨æ„ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-16" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "Obon" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|c^A^J|g^[^F" @@@O P fromUTF8 "detail" @@fromUTF8 $636 Kumamoto base. Obon.<br><b>City menu (verify-first after the quake):</b> æ°´å‰å¯ºæˆè¶£åœ’ walkable Â· 8:30â€“17:00 Â· Â¥500 Â· open 365 days (free in yukata this Aug) Â· <b>ç†Šæœ¬åŸ CLOSED indefinitely</b> since the 7/28 quake â€” check the castle news page before going Â· åŸå½©è‹‘ food village at the castle base 9â€“18 (likely open â€” call 096-288-5577) Â· ramen: é»’äº­ æœ¬åº— near Kumamoto Stn (<b>âš  post-quake status unverified â€” call 096-352-1648 first</b>) / ã“ã‚€ã‚‰ã•ã ä¸Šé€š 11â€“16 LO15:30 & 18â€“22 LO21:30 (no closure found Â· 096-325-8972). æ°´å‰å¯º reopened 7/30 after its safety check â€” reliable anchor.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $164 ç†Šæœ¬ã«æ»åœ¨ã€‚ãŠç›†ã€‚<br>å¸‚å†…ï¼ˆè¦ç¢ºèªï¼‰ï¼šæ°´å‰å¯ºæˆè¶£åœ’ï¼ˆå¾’æ­©åœï¼‰ãƒ»<b>ç†Šæœ¬åŸã¯å½“é¢é–‰åœ’</b>ãƒ»åŸå½©è‹‘ãƒ»é»’äº­ï¼ã“ã‚€ã‚‰ã•ãã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-17" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "Kumamoto" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|g^F^J|f^\|," @@@O P fromUTF8 "detail" @@fromUTF8 $111 Kumamoto base. City menu â†’ 8/16 Â· downtown arcades via tram (Suizenji-Koen stop ~1.2 km south of the house).@@@O P fromUTF8 "detail_ja" @@fromUTF8 "|g^F^J|f^\|,|c^A|+|f|;^^|e^\|(|c^@^B|e|8^B|e^F^E|c^C|!|c^C^K|c^C|%|c^C|<|c^A|/8/16|e^O^B|g^E|'|c^@^B|e|8^B|i^[|;|c^A|'|g|9^A|h^O|/|h|!^W|c^A|8|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-18" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "Day-trip*" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|f^W|%|e|8|0|c^B^J*" @@@O P fromUTF8 "detail" @@fromUTF8 $709 Optional from Kumamoto (car, weather): <b>Aso</b> ~1.5h Â· <b>Kurokawa</b> ~2h Â· <b>Takachiho</b> ~2.5h Â· <b>Beppu</b> ~2â€“2.5h Â· <b>Miyazaki</b> ~3h each way (long day OK). Not booked.<br><b>âš  Aso crater CLOSED</b> â€” volcanic alert Level 2 since 6/21 (1 km exclusion Â· toll road + shuttle suspended). Fallback trio verified 29 Jul: <b>Kusasenri</b> (free Â· lot ~Â¥500 Â· horse rides ~9:00â€“16:00, off in rain) Â· <b>Volcano Museum</b> (9:00â€“17:00, entry to 16:30 Â· Â¥880 Â· open 365d Â· 0967-34-2111) Â· <b>Daikanbo</b> (free Â· 24h Â· teahouse 8:30â€“17:00 Â· ~15 min walk from parking). Morning-of: aso-volcano.jp + JMA typhoon page Â· skip mountain roads in any rain (quake-loosened slopes).@@@O P fromUTF8 "detail_ja" @@fromUTF8 $509 ç†Šæœ¬ã‹ã‚‰ä»»æ„ï¼ˆè»Šãƒ»å¤©å€™ï¼‰ï¼š<b>é˜¿è˜‡</b> ç´„1.5h Â· <b>é»’å·</b> ç´„2h Â· <b>é«˜åƒç©‚</b> ç´„2.5h Â· <b>åˆ¥åºœ</b> ç´„2ã€œ2.5h Â· <b>å®®å´</b> ç‰‡é“ç´„3hï¼ˆãƒ­ãƒ³ã‚°ãƒ‡ãƒ¼å¯ï¼‰ã€‚æœªäºˆç´„ã€‚<br><b>âš  é˜¿è˜‡ä¸­å²³ã¯è­¦æˆ’ãƒ¬ãƒ™ãƒ«2ã§ç«å£è¦åˆ¶ä¸­</b>ï¼ˆä»£æ›¿3ç‚¹ã¯7/29ç¢ºèªæ¸ˆï¼šè‰åƒé‡Œã€ˆç„¡æ–™ãƒ»é§è»Š~500å††ãƒ»ä¹—é¦¬~16æ™‚ã€‰ãƒ»ç«å±±åšç‰©é¤¨ã€ˆ9-17æ™‚ãƒ»880å††ãƒ»å¹´ä¸­ç„¡ä¼‘ã€‰ãƒ»å¤§è¦³å³°ã€ˆç„¡æ–™ãƒ»èŒ¶åº—8:30-17æ™‚ã€‰ï¼‰ã€‚æœã« aso-volcano.jp ã¨å°é¢¨æƒ…å ±ã‚’ç¢ºèªã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-19" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "Rest*" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|d|<^Q|i|$^J*" @@@O P fromUTF8 "detail" @@fromUTF8 "Flex / rest |b^@^T or swap any day-trip from the menu (Aso / Kurokawa / Takachiho / Beppu / Miyazaki)." @@@O P fromUTF8 "detail_ja" @@fromUTF8 "|d|<^Q|i|$^J or |f^W|%|e|8|0|c^B^J|e^@^Y|h|#^\|c^A|.|e^E|%|c^B^L|f^[|?|c^A^H|o|<^H|i^X|?|h^X^G|o|<^O|i|;^R|e|7^]|o|<^O|i|+^X|e^M^C|g|)^B|o|<^O|e^H|%|e|:^\|o|<^O|e|.|.|e|4^N|o|<^I|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-20" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "Day-trip*" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|f^W|%|e|8|0|c^B^J*" @@@O P fromUTF8 "detail" @@fromUTF8 $125 Same optional menu. <i>Owner:</i> aim to submit <b>Sakura cancel</b> in My Page around now (by <b>25 Aug</b> for end 31 Aug).@@@O P fromUTF8 "detail_ja" @@fromUTF8 $125 åŒãƒ»æ—¥å¸°ã‚Šå€™è£œã€‚<i>ç®¡ç†è€…ï¼š</i>ã“ã®é ƒã« <b>Sakura è§£ç´„</b>ç”³è«‹ï¼ˆ<b>8/25</b> ã¾ã§ â†’ 8/31 çµ‚äº†ï¼‰ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-21" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "Day-trip*" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|f^W|%|e|8|0|c^B^J*" @@@O P fromUTF8 "detail" @@fromUTF8 $179 Optional long drive day (e.g. Miyazaki coast) or onsen (Kurokawa/Beppu). Weather-dependent â€” check the JMA typhoon page + quake road status before committing to mountain routes.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $122 ãƒ­ãƒ³ã‚°ãƒ‰ãƒ©ã‚¤ãƒ–ï¼ˆä¾‹ï¼šå®®å´ï¼‰or æ¸©æ³‰ï¼ˆé»’å·ï¼åˆ¥åºœï¼‰ã€‚å¤©å€™æ¬¡ç¬¬ â€” å°é¢¨ãƒ»é“è·¯çŠ¶æ³ã‚’ç¢ºèªã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-22" @@O P fromUTF8 "cls" @@fromUTF8 "kuma" @@@O P fromUTF8 "label" @@fromUTF8 "Kumamoto" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|g^F^J|f^\|," @@@O P fromUTF8 "detail" @@fromUTF8 "Repack |b^@^T last night. <i>Owner:</i> last days for Sakura cancel-by-25 if not done." @@@O P fromUTF8 "detail_ja" @@fromUTF8 "|h^M|7|i^@| |c^B^J |b^@^T |f^\^@|g|5^B|f|3^J|c^@^B<i>|g|.|!|g^P^F|h^@^E|o|<^Z</i>Sakura |h|'|#|g|4^D 8/25 |c^A|>|c^A|'|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-23" @@O P fromUTF8 "cls" @@fromUTF8 "cap" @@@O P fromUTF8 "label" @@fromUTF8 "|b^F^R Hakata" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|e^M^Z|e|$^Z|c^A|8" @@@O P fromUTF8 "detail" @@fromUTF8 $338 Check out AM â†’ Hakata â†’ return Toyota by <b>20:00</b>. Overnight 9h Hakata. Dinner flexible: Chinese, French, or shameless <b>Saizeriya â€” pinned branch: ã‚­ãƒ£ãƒŠãƒ«ã‚·ãƒ†ã‚£åšå¤š North Bldg 1F</b> (ä½å‰1-2-1 Â· 10:00â€“23:00 Â· ~12â€“15 min walk from 9h Â· none inside Hakata Stn itself). Fukuoka has strong Chinese + yatai too.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $237 åˆå‰ã‚¢ã‚¦ãƒˆâ†’åšå¤šâ†’è»Š20:00è¿”å´ã€‚9h åšå¤šã€‚å¤•é£Ÿï¼šä¸­è¯ãƒ»ãƒ•ãƒ¬ãƒ³ãƒ or æœ¬æ°—ã®<b>ã‚µã‚¤ã‚¼ãƒªãƒ¤ï¼ˆã‚­ãƒ£ãƒŠãƒ«ã‚·ãƒ†ã‚£åšå¤šãƒãƒ¼ã‚¹ãƒ“ãƒ«1Fãƒ»10-23æ™‚ãƒ»9hã‹ã‚‰å¾’æ­©12-15åˆ†ãƒ»é§…æ§‹å†…ã«åº—èˆ—ãªã—ï¼‰</b>ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-24" @@O P fromUTF8 "cls" @@fromUTF8 "tokyo" @@@O P fromUTF8 "label" @@fromUTF8 "Wabash pickup 1/4" @@@O P fromUTF8 "label_ja" @@fromUTF8 "Wabash|e^O^W|e^O^V 1/4" @@@O P fromUTF8 "detail" @@fromUTF8 $245 <b>Purpose:</b> start res <b>2607-212</b> (4-day). Nozomi 18 â†’ Shinagawa 14:25 â†’ do-c â†’ CycleTrip ~15:30â€“17:00. Same <b>WABASH RT L</b>. Bike Â¥34,000 + <b>deposit Â¥100,000</b> (cash refund faster). If train late vs 17:30, morning 25th.@@@O P fromUTF8 "detail_ja" @@fromUTF8 "<b>|g^[|.|g^Z^D|o|<^Z</b>|d|:^H|g|4^D 2607-212 |i^V^K|e|'^K|c^@^B|e^S^A|e|7^]14:25|b^F^Rdo-c|b^F^RCycleTrip|c^@^B|d|?^]|h|(|<|i^G^Q |B|%100,000|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-25" @@O P fromUTF8 "cls" @@fromUTF8 "tokyo" @@@O P fromUTF8 "label" @@fromUTF8 "Wabash day 2/4" @@@O P fromUTF8 "label_ja" @@fromUTF8 "Wabash 2/4" @@@O P fromUTF8 "detail" @@fromUTF8 $358 <b>Purpose:</b> more Tokyo on the bike (front Yamanote already done 30 Jul). Optional second loop or easy miles. <b>Route ref:</b> <a href="https://maps.app.goo.gl/ZuNKJTLa8C9Rr5G8A" target="_blank" rel="noopener">Maps</a>. Breakfast: Ivy Place / EBISU FOOD HALL / konbini (West Georgia St. does not exist â€” confirmed 29 Jul). Battery at do-c if removable.@@@O P fromUTF8 "detail_ja" @@fromUTF8 "<b>|g^[|.|g^Z^D|o|<^Z</b>|f^]|1|d|:|,|c^B|5|c^B|$|c^B|/|c^C|*|c^C|3|c^B|0|o|<^H|e|1|1|f^I^K|c^A|/7/30|f|8^H|o|<^I|c^@^B|d|;|;|f^D^O|c^A|'|e^F^M|d|8^@|e^Q|(|c^@^B" @@@K @@@@@@@O P fromUTF8 "2026-08-26" @@O P fromUTF8 "cls" @@fromUTF8 "tokyo" @@@O P fromUTF8 "label" @@fromUTF8 "Yokohama |B|7 errands" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|f|(|*|f|5^\|c^C|;|g^T|(|d|:^K" @@@O P fromUTF8 "detail" @@fromUTF8 $577 <b>Purpose:</b> Yokohama Chinatown (bike or train). <b>âš  å‚™æ·±é…’å®¶ Bishin Shuka is CLOSED Wednesdays â€” 26 Aug is a Wednesday.</b> If the tofu-flower mapo matters, swap Yokohama onto 25 Aug instead; otherwise <b>must-try today: ä¸¿è²« Hechikan</b> Kannai â€” shrimp-miso ultra-thick cold tsukemen Â· 11:00â€“15:00 / 17:00â€“22:00 Â· Maps: ä¸¿è²« ç¦å¯Œç”º. <b>Alt Chin:</b> é ­æ–‡å­—D collab mapo at é™³éº»å©† ã¿ãªã¨ã¿ã‚‰ã„ (11:00â€“22:00) or å¸‚å½¹æ‰€ãƒ©ã‚¯ã‚·ã‚¹ (Â¥1,680 Â· card Â· through 31 Oct). Also Tokki/Kyokarou if energy. Last full free day before Narita.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $353 <b>ç›®çš„ï¼š</b>æ¨ªæµœï¼ˆè‡ªè»¢è»Šoré›»è»Šï¼‰ã€‚<b>âš  å‚™æ·±é…’å®¶ã¯æ°´æ›œå®šä¼‘ â€” 8/26ã¯æ°´æ›œã€‚</b>è±†èŠ±éº»å©†ãŒæœ¬å‘½ãªã‚‰æ¨ªæµœã¯8/25ã«å…¥æ›¿ã€‚ä»Šæ—¥ã¯<b>ä¸¿è²«ï¼ˆç¦å¯Œç”ºï¼‰</b>ã®ã‚¨ãƒ“å‘³å™Œå†·ã¤ã‘ï¼ˆ11ã€œ15æ™‚/17ã€œ22æ™‚ï¼‰or <b>é™³éº»å©† é ­æ–‡å­—Dã‚³ãƒ©ãƒœ</b>ï¼ˆã¿ãªã¨ã¿ã‚‰ã„11ã€œ22æ™‚ï¼‰ã€‚æˆç”°å‰æœ€å¾Œã®è‡ªç”±æ—¥ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-27" @@O P fromUTF8 "cls" @@fromUTF8 "cap" @@@O P fromUTF8 "label" @@fromUTF8 "Return bike |B|7 NRT" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|h|?^T|e^M|4|c^C|;|f^H^P|g^T|0" @@@O P fromUTF8 "detail" @@fromUTF8 $206 <b>Purpose:</b> return res <b>2607-212</b> by ~17:00â€“17:15 â†’ dinner â†’ 9h Narita. Deposit refund if bike OK. <b>Peace cans</b> already bought (26th) â€” pack sealed for cabin/checked per airline rules.@@@O P fromUTF8 "detail_ja" @@fromUTF8 $115 <b>ç›®çš„ï¼š</b>2607-212 è¿”å´ ~17:00â€“17:15 â†’ å¤•é£Ÿ â†’ æˆç”°9hã€‚ãƒ”ãƒ¼ã‚¹ã¯å‰æ—¥è³¼å…¥æ¸ˆã¿ã§æ¢±åŒ…ã€‚@@@K @@@@@@@O P fromUTF8 "2026-08-28" @@O P fromUTF8 "cls" @@fromUTF8 "flight" @@@O P fromUTF8 "label" @@fromUTF8 "DEPART NRT" @@@O P fromUTF8 "label_ja" @@fromUTF8 "|f^H^P|g^T|0|g^Y|:" @@@O P fromUTF8 "detail" @@fromUTF8 $117 <b>Purpose:</b> fly home, no rush. 9h out 10:00. Security when ready â†’ <b>JAL lounge</b> â†’ <b>JL008 18:25</b> T2.@@@O P fromUTF8 "detail_ja" @@fromUTF8 "<b>|g^[|.|g^Z^D|o|<^Z</b>|e|8|0|e^[|=|c^C|;|f^@|%|c^A^L|c^A|*|c^A^D|c^@^B10:00|c^B|"|c^B|&|c^C^H |b^F^R |c^C|)|c^B|&|c^C|3|c^B|8 |b^F^R JL008 18:25|c^@^B" @@@K @@@@@@@K @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@:655 @
+A B S C' S @C' C' S @@C' C' C' S @@@C' C'B @C' C' C' @@B B S' @@B B C @@C' C' C' S @@@C' C' C' C' S @@@@B C' C' C' C' C @@@@B C' C' C' C' _652 @@@@C'B B' B C @C' S' T3 @@S' C @C C _57 _60 @@#2 @@@C _73 _68 @@#1 @@@I @@@@C' C' _73 _68 @@@C'B _208 _68 @@C' _447 _350 @@C' _73 _68 @@_40 _68 @#153 @@#2 @@#5 @@@#1 @@@@C' _448 _350 @@C _73 _68 @@#3 @@#7 @@@@C' _447 _350 @@C _448 _350 @@#86400 @@#60 @@@S S C _46 _60 @@#10 @@C _208 _68 @@#9 @@@C _73 _68 @@#3 @@@@C' _447 _350 @@C' _73 _68 @@_40 _68 @_123 _68 @_145 #5 @@@@#2 @@#153 @@@@@C'B _208 _68 @@S' _208 _68 @@S' _73 _68 @@_40 _68 @#365 @@C _447 _350 @@#4 @@@C _447 _350 @@#100 @@@@@B C _73 _68 @@@C' _40 _68 @@C _447 _350 @@#146097 @@#400 @@@@C' _447 _350 @@S' _208 _68 @@S' _73 _68 @@S _208 _68 @@C _447 _350 @@#1460 @@@C _447 _350 @@#36524 @@@C _447 _350 @@#146096 @@@#365 @@@C _448 _350 @@#146097 @@@C _73 _68 @@#719468 @@@C _447 _350 @@#86400 @@@C _73 _68 @@_653 @@:654 @
+A _40 _68 @#9 @#3600 @:653 @
+A T3 :652 @
+A U K2 @:651 @
+A U C'B B' B _170 @_171 _353 @@@@B B _170 O #45 @K @@@@C'B B _170 @_446 @@B _170 O #45 @K @@@_446 @@@@@:650 @
+A O T4 fromUTF8 "2026-07-28" @@fromUTF8 "2026-07-30" @@fromUTF8 "do-c Ebisu, Tokyo" @@fromUTF8 "do-c |f^A|5|f|/^T|e|/|?|o|<^H|f^]|1|d|:|,|o|<^I" @@@O T4 fromUTF8 "2026-07-31" @@fromUTF8 "2026-07-31" @@fromUTF8 "9h Hakata" @@fromUTF8 "9h |e^M^Z|e|$^Z" @@@O T4 fromUTF8 "2026-08-01" @@fromUTF8 "2026-08-02" @@fromUTF8 "Mika & Kentaro's apartment, Kanzaki" @@fromUTF8 "Mika & Kentaro |e|.^E|o|<^H|g|%^^|e^_|<|o|<^I" @@@O T4 fromUTF8 "2026-08-03" @@fromUTF8 "2026-08-07" @@fromUTF8 "R9 The Yard Kanzaki" @@fromUTF8 "R9 The Yard |g|%^^|e^_|<" @@@O T4 fromUTF8 "2026-08-08" @@fromUTF8 "2026-08-14" @@fromUTF8 "R9 Sagakashima" @@fromUTF8 "R9 |d|=^P|h|3^@|i|9|?|e|3|6" @@@O T4 fromUTF8 "2026-08-15" @@fromUTF8 "2026-08-22" @@fromUTF8 "Obi house, Kumamoto" @@fromUTF8 "Obi house|o|<^H|g^F^J|f^\|,|o|<^I" @@@O T4 fromUTF8 "2026-08-23" @@fromUTF8 "2026-08-23" @@fromUTF8 "9h Hakata" @@fromUTF8 "9h |e^M^Z|e|$^Z" @@@O T4 fromUTF8 "2026-08-24" @@fromUTF8 "2026-08-26" @@fromUTF8 "do-c Ebisu, Tokyo" @@fromUTF8 "do-c |f^A|5|f|/^T|e|/|?|o|<^H|f^]|1|d|:|,|o|<^I" @@@O T4 fromUTF8 "2026-08-27" @@fromUTF8 "2026-08-27" @@fromUTF8 "9h Narita Airport" @@fromUTF8 "9h |f^H^P|g^T|0|g|)|:|f|8|/" @@@K @@@@@@@@@:649 @
+A B Y @C' S @C' S @C' S @C' S @C' S @C S' S' @B _47 @B _387 @_283 @@@B B C C S' @P _570 @K2 _572 @@@@@@B B C'B B' U _571 @@@@@B C'B B C'B @B B C @@C' C' C' S @@@B B B C S I @I @@@@@_62 @@I @@@@@_62 @@@@@_644 @@_645 @@_646 @@_647 @@_58 @@_59 @@:648 @
+A B C @_57 @:647 @
+A C' C' C @@C' C' C @@_57 @_185 @@_186 @:646 @
+A C' C' C @@C' C' C @@C' C' C @@_62 @_185 @@_185 @@_186 @:645 @
+A C' C' C @@C' C' C @@B C @_57 @@_185 @@_186 @:644 @
+A C' C @C' C @_642 _387 _224 @@@K @@I @:643 @
+A C' C' C @@C' C' C @@B B _640 @@C' C' _6 @@_151 @_641 @@@_191 @@U K _192 @@@:642 @
+A U K @:641 @
+A B Y @B B P _191 @@@C' C' S @@C' C' @@_192 @@@:640 @
+A _6 Y B P _109 @@S' C @B S' S' @_151 _224 @#38 @@@C'B _108 @@@S' S @B C'B _455 C _151 _224 @@#59 @@@@B S' B @P @@B S' B @B C'B @C _151 _224 @#59 @@@@@B C' S' B @@C C' _57 _60 @@_75 @#8 @@@@C'B B _170 @C C' C @C' S' C @@S' B @B S @C C _151 @fromUTF8 "amp" @@@@@C' S' C @@S' B @B S @C C _151 @fromUTF8 "lt" @@@@@C' S' C @@S' B @B S @C C _151 @fromUTF8 "gt" @@@@@C' S' C @@S' B @B S @C C _151 @fromUTF8 "quot" @@@@@C'B B C @S' C @C C _151 @fromUTF8 "nbsp" @@@@S C S @S' C'B @C _151 _224 @#35 @@@S' S @C _457 _355 @@@C' S @C' _454 @_458 @@C' O @B _382 @_520 _637 @@@K @@@@@@B _108 #38 @@C _170 @O #59 @K @@@@@@@C _437 @O #32 @K @@@@@C _437 @O #34 @K @@@@@C _437 @O #62 @K @@@@@C _437 @O #60 @K @@@@@C _437 @O #38 @K @@@@_387 _224 @@@_439 I @@@@@@@@@B _108 #38 @@@@@@@Y B P _109 @@S' C @B S' S' @_151 _224 @#60 @@@C'B _108 @@@C' S @S' C @C' S' @C' _151 _387 _224 @@@_290 #2 @@fromUTF8 "br" @@@@B _108 #10 @@@@B _638 #1 @@_451 C _161 _224 @@#62 @@@@@@@@:639 @
+A C S' S' @C _57 _60 @@#0 @@B P _109 @@Z B _638 @C _208 _68 @@#1 @@@@@@I @:638 @
+A _521 _522 _637 @@_524 _637 @@_7 _501 @_123 _68 @@_623 _582 @_625 _582 @@@@_636 _637 @@:637 @
+A B _635 @_507 @:636 @
+A B B _536 @B _71 _506 @_630 _593 O #91 @K @@@@@S' _535 @P A @_186 @@U K @@@@@B Y @C' S' P @@C'B B _0 _506 @@_529 @@C'B B _0 _506 @@P A @_185 @@@B B _11 _506 @@@_108 @@@@B B _0 _506 @_622 @@@B B U @@B B C'B C == #2 @@_631 _634 @fromUTF8 "bind" @@@@@@B B U @@C' C' C @@C' C' C' C @@@B B S' S @C C _151 @O #93 @K @@@@@@B B C' C @C' C @C C _151 @O #44 @K @@@@_527 @@@@B P _527 @@U K @@@@@_11 _506 @_109 @@@_387 _224 @@@@@@@@@:635 @
+A _632 _506 @B _498 @Z _631 _633 @@@@:634 @
+A _632 _502 @K _499 _8 _464 @@@@:633 @
+A P :632 @
+A U A @:631 @
+A B _508 @_629 @:630 @
+A B _71 _502 @_515 @@B _0 _502 @_620 @@C' C' _368 _503 @@@C _151 _628 @@@_526 @@@:629 @
+A _48 C B @S' S @B S' S' @> #3 @@@S' S @B S' S' @> #5 @@@S' C @B C' S' @> #6 @@@B U @U C'B C == #6 @@_186 @@U _185 @@@@@@B U @C B @B C'B C == #5 @@_186 @@@B U @_151 _627 @@@@@@@@S' C @B C' S' @> #4 @@@B U @C B @B C'B C == #4 @@_186 @@@B U @_151 _387 _224 @@@@@@@@B U @C B @B C'B C == #3 @@_186 @@@B U @_151 _387 _224 @@@@@@@@@@S' C @B S' S' @> #1 @@@S' C @B C' S' @> #2 @@@B U @C B @B C'B C == #2 @@_186 @@@B U @_151 _387 _224 @@@@@@@@B U @C B @B C'B C == #1 @@_186 @@@B U @_151 _387 _224 @@@@@@@@@B U @C B @B C'B C == #0 @@_186 @@@B U @_151 _224 @@@@@@@@@_187 _628 @@:628 @
+A _48 C C S' @C C' C' @C' @C'B B C'B @B B _226 @@_151 _51 @@@@_151 _387 _51 @@@@@K3 _186 @@@@C'B B' B' U K2 _186 @@@@@C' C' C' C @@@C'B B' B C' C' @@B B C' @@B B S' _226 @@@B C @C _151 @@@@@@@C'B B C'B @B B C' _226 @@@B C @C' _151 @_626 @@@@@_151 _626 _569 @@@@@_387 _51 @@@@@_187 _627 @@:627 @
+A B Y @C'B B _48 @B C C S' @P _185 @K _186 @@@@@B C'B U _186 @@@_151 @@@@_187 @@:626 @
+A B U @B C'B C == #5 @@_527 @@@B U @B C C _624 @_527 @@@B B _11 _506 @@@_123 @@@@@:625 @
+A P B B _192 @@B _551 _582 @@_252 P _350 @_582 @@@@@C' C @B C C' @@C' P @B _192 @_551 _582 @_145 #10 @@@@K _191 @@@@K _191 @@@:624 @
+A B B _536 @@B B _0 _506 @_622 @@@C' S' S @@B B C B @@@B B S' C'B @C == #4 @@@@@B B B U @@@B B C' C @C _151 _387 _224 @@O #45 @K @@@@@@B B _0 _506 @_622 @@@B C C' _0 _506 @@@@B B _11 _506 @@@_61 @@@@@@@@I @@@:623 @
+A _508 _621 @:622 @
+A _71 _502 @_515 @_620 @:621 @
+A _534 _541 @_534 _589 @_534 _591 @_534 _594 @_534 _599 @_534 _611 @_619 @@@@@@:620 @
+A _544 _614 @_618 @:619 @
+A _0 _502 @_549 #10 @@B _0 _502 @_544 _615 @_11 _502 @_191 @@@@B B _0 _502 @_544 _616 @_11 _502 @_191 @@@@@B B B _11 _502 @@@@B B B _612 @@@_617 @@@@@:618 @
+A B B Z @@B B C @@P @@:617 @
+A _0 _502 @_534 _543 #101 @@_543 #69 @@@K _0 _502 @_534 _0 _502 @_534 _543 #45 @@_543 #43 @@@B _0 _502 @_583 #10 @@@B B _11 _502 @@@C' S @C _151 _224 @@#45 @@_61 _582 @@@@@@_583 #10 @@@B _11 _502 @@_192 @@@@:616 @
+A _0 _502 @_543 #46 @@K _0 _502 @_549 #10 @@B _11 _502 @@_192 @@@@:615 @
+A _0 _502 @_543 #48 @@K _0 _502 @_545 @S' _0 _502 @@_549 @B B _11 _502 @@@B B _612 @@_613 @@@@@@:614 @
+A B B Z @@P @:613 @
+A B TAG5 @U @:612 @
+A _0 _502 @_542 S' _234 @_607 @C _151 _224 @@#95 @@@@B _0 _502 @_595 S' _234 @_609 @C _372 _224 @@fromUTF8 "_'" @@@@@@B B _11 _502 @@@B B _610 @@_108 @@@@:611 @
+A B TAG3 @U @:610 @
+A S S _233 @_608 @@S' _234 @_607 @_355 @@:609 @
+A C _344 @S S' S' @> #4 @@S S' S' @> #9 @@C S' S' @> #10 @@C'B C == #10 @@_186 @@U _185 @@@@U _185 @@@@S C' S' @> #8 @@U _185 @@@C'B C == #4 @@_186 @@U _185 @@@@@@S S' S' @> #2 @@C C' S' @> #3 @@U _185 @@@U _185 @@@@C C' S' @> #1 @@U _185 @@@U _185 @@@@@:608 @
+A S S _233 @_600 @@S' _234 @_603 @_606 @@:607 @
+A S S _233 @_604 @@_605 @:606 @
+A S' _226 @_57 _232 @#65 @@C _57 _232 @@#90 @@:605 @
+A C _344 @S S' S' @> #2 @@C'B C == #2 @@_186 @@U _185 @@@@C'B C == #0 @@_186 @@U _185 @@@@:604 @
+A S S C _57 _232 @@#177 @@_601 @@_602 @:603 @
+A S' _226 @_57 _232 @#97 @@C _57 _232 @@#122 @@:602 @
+A C _344 @C'B C == #1 @@_186 @@U _185 @@@:601 @
+A C _344 @S S' S' @> #2 @@C S' S' @> #3 @@C S' S' @> #4 @@C'B C == #4 @@_186 @@U _185 @@@@U _185 @@@@U _185 @@@@C C' S' @> #1 @@U _185 @@@U _185 @@@@:600 @
+A _0 _502 @_596 _597 @@S S C _372 _387 _224 @@@O fromUTF8 ".." @@O fromUTF8 "::" @@O O #61 @K @@O O #92 @K @@O O #124 @K @@O fromUTF8 "<-" @@O fromUTF8 "->" @@O O #64 @K @@O O #126 @K @@O fromUTF8 "=>" @@K @@@@@@@@@@@@B _11 _502 @@_598 @@@B _11 _502 @@_593 @@@:599 @
+A B TAG4 @U @:598 @
+A C _372 _224 @@fromUTF8 "!@#$%&?+./<=>?\\\^\|:-~" @@:597 @
+A B _0 _502 @_514 @@S' S @R _526 @@C'B B _0 _502 @@_595 @@B B _11 _502 @@@_108 @@@@:596 @
+A B _0 _502 @_509 @@B Y @C' C' C @@B B C S @@@C'B B C' S' B @@@C @@B B B _0 _502 @_514 @@@@B B Z @@C'B C' _0 _502 @@@B B _11 _502 @@@_108 @@@@@@@_11 _502 @K @@@@:595 @
+A _0 _502 @_542 _592 @@B _11 _502 @@B _593 @C O @K @@@@:594 @
+A B TAG2 @U @:593 @
+A C _372 _224 @@fromUTF8 ",;()[]{}`" @@:592 @
+A _0 _502 @_543 #34 @@K Y B B _0 _502 @Y C' _534 @_71 _502 @_0 _502 @_543 #92 @@K _0 _502 @_514 @C S _151 _224 @#38 @@C C _513 @_526 @@_71 _502 @_515 @_0 _502 @_543 #92 @@K _11 _502 @I @@@@@@@_11 _502 @I @@@@@@@_587 @@@@@B B U @@B S' S' C @@B C' C @B _234 @C _161 _224 @@#34 @@@@B _11 _502 @@B _590 @U K @@@@@@C'B B @C'B _6 @_108 @@@@@@_384 @@@:591 @
+A B TAG1 @U @:590 @
+A _0 _502 @_543 #39 @@K _0 _502 @_587 @U S' C' _71 _502 @@@B B _538 _539 @@@B C _234 @@C _161 _224 @@#39 @@@@B _0 _502 @_543 #39 @@@Z B _11 _502 @@_588 @@@@@@@@:589 @
+A B TAG0 @U @:588 @
+A _0 _502 @_514 @C S C _151 _224 @@#92 @@B _11 _502 @@C P @_186 @@@@_0 _502 @_534 _0 _502 @_514 @C S _151 _224 @#97 @@C S _151 _224 @#98 @@C S _151 _224 @#102 @@C S _151 _224 @#110 @@C S _151 _224 @#114 @@C S _151 _224 @#116 @@C S _151 _224 @#118 @@C S _151 _224 @#92 @@C S _151 _224 @#34 @@C C _151 _224 @#39 @@_526 @@_11 _502 @#39 @@@@_11 _502 @#34 @@@@_11 _502 @#92 @@@@_11 _502 @#11 @@@@_11 _502 @#9 @@@@_11 _502 @#13 @@@@_11 _502 @#10 @@@@_11 _502 @#12 @@@@_11 _502 @#8 @@@@_11 _502 @#7 @@@@_534 _0 _502 @_544 _545 @_11 _502 @#10 @@@C' _0 _502 @@_583 @S' _71 _502 @@B _538 _539 @@C _57 _578 @@_251 _350 @_354 _262 _584 @@@@@@B _11 _502 @@B _382 @_123 _68 @@@@@@@_534 _0 _502 @_543 #94 @@K _0 _502 @_514 @C S _151 _224 @#64 @@C S _151 _224 @#65 @@C S _151 _224 @#66 @@C S _151 _224 @#67 @@C S _151 _224 @#68 @@C S _151 _224 @#69 @@C S _151 _224 @#70 @@C S _151 _224 @#71 @@C S _151 _224 @#72 @@C S _151 _224 @#73 @@C S _151 _224 @#74 @@C S _151 _224 @#75 @@C S _151 _224 @#76 @@C S _151 _224 @#77 @@C S _151 _224 @#78 @@C S _151 _224 @#79 @@C S _151 _224 @#80 @@C S _151 _224 @#81 @@C S _151 _224 @#82 @@C S _151 _224 @#83 @@C S _151 _224 @#84 @@C S _151 _224 @#85 @@C S _151 _224 @#86 @@C S _151 _224 @#87 @@C S _151 _224 @#88 @@C S _151 _224 @#89 @@C S _151 _224 @#90 @@C S _151 _224 @#91 @@C S _151 _224 @#92 @@C S _151 _224 @#93 @@C S _151 _224 @#94 @@C C _151 _224 @#95 @@_526 @@_11 _502 @#31 @@@@_11 _502 @#30 @@@@_11 _502 @#29 @@@@_11 _502 @#28 @@@@_11 _502 @#27 @@@@_11 _502 @#26 @@@@_11 _502 @#25 @@@@_11 _502 @#24 @@@@_11 _502 @#23 @@@@_11 _502 @#22 @@@@_11 _502 @#21 @@@@_11 _502 @#20 @@@@_11 _502 @#19 @@@@_11 _502 @#18 @@@@_11 _502 @#17 @@@@_11 _502 @#16 @@@@_11 _502 @#15 @@@@_11 _502 @#14 @@@@_11 _502 @#13 @@@@_11 _502 @#12 @@@@_11 _502 @#11 @@@@_11 _502 @#10 @@@@_11 _502 @#9 @@@@_11 _502 @#8 @@@@_11 _502 @#7 @@@@_11 _502 @#6 @@@@_11 _502 @#5 @@@@_11 _502 @#4 @@@@_11 _502 @#3 @@@@_11 _502 @#2 @@@@_11 _502 @#1 @@@@_11 _502 @#0 @@@@@@_585 O _544 _71 _502 @_586 fromUTF8 "SOH" @@@_11 _502 @#1 @@@_71 _502 @_586 fromUTF8 "SO" @@@_11 _502 @#14 @@@@O _71 _502 @_586 fromUTF8 "NUL" @@@_11 _502 @#0 @@@O _71 _502 @_586 fromUTF8 "STX" @@@_11 _502 @#2 @@@O _71 _502 @_586 fromUTF8 "ETX" @@@_11 _502 @#3 @@@O _71 _502 @_586 fromUTF8 "EOT" @@@_11 _502 @#4 @@@O _71 _502 @_586 fromUTF8 "ENQ" @@@_11 _502 @#5 @@@O _71 _502 @_586 fromUTF8 "ACK" @@@_11 _502 @#6 @@@O _71 _502 @_586 fromUTF8 "BEL" @@@_11 _502 @#7 @@@O _71 _502 @_586 fromUTF8 "BS" @@@_11 _502 @#8 @@@O _71 _502 @_586 fromUTF8 "HT" @@@_11 _502 @#9 @@@O _71 _502 @_586 fromUTF8 "LF" @@@_11 _502 @#10 @@@O _71 _502 @_586 fromUTF8 "VT" @@@_11 _502 @#11 @@@O _71 _502 @_586 fromUTF8 "FF" @@@_11 _502 @#12 @@@O _71 _502 @_586 fromUTF8 "CR" @@@_11 _502 @#13 @@@O _71 _502 @_586 fromUTF8 "SI" @@@_11 _502 @#15 @@@O _71 _502 @_586 fromUTF8 "DLE" @@@_11 _502 @#16 @@@O _71 _502 @_586 fromUTF8 "DC1" @@@_11 _502 @#17 @@@O _71 _502 @_586 fromUTF8 "DC2" @@@_11 _502 @#18 @@@O _71 _502 @_586 fromUTF8 "DC3" @@@_11 _502 @#19 @@@O _71 _502 @_586 fromUTF8 "DC4" @@@_11 _502 @#20 @@@O _71 _502 @_586 fromUTF8 "NAK" @@@_11 _502 @#21 @@@O _71 _502 @_586 fromUTF8 "SYN" @@@_11 _502 @#22 @@@O _71 _502 @_586 fromUTF8 "ETB" @@@_11 _502 @#23 @@@O _71 _502 @_586 fromUTF8 "CAN" @@@_11 _502 @#24 @@@O _71 _502 @_586 fromUTF8 "EM" @@@_11 _502 @#25 @@@O _71 _502 @_586 fromUTF8 "SUB" @@@_11 _502 @#26 @@@O _71 _502 @_586 fromUTF8 "ESC" @@@_11 _502 @#27 @@@O _71 _502 @_586 fromUTF8 "FS" @@@_11 _502 @#28 @@@O _71 _502 @_586 fromUTF8 "GS" @@@_11 _502 @#29 @@@O _71 _502 @_586 fromUTF8 "RS" @@@_11 _502 @#30 @@@O _71 _502 @_586 fromUTF8 "US" @@@_11 _502 @#31 @@@O _71 _502 @_586 fromUTF8 "SP" @@@_11 _502 @#32 @@@O _71 _502 @_586 fromUTF8 "DEL" @@@_11 _502 @#127 @@@K @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@B _11 _502 @@C P @_185 @@@@@:587 @
+A B _0 _502 @_509 @@S' Y @C'B B C'B @B U @_11 _502 @@@@B C'B B' U _526 @@@@B C'B B C'B @C' C @_151 _224 @@_526 @@@@B B B _0 _502 @_514 @@@@B Z @@@@@@I @@:586 @
+A P _526 @S' S @U @B Z @B Z @C'B _534 @_585 @@@@@:585 @
+A _263 _351 #0 @@_351 #1114111 @@:584 @
+A S' _0 _502 @@_549 @B B _11 _502 @@@B _551 _582 @@_252 P _350 @_582 @@@@@:583 @
+A _41 _555 @_557 @_559 @_562 @_564 @C C C C _62 _578 @@_579 @@_580 @@_579 @@_581 @@I @:582 @
+A _145 #1 @:581 @
+A _145 _45 #1 @@:580 @
+A _145 #0 @:579 @
+A _47 _569 @_573 @_574 @_575 @_576 @_577 @_58 _578 @@_59 _578 @@:578 @
+A _566 C _164 _60 @@#0 @@:577 @
+A _566 C _134 _60 @@#0 @@:576 @
+A _566 C _57 _60 @@#0 @@:575 @
+A _566 C _46 _60 @@#0 @@:574 @
+A _566 C S C _46 _60 @@#0 @@C C C _134 _60 @@#0 @@_570 @@_571 @@@_572 @@:573 @
+A K2 :572 @
+A KA :571 @
+A KK :570 @
+A _48 _567 @_568 @:569 @
+A _566 _161 _51 @#0 @@:568 @
+A _566 _151 _51 @#0 @@:567 @
+A B B B _395 @@@B C'B _552 @@B C'B _552 @@B C' C' _0 _20 @@@_565 @@B _11 _20 @@@@@@:566 @
+A ^mpz_cmp :565 @
+A _560 _563 @:564 @
+A ^mpz_abs :563 @
+A _560 _561 @:562 @
+A ^mpz_neg :561 @
+A B B _395 @@B B _0 _20 @_142 @@@C' C' S' _71 _20 @@@@B C'B _552 @@B C'B _552 @@C @@@B _11 _20 @@_144 @@@@:560 @
+A _553 _558 @:559 @
+A ^mpz_mul :558 @
+A _553 _556 @:557 @
+A ^mpz_sub :556 @
+A _553 _554 @:555 @
+A ^mpz_add :554 @
+A B B B _395 @@@B B B _0 _20 @_142 @@@@C' C' C' S' _71 _20 @@@@@B C'B B' _552 @@@B C'B B' _552 @@@B C'B B' _552 @@@B B C @@C @@@@@B _11 _20 @@_144 @@@@:553 @
+A S' C' _4 @@B U @_63 @@C'B _64 @_5 @@:552 @
+A B _550 @C P @_350 @@:551 @
+A S' C @S' C' B Y @@@B B B B S P @@@@@B B B C'B B' B C' S _96 @@@C @@@@@@B C' C' C @@C'B B C' C' @@B B S @@B B S _73 @@@C' C @C _40 @@@@@@B C' _252 @@P @@@@U K @@@@@U A @@@C' _123 @U K @@_145 #0 @@@:550 @
+A B _0 _502 @_509 @@C' C' _0 _502 @@@C' C @B Y @B B C C S' @B _11 _502 @@U _109 @@@@@@C'B B S' C'B @@C'B B C @_548 P _51 @_68 @@@@B _11 _502 @@U _109 @@@@@B B B B _0 _502 @_514 @@@@@B B B Z @@@C'B C'B @C'B _6 @_108 @@@@@@@@_384 @@S' _71 _502 @@B _538 _539 @@B _454 @_458 @@@_11 _502 @@@@:549 @
+A S' C C' C' C @@S' S' S' S' @@@B C _151 @@C _123 @_145 #2 @@@@C' C' C @@S' S' S' S' @@@B C _151 @@C _123 @_145 #8 @@@@C' C' C @@S' S' S' S' @@@B C _151 @@C _123 @_145 #10 @@@@C' C' C'B @@C' C' C @@B C _151 @@C _123 @_145 #16 @@@@_460 fromUTF8 "valDig: Bad base" @@@@S S _355 @S S S' _226 @_57 _232 @#97 @@C _57 _232 @@#102 @@@S C S' _226 @_57 _232 @#65 @@C _57 _232 @@#70 @@@_191 @@B _192 @C' _73 _68 @@C' _208 _68 @@_354 @_354 #65 @@@#10 @@@@@B _192 @C' _73 _68 @@C' _208 _68 @@_354 @_354 #97 @@@#10 @@@@@B _192 @C' _208 _68 @@_354 @_354 #48 @@@@@@@_546 @@@S C _547 @_191 @@B _192 @C' _208 _68 @@_354 @_354 #48 @@@@@@@S C S' _226 @_57 _232 @#48 @@C _57 _232 @@#49 @@@_191 @@B _192 @C' _208 _68 @@_354 @_354 #48 @@@@@@@U K @@U A @@:548 @
+A S' _226 @_57 _232 @#48 @@C _57 _232 @@#55 @@:547 @
+A S C _355 @_191 @@B _192 @C' _208 _68 @@_354 @_354 #48 @@@@:546 @
+A _0 _502 @_514 @C S _151 _224 @#98 @@C S _151 _224 @#66 @@C S _151 _224 @#111 @@C S _151 _224 @#79 @@C S _151 _224 @#120 @@C C _151 _224 @#88 @@_526 @@_11 _502 @#16 @@@@_11 _502 @#16 @@@@_11 _502 @#8 @@@@_11 _502 @#8 @@@@_11 _502 @#2 @@@@_11 _502 @#2 @@@:545 @
+A B B _0 _502 @_509 @@@C' C' C @@B C' Y @C' C' C' C' C @@@@C' C' S' C' S @@@@S' C' C' C' C @@@@C' S' C @@B B C' S' @S' @@@C'B B C'B @B B' @U @@@C'B B C' C' C @@@B @@C _73 _68 @@#1 @@@@@B B C @@C C' S' @C' @U @@I @@@@I @@B Z @B Z @B C' _71 _502 @@Y C' C @B S _151 _51 @_123 _68 @_145 #0 @@@@@B B _71 _502 @_514 @@@C B @C _208 _68 @@_123 _68 @_145 #1 @@@@@@@_11 _502 @I @@@@@B _499 @_0 _495 @@@@@@@B _499 @B _0 _495 @@_466 @@@@@U _11 _495 @@@@#0 @@:544 @
+A B _542 @_151 _224 @@:543 @
+A B _0 _502 @_514 @@C' S @R _526 @@_11 _502 @@@:542 @
+A _0 _502 @_509 @C' _71 _502 @@B _538 _539 @@_458 @@_11 _502 @_540 @@@:541 @
+A TAG6 I @:540 @
+A _478 _503 @_526 @_534 @_487 _539 @@_489 _539 @@:539 @
+A S' P @_537 @C' _367 @_485 @I @@:538 @
+A U K K3 @@:537 @
+A C' Y @B S' P @B _533 @U A @@@@B B _532 @@C'B _535 @U K @@@@@A @:536 @
+A B B _498 @@S' _534 @@:535 @
+A B B _499 @@S' _477 _490 @@@:534 @
+A B _528 #40 @@C' _0 _506 @@_529 @B _532 @B _528 #41 @@_367 _505 @@@@@:533 @
+A B _0 _506 @_530 @@B Y @S' B @P @C'B B C'B @C _513 @@@B _531 _505 @_525 @@@@@@:532 @
+A U K3 K2 @@:531 @
+A _508 _509 @:530 @
+A B _498 @Z U _516 @@@:529 @
+A B B _0 _506 @_525 @@@B C @C' C @C _151 _224 @@@_527 @@@:528 @
+A _508 _526 @:527 @
+A _499 _8 _464 @@:526 @
+A _508 _514 @:525 @
+A C' _497 @_523 @#0 @:524 @
+A U K2 A @@:523 @
+A B _497 @_507 @:522 @
+A B B B C @@@B B C @@P @@:521 @
+A B B _459 _460 @_384 @@@_519 @:520 @
+A C' C @C' C' Y B P K @@B C B @@S' S' B @@B B C @@B C _151 _387 _224 @@_437 _439 I @@K @@@@@@B C _108 @@@@@@@@C' _497 @C' _0 _506 @@_507 @B _71 _506 @_508 _515 @@@_11 _506 @@@@_516 @@_517 fromUTF8 "Prelude.read: no parse" @@@@C' P @_518 @K2 _517 fromUTF8 "Prelude.read: ambiguous parse" @@@@@:519 @
+A J :518 @
+A L :517 @
+A #0 :516 @
+A _0 _502 @_509 @Y C' C @B C S @@B C' C'B @C _513 @@@B B _0 _502 @_514 @@@Z @@@@_11 _502 @I @@@@:515 @
+A _499 _462 @:514 @
+A S S _233 @_511 @@C _512 @fromUTF8 " ^)^*^+^,^-" @@@:513 @
+A B Y @B B P _186 @@@B C'B @B B _234 @@_151 _224 @@@@@:512 @
+A C' _151 _510 @@_344 @_310 @:511 @
+A _48 C B @S' S @B S' S' @> #15 @@@S' S @B S' S' @> #22 @@@S' S @B S' S' @> #26 @@@S' S @B S' S' @> #28 @@@S' C @B C' S' @> #29 @@@B U @U C'B C == #29 @@_186 @@U _185 @@@@@@B U @U C'B C == #28 @@_186 @@U _185 @@@@@@@S' C @B C' S' @> #27 @@@B U @U C'B C == #27 @@_186 @@U _185 @@@@@@B U @U C'B C == #26 @@_186 @@U _185 @@@@@@@@S' S @B S' S' @> #24 @@@S' C @B C' S' @> #25 @@@B U @U C'B C == #25 @@_186 @@U _185 @@@@@@B U @U C'B C == #24 @@_186 @@U _185 @@@@@@@S' C @B C' S' @> #23 @@@B U @U C'B C == #23 @@_186 @@U _185 @@@@@@B U @U C'B C == #22 @@_186 @@U _185 @@@@@@@@@S' S @B S' S' @> #18 @@@S' S @B S' S' @> #20 @@@S' C @B C' S' @> #21 @@@B U @U C'B C == #21 @@_186 @@U _185 @@@@@@B U @U C'B C == #20 @@_186 @@U _185 @@@@@@@S' C @B C' S' @> #19 @@@B U @U C'B C == #19 @@_186 @@U _185 @@@@@@B U @U C'B C == #18 @@_186 @@U _185 @@@@@@@@S' C @B S' S' @> #16 @@@S' C @B C' S' @> #17 @@@B U @U C'B C == #17 @@_186 @@U _185 @@@@@@B U @U C'B C == #16 @@_186 @@U _185 @@@@@@@B U @U C'B C == #15 @@_186 @@U _185 @@@@@@@@@S' S @B S' S' @> #7 @@@S' S @B S' S' @> #11 @@@S' S @B S' S' @> #13 @@@S' C @B C' S' @> #14 @@@B U @U C'B C == #14 @@_186 @@U _185 @@@@@@B U @U C'B C == #13 @@_186 @@U _185 @@@@@@@S' C @B C' S' @> #12 @@@B U @U C'B C == #12 @@_186 @@U _185 @@@@@@B U @U C'B C == #11 @@_186 @@U _185 @@@@@@@@S' S @B S' S' @> #9 @@@S' C @B C' S' @> #10 @@@B U @U C'B C == #10 @@_186 @@U _185 @@@@@@B U @U C'B C == #9 @@_186 @@U _185 @@@@@@@S' C @B C' S' @> #8 @@@B U @U C'B C == #8 @@_186 @@U _185 @@@@@@B U @U C'B C == #7 @@_186 @@U _185 @@@@@@@@@S' S @B S' S' @> #3 @@@S' S @B S' S' @> #5 @@@S' C @B C' S' @> #6 @@@B U @U C'B C == #6 @@_186 @@U _185 @@@@@@B U @U C'B C == #5 @@_186 @@U _185 @@@@@@@S' C @B C' S' @> #4 @@@B U @U C'B C == #4 @@_186 @@U _185 @@@@@@B U @U C'B C == #3 @@_186 @@U _185 @@@@@@@@S' C @B S' S' @> #1 @@@S' C @B C' S' @> #2 @@@B U @U C'B C == #2 @@_186 @@U _185 @@@@@@B U @U C'B C == #1 @@_186 @@U _185 @@@@@@@B U @U C'B C == #0 @@_186 @@U _185 @@@@@@@@@@_187 _510 @@:510 @
+A _499 _463 @:509 @
+A B _498 @_8 @:508 @
+A U K2 K @@:507 @
+A _1 _505 @B B _498 @@C'B S' _0 _502 @@@C @@@_492 _506 @@_494 _506 @@:506 @
+A _2 _501 @B _498 @Z _367 _503 @@@@_12 _506 @@_472 _505 @@_17 _505 @@_504 _506 @@:505 @
+A S' B @B C'B @_0 @@S' B @B C'B @_0 @@B' B' _11 @@@@:504 @
+A _2 _500 @B _499 @U @@_12 _502 @@_472 _503 @@_17 _503 @@_18 _503 @@:503 @
+A _1 _503 @B B _499 @@C'B B @C @@@_492 _502 @@_494 _502 @@:502 @
+A _3 B B _498 @@B _6 @_7 _500 @@@@_9 _501 @@:501 @
+A _3 B B _499 @@B C B @@C _6 @@@@_9 _500 @@:500 @
+A I :499 @
+A I :498 @
+A B _496 @:497 @
+A B _461 @U _11 _495 @@@:496 @
+A _1 _473 @C' S @C' S @C' C @C C S' @B B _462 @@C _476 _495 @@@@@B B _463 @@C _476 _495 @@@@@_464 @@S' C'B @B _477 _490 @@@C _0 _495 @@@@@B U @B B B _491 @@@C'B B' B Y @B B P K @@@B B C B @@@B C' C'B @B B' @B B Y @@C' C'B @B P @@C'B _108 @@@@@@B _461 @@@@@@@_108 @@@@@_492 _495 @@_494 _495 @@:495 @
+A B _367 @_493 @:494 @
+A U K3 @:493 @
+A C' C'B @_0 @_8 @:492 @
+A P _464 @B B _466 @@_467 @@:491 @
+A _478 _473 @_464 @S' S @C' C' S @@C' S' C @@C' C' S @@C C' C' @S' @C' S' C @@C' S' C @@C' S' C @@C'B C C' @B B _462 @@S' _477 _490 @@@@@K @@I @@K2 @@K @@@K @@I @@B C'B _465 @@C _477 _490 @@@@@K @@S' S @C' C' S @@B C' C @C' S @C C S' @K @@K @@I @@@B C'B _465 @@_477 _490 @@@@K @@S' S @C' C' S @@C' C' S @@B C @C C S' @K @@K @@@K2 @@K @@S' S @C' C' S @@C' C' S @@C' C @C C S' @K @@K @@@K2 @@K @@S' S @C' S' C @@C' C' S @@C' C' S @@C'B C S' @K @@C' C'B @C' S @C' S @C C S' @K @@K @@I @@K2 @@B B _463 @@B B B _466 @@@C' S' C @@B C @C S' _461 @@I @@@C' C' _479 _484 @@@_467 @@@@@@@I @@K2 @@S C' S' @B C @C' S @C' S @C C S' @K @@K @@I @@K2 @@@B B _466 @@_479 _484 @@@@B U @S' S' S @@C' C' C' S @@@C' C' C' S @@@C' C' C' S @@@C'B B' C C' @K @@@B B B _463 @@@B B B B _466 @@@@C'B B' B' _467 @@@C'B B' _170 @@C S' _461 @@I @@@@@@@I @@K2 @@K @@B B B _463 @@@B B B B _466 @@@@B C'B B' _467 @@@B C'B _170 @@_461 @@@@@@@@@S' S @B C' C @C' S @C' S @C C S' @K @@K @@I @@K2 @@@B B _463 @@B B B _466 @@@C' S' C @@B C @_461 @@C' C' _479 _484 @@@_467 @@@@@@S' S @C' C' S @@C' C' S @@C' C' S @@C'B C C' @K @@S' S @C' C' S @@C' C' S @@C' C' S @@C'B C C' @K @@B B _463 @@S' _477 _490 @@@@@I @@K2 @@K @@B B _463 @@C C' _477 _490 @@@@@@@I @@K2 @@K @@C' C @C' C' S @@C' C' S @@C' C' S @@B C C C' @K @@@B B _463 @@B' _477 _490 @@@@@I @@K2 @@K @@_250 fromUTF8 "\"hs/.microhs/root/lib/Text/ParserCombinators/ReadP.hs\",142:10" @@@@@@@@@@@_487 _490 @@_489 _490 @@:490 @
+A S S' C' @_477 @_488 @@C' _367 @_485 @_109 @@:489 @
+A U K3 K @@:488 @
+A S S' S' @B _14 @_485 @@C' _15 @B _16 @_485 @@_108 @@@_486 @:487 @
+A U K3 A @@:486 @
+A U K4 @:485 @
+A _480 C B @B C'B _467 @@B C _170 @@S' _108 @U K @@U A @@@@@@_481 _484 @@_483 _484 @@:484 @
+A C' C' C @@B S' S' C' @@S' C @B _57 @B U A @@B _284 @B U K @@B _285 @U K @@@@@@@C' _123 @B U K @@B _284 @B U K @@B _285 @U K @@@@@@_145 #0 @@@@@B B C @@B B B Y @S' B @B S' S @@S' B @B S @B _482 @U K3 @@@@C' S' C @@S' B @B S @S' C @B _151 @B _283 @B U A @@B _284 @B U K @@B _285 @U K3 @@@@@@@@C' _123 @B U K @@B _284 @B U K @@B _285 @U K3 @@@@@@_145 #1 @@@@@C' S @S' C' C' @@S' B @B Y @S' S' S' S @@@S' B @B' B S' S' @@B _482 @U K3 @@@@@S' C' S' C @@@S' B @B' B S' S' @@S' C @B _151 @B _283 @B U A @@B _284 @B U K @@B _285 @U K3 @@@@@@@@C' _123 @B U K @@B _284 @B U K @@B _285 @U K3 @@@@@@_145 #1 @@@@@@S' C' C' C @@@C' C' S' C' C' @@@@B B B B S @@@@B C' C'B @C'B C' @S' C @C _479 @@I @@@@S' C @B _280 @U K3 @@@C' _123 @B U K @@B _284 @B U K @@B _285 @U K3 @@@@@@_145 #2 @@@@@@B C @C _479 @@@@U K2 K @@@@@B _479 @U K2 K @@@@@@S' C' C'B @@B C B @@C' S @B _479 @U K2 K @@@@I @@@S' C @B _280 @U K3 @@@C' _123 @B U K @@B _284 @B U K @@B _285 @U K3 @@@@@@_145 #2 @@@@@@@C' S @B _479 @U K2 K @@@@I @@@S' C @B _280 @U K3 @@@C' _123 @B U K @@B _284 @B U K @@B _285 @U K3 @@@@@@_145 #2 @@@@@I @@@I @@@@S' C' C'B @@B C B @@C' S @B _479 @U K2 K @@@@I @@@S' C @B _280 @U K3 @@@C' _123 @B U K @@B _284 @B U K @@B _285 @U K3 @@@@@@_145 #2 @@@@@@@@C' S @C S' T4 @U K @@B U K @@B _284 @B U K @@B _285 @U K @@@@@@@@B _283 @B U A @@B _284 @B U K @@B _285 @U K @@@@@@@@@@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Monoid/Internal.hs\",260:19: " @@fromUTF8 "stimes: positive multiplier expected" @@@:483 @
+A S' C @C S' C' @B S' @B _151 @B _283 @B U A @@B _284 @B U K @@_285 @@@@@@@C' C'B @_281 @C _123 @_145 #2 @@@@@C _123 @_145 #0 @@@@B U K @@B _284 @B U K @@_285 @@@@:482 @
+A B U @B Y @B B S P @@@B C'B @B B' @_479 @@@@@:481 @
+A B B C @@P @:480 @
+A U K2 @:479 @
+A B B B B C @@@@B B B C @@@B B C @@P @@@:478 @
+A U K2 K2 @@:477 @
+A B _474 @_475 @:476 @
+A B C @B C' @_0 @@:475 @
+A C :474 @
+A _2 _471 @C _465 @_464 @@_12 _495 @@_472 _473 @@_17 _473 @@_18 _473 @@:473 @
+A S' B @_14 @C' _469 @_16 @_384 @@:472 @
+A _3 S' C @S' C @C' C @S' P @B B _462 @@B _6 @_7 _471 @@@@B B _463 @@B _6 @_7 _471 @@@@@_464 @@S' C'B @B _465 @@_7 _471 @@@@B B _466 @@B _7 _470 @@B U @B P @@@@@@_9 _471 @@:471 @
+A _3 S' S' _467 @@C B @U K @@@C'B _7 _468 @@U A @@@@S' B @_467 @C'B _469 _468 @@U A @@@@:470 @
+A U A @:469 @
+A _3 _110 @_9 _468 @@:468 @
+A P :467 @
+A Z Z Z Z U @@@@:466 @
+A B Z @B Z @B Z @B B Z @@P @@@@:465 @
+A K2 K2 @:464 @
+A Z B Z @B Z @B Z @U @@@@:463 @
+A B Z @B Z @B Z @B Z @U @@@@:462 @
+A C' C @C' S @C' C @C C S' @C'B U _109 @@B _461 @@@@S' C' _461 @@U @I @@@_109 @@S' C'B @B B _108 @@C P @@@C _461 @@@@U _108 @@:461 @
+A _363 K @:460 @
+A P :459 @
+A P _185 @K2 _186 @@:458 @
+A B _6 _456 @@_110 @:457 @
+A _369 _226 @_185 @:456 @
+A B _453 @_6 _454 @@:455 @
+A P _185 @_186 @:454 @
+A B Y @B B S U P _109 @_109 @@@@@C'B B C' S' B @@@C'B C @P _109 @@@@C'B C' S' P @@C'B _108 @U K @@@U A @@@@@@:453 @
+A S _6 @I @_6 _450 @_451 C _372 _224 @@_437 _439 I @@fromUTF8 " ^*^)" @@@@@@:452 @
+A B Y @B B P _109 @@@B C @C S' S' @@_108 @@@@:451 @
+A Y B S P @@C'B B @C _108 @@@@_109 @:450 @
+A S' _170 @B _446 @C _447 _350 @@#60 @@@B _170 O #58 @K @@@B _446 @C _448 _350 @@#60 @@@@:449 @
+A U K4 K3 @@:448 @
+A U K3 K4 @@:447 @
+A S S C _46 _60 @@#10 @@_171 _353 @@@B _108 #48 @@_171 _353 @@@:446 @
+A _442 O O #26376 @K @@O O #28779 @K @@O O #27700 @K @@O O #26408 @K @@O O #37329 @K @@O O #22303 @K @@O O #26085 @K @@K @@@@@@@@:445 @
+A U K K @@:444 @
+A _442 O fromUTF8 "Mon" @@O fromUTF8 "Tue" @@O fromUTF8 "Wed" @@O fromUTF8 "Thu" @@O fromUTF8 "Fri" @@O fromUTF8 "Sat" @@O fromUTF8 "Sun" @@K @@@@@@@@:443 @
+A C' C @B S C _46 _60 @@#0 @@@C Y B B P _363 fromUTF8 "\"hs/.microhs/root/lib/Data/List.hs\",493:18: " @@fromUTF8 "!!: index too large" @@@@@B S' C' @C _151 _51 @@#0 @@@C B @C _208 _68 @@#1 @@@@@@@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/List.hs\",490:5: " @@fromUTF8 "!!: negative index" @@@:442 @
+A B _170 O #123 @K @@@C' _170 @B B _435 @B C'B _170 @@_170 @@O #44 @K @@@Y B P K @@B C B @@B C' C' _108 @@C'B B _170 @_440 @@_170 O #58 @K @@@@@@@@@@O #125 @K @@@:441 @
+A B _170 O #34 @K @@@C' _170 @_436 S' C @B S _151 _224 @#34 @@@S' C @B S _151 _224 @#92 @@@S' C @B S _151 _224 @#10 @@@B C S _151 _224 @#13 @@C S C' _46 _60 @@_354 @#32 @@C O @K @@@_437 _439 I @@K @@@@@C _437 @K @@@@C _437 @fromUTF8 "\\n" @@@@@C _437 @fromUTF8 "\\\\" @@@@@C _437 @fromUTF8 "\\\"" @@@_439 I @@@@O #34 @K @@@:440 @
+A K _438 I @@:439 @
+A U :438 @
+A U I @:437 @
+A B Y @B B P _109 @@@B C'B @B _170 @@@@:436 @
+A B Y @B B P _363 fromUTF8 "\"hs/.microhs/root/lib/Data/List.hs\",119:15: " @@fromUTF8 "foldr1: empty list" @@@@@B B S' S @U @@@B B B Z @@@B B B Z @@@C'B @@@@@:435 @
+A _433 _409 @:434 @
+A S' C' _71 _20 @@@_432 @C _431 @#10 @@:433 @
+A B _429 _20 @@_431 @:432 @
+A C'B S' C @B S C' _151 _51 @@C _380 @#2095104 @@#55296 @@@C'B _422 @_430 @@@C C _393 @_394 @@fromUTF8 "hPutChar: surrogate" @@@@_354 @:431 @
+A ^putb :430 @
+A B B Y @@S' B @B' B P @C _11 @I @@@@C' C'B @B B C'B @@B' _0 @@@Z @@@:429 @
+A _427 _406 @:428 @
+A B Y @S' B @_378 @B B C' _0 _20 @@_379 @@@S' C' C @@B B S C _151 _51 @@#-1 @@@@B C' C @B S C' _151 _51 @@C _380 @#2095104 @@#55296 @@@C'B B _0 _20 @@_381 @@B B _11 _20 @@@B _108 @_382 @@@@@@C C _393 @_394 @@fromUTF8 "hGetContents: surrogate" @@@@@S' _71 _20 @@_425 @C' _71 _20 @@C _419 @_426 @@_11 _20 @K @@@@@@@:427 @
+A K3 K @:426 @
+A C S C _151 _399 @@_406 @@S S S' _234 @C _151 _399 @@_409 @@C _151 _399 @@_411 @@@_421 @@_424 @@@_11 _20 @I @@:425 @
+A C _422 @_423 @:424 @
+A ^flushb :423 @
+A _375 O _408 @O _377 @K @@@:422 @
+A S' _0 _20 @@_412 @S' C' _71 _20 @@@B C C' C @C' C @C' S @C S @I @@I @@_11 _20 @I @@@_11 _20 @I @@@@S' _71 _20 @@_415 @C _396 @_416 @@@@C _419 @_420 @@@:421 @
+A K3 A @:420 @
+A C B @Z B Z @C _418 @@@@:419 @
+A C _417 @#0 @:418 @
+A A.write :417 @
+A ^closeb :416 @
+A U Z Z _413 _414 #0 @@@@@:415 @
+A toFunPtr :414 @
+A fpfin :413 @
+A U K Z _366 @@@:412 @
+A _404 _410 @_408 @fromUTF8 "stderr" @@:411 @
+A IO.stderr :410 @
+A _404 _407 @_408 @fromUTF8 "stdout" @@:409 @
+A K K3 @:408 @
+A IO.stdout :407 @
+A _404 _405 @_376 @fromUTF8 "stdin" @@:406 @
+A IO.stdin :405 @
+A B B B _395 @@@B C'B B _0 _20 @@_402 @@@B B B _11 _20 @@@@B C @_403 @@@@:404 @
+A T3 :403 @
+A C' _4 @_400 #1 @@B _5 @_401 @@:402 @
+A I :401 @
+A A.alloc :400 @
+A _48 B B _395 @@C'B _396 @C'B _396 @B B _367 _19 @@@_151 _398 @@@@@@_187 _399 @@:399 @
+A _48 C'B B _151 _129 @@_397 @@_397 @@_187 _398 @@:398 @
+A toInt :397 @
+A _374 :396 @
+A _29 :395 @
+A TAG12 I @:394 @
+A B B B _391 @@@C' C' C @@C' C' C @@C' C @B _392 @_192 @@K @@_191 @@_191 @@:393 @
+A T6 :392 @
+A _390 :391 @
+A _25 _389 @:390 @
+A _26 P _383 @_388 @@_179 _389 @@_196 _389 @@_197 _389 @@:389 @
+A _169 B U @B B B B Z @@@@C' C' C' C' C' C @@@@@S' C'B @B B' @B B' @B B C'B @@B B B _6 @@@C' C' P @@B P _384 @@C' C' _6 @@_174 _385 @@_246 fromUTF8 ": " @@@@@C' _6 @_246 @_246 fromUTF8 ": " @@@@@@@@@B B C'B B S' _6 @@C' C @S' C @C C _151 @K @@@C' _6 @_246 @_246 fromUTF8 ": " @@@@@_384 @@@@@C' C'B @B B' @B B _6 @@_174 _386 @@@@C' C @S' C @C C _151 @K @@@B _6 _246 fromUTF8 " (" @@@@C' _6 @_246 @_246 O #41 @K @@@@@@_384 @@@@@_387 _224 @@@@@_220 _388 @@_176 _388 @@:388 @
+A B Y @C' S' _48 @@B B C C S' @P _185 @K2 _186 @@@@@@B B C'B B' U _186 @@@@@C'B B C'B @B B C'B @@B B B _226 @@@_151 @@@@_151 @@@@_187 @@:387 @
+A _169 K B _246 @U S S' S' @> #9 @@S S' S' @> #14 @@S S' S' @> #16 @@C S' S' @> #17 @@C C' S' @> #18 @@U fromUTF8 "interrupted" @@@@U fromUTF8 "resource vanished" @@@@@U fromUTF8 "timeout" @@@@@C C' S' @> #15 @@U fromUTF8 "unsupported operation" @@@@U fromUTF8 "hardware fault" @@@@@@S S' S' @> #11 @@C S' S' @> #12 @@C C' S' @> #13 @@U fromUTF8 "inappropriate type" @@@@U fromUTF8 "invalid argument" @@@@@U fromUTF8 "failed" @@@@@C C' S' @> #10 @@U fromUTF8 "protocol error" @@@@U fromUTF8 "system error" @@@@@@@S S' S' @> #4 @@S S' S' @> #6 @@C S' S' @> #7 @@C C' S' @> #8 @@U fromUTF8 "unsatisfied constraints" @@@@U fromUTF8 "user error" @@@@@U fromUTF8 "permission denied" @@@@@C C' S' @> #5 @@U fromUTF8 "illegal operation" @@@@U fromUTF8 "end of file" @@@@@@S S' S' @> #2 @@C C' S' @> #3 @@U fromUTF8 "resource exhausted" @@@@U fromUTF8 "resource busy" @@@@@C C' S' @> #1 @@U fromUTF8 "does not exist" @@@@U fromUTF8 "already exists" @@@@@@@@@@_220 _386 @@_176 _386 @@:386 @
+A _169 _172 _385 @@U K2 B _170 fromUTF8 "Handle(" @@@C _170 @O #41 @K @@@@@@_176 _385 @@:385 @
+A I :384 @
+A _27 _359 fromUTF8 "System.IO.Error" @@fromUTF8 "IOException" @@@:383 @
+A S C C' _238 @_32 @#1114111 @@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Char.hs\",62:17: " @@fromUTF8 "Data.Char.chr: invalid codepoint" @@@@_351 @:382 @
+A B _5 @_29 @:381 @
+A and :380 @
+A ^getb :379 @
+A _375 O _376 @O _377 @K @@@:378 @
+A K2 K2 @:377 @
+A K4 :376 @
+A B S B @@B B Z @@B B B Z @@@B B B C' _0 _20 @@_366 @@@@C'B B' B C' _71 _20 @@@C' C' _368 _19 @@@C _372 _373 @@@_363 fromUTF8 "\"hs/.microhs/root/lib/System/IO/Internal.hs\",68:25: " @@fromUTF8 "Bad Handle mode" @@@@@@_374 @@@@@:375 @
+A C B @B Z @B Z @C' S' _0 _20 @@@C B @_63 @@C'B _96 @_11 _20 @@@@@@:374 @
+A _48 C' S @C' S @C' S @C C S' @C C C P _185 @_186 @@_186 @@_186 @@_186 @@@C C C P _186 @_185 @@_186 @@_186 @@_186 @@@C C C P _186 @_186 @@_185 @@_186 @@_186 @@@C C C P _186 @_186 @@_186 @@_185 @@_186 @@@C C C P _186 @_186 @@_186 @@_186 @@_185 @@@_187 _373 @@:373 @
+A B B _371 @@_151 @:372 @
+A B _6 _370 @@_110 @:371 @
+A _369 _234 @_186 @:370 @
+A B B Y @@B C'B P @@C'B @@:369 @
+A B R @C _367 @I @@:368 @
+A U K K4 @@:367 @
+A C _22 @#0 @:366 @
+A _0 _20 @_21 @C' _0 _20 @@C _22 @#0 @@B _11 _20 @@_364 @@@:365 @
+A P _363 fromUTF8 "\"hs/.microhs/root/lib/Data/List.hs\",393:11: " @@fromUTF8 "tail: empty list" @@@A @:364 @
+A B B _25 _362 @@@C _80 @@:363 @
+A _26 P _360 @_361 @@_179 _362 @@_196 _362 @@_197 _362 @@:362 @
+A _169 K C B @B B B _246 fromUTF8 "error: " @@@@@B B C _246 @@@C _246 @@@@@@_220 _361 @@_176 _361 @@:361 @
+A _27 _359 fromUTF8 "Control.Exception.Internal" @@fromUTF8 "ErrorCall" @@@:360 @
+A B Z @C' C' _112 @@_358 @_109 @@:359 @
+A C' S @S' C' _113 @@B B _218 @@B B _171 _221 _357 @@@@C'B _170 @_170 O #46 @K @@@@@@I @@I @:358 @
+A _169 K C S _151 _224 @#39 @@B _6 _225 #39 @@@C' _6 @_356 @_225 #39 @@@@@_246 fromUTF8 "'\\''" @@@@@_220 _357 @@B _6 _225 #34 @@@Y B P _225 #34 @@@S' C @B S' S' @C _151 _224 @@#34 @@@C'B B _6 @_356 @@@@B _6 _246 fromUTF8 "\\\"" @@@@@@@@@:357 @
+A S S' S' @S' _226 @_233 @S' _226 @_346 @C _161 _224 @@#92 @@@@C' S' _170 @@C' C' Y @@S' S' B @@B B P @@B B _170 O #92 @K @@@@C'B B _170 @B _171 _353 @@_354 @@@C C P _186 @Z _355 @@@K @@fromUTF8 "\\&" @@@@@@B B B C B @@@@S' B @B C' C' C'B @@@B' B C @C _151 _224 @@@@@@B B B _108 #92 @@@@B B C _170 @@@C' C @C C' C' @B _226 @C _151 _224 @@#14 @@@P _186 @Z C C _151 _224 @#72 @@_186 @@_185 @@@@@K @@fromUTF8 "\\&" @@@@@@@@O P #0 @fromUTF8 "NUL" @@@O P #1 @fromUTF8 "SOH" @@@O P #2 @fromUTF8 "STX" @@@O P #3 @fromUTF8 "ETX" @@@O P #4 @fromUTF8 "EOT" @@@O P #5 @fromUTF8 "ENQ" @@@O P #6 @fromUTF8 "ACK" @@@O P #7 @O #97 @K @@@O P #8 @O #98 @K @@@O P #9 @O #116 @K @@@O P #10 @O #110 @K @@@O P #11 @O #118 @K @@@O P #12 @O #102 @K @@@O P #13 @O #114 @K @@@O P #92 @O #92 @K @@@O P #14 @fromUTF8 "SO" @@@O P #15 @fromUTF8 "SI" @@@O P #16 @fromUTF8 "DLE" @@@O P #17 @fromUTF8 "DC1" @@@O P #18 @fromUTF8 "DC2" @@@O P #19 @fromUTF8 "DC3" @@@O P #20 @fromUTF8 "DC4" @@@O P #21 @fromUTF8 "NAK" @@@O P #22 @fromUTF8 "SYN" @@@O P #23 @fromUTF8 "ETB" @@@O P #24 @fromUTF8 "CAN" @@@O P #25 @fromUTF8 "EM" @@@O P #26 @fromUTF8 "SUB" @@@O P #27 @fromUTF8 "ESC" @@@O P #28 @fromUTF8 "FS" @@@O P #29 @fromUTF8 "GS" @@@O P #30 @fromUTF8 "RS" @@@O P #31 @fromUTF8 "US" @@@O P #127 @fromUTF8 "DEL" @@@K @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@I @@@_108 @:356 @
+A S' _226 @_57 _232 @#48 @@C _57 _232 @@#57 @@:355 @
+A _343 :354 @
+A _169 B S S' S' @C _46 _60 @@#0 @@B _352 @_61 _68 @@@@@C C' S' @B S' @C _134 _60 @@#6 @@@B B _108 #45 @@@_352 @@@B B _108 #40 @@@B B _108 #45 @@@C'B _352 @_108 #41 @@@@@@@_220 _353 @@_176 _353 @@:353 @
+A S' C @C S' S' @B S' @C _134 _60 @@_61 _68 @#10 @@@@C'B B' B _352 @C _280 _350 @@#10 @@@@C _108 @@@@C _108 @@@B _351 @B _208 _68 @_343 #48 @@@C _281 _350 @@#10 @@@@:352 @
+A chr :351 @
+A _253 P _347 @_338 @@_348 @_349 @_278 _350 @@_279 _350 @@_282 _350 @@_288 _350 @@_145 @:350 @
+A rem :349 @
+A quot :348 @
+A _254 P _68 @_60 @@B _256 @_145 @@:347 @
+A S S _233 @_345 @@S' _226 @_57 _232 @#32 @@C _57 _232 @@#126 @@@:346 @
+A C _344 @S S' S' @> #26 @@S S' S' @> #28 @@C C' S' @> #29 @@U _186 @@@U _186 @@@@C C' S' @> #27 @@U _186 @@@U _186 @@@@@S S' S' @> #24 @@C C' S' @> #25 @@U _186 @@@U _186 @@@@C'B C == #23 @@_185 @@U _186 @@@@@:345 @
+A B C S S' _234 @C _46 _60 @@#0 @@C _164 _60 @@_213 _297 @@@@B _298 _341 @@B _299 _274 @@_342 _297 @@@@@_303 @@_343 @:344 @
+A ord :343 @
+A bsindex :342 @
+A _261 _300 _341 @@_302 _341 @@C S _151 _51 @#0 @@C S _151 _51 @#1 @@C S _151 _51 @#2 @@C S _151 _51 @#3 @@C S _151 _51 @#4 @@C S _151 _51 @#5 @@C S _151 _51 @#6 @@C S _151 _51 @#7 @@C S _151 _51 @#8 @@C S _151 _51 @#9 @@C S _151 _51 @#10 @@C S _151 _51 @#11 @@C S _151 _51 @#12 @@C S _151 _51 @#13 @@C S _151 _51 @#14 @@C S _151 _51 @#15 @@C S _151 _51 @#16 @@C S _151 _51 @#17 @@C S _151 _51 @#18 @@C S _151 _51 @#19 @@C S _151 _51 @#20 @@C S _151 _51 @#21 @@C S _151 _51 @#22 @@C S _151 _51 @#23 @@C S _151 _51 @#24 @@C S _151 _51 @#25 @@C S _151 _51 @#26 @@C S _151 _51 @#27 @@C S _151 _51 @#28 @@C C _151 _51 @#29 @@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Char/Unicode.hs\",52:28: " @@fromUTF8 "toEnum: out of range" @@@@_303 @@@_304 @@@_305 @@@_306 @@@_307 @@@_308 @@@_309 @@@_310 @@@_311 @@@_312 @@@_313 @@@_314 @@@_315 @@@_316 @@@_317 @@@_318 @@@_319 @@@_320 @@@_321 @@@_322 @@@_323 @@@_324 @@@_325 @@@_326 @@@_327 @@@_328 @@@_329 @@@_330 @@@_331 @@@_332 @@U S S' S' @> #15 @@S S' S' @> #22 @@S S' S' @> #26 @@S S' S' @> #28 @@C C' S' @> #29 @@U #29 @@@U #28 @@@@C C' S' @> #27 @@U #27 @@@U #26 @@@@@S S' S' @> #24 @@C C' S' @> #25 @@U #25 @@@U #24 @@@@C C' S' @> #23 @@U #23 @@@U #22 @@@@@@S S' S' @> #18 @@S S' S' @> #20 @@C C' S' @> #21 @@U #21 @@@U #20 @@@@C C' S' @> #19 @@U #19 @@@U #18 @@@@@C S' S' @> #16 @@C C' S' @> #17 @@U #17 @@@U #16 @@@@U #15 @@@@@@S S' S' @> #7 @@S S' S' @> #11 @@S S' S' @> #13 @@C C' S' @> #14 @@U #14 @@@U #13 @@@@C C' S' @> #12 @@U #12 @@@U #11 @@@@@S S' S' @> #9 @@C C' S' @> #10 @@U #10 @@@U #9 @@@@C C' S' @> #8 @@U #8 @@@U #7 @@@@@@S S' S' @> #3 @@S S' S' @> #5 @@C C' S' @> #6 @@U #6 @@@U #5 @@@@C C' S' @> #4 @@U #4 @@@U #3 @@@@@C S' S' @> #1 @@C C' S' @> #2 @@U #2 @@@U #1 @@@@U #0 @@@@@@@C _267 _341 @@_303 @@S' S @S' S @B C' _164 _60 @@_299 _341 @@@_299 _341 @@@C' C @_268 _341 @@_332 @@@C' C @_268 _341 @@_303 @@@_339 _341 @@_340 _341 @@:341 @
+A S' B @B' B' B Y @B B P K @@@B C'B @B B _108 @@_298 @@@@@@@S' C' C'B @@S' C'B @B B _268 _338 @@@_299 @@_299 @@_299 @@:340 @
+A S' B @B' B Y @B B P K @@@B C'B @B B _108 @@_298 @@@@@@S' C'B @B B _267 _338 @@@_299 @@_299 @@:339 @
+A _261 C S C _49 @_333 @@C _42 @#1 @@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Enum_Class.hs\",58:41: " @@fromUTF8 "Int.succ: overflow" @@@@C S C _49 @_334 @@C _43 @#1 @@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Enum_Class.hs\",59:41: " @@fromUTF8 "Int.pred: underflow" @@@@I @I @C _335 @_333 @@S' S @S' S @C _56 @@C' C @_336 @_334 @@@C' C @_337 @_333 @@@_335 @S' S @S' S' S' @@C _56 @@_336 @@_337 @@:338 @
+A S' C' S @@B S' S @C _53 @@@S C' S' @B C' @B' _108 @@@C' C' Y @@C' C' C' S @@@C' S' B @@B B S @@B B C _55 @@@_43 @@@B B S _108 @@@B C B @@C _42 @@@@@C O @K @@@@@C _43 @@@@C' C @S' C @C _53 @@C O @K @@@_109 @@:337 @
+A S' C' S @@B S' S @C _55 @@@S C' S' @B C' @B' _108 @@@C' C' Y @@C' C' C' S @@@C' S' B @@B B S @@B B C _53 @@@_43 @@@B B S _108 @@@B C B @@C _42 @@@@@C O @K @@@@@C _43 @@@@C' C @S' C @C _55 @@C O @K @@@_109 @@:336 @
+A C' C @S' S @_55 @C' Y @B B S _108 @@@C' C' C @@C'B B S @C _49 @@@C B @C _42 @#1 @@@@_109 @@@@@_109 @:335 @
+A _266 _147 _275 _133 #0 @@#2 @@#1 @@:334 @
+A _266 _275 _133 #0 @@#2 @@:333 @
+A TAG0 I @:332 @
+A TAG1 I @:331 @
+A TAG2 I @:330 @
+A TAG3 I @:329 @
+A TAG4 I @:328 @
+A TAG5 I @:327 @
+A TAG6 I @:326 @
+A TAG7 I @:325 @
+A TAG8 I @:324 @
+A TAG9 I @:323 @
+A TAG10 I @:322 @
+A TAG11 I @:321 @
+A TAG12 I @:320 @
+A TAG13 I @:319 @
+A TAG14 I @:318 @
+A TAG15 I @:317 @
+A TAG16 I @:316 @
+A TAG17 I @:315 @
+A TAG18 I @:314 @
+A TAG19 I @:313 @
+A TAG20 I @:312 @
+A TAG21 I @:311 @
+A TAG22 I @:310 @
+A TAG23 I @:309 @
+A TAG24 I @:308 @
+A TAG25 I @:307 @
+A TAG26 I @:306 @
+A TAG27 I @:305 @
+A TAG28 I @:304 @
+A TAG29 I @:303 @
+A S' _6 @_298 @B _6 _301 #1 @@@_299 @@:302 @
+A subtract :301 @
+A S' _6 @_298 @B _6 _42 #1 @@@_299 @@:300 @
+A U K3 K4 @@:299 @
+A U K2 Z K4 @@@:298 @
+A _295 _296 @:297 @
+A $6296 Ÿ‚‚‰‚™ ™ ƒ
+
+
+‚
+– † —‡                                                               ‚     ‚ ƒ   ‚ ‚            ‚     ‚ƒ                      ‚                              †     ƒ     Ä™‘ƒ‹„†ï   ‚ ƒ ‚     ˆ ¢ ‚ ‚            „    ² ¯                 „                                                                                   ¥ …¨¬‡šƒƒŠ…‚Š‚Ÿ‰”‰ƒâ†…ƒ‰‚šØŠ‰ ˆ‚•ƒˆ‚„˜‚Š„—†„ˆ¨—Ÿµ‚‡ƒ†‰‰‡•†‚ƒ‚ƒ‡ƒ‚‰…
+…ƒ•†‚ƒ‚‚†ƒ†‰‚‰ˆ‚•†„‚„‰†…‡•†„ƒ†ƒ‚‰…
+‰…‚‚ƒ‚‚‚‚‚‹ƒ‚‚‚…‰‚
+…„‚‡‚–‚ƒ‚ƒ†‚‰††
+‡‚–‰„„†„‚‰‹ˆ‚¨‚ƒ‚‚ƒ‚†
+‚‰ˆ
+…‘‚—ˆ†‚ƒ‚‚‡…‰‹¯†ƒ…‡‰¤„—‰ˆ„†‰ƒŸ‚‚…‰‰
+‡£ƒ„„Š£‡…„ƒ¤ªƒ…‰……ƒ‚‚†‚ƒŒ…‰‚¥  „ ª‚‚Èƒ†ƒ¨ƒ ƒ†ƒ¸ƒÂ‚ˆ“
+‚‰…Õ …„ë™‚Ê‚‚	‡†‘‚ˆ’ˆ‘‹Œ‚‹³†‡Š‚‚‰…‰
+……ƒ‚‰…¢´†„¡„Å‰‚ƒ‚ƒ…‚ƒ‚‰„Š«ƒ™…‰
+‚¡–´†‡…‰‰…‰…†…‹“ƒ®„„‡‰†‰ˆˆ‚ƒ‚‰«‚‚‡ƒ£‡‡‚„‰‚‚‰…ˆ „ª ‚ ‡‡‚Œ†ƒ…„«¾Œ¡¤¿                                                                           ˆ                                                 ˆ‡ …… ‡‡ ‡‡ …… ‡    ‡‡ ‡‡‡‡‡‡„ƒ ‚‚ƒ ‚ƒƒ ‚‡„ ‚‚ƒ Š„…‡„ˆƒ‚Š‰„‰
+…
+‚‰
+‚Œ‚¡Œƒ‚‹ ƒ ‚ ‚  „ …   ƒ ƒ ƒ  „ ƒ
+¢	 ƒ	
+ƒ„„ƒ†‚‹‡“†Ğ˜§…Ç•Š”»
+Í•
+¶ˆµ‡î÷
+«„ÿ‚¾Ÿ‚¯”…¦‰¯ ¯ ‚    ƒ   …‚                                                  …  ‚ „ƒ
+¥„·†–ˆ††††††††Ÿ‚ˆ„‰ƒŒ‚¡™Ø‹Õ™‚	ˆ	ƒ„‚	ÕÙ‚„ªİƒ
+‰Ÿ¥ˆ‰
+‡
+
+Ÿ‰
+¦
+‚¿³½¿£ı•ˆö‚¶ˆ§…‚‹‚‰“                       ‚‰              Å‰	…‡–ˆ       ‚                               ‡            ‚          „ „        ƒ            “ƒ †‚ƒ–ƒ‚…
+…³ƒ‡±‡‰…‘…‚‰›‡–ŠŠœ‚‚®ƒ‚Œ‰ƒ„ˆ‰„¨…ˆ‚‡‰ƒ…‚±‚„—Š‰………ˆ††ªƒˆƒÏ¢‰…×¡‹–ƒ°ƒ†ıı‡ı±ı‚íé¥†‹„„‰Œ„ë‚ê¿µ‡Ÿ‹‚†…ƒ‚‚ƒ‚‚ƒ„†‚‚‰‚™ ™‰¬‚………‚‚ƒ‰‚‹™’¡ú„‚ƒ¬
+‚ˆ´	ƒ
+
+
+‚Œ‚®¬œ‚°š
+ƒŸƒ
+ˆ“	‡	„¥„„£ƒ‡„	©§ §Í‰…£ ƒ£ƒ§‡³ŠŠ  †   Š†‚³‹‚¶ˆ•‰‡—…©ˆÄ…«‚–‡
+–†
+‡ˆ
+¯’„„
+•…
+‚™„™¥·ƒ
+
+
+­
+‚„ƒƒ‚œ‚ƒˆ
+†ˆ†œ
+
+œ‚
+Ÿ‡›ƒ„
+†ˆµ‚†•‡
+’„‡
+‘†ƒ‹†
+ÏÈ¶² Œ²†…
+£ƒ‡‰…‰ƒ• ‚„•‡Ï
+©‚‡‡ …œ‰
+‡•Šƒ
+„•‘ƒƒ¥”†
+“–ˆ´†ƒ“
+‰ˆ‚¬‚ƒƒ‰˜†‰…‚£„‡‰ƒ‡¢ˆ¯‚ˆƒƒƒ‰‚“
+Š‘˜‚‚…½†ƒ‰…®‚‡„‰…‡•†„ƒ‚…„„†‚„Š‰¥‚…ƒ‡œ´‚‡‚ƒ„‰‚¯‚…ƒ‡‰¥®‚ƒƒ–ƒ¡¯‚‡‚Š‰…Œ’ª……‰…“›šƒ„ƒ‰
+
+‚†¸«‚ˆãŸ Ÿ‰ˆ
+‹‡‡—…‚ˆ‰Å‡¦‚ƒƒš‰§…ƒ‡‡…‚­Œ‚„ŒÈ†‰Õ‚× ‰…ˆ¤†…„‰‰’
+‚•†È†¥…‚†‡‰……Ÿ„†‰…¨ƒ‰õ’†Œ¡„‚Œ‰Ô”
+‡ƒŒ‡™åî	„ŠÃ”ËàŒˆ¯…‰Ÿš„„Æµ¸‹‚‚‰Å„¸†‰ƒÎ‰…„‰¯†„ƒƒ‰‰†
+”„’ƒ¯‚§‚‰ÅŸ Ÿ–
+ƒ„˜ ˜«Êƒ¶†ƒŒ¿Š‚	ˆ¯ı‰Ö¨œàòÃüƒ†‚¢œ‚ƒ‡ƒ‹’ƒê„Œ‚ˆ†‰ƒÛï‰‚‚ƒ³…–­–ˆó»õ‰¦»‚‚…‡‡†ƒ¼”Á‚ù“
+‹“
+‹Öˆ˜
+†™ ™™ †‘™ ™      ƒ ‡ ƒ†Š™ ™  ƒ ‡ † ™  ƒ „  ‚† ™™ ™™ ™™ ™™ ™™ ™™ ›˜ ˜…˜ ˜…˜ ˜…˜ ˜…˜ ˜… ±ƒÿ¶ƒ±‡„„ˆÏ‰“……Ô††„„½ ï¬‚††‰ƒ‚¿«ƒ‰„ƒÏšƒ‰Õ‰ƒ¿‚†„‡ß†ƒÄˆ
+†¨¡ ¡†ƒ‰ƒ†º
+‚
+ƒ
+Ë¬
+
+Áƒš‰ƒ…ƒ‚ƒ†ƒƒ‰„‚„³‚«ƒã‹¤‰Œ
+ ·œŒ«ƒˆ†…™ú„…Ø‚‚Œ‚Ù…‹ƒ‹ƒ·‡‰…§‡‹ƒˆ¦‚×‡Œ‚Š‚¸ƒ‹ƒ‰†’Û‰ˆ„‚ÍİŸ ½Û­‹º®„ë“¡„‹á¦È„ İ¡Ç«—†ßÿïƒüƒÿûƒÿû:296 @
+A _6 _235 @_6 Y B B S U _109 @@@@B B Z @@B B Z @@S' S @B C' S' @B S @_151 _51 @#1 @@@@B C S @@B C' S' B @@C C _46 _244 @@_123 _211 @_145 #128 @@@@@@B C'B B _108 @C _73 _211 @@_123 _211 @_145 #128 @@@@@@U #0 @@@@@@B B P _250 fromUTF8 "\"hs/.microhs/root/lib/Data/Char/Unicode.hs\",202:8" @@@@@S' S' S @@B B S' S' @C _46 _244 @@_123 _211 @_145 #128 @@@@@@C'B B @C' C' _208 _68 @@@C'B B _73 _68 @@C _40 _68 @@#128 @@@_252 P _289 @_68 @@@@#128 @@@@B C' C'B @B B _170 @@B _292 @C _73 _68 @@#1 @@@@@U #0 @@@@@@@@@#0 @@_294 @@:295 @
+A _293 :294 @
+A bsunpack :293 @
+A C'B _290 @_291 @:292 @
+A B Y @_108 @:291 @
+A C S' C' @C _57 _60 @@#0 @@B P _109 @@B C'B _108 @@B _290 @C _208 _68 @@#1 @@@@@@_109 @:290 @
+A _253 P _260 @_274 @@_207 _275 @@_207 _276 @@_278 _289 @@_279 _289 @@_282 _289 @@_288 _289 @@_6 _258 @_259 @@:289 @
+A S' B @B S @C' C' S @@S' C' C' C @@@C' S' S' S' S @@@@B B C' C @@@C'B C' C' @B S' @B _151 @B _283 @B U A @@B _284 @B U K @@_285 @@@@@@@C _286 @@@B S _61 @@C _286 @@@@@B C'B B S' P @@C' S @B C _208 @@U K @@@C _123 @_145 #1 @@@@@@C' C @C _73 @@@@@B U K @@B _284 @B U K @@_285 @@@@@U A @@@@_287 @:288 @
+A U K K4 K2 @@@:287 @
+A U K K4 K @@@:286 @
+A U Z Z Z K4 @@@@:285 @
+A U K @:284 @
+A U Z Z Z K4 @@@@:283 @
+A S' S' S' P @@@_280 @_281 @:282 @
+A U K2 Z K4 @@@:281 @
+A U K Z Z K4 @@@@:280 @
+A C' C' C @@_277 @A @:279 @
+A C' C' C @@_277 @K @:278 @
+A U K2 K4 K @@@:277 @
+A urem :276 @
+A uquot :275 @
+A _261 C S C _151 _210 @@_262 _264 @@@C _73 _211 @@_123 _211 @_145 #1 @@@@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Word/Word8.hs\",76:34: " @@fromUTF8 "Word8.succ: overflow" @@@@C S C _151 _210 @@_265 _264 @@@C _208 _211 @@_123 _211 @_145 #1 @@@@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Word/Word8.hs\",77:34: " @@fromUTF8 "Word8.pred: underflow" @@@@_6 _206 @_32 @@_6 _266 @_259 @@C _267 _274 @@_262 _264 @@@S' S @S' S @C _164 _244 @@@C' C @_268 _274 @@_265 _264 @@@@C' C @_268 _274 @@_262 _264 @@@@_180 I @_267 _273 @@@_180 I @_268 _273 @@@:274 @
+A _261 C S C _127 @_262 _269 @@@C _73 _153 @@#1 @@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Word/Word.hs\",97:44: " @@fromUTF8 "Word.succ: overflow" @@@@C S C _127 @_265 _269 @@@C _208 _153 @@#1 @@@_363 fromUTF8 "\"hs/.microhs/root/lib/Data/Word/Word.hs\",98:44: " @@fromUTF8 "Word.pred: underflow" @@@@_32 @_266 @C _270 @_262 _269 @@@S' S @S' S @C _240 @@C' C @_271 @_265 _269 @@@@C' C @_272 @_262 _269 @@@@_270 @S' S @S' S' S' @@C _240 @@_271 @@_272 @@:273 @
+A S' C' S @@B S' S @C _237 @@@S C' S' @B C' @B' _108 @@@C' C' Y @@C' C' C' S @@@C' S' B @@B B S @@B B C _239 @@@_148 @@@B B S _108 @@@B C B @@C _147 @@@@@C O @K @@@@@C _148 @@@@C' C @S' C @C _237 @@C O @K @@@_109 @@:272 @
+A S' C' S @@B S' S @C _239 @@@S C' S' @B C' @B' _108 @@@C' C' Y @@C' C' C' S @@@C' S' B @@B B S @@B B C _237 @@@_148 @@@B B S _108 @@@B C B @@C _147 @@@@@C O @K @@@@@C _148 @@@@C' C @S' C @C _239 @@C O @K @@@_109 @@:271 @
+A C' C @S' S @_239 @C' Y @B B S _108 @@@C' C' C @@C'B B S @C _127 @@@C B @C _147 @#1 @@@@_109 @@@@@_109 @:270 @
+A _263 #0 @_133 #0 @@:269 @
+A U K2 K4 A @@@:268 @
+A U K2 K4 K @@@:267 @
+A I :266 @
+A U K @:265 @
+A _263 _206 #0 @@_206 #255 @@:264 @
+A P :263 @
+A U A @:262 @
+A B B B B B B B C @@@@@@@B B B B B B C @@@@@@B B B B B C @@@@@B B B B C @@@@B B B C @@@B B C @@P @@@@@@:261 @
+A _254 P _211 @_244 @@_6 _256 @_6 _258 @_259 @@@:260 @
+A I :259 @
+A B _29 @B _4 _142 @@C' S' _13 @@B C _65 @@C _257 @@@B _5 @_144 @@@@:258 @
+A ^mpz_init_set_ui :257 @
+A C _255 @_145 #1 @@:256 @
+A S' B @seq @B S seq @@P @@:255 @
+A P :254 @
+A B B B B B B B C @@@@@@@B B B B B B C @@@@@@B B B B B C @@@@@B B B B C @@@@B B B C @@@B B C @@P @@@@@@:253 @
+A S' B @B _123 @U A @@@B _251 @U K @@@:252 @
+A U K2 K4 A @@@:251 @
+A B _25 _248 @@_249 @:250 @
+A I :249 @
+A _26 P _245 @_247 @@_179 _248 @@_196 _248 @@_197 _248 @@:248 @
+A _169 K B B _246 fromUTF8 "Non-exhaustive patterns " @@@@_246 @@@_220 _247 @@_176 _247 @@:247 @
+A _170 :246 @
+A _27 _359 fromUTF8 "Control.Exception.Internal" @@fromUTF8 "PatternMatchFail" @@@:245 @
+A _47 _210 @_180 I @_62 _241 @@@_180 I @_46 _241 @@@_180 I @_57 _241 @@@_180 I @_134 _241 @@@_180 I @_164 _241 @@@_180 I @_242 _241 @@@_180 I @_243 _241 @@@:244 @
+A U K2 K4 A @@@:243 @
+A U K2 K4 K @@@:242 @
+A _47 _129 @_236 @_237 @_238 @_239 @_240 @_58 _241 @@_59 _241 @@:241 @
+A u>= :240 @
+A u> :239 @
+A u<= :238 @
+A u< :237 @
+A ucmp :236 @
+A B _29 @_117 @:235 @
+A R _185 @:234 @
+A C _57 _232 @@#127 @:233 @
+A _47 _224 @_227 @_228 @_229 @_230 @_231 @_58 _232 @@_59 _232 @@:232 @
+A u>= :231 @
+A u> :230 @
+A u<= :229 @
+A u< :228 @
+A icmp :227 @
+A U _186 @:226 @
+A _108 :225 @
+A _48 _222 @_223 @:224 @
+A /= :223 @
+A == :222 @
+A B Y @C C' S' @B _169 @Z _219 @@@_220 @@_176 @@:221 @
+A C' C @_175 @K @:220 @
+A U K A @@:219 @
+A B _29 @C _216 @_6 _105 @_217 @@@:218 @
+A ^md5String :217 @
+A C'B B _0 _20 @@_215 @@C S' _0 _20 @@@C'B B _71 _20 @@_38 @@_11 _20 @@@@:216 @
+A C' _0 _20 @@B _117 @_118 @@_214 @:215 @
+A S' _119 @_99 @B C' S' _0 _20 @@B _36 @C _73 _68 @@#1 @@@@C' S' S' _71 _20 @@@@B C @C _102 @@@C' S' _71 _20 @@@C' C @C _83 _122 @@@_123 _211 @_145 #0 @@@@B _11 _20 @@_35 @@@@@_213 @@:214 @
+A _212 :213 @
+A bslength :212 @
+A _41 _207 _147 @@_207 _148 @@_207 _149 @@_209 _211 @@I @C C C _151 _210 @@_123 _211 @_145 #0 @@@@_123 _211 @_145 #1 @@@@_123 _211 @_145 #0 @@@@B _206 @_152 @@:211 @
+A _48 _180 I @_151 _129 @@@_180 I @_161 _129 @@@:210 @
+A S _208 @C _123 @_145 #0 @@@:209 @
+A U K Z K4 @@@:208 @
+A B B _206 @@:207 @
+A B _124 @C _125 _205 @@#255 @@:206 @
+A _126 _129 @_130 @_131 @_132 @_133 @_137 _205 @@_140 _205 @@#0 @_146 P _205 @_153 @@@_156 _205 @@_158 _205 @@_160 _205 @@_163 P _205 @_153 @@@C' C @B S C _46 _60 @@#0 @@@C' C @B S C _164 _60 @@_166 @@@_167 @@#0 @@@_200 @@_167 @C' C @B S C _46 _60 @@#0 @@@C' C @B S C _164 _60 @@_166 @@@_165 @@#0 @@@_200 @@_165 @_202 _205 @@_203 _205 @@_204 @K _192 _166 @@@K _166 @@K _186 @@:205 @
+A popcount :204 @
+A C' C'B @_201 @_61 _68 @@:203 @
+A _201 :202 @
+A U K2 K4 Z Z Z Z Z Z Z Z Z Z Z Z K4 @@@@@@@@@@@@@@@:201 @
+A _25 _198 @_199 @:200 @
+A Z K4 @:199 @
+A _26 P _168 @_177 @@_179 _198 @@_196 _198 @@_197 _198 @@:198 @
+A B _171 @B U A @@_195 @@:197 @
+A B U @B B _194 @@B C' P @B U K @@_195 @@@B U K @@_195 @@@@:196 @
+A U K3 @:195 @
+A C'B C S' _151 _188 @@C' _189 @U K @@_190 @@C' _189 @U A @@_190 @@@_191 @@B _192 @_193 @@:194 @
+A _34 :193 @
+A J :192 @
+A K :191 @
+A I :190 @
+A U I @:189 @
+A _48 C B @B Z @B Z @C B @B Z @B Z @_151 _184 @@@@@@@@_187 _188 @@:188 @
+A C' C' C @@C' C' C @@_151 @_185 @@_186 @:187 @
+A K :186 @
+A A :185 @
+A _48 _180 I @_151 _183 @@@_180 I @_161 _183 @@@:184 @
+A _48 _181 @_182 @:183 @
+A bs/= :182 @
+A bs== :181 @
+A K _34 @:180 @
+A _178 :179 @
+A P :178 @
+A _169 _172 _177 @@C C C C P fromUTF8 "arithmetic overflow" @@fromUTF8 "arithmetic underflow" @@@fromUTF8 "loss of precision" @@@fromUTF8 "divide by zero" @@@fromUTF8 "denormal" @@@fromUTF8 "Ratio has zero denominator" @@@_176 _177 @@:177 @
+A B _173 @_175 @:176 @
+A C _174 @#0 @:175 @
+A U K2 @:174 @
+A B C C S' @B _108 #91 @@_108 #93 @@@@@B B B B _108 #91 @@@@@S' B @C'B @B B Y @@B C'B B P @_108 #93 @@@@B B B B _108 #44 @@@@@C'B @@@@@@:173 @
+A Z B B _170 @@_171 @@:172 @
+A U K K @@:171 @
+A C' Y @C'B P @C'B _108 @@@:170 @
+A B B C @@P @:169 @
+A _27 _359 fromUTF8 "Control.Exception.Internal" @@fromUTF8 "ArithException" @@@:168 @
+A shl :167 @
+A Y C' C @B S' S' @C _127 @#0 @@@C' C'B @C B @C _165 @#1 @@@C _42 @#1 @@@@I @@_133 #0 @@#0 @:166 @
+A shr :165 @
+A U K K4 K2 @@@:164 @
+A S' C' C @@S C' C' @B C' @B C' @B _161 @B _162 @U K @@@@@@C'B B S @C _125 @@@C _155 @@@@C' _123 @U A @@_145 #0 @@@@U K @@:163 @
+A U Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z K4 @@@@@@@@@@@@@@@@@@@:162 @
+A U A @:161 @
+A S' C'B @_159 @_155 @:160 @
+A U K3 Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z K4 @@@@@@@@@@@@@@@@@:159 @
+A S' C'B @_125 @S' B @_157 @_155 @@:158 @
+A U K4 Z Z Z Z Z Z Z Z Z Z Z Z Z Z K4 @@@@@@@@@@@@@@@@:157 @
+A S' C'B @_154 @_155 @:156 @
+A U K4 K4 Z Z Z Z Z Z Z Z Z Z K4 @@@@@@@@@@@@@:155 @
+A U K2 Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z K4 @@@@@@@@@@@@@@@@@@:154 @
+A _41 _147 @_148 @_149 @_150 @I @C C C _151 _129 @@#0 @@#1 @@#0 @@_152 @:153 @
+A B _32 @_67 @:152 @
+A U K @:151 @
+A uneg :150 @
+A u* :149 @
+A u- :148 @
+A u+ :147 @
+A S' _135 @U K @@C' _123 @U A @@_145 #1 @@@:146 @
+A B _29 @B _4 _142 @@C' S' _13 @@B C _65 @@C _143 @@@B _5 @_144 @@@@:145 @
+A I :144 @
+A ^mpz_init_set_si :143 @
+A _4 _141 @B _5 @_34 @@:142 @
+A ^new_mpz :141 @
+A S' S' S @@B B S C _46 _60 @@#0 @@@@B S' S @C C _134 _60 @@#0 @@@@_138 @@@C' C'B @_139 @_61 _68 @@@:140 @
+A U K2 K4 K4 K4 K4 K4 @@@@@@:139 @
+A U K K4 K4 K4 K4 Z K4 @@@@@@@:138 @
+A S' S' S @@B B S C _46 _60 @@#0 @@@@B S' S @C C _134 _60 @@#0 @@@@_135 @@@C' C'B @_136 @_61 _68 @@@:137 @
+A U K3 K4 K4 K4 Z Z Z K4 @@@@@@@@:136 @
+A U K K4 K4 K4 Z Z Z Z Z K4 @@@@@@@@@@:135 @
+A U K4 K3 @@:134 @
+A inv :133 @
+A xor :132 @
+A or :131 @
+A and :130 @
+A _48 _127 @_128 @:129 @
+A /= :128 @
+A == :127 @
+A B B B B B B B B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@@@@@@@@B B B B B B B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@@@@@@@B B B B B B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@@@@@@B B B B B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@@@@@B B B B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@@@@B B B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@@@B B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@@B B B B B B B B B B B B B B B C @@@@@@@@@@@@@@@B B B B B B B B B B B B B B C @@@@@@@@@@@@@@B B B B B B B B B B B B B C @@@@@@@@@@@@@B B B B B B B B B B B B C @@@@@@@@@@@@B B B B B B B B B B B C @@@@@@@@@@@B B B B B B B B B B C @@@@@@@@@@B B B B B B B B B C @@@@@@@@@B B B B B B B B C @@@@@@@@B B B B B B B C @@@@@@@B B B B B B C @@@@@@B B B B B C @@@@@B B B B C @@@@B B B C @@@B B C @@P @@@@@@@@@@@@@@@@@@@@@:126 @
+A U K Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z Z K4 @@@@@@@@@@@@@@@@@@@:125 @
+A I :124 @
+A U K K4 A @@@:123 @
+A _77 K #1 @@K #1 @@_82 _122 @@_84 _122 @@_89 _122 @@_91 _122 @@_120 @_121 @:122 @
+A ^poke_uint8 :121 @
+A ^peek_uint8 :120 @
+A S' C' _4 @@B U @_63 @@C'B _64 @_5 @@:119 @
+A _34 :118 @
+A B _4 _114 #0 @#10 @@@C' Y @S' B @B P @_115 @@B C'B @B B _13 @@_116 @@@@@:117 @
+A bsappbyte :116 @
+A bsfreeze :115 @
+A bsnew :114 @
+A T3 :113 @
+A S B @B B Z @@B B Z @@C' S' C @@C' C' _28 @@B B _107 @@B C _108 @@_110 _111 @@@@@I @@@@:112 @
+A U K2 @:111 @
+A B Y @B B P _109 @@@B C'B @B _108 @@@@:110 @
+A K :109 @
+A O :108 @
+A S U _363 fromUTF8 "\"hs/.microhs/root/lib/System/IO/MD5.hs\",66:17: " @@fromUTF8 "md5Combine: empty" @@@@B C P @@Z Z B _29 @C _76 _103 @@B B _105 @@B C' C @_106 @@C _40 _68 @@_78 @@@@@@@@@:107 @
+A ^md5Array :106 @
+A B _104 _103 @@C S' _71 _20 @@@_85 _103 @@@:105 @
+A B _39 @C _69 @_81 fromUTF8 "\"hs/.microhs/root/lib/Foreign/Marshal/Alloc.hs\",49:31: " @@@@:104 @
+A _77 K _78 @@K #1 @@_82 _103 @@_84 _103 @@_89 _103 @@_91 _103 @@B _15 _10 @_92 @@B _94 @C' P @_35 @_78 @@@@B C _100 @@C C' C' @_102 @_35 @@_78 @@@:103 @
+A C' C'B @C'B B _101 @_35 @@_35 @@_33 @:102 @
+A ^memcpy :101 @
+A B _98 @_99 @:100 @
+A bs2fp :99 @
+A S' C' _0 _20 @@@B U @_95 @@C'B B _71 _20 @@_97 @@_11 _20 @@@:98 @
+A C _96 @_11 _20 @I @@:97 @
+A _64 :96 @
+A _63 :95 @
+A U _93 @:94 @
+A packCStringLen :93 @
+A I :92 @
+A C'B B' _90 @@_88 @:91 @
+A U K2 K4 A @@@:90 @
+A C'B B' _85 @@_88 @:89 @
+A B B _86 @@B _42 @_87 @@:88 @
+A toInt :87 @
+A toPtr :86 @
+A U K2 K4 K @@@:85 @
+A C' C @S' C' C' @@B B S' @@_83 @@B C'B _44 @@_69 @@@I @:84 @
+A U K K4 K2 @@@:83 @
+A S' C'B @_79 @B C _44 @@C _69 @_81 fromUTF8 "\"hs/.microhs/root/lib/Foreign/Storable.hs\",25:72: " @@@@@:82 @
+A B _25 _362 @@_80 fromUTF8 "undefined" @@@:81 @
+A P :80 @
+A U K4 K3 @@:79 @
+A #16 :78 @
+A B B B B B B B C @@@@@@@B B B B B B C @@@@@@B B B B B C @@@@@B B B B C @@@@B B B C @@@B B C @@P @@@@@@:77 @
+A C S' S' @B C' @B S @_70 @@@B B' @B B S' _71 _20 @@@@B C @_74 @@@@@_75 @:76 @
+A Y B S P @@B Z @C'B B C' S _64 @@@C @@C _73 _68 @@#1 @@@@@#0 @:75 @
+A C' C' C @@B B Y @@B B B C'B U _11 _20 @I @@@@@@C' C'B @B B S' C'B @@@B B B B _71 _20 @@@@@_72 @@@C'B C @C _73 _68 @@#1 @@@@@@#0 @:74 @
+A U Z Z K4 @@@:73 @
+A U K3 K4 @@:72 @
+A U K2 K @@:71 @
+A B B _39 @@B C _40 _68 @@@C _69 @_363 fromUTF8 "\"hs/.microhs/root/lib/Foreign/Marshal/Array.hs\",29:42: " @@fromUTF8 "allocaArray" @@@@@:70 @
+A U Z Z Z K4 @@@@:69 @
+A _41 _42 @_43 @_44 @_45 @S S C _46 _60 @@#0 @@I @@_61 _68 @@@C C C C _62 _60 @@#0 @@_61 _68 @#1 @@@#0 @@#1 @@_67 @:68 @
+A B _29 @C _65 @_66 @@:67 @
+A ^mpz_get_si :66 @
+A S' C' _4 @@B U @_63 @@C'B _64 @_5 @@:65 @
+A seq :64 @
+A fp2p :63 @
+A U K Z Z K4 @@@@:62 @
+A U K3 K3 @@:61 @
+A _47 _51 @_52 @_53 @_54 @_55 @_56 @_58 _60 @@_59 _60 @@:60 @
+A C' S' C @@C' C' S @@_57 @I @@I @:59 @
+A C' C' S @@C' S' C @@_57 @I @@I @:58 @
+A U K3 K4 @@:57 @
+A >= :56 @
+A > :55 @
+A <= :54 @
+A < :53 @
+A icmp :52 @
+A _48 _49 @_50 @:51 @
+A /= :50 @
+A == :49 @
+A P :48 @
+A B B B B B B B C @@@@@@@B B B B B B C @@@@@@B B B B B C @@@@@B B B B C @@@@B B B C @@@B B C @@P @@@@@@:47 @
+A U K2 Z K4 @@@:46 @
+A neg :45 @
+A * :44 @
+A - :43 @
+A + :42 @
+A B B B B B B C @@@@@@B B B B B C @@@@@B B B B C @@@@B B B C @@@B B C @@P @@@@@:41 @
+A U K2 K4 @@:40 @
+A C'B B _4 @_36 @@C S' _4 @@C'B B _13 @_38 @@_5 @@@:39 @
+A B _37 @_35 @:38 @
+A ^free :37 @
+A C' _4 @B _30 @_33 @@B _5 @_35 @@:36 @
+A _34 :35 @
+A I :34 @
+A B _31 @_32 @:33 @
+A I :32 @
+A I :31 @
+A ^malloc :30 @
+A IO.performIO :29 @
+A T3 :28 @
+A U :27 @
+A B B B C @@@B B C @@P @@:26 @
+A B B _23 @@_24 @:25 @
+A U K K2 @@:24 @
+A raise :23 @
+A A.read :22 @
+A IO.getArgRef :21 @
+A _1 _19 @_4 @_13 @_5 @:20 @
+A _2 _10 @_5 @_12 _20 @@_13 @_17 _19 @@_18 _19 @@:19 @
+A S' B @B' _14 @@B _15 @_16 @@:18 @
+A S' B @_14 @C' _15 @_16 @_8 @@:17 @
+A U Z K4 @@:16 @
+A _7 :15 @
+A U K2 K3 @@:14 @
+A IO.>> :13 @
+A S' C'B @_0 @S' C'B @_0 @B' _11 @@@:12 @
+A U K2 A @@:11 @
+A _3 B C _4 @@B _5 @@@_9 _10 @@:10 @
+A C' _6 @_7 @_8 @:9 @
+A K :8 @
+A U K @:7 @
+A B :6 @
+A IO.return :5 @
+A IO.>>= :4 @
+A P :3 @
+A B B B B B C @@@@@B B B B C @@@@B B B C @@@B B C @@P @@@@:2 @
+A B B B C @@@B B C @@P @@:1 @
+A U K K2 @@:0 @
+_668 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ }

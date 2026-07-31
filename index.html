@@ -768,6 +768,16 @@
 <div class="wrap">
   <div id="ownerBanner" role="status"></div>
 
+  <!-- RIGHT NOW — computed on-device by Haskell (MicroHs → WASM) -->
+  <section class="block" id="now">
+    <h2 data-i18n="h.now">Right now λ</h2>
+    <div class="body">
+      <button id="nowBtn" type="button" data-i18n="hs.btn">Ask Haskell what's happening</button>
+      <div id="nowOut" style="display:none;margin-top:10px;line-height:1.55"></div>
+      <p style="font-size:11px;opacity:.65;margin:8px 0 0" data-i18n="hs.note">Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. Same Schedule.hs that generates this page.</p>
+    </div>
+  </section>
+
   <!-- CALENDAR (home) -->
   <section class="block" id="calendar">
     <h2 data-i18n="h.calendar">Calendar — leave me notes 💬</h2>
@@ -1847,6 +1857,16 @@ const T = {
 
   'foot.txt':{en:"Japan 2026 · built from the planning thread · details may change", ja:"日本 2026 · 計画メモから作成 · 予定は変わることがあります"},
   'foot.ics':{en:"Add the trip to your calendar", ja:"旅程をカレンダーに追加"},
+  'h.now':{en:"Right now λ", ja:"いま λ"},
+  'hs.btn':{en:"Ask Haskell what's happening", ja:"Haskellに今の予定を聞く"},
+  'hs.rerun':{en:"↻ Recompute", ja:"↻ 再計算"},
+  'hs.loading':{en:"Evaluating combinators…", ja:"コンビネータ評価中…"},
+  'hs.err':{en:"Could not run (needs one online visit to cache the runtime).", ja:"実行できませんでした（初回はオンラインでランタイム取得が必要）。"},
+  'hs.tonight':{en:"Tonight", ja:"今夜"},
+  'hs.now':{en:"Now", ja:"進行中"},
+  'hs.next':{en:"Next", ja:"つぎ"},
+  'hs.tomorrow':{en:"Tomorrow", ja:"明日"},
+  'hs.note':{en:"Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. Same Schedule.hs that generates this page.", ja:"このページを生成しているSchedule.hsを、MicroHsでコンビネータにコンパイルし、WebAssemblyでスマホ上で評価しています。"},
 
   'h.game':{en:"✦ Bored? Play Bobby's game — Moon Chorus", ja:"✦ ひまなとき — ボビーのゲーム『月の合唱』"},
   'game.desc':{en:"<b>Moon Chorus</b> (still at aim-dojo.vercel.app) — a browser rhythm-aim game Bobby built. Long before dinosaurs, the Moon kept a choir of distant minds. Their voices fell asleep inside glowing <b>Echo Orbs</b>. You are the <b>Listener</b>: step when the floor flashes, send a rainbow link through the gap, and land it while the orb glows so a lost voice can rejoin the chorus. Miss the glow and you only clink a closed shell. Nothing to install.",
@@ -4700,6 +4720,73 @@ schedulePoll();
 if('serviceWorker' in navigator){
   window.addEventListener('load', function(){ navigator.serviceWorker.register('sw.js').catch(function(){}); });
 }
+</script>
+<script>
+/* "Right now λ" — on-device Haskell. Lazy-loads the MicroHs combinator
+   evaluator (WASM, hs-wasm/mhseval.js) plus the schedule compiled to
+   combinators (hs-wasm/now-next.comb), runs it with the current time,
+   renders the JSON it prints. Pure progressive enhancement: nothing
+   here executes until the button is tapped, and any failure just shows
+   a message in the panel. */
+(function(){
+  var btn = document.getElementById('nowBtn'), out = document.getElementById('nowOut');
+  if(!btn) return;
+  var srcP = null, combP = null, running = false;
+  function t(k){ var e = T[k]; return (lang === 'ja' && e.ja) ? e.ja : e.en; }
+  function esc(s){ var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+  function fetchAssets(){
+    if(!srcP) srcP = fetch('hs-wasm/mhseval.js').then(function(r){ if(!r.ok) throw 0; return r.text(); });
+    if(!combP) combP = fetch('hs-wasm/now-next.comb').then(function(r){ if(!r.ok) throw 0; return r.arrayBuffer(); });
+    return Promise.all([srcP, combP]);
+  }
+  function runHs(src, comb){
+    return new Promise(function(resolve, reject){
+      var bytes = new Uint8Array(comb), sent = 0, done = false;
+      var cfg = {
+        arguments: ['+RTS', '-r/dev/stdin', '-RTS', String(Math.floor(Date.now()/1000))],
+        thisProgram: 'mhseval',
+        stdin: function(){ return sent < bytes.length ? bytes[sent++] : null; },
+        print: function(s){
+          if(!done && s.charAt(0) === '{'){
+            done = true;
+            try { resolve(JSON.parse(s)); } catch(e){ reject(e); }
+          }
+        },
+        printErr: function(){},
+        onAbort: function(w){ if(!done){ done = true; reject(new Error(String(w))); } }
+      };
+      try { new Function('Module', src)(cfg); } catch(e){ if(!done){ done = true; reject(e); } }
+      setTimeout(function(){ if(!done){ done = true; reject(new Error('timeout')); } }, 30000);
+    });
+  }
+  function render(j){
+    var ja = (lang === 'ja');
+    var lines = [];
+    lines.push('<b>' + esc(ja ? (j.labelJa || j.label || '—') : (j.label || '—')) + '</b> · ' +
+      esc(j.date) + ' (' + esc(ja ? j.weekdayJa : j.weekday) + ') ' + esc(j.time) + ' JST');
+    if(j.lodgingEn) lines.push('🏨 ' + esc(t('hs.tonight')) + ': ' + esc(ja ? (j.lodgingJa || j.lodgingEn) : j.lodgingEn));
+    if(j.now) lines.push('▶ ' + esc(t('hs.now')) + ' ' + esc(j.now.mark) + ' ' + esc(j.now.time) + ' — ' + esc(j.now.text));
+    if(j.next) lines.push('⏭ ' + esc(t('hs.next')) + ' ' + esc(j.next.mark) + ' ' + esc(j.next.time) + ' — ' + esc(j.next.text));
+    if(j.tomorrow) lines.push('→ ' + esc(t('hs.tomorrow')) + ': ' + esc(j.tomorrow));
+    out.innerHTML = lines.join('<br>');
+    out.style.display = 'block';
+  }
+  btn.addEventListener('click', function(){
+    if(running) return;
+    running = true;
+    out.style.display = 'block';
+    out.textContent = t('hs.loading');
+    fetchAssets().then(function(a){ return runHs(a[0], a[1]); }).then(function(j){
+      render(j);
+      btn.textContent = t('hs.rerun');
+      btn.removeAttribute('data-i18n');
+      running = false;
+    }).catch(function(){
+      out.textContent = t('hs.err');
+      running = false;
+    });
+  });
+})();
 </script>
 </body>
 </html>
