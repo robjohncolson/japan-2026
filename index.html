@@ -775,9 +775,12 @@
       <button id="nowBtn" type="button" data-i18n="hs.btn">Ask Haskell what's happening</button>
       <div id="nowOut" style="display:none;margin-top:10px;line-height:1.55"></div>
       <div id="nowCtl" style="display:none;margin-top:8px">
+        <button id="nowPrev7" type="button" title="-7 days">◀◀</button>
         <button id="nowPrev" type="button" title="-1 day">◀ −1d</button>
         <button id="nowReset" type="button" title="back to now">⟲</button>
         <button id="nowNext2" type="button" title="+1 day">+1d ▶</button>
+        <button id="nowNext7" type="button" title="+7 days">▶▶</button>
+        <button id="nowFull" type="button" title="full day plan">📋</button>
       </div>
       <p style="font-size:11px;opacity:.65;margin:8px 0 0" data-i18n="hs.note">Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. Same Schedule.hs that generates this page.</p>
     </div>
@@ -1219,7 +1222,7 @@
   </section>
 
   <footer>
-    <div><span data-i18n="foot.txt">Japan 2026 · built from the planning thread · details may change</span> · <span id="pv" style="opacity:.6">v193</span></div>
+    <div><span data-i18n="foot.txt">Japan 2026 · built from the planning thread · details may change</span> · <span id="pv" style="opacity:.6">v194</span></div>
     <div style="margin-top:6px"><a href="japan-2026.ics" download style="color:inherit">📅 <span data-i18n="foot.ics">Add the trip to your calendar</span></a> · <a href="repl.html" style="color:inherit">λ <span data-i18n="foot.repl">playground</span></a></div>
     <button id="adminBtn" type="button">🔒 Owner</button>
   </footer>
@@ -4769,11 +4772,12 @@ if('serviceWorker' in navigator){
       setTimeout(function(){ fin(null); }, 4500);
     });
   }
-  function runHs(src, comb, geo, epoch){
+  function runHs(src, comb, geo, epoch, full){
     return new Promise(function(resolve, reject){
       var bytes = new Uint8Array(comb), sent = 0, done = false;
       var argv = ['+RTS', '-r/dev/stdin', '-RTS', String(epoch)];
       if(geo) argv = argv.concat([String(geo[0]), String(geo[1])]);
+      if(full) argv.push('full');
       var cfg = {
         arguments: argv,
         thisProgram: 'mhseval',
@@ -4798,19 +4802,22 @@ if('serviceWorker' in navigator){
     out.innerHTML = (offsetSec !== 0 ? '🔭 ' : '') + html;
     out.style.display = 'block';
   }
-  var offsetSec = 0; // time-travel: the oracle is a pure function of the epoch
+  // Elm-in-exile: the component state is (offsetSec, fullMode); every
+  // event re-runs the pure Haskell view with that state as arguments
+  var offsetSec = 0, fullMode = false;
   function compute(){
     if(running) return;
     running = true;
     out.style.display = 'block';
     out.textContent = t('hs.loading');
     Promise.all([fetchAssets(), getGeo()]).then(function(r){
-      return runHs(r[0][0], r[0][1], r[1], Math.floor(Date.now()/1000) + offsetSec);
+      return runHs(r[0][0], r[0][1], r[1], Math.floor(Date.now()/1000) + offsetSec, fullMode);
     }).then(function(j){
       render(j);
       btn.textContent = t('hs.rerun');
       btn.removeAttribute('data-i18n');
       document.getElementById('nowCtl').style.display = 'block';
+      document.getElementById('nowFull').style.fontWeight = fullMode ? '700' : '400';
       running = false;
     }).catch(function(){
       out.textContent = t('hs.err');
@@ -4818,9 +4825,12 @@ if('serviceWorker' in navigator){
     });
   }
   btn.addEventListener('click', compute);
+  document.getElementById('nowPrev7').addEventListener('click', function(){ offsetSec -= 7*86400; compute(); });
   document.getElementById('nowPrev').addEventListener('click', function(){ offsetSec -= 86400; compute(); });
   document.getElementById('nowNext2').addEventListener('click', function(){ offsetSec += 86400; compute(); });
-  document.getElementById('nowReset').addEventListener('click', function(){ offsetSec = 0; compute(); });
+  document.getElementById('nowNext7').addEventListener('click', function(){ offsetSec += 7*86400; compute(); });
+  document.getElementById('nowReset').addEventListener('click', function(){ offsetSec = 0; fullMode = false; compute(); });
+  document.getElementById('nowFull').addEventListener('click', function(){ fullMode = !fullMode; compute(); });
 })();
 </script>
 </body>

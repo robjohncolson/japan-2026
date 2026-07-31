@@ -111,6 +111,13 @@ NowNext.hs renders the panel HTML in both languages (html_en /
 html_ja) and the page-side JS is a one-line innerHTML pipe — the first
 piece of UI whose rendering logic lives in Haskell.
 
+**Interactive rung (v194):** the panel is now an Elm-style component —
+its state (day offset, full/brief mode) lives as plain values that
+every button press feeds back into the pure Haskell view: 📋 renders
+the complete day plan for whichever day you've time-travelled to, and
+◀◀/▶▶ jump by weeks. JS holds no view logic at all; it forwards
+events and pipes HTML.
+
 **SSR rung (v191):** the lodging table is Haskell now too — typed
 `Stay` records in Schedule.hs render the #lodging tbody (EN inline,
 data-i18n attrs) plus a generated LODGING_I18N dict for the JA side,

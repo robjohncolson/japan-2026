@@ -245,8 +245,8 @@ oneLine n s =
 field :: String -> [(String, String)] -> String
 field k card = case lookup k card of Just v -> v; Nothing -> ""
 
-answer :: Int -> Maybe (Double, Double) -> String
-answer epoch here =
+answer :: Int -> Maybe (Double, Double) -> Bool -> String
+answer epoch here fullMode =
   let mo = moment epoch
       key = dateKey (mDate mo)
       nowMin = mMinute mo
@@ -352,6 +352,15 @@ answer epoch here =
                 case take 4 (closedToday r) of
                   [] -> []
                   cs -> ["🚫 " ++ tr "Closed today" "本日定休" ++ ": " ++ joinDot (map (htmlEsc . pName ja) cs)]
+            -- full-day mode: the card's entire authored plan, verbatim
+            fullBlock =
+              case (fullMode, card) of
+                (True, Just c) ->
+                  [ "<div style=\"margin-top:8px;padding-top:8px;border-top:1px dashed #8886\">"
+                      ++ field (if ja then "detail_ja" else "detail") c
+                      ++ "</div>"
+                  ]
+                _ -> []
             dlLine = case due of
               [] -> []
               ds ->
@@ -368,15 +377,17 @@ answer epoch here =
               ( [headerLine] ++ sunLine ++ lodgingLine ++ nowLine ++ nextLine
                   ++ tomorrowLine ++ openLine ++ soonLine ++ closedLine ++ dlLine
               )
+              ++ concat fullBlock
    in obj
         [ ("date", jstr key)
         , ("html_en", jstr (htmlFor False))
         , ("html_ja", jstr (htmlFor True))
         ]
 
--- argv: epoch [lat lng] — or epoch on stdin (the browser evaluator
--- feeds the .comb through stdin, so argv is the only free channel
--- there; coordinates are optional and processed entirely on-device)
+-- argv: epoch [lat lng] ["full"] — or epoch on stdin (the browser
+-- evaluator feeds the .comb through stdin, so argv is the only free
+-- channel there; coordinates are optional and processed entirely
+-- on-device; "full" anywhere in argv renders the whole day plan)
 main :: IO ()
 main = do
   args <- getArgs
@@ -385,7 +396,7 @@ main = do
     [] -> getContents
   let num v = case reads (dropWhile (== ' ') v) of ((n, _) : _) -> Just n; [] -> Nothing
       epoch = case num s of Just n -> n; Nothing -> 0 :: Int
-      here = case args of
-        _ : la : lo : _ -> (,) <$> num la <*> num lo
-        _ -> Nothing
-  putStrLn (answer epoch here)
+      nums = [d | v <- drop 1 args, Just d <- [num v :: Maybe Double]]
+      here = case nums of la : lo : _ -> Just (la, lo); _ -> Nothing
+      fullMode = "full" `elem` args
+  putStrLn (answer epoch here fullMode)
