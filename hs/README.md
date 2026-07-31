@@ -68,5 +68,20 @@ committed .ics is stale.
 - `Json.hs` — dependency-free JSON parser (surrogate pairs included)
 - needs GHC (boot libraries only — no cabal) and node
 
-A full in-browser Haskell UI (Miso / GHC-WASM) is the eventual endgame;
-that is a post-trip project.
+## Haskell in the browser (shipped)
+
+The "Right now λ" section at the top of the page runs `NowNext.hs` **on
+the visitor's phone**: `tools/get-microhs.sh` builds a pinned
+[MicroHs](https://github.com/augustss/MicroHs) (fetched via the Go
+module proxy, since github.com is blocked in the build sandbox), the
+apply script compiles `NowNext.hs` + `Schedule.hs` to combinators
+(`hs-wasm/now-next.comb`), and the page lazy-loads the vendored MicroHs
+evaluator (`hs-wasm/mhseval.js`, MIT, WASM) on tap — comb via
+`/dev/stdin`, epoch seconds via argv, JSON on stdout. ~4 s first run,
+EN/JA, precached for offline, and pure progressive enhancement: if
+anything fails the panel shows one error line and the rest of the page
+is untouched. `NowNext.hs` stays compilable by both GHC (checked in
+check.sh) and MicroHs.
+
+A full Haskell UI (Miso / GHC-WASM) would be the final step; that
+remains a post-trip project — but the runtime beachhead is live.
