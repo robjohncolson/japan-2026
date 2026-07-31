@@ -1868,15 +1868,6 @@ const T = {
   'hs.rerun':{en:"↻ Recompute", ja:"↻ 再計算"},
   'hs.loading':{en:"Evaluating combinators…", ja:"コンビネータ評価中…"},
   'hs.err':{en:"Could not run (needs one online visit to cache the runtime).", ja:"実行できませんでした（初回はオンラインでランタイム取得が必要）。"},
-  'hs.tonight':{en:"Tonight", ja:"今夜"},
-  'hs.now':{en:"Now", ja:"進行中"},
-  'hs.next':{en:"Next", ja:"つぎ"},
-  'hs.tomorrow':{en:"Tomorrow", ja:"明日"},
-  'hs.open':{en:"Open now", ja:"営業中"},
-  'hs.soon':{en:"Opens soon", ja:"まもなく開店"},
-  'hs.closedToday':{en:"Closed today", ja:"本日定休"},
-  'hs.deadline':{en:"Deadline", ja:"期限"},
-  'hs.tmrw':{en:"(tomorrow)", ja:"（明日）"},
   'hs.note':{en:"Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. If you allow location, distances are computed on-device too — your position is never sent anywhere.", ja:"このページを生成しているSchedule.hsを、MicroHsでコンビネータにコンパイルし、WebAssemblyでスマホ上で評価しています。位置情報を許可すると距離も端末内で計算— 位置が送信されることはありません。"},
 
   'h.game':{en:"✦ Bored? Play Bobby's game — Moon Chorus", ja:"✦ ひまなとき — ボビーのゲーム『月の合唱』"},
@@ -4786,38 +4777,10 @@ if('serviceWorker' in navigator){
     });
   }
   function render(j){
-    var ja = (lang === 'ja');
-    var lines = [];
-    lines.push((offsetSec !== 0 ? '🔭 ' : '') + '<b>' + esc(ja ? (j.labelJa || j.label || '—') : (j.label || '—')) + '</b> · ' +
-      esc(j.date) + ' (' + esc(ja ? j.weekdayJa : j.weekday) + ') ' + esc(j.time) + ' JST');
-    if(j.sun) lines.push('🌅 ' + esc(j.sun.rise) + ' · 🌇 ' + esc(j.sun.set));
-    if(j.lodgingEn) lines.push('🏨 ' + esc(t('hs.tonight')) + ': ' + esc(ja ? (j.lodgingJa || j.lodgingEn) : j.lodgingEn));
-    if(j.now) lines.push('▶ ' + esc(t('hs.now')) + ' ' + esc(j.now.mark) + ' ' + esc(j.now.time) + ' — ' + esc(j.now.text));
-    if(j.next) lines.push('⏭ ' + esc(t('hs.next')) + ' ' + esc(j.next.mark) + ' ' + esc(j.next.time) + ' — ' + esc(j.next.text));
-    if(j.tomorrow) lines.push('→ ' + esc(t('hs.tomorrow')) + ': ' + esc(j.tomorrow));
-    function pname(i){ return esc(ja ? (i.ja || i.en) : i.en); }
-    if(j.open && j.open.items.length){
-      lines.push('🟢 ' + esc(t('hs.open')) + ' (' + esc(String(j.open.total)) + '): ' +
-        j.open.items.map(function(i){
-          return pname(i) + ' <span style="opacity:.6">' + (i.km ? esc(i.km) + 'km · ' : '') + '~' + esc(i.until) + '</span>';
-        }).join(' · '));
-    }
-    if(j.soon && j.soon.length){
-      lines.push('🔜 ' + esc(t('hs.soon')) + ': ' +
-        j.soon.map(function(i){
-          return pname(i) + ' <span style="opacity:.6">' + (i.km ? esc(i.km) + 'km · ' : '') + esc(i.at) + '</span>';
-        }).join(' · '));
-    }
-    if(j.closedToday && j.closedToday.length){
-      lines.push('🚫 ' + esc(t('hs.closedToday')) + ': ' + j.closedToday.map(pname).join(' · '));
-    }
-    if(j.deadlines && j.deadlines.length){
-      lines.push('⏰ <b>' + esc(t('hs.deadline')) + '</b>: ' + j.deadlines.map(function(i){
-        return pname(i) + (i.when ? ' <b>' + esc(i.when) + '</b>' : '') +
-          (i.day === 'tomorrow' ? ' <span style="opacity:.6">' + esc(t('hs.tmrw')) + '</span>' : '');
-      }).join(' · '));
-    }
-    out.innerHTML = lines.join('<br>');
+    // the HTML arrives pre-rendered by Haskell (html_en / html_ja) —
+    // this is just a pipe, plus the time-travel marker
+    var html = (lang === 'ja') ? j.html_ja : j.html_en;
+    out.innerHTML = (offsetSec !== 0 ? '🔭 ' : '') + html;
     out.style.display = 'block';
   }
   var offsetSec = 0; // time-travel: the oracle is a pure function of the epoch

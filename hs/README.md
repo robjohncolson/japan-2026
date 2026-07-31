@@ -106,7 +106,10 @@ evaluator (`hs-wasm/mhseval.js`, MIT, WASM) on tap — comb via
 EN/JA, precached for offline, and pure progressive enhancement: if
 anything fails the panel shows one error line and the rest of the page
 is untouched. `NowNext.hs` stays compilable by both GHC (checked in
-check.sh) and MicroHs.
+check.sh) and MicroHs. As of v189 the panel's **view is Haskell too**:
+NowNext.hs renders the panel HTML in both languages (html_en /
+html_ja) and the page-side JS is a one-line innerHTML pipe — the first
+piece of UI whose rendering logic lives in Haskell.
 
 A full Haskell UI (Miso / GHC-WASM) would be the final step; that
 remains a post-trip project — but the runtime beachhead is live.

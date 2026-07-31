@@ -284,31 +284,9 @@ answer epoch here =
         , hWeekly (pHours p) /= Nothing
         , null (dayIvs p wd) || closedOn key p
         ]
-      dlJson (dt, tm, en, ja) dayTag =
-        obj
-          ( [("en", jstr en), ("ja", jstr ja), ("day", jstr dayTag)]
-              ++ [("when", jstr tm) | tm /= ""]
-              ++ [("date", jstr dt)]
-          )
-      dueList =
-        [dlJson dl "today" | dl@(dt, _, _, _) <- deadlines, dt == key]
-          ++ [dlJson dl "tomorrow" | dl@(dt, _, _, _) <- deadlines, dt == nextKey]
-      atlasFields = case region of
-        Nothing -> []
-        Just r ->
-          let os = openNow r
-           in [ ( "open"
-                , obj
-                    [ ("total", show (length os))
-                    , ( "items"
-                      , "[" ++ intercalate "," [placeJson p (("until", untilStr b) : kmField p) | (p, b) <- take 6 os] ++ "]"
-                      )
-                    ]
-                )
-              , ("soon", "[" ++ intercalate "," [placeJson p (("at", hmStr a) : kmField p) | (p, a) <- take 3 (soonList r)] ++ "]")
-              , ("closedToday", "[" ++ intercalate "," [placeJson p [] | p <- take 4 (closedToday r)] ++ "]")
-              ]
-      kmField p = case distKm here p of Just d -> [("km", fmtKm d)]; Nothing -> []
+      due =
+        [(dl, False) | dl@(dt, _, _, _) <- deadlines, dt == key]
+          ++ [(dl, True) | dl@(dt, _, _, _) <- deadlines, dt == nextKey]
       intercalate sep = foldr (\a b -> if null b then a else a ++ sep ++ b) ""
       -- solar geometry: your position if known, else the region's rough center
       sunSpot = case (here, region) of
@@ -316,36 +294,85 @@ answer epoch here =
         (Nothing, Just Kyushu) -> Just (33.45, 130.4)
         (Nothing, Just TokyoSide) -> Just (35.68, 139.77)
         (Nothing, Nothing) -> Nothing
-      sunFields = case sunSpot >>= sunTimesJst (dayOfYear (mDate mo)) of
-        Just (r, s) -> [("sun", obj [("rise", jstr (hmStr r)), ("set", jstr (hmStr s))])]
-        Nothing -> []
+      sunTimes' = sunSpot >>= sunTimesJst (dayOfYear (mDate mo))
+      -- view: the panel's HTML itself, rendered here in both languages —
+      -- the page-side JS is just `innerHTML = html_xx`
+      htmlEsc = concatMap esc'
+        where
+          esc' '&' = "&amp;"; esc' '<' = "&lt;"; esc' '>' = "&gt;"; esc' '"' = "&quot;"
+          esc' c = [c]
+      dim s = "<span style=\"opacity:.6\">" ++ s ++ "</span>"
+      joinDot = intercalate " · "
+      labelOf ja c = trim (plain (field (if ja then "label_ja" else "label") c))
+      pName ja p = if ja then maybe (pNameEn p) id (pNameJa p) else pNameEn p
+      kmTag p = case distKm here p of Just d -> fmtKm d ++ "km · "; Nothing -> ""
+      htmlFor ja =
+        let tr en jaS = if ja then jaS else en
+            stepBody (m, b, t) = [m] ++ " " ++ hmStr t ++ " — " ++ htmlEsc (oneLine 90 b)
+            headerLine =
+              "<b>" ++ htmlEsc (case card of Just c -> labelOf ja c; Nothing -> "—") ++ "</b> · "
+                ++ key ++ " (" ++ (if ja then weekdayJa wd else weekdayName wd) ++ ") "
+                ++ hmStr nowMin ++ " JST"
+            sunLine = case sunTimes' of
+              Just (r, s) -> ["🌅 " ++ hmStr r ++ " · 🌇 " ++ hmStr s]
+              Nothing -> []
+            lodgingLine = case lodging of
+              (en, lj) : _ -> ["🏨 " ++ tr "Tonight" "今夜" ++ ": " ++ htmlEsc (if ja then lj else en)]
+              [] -> []
+            nowLine = case current of
+              s : _ -> ["▶ " ++ tr "Now" "進行中" ++ " " ++ stepBody s]
+              [] -> []
+            nextLine = case next of
+              s : _ -> ["⏭ " ++ tr "Next" "つぎ" ++ " " ++ stepBody s]
+              [] -> []
+            tomorrowLine = case tomorrow of
+              Just c -> ["→ " ++ tr "Tomorrow" "明日" ++ ": " ++ htmlEsc (labelOf ja c)]
+              Nothing -> []
+            openLine = case region of
+              Nothing -> []
+              Just r ->
+                case openNow r of
+                  [] -> []
+                  os ->
+                    [ "🟢 " ++ tr "Open now" "営業中" ++ " (" ++ show (length os) ++ "): "
+                        ++ joinDot [htmlEsc (pName ja p) ++ " " ++ dim (kmTag p ++ "~" ++ untilStr b) | (p, b) <- take 6 os]
+                    ]
+            soonLine = case region of
+              Nothing -> []
+              Just r ->
+                case take 3 (soonList r) of
+                  [] -> []
+                  ss ->
+                    [ "🔜 " ++ tr "Opens soon" "まもなく開店" ++ ": "
+                        ++ joinDot [htmlEsc (pName ja p) ++ " " ++ dim (kmTag p ++ hmStr a) | (p, a) <- ss]
+                    ]
+            closedLine = case region of
+              Nothing -> []
+              Just r ->
+                case take 4 (closedToday r) of
+                  [] -> []
+                  cs -> ["🚫 " ++ tr "Closed today" "本日定休" ++ ": " ++ joinDot (map (htmlEsc . pName ja) cs)]
+            dlLine = case due of
+              [] -> []
+              ds ->
+                [ "⏰ <b>" ++ tr "Deadline" "期限" ++ "</b>: "
+                    ++ joinDot
+                      [ htmlEsc (if ja then djA else den)
+                          ++ (if tm /= "" then " <b>" ++ tm ++ "</b>" else "")
+                          ++ (if tmrw then " " ++ dim (tr "(tomorrow)" "（明日）") else "")
+                      | ((_, tm, den, djA), tmrw) <- ds
+                      ]
+                ]
+         in intercalate
+              "<br>"
+              ( [headerLine] ++ sunLine ++ lodgingLine ++ nowLine ++ nextLine
+                  ++ tomorrowLine ++ openLine ++ soonLine ++ closedLine ++ dlLine
+              )
    in obj
-        ( [ ("date", jstr key)
-          , ("weekday", jstr (weekdayName (mWeekday mo)))
-          , ("weekdayJa", jstr (weekdayJa (mWeekday mo)))
-          , ("time", jstr (hmStr nowMin))
-          ]
-            ++ ( case card of
-                   Just c ->
-                     [ ("label", jstr (trim (plain (field "label" c))))
-                     , ("labelJa", jstr (trim (plain (field "label_ja" c))))
-                     ]
-                   Nothing -> [("label", "null"), ("labelJa", "null")]
-               )
-            ++ ( case lodging of
-                   ((en, ja) : _) -> [("lodgingEn", jstr en), ("lodgingJa", jstr ja)]
-                   [] -> [("lodgingEn", "null"), ("lodgingJa", "null")]
-               )
-            ++ [("now", case current of s : _ -> stepJson s; [] -> "null")]
-            ++ [("next", case next of s : _ -> stepJson s; [] -> "null")]
-            ++ ( case tomorrow of
-                   Just c -> [("tomorrow", jstr (trim (plain (field "label" c))))]
-                   Nothing -> [("tomorrow", "null")]
-               )
-            ++ [("deadlines", "[" ++ intercalate "," dueList ++ "]")]
-            ++ sunFields
-            ++ atlasFields
-        )
+        [ ("date", jstr key)
+        , ("html_en", jstr (htmlFor False))
+        , ("html_ja", jstr (htmlFor True))
+        ]
 
 -- argv: epoch [lat lng] — or epoch on stdin (the browser evaluator
 -- feeds the .comb through stdin, so argv is the only free channel
