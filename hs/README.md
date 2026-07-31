@@ -45,11 +45,25 @@ first run the kernel caught a future card sending us to 備深酒家 on a
 Wednesday (its closing day) and a stale reference to the cancelled
 Kagaya tin.
 
+## Calendar feed
+
+`emit` also compiles the schedule to **`japan-2026.ics`** (linked from
+the page footer: 📅 "Add the trip to your calendar"): every day card is
+an all-day event (EN summary, EN+JA plaintext body), every lodging stay
+a 🏨 span through checkout day, and every ①–⑫ step with a deliberate
+plan time a timed event in Asia/Tokyo. Time extraction is conservative
+on purpose — an `HH:MM` counts only if it appears in the step's first
+80 chars, isn't either side of an hours range (`10:00–21:00`), and
+keeps the day's timeline strictly increasing; shop hours and deadlines
+in prose stay in the description. `tools/check.sh` fails if the
+committed .ics is stale.
+
 ## Files
 
 - `Schedule.hs` — the data (generated once from the page by
   `tools/gen-schedule-hs.py`, hand-owned since)
 - `Emit.hs` — renders the JS blocks (single-quoted, mechanically escaped)
+- `Ics.hs` — compiles the schedule to the iCalendar feed
 - `Check.hs` — invariants + `emit` mode
 - `Json.hs` — dependency-free JSON parser (surrogate pairs included)
 - needs GHC (boot libraries only — no cabal) and node

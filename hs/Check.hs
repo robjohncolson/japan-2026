@@ -26,6 +26,7 @@ import Data.Maybe (fromMaybe, isJust, mapMaybe)
 import Data.Time.Calendar (Day, DayOfWeek (..), addDays, dayOfWeek)
 import Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
 import Emit (renderDays, renderNights)
+import Ics (renderIcs)
 import Json
 import qualified Schedule
 import System.Environment (getArgs)
@@ -252,7 +253,8 @@ emitMain :: IO ()
 emitMain = do
   writeU "hs/.build/days.js" (renderDays ++ "\n")
   writeU "hs/.build/nights.js" (renderNights ++ "\n")
-  putStrLn ("emitted hs/.build/days.js (" ++ show (length Schedule.days) ++ " cards) and nights.js (" ++ show (length Schedule.nights) ++ " rows)")
+  writeU "hs/.build/japan-2026.ics" renderIcs
+  putStrLn ("emitted hs/.build/days.js (" ++ show (length Schedule.days) ++ " cards), nights.js (" ++ show (length Schedule.nights) ++ " rows), japan-2026.ics")
 
 checkMain :: IO ()
 checkMain = do

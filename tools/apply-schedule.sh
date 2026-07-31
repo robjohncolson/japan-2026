@@ -10,6 +10,7 @@ mkdir -p hs/.build
 ghc -O0 -outputdir hs/.build -o hs/.build/check -ihs hs/Check.hs 1>/dev/null
 hs/.build/check            # invariants first — refuse to splice a broken schedule
 hs/.build/check emit
+cp hs/.build/japan-2026.ics japan-2026.ics
 node tools/splice-schedule.mjs
 node tools/extract-data.mjs  # re-extract = JS syntax proof of the spliced page
 echo "done — remember to bump CACHE in sw.js before committing"

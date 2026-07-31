@@ -1,0 +1,712 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//japan-2026//schedule-hs//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Japan 2026
+X-WR-TIMEZONE:Asia/Tokyo
+BEGIN:VTIMEZONE
+TZID:Asia/Tokyo
+BEGIN:STANDARD
+DTSTART:19700101T000000
+TZOFFSETFROM:+0900
+TZOFFSETTO:+0900
+TZNAME:JST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:d-2026-07-27@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260727
+DTEND;VALUE=DATE:20260728
+SUMMARY:✈️ DEPART BOS
+DESCRIPTION:13:15 JL007 Boston (Logan\, Term. E) → Tokyo Narita. Arrive 
+ NRT 16:00 the next day (28th).\n----\nボストン発\n13:15 JL007 ボス
+ トン（ローガン空港 ターミナルE）→ 東京・成田。翌7
+ /28 16:00 に成田着。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-07-28@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260728
+DTEND;VALUE=DATE:20260801
+SUMMARY:🏨 do-c Ebisu\, Tokyo
+DESCRIPTION:do-c 恵比寿（東京）
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-07-28@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260728
+DTEND;VALUE=DATE:20260729
+SUMMARY:Arrive · Moti ✓
+DESCRIPTION:Purpose: land + connect + sleep. JL007 → NRT T2 ~16:00 → S
+ akura → QR 698004 → Suica → do-c. Foot / subway only (no bike). Sta
+ y up to ~22–23:00. Dinner: Moti 六本木 ✓ — keema mutter current 
+ + naan + mixed pickles (repeat) · mutton biryani amazing but too much so
+ lo · next: carrot dessert · default-dinner candidate. Sleep plan: ☰ S
+ leep / jet lag. do-c gap: out 11:00 / in 15:00 · bags at desk · cash+ID
+  in Patagonia Atom sling.\n----\n到着・モティ✓\n目的：到着
+ ・回線。徒歩／地下鉄のみ。夕食：モティ✓（キーマ
+ マター＋ナン＋ピクルス／ビリヤニ多め／次はキャロ
+ ット）。do-c アウト11・イン15。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-07-29@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260729
+DTEND;VALUE=DATE:20260730
+SUMMARY:Akiba browse · Shinjuku mapo · Moti
+DESCRIPTION:Option C holds: browse today\, buy tomorrow with bike + 50L. R
+ emaining order: MUJI\, then Isetan last (closes 20:00)\, then Akiba brows
+ e\, then Moti. ⚠ THE 50L IS IN AN EBISU STN COIN LOCKER (in at the 11:0
+ 0–15:00 do-c clean-out) — collect it tonight: lockers bill by calenda
+ r day\, and the 09:30 bike pickup on 30 Jul depends on having it. Buy-if-
+ light OK: small MUJI detergent · light envelopes. Initial D mapo from 8/
+ 1 only. Skip Asakusa today — tail + Benizuru 7am shop tickets + Iyoshi.
+ \n① Breakfast — West Georgia St. does not exist. Walked to 恵比寿
+ 南2-3-15 OKA7ビル3F: no such shop. Treat as closed. EBISU FOOD HALL in
+ stead ✓ — 恵比寿南1-1-9 シマヤビル1F · ~2 min from Ebisu St
+ n · from 9:00. Would repeat — food good not remarkable\, but strong AC
+  and a chill room\, easy solo.\n② Dollar Ranger ✓ DONE — foreign-cu
+ rrency exchange (not packing/sundries\; that note was wrong). 160.55 JPY/
+ USD · ¥802\,750 for $5\,000 · no commission. Mid-market 161.8\, so a 1
+ .25 yen spread = 0.77% — street counters run 2–4% and airports 5–8%
+ . Best-rate reputation now verified\, not repeated.\n③ Isetan ✓ DONE 
+ — Diptyque browsed and the mens scent is a yes. LOCKED: 8 bottles\, bou
+ ght 30 Jul on the Shinjuku dinner return with the 50L (~3.5–4 kg\, too 
+ heavy for tonight). Mens wallets confirmed present ✓ — closer look 30
+  Jul\, main building + 伊勢丹メンズ館. Ask for 印傳屋 / 甲州
+ 印伝 by name: Mitsukoshi-Isetan stocks Indenya including Isetan-exclusi
+ ve patterns. Deerskin with lacquer\, a Kofu craft — the answer to not w
+ anting an expensive wallet for its own sake. 印傳屋 上原勇七 is th
+ e 総本家\; 印傳の山本 is a different inden house\, so name the ma
+ ker.\n④ Kinokuniya — ERRAND FAILED ✗ okozukai / ポチ袋 not stock
+ ed\, walked it. It is a bookstore\; stationery is pens and notebooks. Do 
+ not route here for envelopes.\n⑤ Kagaya ✓ DONE — and the taste test
+  settled it: Seven Stars wins. The Peace 10-pack was bought instead of th
+ e tin\, tried\, and the tin is CANCELLED — no return visit. Seven Stars
+  is a konbini staple\, buyable anywhere. The ¥600 test just saved a tin-
+ sized mistake.\n⑥ MUJI confirmed: 無印良品 新宿通り — 新宿3
+ -17-1 いさみやビル B1-3F · 10:00–21:00 daily · detergent is B1\
+ , 掃除・洗濯用品 · same block as Kinokuniya (3-17-7). NOT Lumine 
+ (opens 11:00).\n⑦ Lunch ✓ DONE: 陳麻婆豆腐 新宿野村 B2F — 
+ very good\, noteworthy.\nShoes CLOSED (was ⑨) ✗ — skipped\, current
+  shoes are fine\; the real need was socks\, ✓ done at the Akiba Uniqlo.
+  For the record: GRAND STAGE ルミネエスト新宿 (east exit\, 11:00
+ –21:00) is the large-format branch that carries US12 ≈ JP30\, should 
+ shoes ever come back.\n⑧ Akiba Yodobashi ✓ WALKED — both target ite
+ ms ABSENT. No SXC-1 and no White Wings in the store. The browse/buy split
+  is therefore moot: there was nothing to defer. Wins anyway: the building
+  has a Daiso (ポチ袋 ✓ DONE — closes the envelope errand Kinokuniy
+ a failed) and a Uniqlo (socks ✓ DONE). ⚠ Consequence: tomorrow has no
+  reason to return to Akiba — see 30 Jul. If the two items are still wan
+ ted they need a different kind of shop: instruments (Ishibashi / Shimamur
+ a) for the Casio\, a specialist hobby shop for the gliders. Note the patt
+ ern — West Georgia\, Dollar Ranger and now these two all came from the 
+ same source.\n⑩ Dinner LOCKED: Moti 六本木 — Hibiya Line runs Akih
+ abara→Roppongi DIRECT\, no transfer. keema mutter + naan + mixed pickle
+ s · carrot dessert · no other curries.\nClosed out: packing materials w
+ as never a real errand — it was an artifact of the wrong "cheap packing
+ /sundries" note on Dollar Ranger. Deleted\, not re-homed. ポチ袋: buy 
+ anywhere\, sold widely — no special trip\, no Origami Kaikan detour. To
+ night the only hard item is the 50L from the Ebisu locker\; socks and eve
+ rything else can slide.\n----\n新宿麻婆·モティ（秋葉は下見
+ ）\nオプションC継続：今日は下見、明日 自転車+50Lで
+ 購入。 残りの順序：無印 → 伊勢丹（新宿最後・20時
+ 閉店）→ 秋葉下見 → モティ。⚠ 50Lは恵比寿駅のコイ
+ ンロッカー（11:00〜15:00の清掃時間で預入）— 今夜必
+ ず回収：ロッカーは暦日課金、かつ7/30 09:30の自転車受
+ 取に必要。\n① 朝食：West Georgia St.は存在せず → EBISU F
+ OOD HALL ✓（恵比寿南1-1-9・駅2分・9時〜）。再訪あり。
+ \n② ダラーレンジャー ✓完了 — 外貨両替（梱包材の
+ 店ではない）。160.55円/ドル・5\,000ドルで802\,750円・手
+ 数料なし。仲値161.8に対しスプレッド1.25円＝0.77%（街
+ 中2〜4%・空港5〜8%）。好レートを実地で確認。\n③ 伊
+ 勢丹 ✓完了 — ディプティックのメンズは好感触。確
+ 定：8本を7/30に購入（新宿夕食時・50L使用／約3.5〜4kg
+ ）。紳士財布あり ✓ — 7/30に本腰（本館＋メンズ館）
+ 。\n④ 紀伊國屋 ✗ 失敗 — ポチ袋の取扱なし（実地確
+ 認）。書店であり文具はペン・ノート。ポチ袋目当て
+ で来ない。\n⑤ かがや ✓完了 — 試し買いの結論：セ
+ ブンスターの勝ち。缶ピースは中止・再訪不要（セブ
+ ンスターはコンビニで可）。10本入りの試し買いが正
+ 解だった。\n⑥ 無印良品 新宿通り（新宿3-17-1 いさみ
+ やビル B1-3F・10:00〜21:00）· 洗剤はB1 掃除・洗濯用品· 
+ 紀伊國屋と同ブロック。ルミネ店ではない（11時開店
+ ）。\n⑦ 昼 ✓完了：陳麻婆豆腐 新宿野村 B2F — とて
+ も良い。\n靴は完了扱い（旧⑨）✗ — 見送り・今の靴
+ で十分。実需は靴下で秋葉のユニクロで✓完了。参考
+ ：GRAND STAGE ルミネエスト新宿（東口・11:00〜21:00）が30c
+ m対応の大型店。\n⑧ 秋葉ヨドバシ ✓実地 — 目当ての
+ 2点とも在庫なし（SXC-1なし・ホワイトウイングスなし
+ ）。下見／購入の切り分けは無意味だった。収穫：同
+ ビルのダイソーでポチ袋 ✓完了（紀伊國屋の失敗を解
+ 消）、ユニクロで靴下 ✓完了。⚠ 明日、秋葉に戻る
+ 理由は消滅。2点が必要なら楽器店（イシバシ／島村）
+ ・専門ホビー店へ。\n⑩ 夕食確定：モティ六本木 — 
+ 日比谷線で秋葉原→六本木は直通・乗換なし。\n整理
+ ：梱包材はそもそも不要（ダラーレンジャーの誤記述
+ の名残・削除）。ポチ袋はどこでも買えるので専用の
+ 寄り道なし。今夜の必須は恵比寿ロッカーの50Lのみ。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-07-30@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260730
+DTEND;VALUE=DATE:20260731
+SUMMARY:Wallets ×8 done · loop cut (heat)
+DESCRIPTION:How it went: the Yamanote loop was cancelled for heat (~35°C)
+  — still ~40 km ridden across town on the Wabash\, returned on time. Wa
+ llets ✓ COMPLETE — final count 8\, none for the owner (8 relatives): 
+ Motherhouse 恵比寿メンズ 3 · 小田急新宿メンズ（ハルク2
+ F）4 · 本店 1. Laundry ✓ WASH&DRY 代官山\, bag stored at do-c. M
+ oti skipped — 7-11 dinner (natto · onigiri · umeboshi) and an early n
+ ight for the 31 Jul Nozomi\, Shinagawa 09:37.\n----\n財布×8完了・
+ 猛暑で一周中止\n実際：猛暑（約35°C）で山手一周は中
+ 止 — それでも都内を約40km走行し定刻返却。財布 ✓ 
+ 完了 — 計8点（自分用なし）：恵比寿メンズ3・小田急
+ 新宿メンズ（ハルク2F）4・本店1。洗濯 ✓ WASH&DRY代官
+ 山。モティは見送り、セブンイレブンの夕食（納豆・
+ おにぎり・梅干し）で早めに就寝 — 翌朝はのぞみ品
+ 川9:37。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-07-31@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260731
+DTEND;VALUE=DATE:20260802
+SUMMARY:🏨 9h Hakata
+DESCRIPTION:9h 博多
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-07-31@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260731
+DTEND;VALUE=DATE:20260801
+SUMMARY:→ Hakata
+DESCRIPTION:Purpose: Kyushu. No bike. Shinagawa · Nozomi 21 09:37 → Hak
+ ata 14:30 · Car 16 (rear) Seat 3-C · QR ticket — screenshot it before
+  the gate.\n① 9h check-in first (博多駅前3-22-2 · from 15:00) — 
+ ask the desk where to park overnight (最大料金 coin lot) · drop both
+  bags: the small case from Uncle Kenji + the 50L · carry the Atom sling 
+ with passport (landing stamp) · IDP · license.\n② Toyota 15:30 — 
+ ⚠ confirm the reservation is 博多駅前店\, 博多駅東1-12-8 (092-
+ 441-0100\; two similarly named Hakata branches carry operator-change labe
+ ls — do NOT go to 博多駅博多口店 at 博多駅前1-15-20) → dri
+ ve straight back and park near 9h at the lot the desk named.\n③ Shower 
+ at 9h if wanted → subway to Tenjin (空港線 · 5 min): eat there · D
+ IPTYQUE 福岡 walk-in — 天神2-8-35 (天神住友生命FJビジネス
+ センター1F) · 11:00–20:00 · 092-406-0280 · no set-aside call\, t
+ aking the walk-in odds · fallback: any Fukuoka day before 23 Aug → sub
+ way back to 9h.\n④ Rest — the ~40 km ride in yesterday’s heat left 
+ some congestion: fluids + the 7-11 ミネラルin gels (Fe·Ca·Zn·Cu·M
+ g\, some ~33% DV · ×3 bought · restock at Kyushu 7-11s). Owner: R9 Kan
+ zaki free cancel ends tonight 23:59.\n----\n博多へ\n目的：九州へ
+ 。自転車なし。のぞみ21 09:37 → 博多14:30（16号車3-C・QR
+ 乗車 — 事前にスクショ）。\n①まず9hチェックイン（
+ 博多駅前3-22-2・15時〜）— 夜間駐車場をフロントに相
+ 談（最大料金のコインP）・荷物2つ（ケンジ叔父さん
+ の小型ケース＋50L）を預け、アトムのスリングにパス
+ ポート・国際免許・免許証を携行。\n②トヨタ15:30（⚠
+  予約店舗は博多駅前店・博多駅東1-12-8。博多口店と間
+ 違えない）→ そのまま戻って9h近くに駐車。\n③シャ
+ ワー後、地下鉄で天神へ（空港線5分）：天神で食事＋
+ ディプティック福岡（天神2-8-35・11〜20時・電話なしで
+ 直接・〜8/23の別日でも可）→ 9hへ戻る。\n④休養 — 
+ 昨日の猛暑40kmで鼻づまり気味：水分＋セブンのミネラ
+ ルinゼリー（鉄・Ca・亜鉛・銅・Mg・×3購入、九州のセ
+ ブンで補充）。オーナー：R9神埼の無料キャンセルは
+ 今夜23:59まで。
+END:VEVENT
+BEGIN:VEVENT
+UID:s-2026-07-31-0@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;TZID=Asia/Tokyo:20260731T150000
+DTEND;TZID=Asia/Tokyo:20260731T153000
+SUMMARY:① 9h check-in first (博多駅前3-22-2 · from 15:00) — ask t
+ he desk wher…
+DESCRIPTION:9h check-in first (博多駅前3-22-2 · from 15:00) — ask t
+ he desk where to park overnight (最大料金 coin lot) · drop both bags
+ : the small case from Uncle Kenji + the 50L · carry the Atom sling with 
+ passport (landing stamp) · IDP · license.
+END:VEVENT
+BEGIN:VEVENT
+UID:s-2026-07-31-1@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;TZID=Asia/Tokyo:20260731T153000
+DTEND;TZID=Asia/Tokyo:20260731T163000
+SUMMARY:② Toyota 15:30 — ⚠ confirm the reservation is 博多駅前
+ 店\, 博多駅東1-12-8 (…
+DESCRIPTION:Toyota 15:30 — ⚠ confirm the reservation is 博多駅前
+ 店\, 博多駅東1-12-8 (092-441-0100\; two similarly named Hakata branc
+ hes carry operator-change labels — do NOT go to 博多駅博多口店 a
+ t 博多駅前1-15-20) → drive straight back and park near 9h at the lo
+ t the desk named.
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-08-01@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260801
+DTEND;VALUE=DATE:20260804
+SUMMARY:🏨 Mika & Kentaro's apartment\, Kanzaki
+DESCRIPTION:Mika & Kentaro 宅（神埼）
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-01@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260801
+DTEND;VALUE=DATE:20260802
+SUMMARY:→ Mika’s
+DESCRIPTION:Drive rental car Hakata → Kanzaki. Stay at cousin Mika & hus
+ band Kentaro’s apartment (nights of 1–2 Aug). No night-game tournamen
+ t conflict.\nPitch for the evening: 山茶花の湯 (Sazanka no Yu) with 
+ Kentaro — best day-use onsen near Kanzaki\, ~15 min via Rte 385 · open
+ -air baths over the Saga plain · ¥830 · 10:00–23:00 · restaurant in
+ side\, free parking. If Kentaro has a local favorite\, that wins.\nRamen 
+ for any Saga-side day: 来来亭 佐賀新栄店 — the rai-rai-tei from
+  last trip (Kyoto-style shoyu · back fat · thin noodles) · 佐賀市
+ 新栄東1-4-2 · 11:00–24:00 · ~20–25 min west of Kanzaki.\n----\nM
+ ika宅へ\nレンタカーで博多→神埼。いとこ Mika と夫 Kent
+ aro のアパートに滞在（8/1〜2 の夜）。ナイトゲーム大
+ 会の予定なし。\n夜の提案：Kentaroと山茶花の湯（神埼
+ から約15分・露天から佐賀平野・¥830・10〜23時・食事
+ 処あり）。地元のおすすめがあればそちら優先。\nラ
+ ーメン（佐賀方面の日に）：来来亭 佐賀新栄店（新栄
+ 東1-4-2・11〜24時・車で約20〜25分）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-02@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260802
+DTEND;VALUE=DATE:20260803
+SUMMARY:Kenji lunch
+DESCRIPTION:Lunch together at Uncle Kenji’s house (confirmed). Second ni
+ ght at Mika & Kentaro’s apartment.\n----\n健司さん昼食\n叔父・
+ 健司さんの家で一緒に昼食（確定）。2泊目も Mika & Kent
+ aro 宅。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-08-03@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260803
+DTEND;VALUE=DATE:20260809
+SUMMARY:🏨 R9 The Yard Kanzaki
+DESCRIPTION:R9 The Yard 神埼
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-03@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260803
+DTEND;VALUE=DATE:20260804
+SUMMARY:→ R9 Kanzaki
+DESCRIPTION:Check in R9 The Yard Kanzaki — first of 5 nights (3–7 Aug)
+ . Hotel site: hotel-r9.jp/hotels/kanzaki\nBase kit: ファミリーマー
+ ト神埼日の隈店 ~150 m from the door (24h · ATM at the 7-Eleven ~9
+ 00 m east) · マルキョウ supermarket ~6 min drive (9:30–22) · 神
+ 埼駅 ~7 min (locals: Saga ~10 min · Hakata ~60–75 via Tosu). Cabin h
+ as a microwave\, no restaurant.\n----\nR9 神埼へ\nR9 The Yard 神埼
+ にチェックイン — 5泊の初日（8/3〜7）。ホテルサイト
+ ： hotel-r9.jp/hotels/kanzaki\n目の前にファミマ・車6分でマ
+ ルキョウ・神埼駅7分。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-04@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260804
+DTEND;VALUE=DATE:20260805
+SUMMARY:Kanzaki
+DESCRIPTION:Saga — Kanzaki base (R9). Family: Kenji / Hitomi / Mika / Ke
+ ntaro.\nSolo fallback menu (family first — all ≤15 min): 吉野ヶ里
+  Yayoi ruins 9:00–18:00 ¥460 · east gate · shadeless\, go at 9 or af
+ ter 16 · 山茶花の湯 onsen 10:00–23:00 ¥830 (open-air over the pl
+ ain) · 仁比山公園 river shade + bridge ~5 min · Kanzaki somen: buy
+  at 井上製麺 (9–17 · Wed closed · eat-in 百年庵 on hiatus) or 
+ somen set at the Yoshinogari park restaurant 10:30–16.\n----\n神埼\n
+ 佐賀・神埼（R9）。家族：Kenji／Hitomi／Mika／Kentaro。\n
+ 一人時間：吉野ヶ里・山茶花の湯・仁比山・神埼そう
+ めん（井上製麺）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-05@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260805
+DTEND;VALUE=DATE:20260806
+SUMMARY:Kanzaki
+DESCRIPTION:Saga — Kanzaki base (R9). Owner: R9 Sagakashima free cancel 
+ ends tonight 23:59 local (then cancel fee ¥10\,800 of ¥74\,700 stay).\n
+ Solo fallback → 8/4 menu.\n----\n神埼\n佐賀・神埼（R9）。管
+ 理者：R9 佐賀鹿島の無料キャンセルは 今夜 23:59 まで
+ （以降キャンセル料 ¥10\,800／宿泊 ¥74\,700）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-06@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260806
+DTEND;VALUE=DATE:20260807
+SUMMARY:Kanzaki
+DESCRIPTION:Saga — Kanzaki base (R9). Solo fallback → 8/4 menu · or a
+  Fukuoka run: ~50–60 min by car via Rte 385 tunnel (toll)\, or train fr
+ om 神埼駅.\n----\n神埼\n佐賀・神埼（R9）。一人時間は8/4
+ メニュー or 福岡へ（車60分／電車）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-07@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260807
+DTEND;VALUE=DATE:20260808
+SUMMARY:Kanzaki
+DESCRIPTION:Saga — Kanzaki base (R9). Last night of the R9 Kanzaki booki
+ ng (checkout AM 8th). Backbone stays flexible.\nSolo fallback → 8/4 men
+ u.\n----\n神埼\n佐賀・神埼（R9）。R9 神埼の最終泊（8日
+ 朝チェックアウト）。骨格は融通可。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-08-08@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260808
+DTEND;VALUE=DATE:20260816
+SUMMARY:🏨 R9 Sagakashima
+DESCRIPTION:R9 佐賀鹿島
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-08@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260808
+DTEND;VALUE=DATE:20260809
+SUMMARY:Mika day · flex
+DESCRIPTION:Mika took the day off — outing together (plan TBD). R9 Sagak
+ ashima is booked from tonight if useful\; family backbone said Kanzaki ar
+ ea ~through 9th / Kashima ~from 9th — shuffle freely. Hotel: hotel-r9.j
+ p/hotels/sagakashima\nKashima base kit: スーパーモリナガ ~700 m (
+ 9:30–21) · 24h 7-Eleven + ATM ~5 min walk · 肥前鹿島駅 ~15 min w
+ alk — but only ~5 Kasasagi round trips/day to Hakata since the 2022 rer
+ outing\; the car is primary.\n----\nMikaと・融通日\nMika が休み 
+ — 一緒に外出（行き先 TBD）。R9 佐賀鹿島はこの夜か
+ ら予約あり。家族向け骨格は神埼〜9日／鹿島〜9日頃 
+ — 自由にずらしてOK。ホテル： hotel-r9.jp/hotels/sagakashima
+ \n徒歩圏：モリナガ・セブン・肥前鹿島駅（本数少・
+ 車が基本）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-09@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260809
+DTEND;VALUE=DATE:20260810
+SUMMARY:Kashima ~
+DESCRIPTION:Around here in the flexible backbone: Kashima window. Hope to 
+ see Akimasa & Yoko when it works. R9 Sagakashima base.\nAnchor solo stop:
+  祐徳稲荷神社 ~10 min — one of the three great Inari\, grounds op
+ en 24h (office 8:30–16:30)\, huge parking.\n----\n鹿島〜\n融通の
+ きく骨格だとこのあたりから鹿島。都合のいいときに
+ アキマサ・ようこに会えたらうれしい。拠点は R9 佐賀
+ 鹿島。\n一人時間の軸：祐徳稲荷神社（境内24h）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-10@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260810
+DTEND;VALUE=DATE:20260811
+SUMMARY:Kashima
+DESCRIPTION:Saga — Kashima base.\nSolo menu: 祐徳稲荷 (24h grounds 
+ · morning easiest) · 肥前浜宿 sake-brewery street ~8–10 min (info
+  house 10–17\, Tue closed · tastings: Hizennya 光武 free walk-in 9:3
+ 0–17 · Nabeshima 鍋島 does NOT do public tastings — auberge guests
+  only\, buy bottles at local shops) + 峰松うなぎ屋 next door (takea
+ way kabayaki only — no rice\, no set meals · 8–18 · call 0954-62-37
+ 25 in the morning to reserve eels · grab rice from a konbini) · 道の
+ 駅鹿島 Ariake mudflats ~12 min (produce 9–18 · mudflat experience 
+ ¥900\, tide-slot dependent — check the calendar on michinoekikashima.j
+ p · desk 0954-60-5040 · individuals need no reservation in summer).\n--
+ --\n鹿島\n佐賀・鹿島に滞在。\n一人メニュー：祐徳稲
+ 荷・肥前浜宿（試飲は光武の肥前屋・鍋島は一般試飲
+ なし）＋峰松うなぎ（持ち帰りかばやきのみ・ご飯な
+ し・午前電話予約）・道の駅鹿島（干潟体験900円・潮
+ 汐カレンダー要確認）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-11@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260811
+DTEND;VALUE=DATE:20260812
+SUMMARY:Kashima
+DESCRIPTION:Saga — Kashima base. Solo menu → 8/10. Note: Hamashuku inf
+ o house is closed Tuesdays (= today).\n----\n鹿島\n佐賀・鹿島に
+ 滞在。浜宿の案内所は火曜休（今日）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-12@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260812
+DTEND;VALUE=DATE:20260813
+SUMMARY:Kashima
+DESCRIPTION:Saga — Kashima base. Solo menu → 8/10 · or an onsen run: 
+ シーボルトの湯 嬉野 ~30 min (6:00–22:00 · ¥450 · bicarbonat
+ e skin-water) / 武雄温泉 元湯 ~35–40 min (6:30–23:45 · ¥500 
+ · oldest wooden bathhouse in Japan\, 1876).\n----\n鹿島\n佐賀・鹿
+ 島に滞在。温泉：シーボルトの湯（嬉野）or 武雄温泉 
+ 元湯。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-13@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260813
+DTEND;VALUE=DATE:20260814
+SUMMARY:Kashima · Obon
+DESCRIPTION:Saga — Kashima. Obon begins. Owner: Obi free cancel ends ton
+ ight 23:59 local (then full ¥36\,720).\nOwner: before the 23:59 call\, r
+ e-check Kumamoto quake recovery (7/28 M7.1 — see 8/15 card): Obi House 
+ condition (ask the host directly — Higo Smile 096-223-7333\, 9–18時\
+ , or Booking chat\; it is a ~55-year-old wooden nagaya and its post-quake
+  state was unverifiable online 7/29) + water + roads. Do not wait for 8/1
+ 3 to ask — message the host well before the deadline.\n----\n鹿島・
+ お盆\n佐賀・鹿島。お盆の入り。管理者：Obi の無料キ
+ ャンセルは 今夜 23:59 まで（以降全額 ¥36\,720）。判断
+ 前に熊本の地震復旧（7/28 M7.1）を確認。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-14@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260814
+DTEND;VALUE=DATE:20260815
+SUMMARY:Kashima · Obon
+DESCRIPTION:Saga — Kashima. Obon. Last night before Kumamoto.\nObon peak
+ : unagi sells out by noon\, small family shops close · shrine grounds\, 
+ michi-no-eki\, supermarket stay open.\n----\n鹿島・お盆\n佐賀・
+ 鹿島に滞在。お盆。熊本へ移る前の最終日。うなぎは
+ 昼まで・小店は盆休みあり。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-08-15@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260815
+DTEND;VALUE=DATE:20260824
+SUMMARY:🏨 Obi house\, Kumamoto
+DESCRIPTION:Obi house（熊本）
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-15@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260815
+DTEND;VALUE=DATE:20260816
+SUMMARY:→ Kumamoto
+DESCRIPTION:Drive to Kumamoto. Obi house B2 — check-in 15:00–18:00 (ar
+ rival ~15:00–16:00 approved). Smart Check-in: details arrive week-of. N
+ arrow driveways if arriving by car. First of 8 nights (out 23 Aug AM).\n
+ ⚠ Quake context (7/28 M7.1 · max 震度7 in Uki ~20 km S of the city):
+  before driving\, check Obi host messages + NEXCO road info (Kyushu Expwy
+  Ueki section was damaged) + JR app. Obi contact: management Higo Smile 0
+ 96-223-7333 (9:00–18:00) or via Booking. Obon U-turn rush 8/15–16 —
+  pad the drive.\nBase kit: 水前寺成趣園 walkable ~1.3 km · 7-Eleve
+ n 帯山4丁目 + ATM ~0.9 km (⚠ 24h NOT guaranteed post-quake — ~100
+  Kumamoto stores were closed 7/29\; check Maps on arrival) · ゆめマ
+ ート supermarket ~5 min drive (was quake-closed — check it reopened).
+ \n----\n熊本へ\n熊本へ。Obi house B2 — チェックイン 15:00
+ 〜18:00（到着 15:00〜16:00 承認済み）。スマートチェッ
+ クイン：予約週に詳細が届く。車は細い道注意。8泊の
+ 初日（8/23 朝アウト）。\n⚠ 7/28 地震（M7.1・宇城で震
+ 度7）：出発前に Obi・道路（植木区間損傷）・JR を確
+ 認。お盆Uターン渋滞注意。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-16@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260816
+DTEND;VALUE=DATE:20260817
+SUMMARY:Obon
+DESCRIPTION:Kumamoto base. Obon.\nCity menu (verify-first after the quake)
+ : 水前寺成趣園 walkable · 8:30–17:00 · ¥500 · open 365 days (
+ free in yukata this Aug) · 熊本城 CLOSED indefinitely since the 7/28 
+ quake — check the castle news page before going · 城彩苑 food villa
+ ge at the castle base 9–18 (likely open — call 096-288-5577) · ramen
+ : 黒亭 本店 near Kumamoto Stn (⚠ post-quake status unverified — c
+ all 096-352-1648 first) / こむらさき 上通 11–16 LO15:30 & 18–2
+ 2 LO21:30 (no closure found · 096-325-8972). 水前寺 reopened 7/30 aft
+ er its safety check — reliable anchor.\n----\nお盆\n熊本に滞在
+ 。お盆。\n市内（要確認）：水前寺成趣園（徒歩圏）
+ ・熊本城は当面閉園・城彩苑・黒亭／こむらさき。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-17@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260817
+DTEND;VALUE=DATE:20260818
+SUMMARY:Kumamoto
+DESCRIPTION:Kumamoto base. City menu → 8/16 · downtown arcades via tram
+  (Suizenji-Koen stop ~1.2 km south of the house).\n----\n熊本\n熊本
+ に滞在。市内メニューは8/16参照。市電で繁華街へ。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-18@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260818
+DTEND;VALUE=DATE:20260819
+SUMMARY:Day-trip*
+DESCRIPTION:Optional from Kumamoto (car\, weather): Aso ~1.5h · Kurokawa 
+ ~2h · Takachiho ~2.5h · Beppu ~2–2.5h · Miyazaki ~3h each way (long 
+ day OK). Not booked.\n⚠ Aso crater CLOSED — volcanic alert Level 2 si
+ nce 6/21 (1 km exclusion · toll road + shuttle suspended). Fallback trio
+  verified 29 Jul: Kusasenri (free · lot ~¥500 · horse rides ~9:00–16
+ :00\, off in rain) · Volcano Museum (9:00–17:00\, entry to 16:30 · ¥
+ 880 · open 365d · 0967-34-2111) · Daikanbo (free · 24h · teahouse 8:
+ 30–17:00 · ~15 min walk from parking). Morning-of: aso-volcano.jp + JM
+ A typhoon page · skip mountain roads in any rain (quake-loosened slopes)
+ .\n----\n日帰り*\n熊本から任意（車・天候）：阿蘇 約1.5
+ h · 黒川 約2h · 高千穂 約2.5h · 別府 約2〜2.5h · 宮崎 
+ 片道約3h（ロングデー可）。未予約。\n⚠ 阿蘇中岳は
+ 警戒レベル2で火口規制中（代替3点は7/29確認済：草千
+ 里〈無料・駐車~500円・乗馬~16時〉・火山博物館〈9-17
+ 時・880円・年中無休〉・大観峰〈無料・茶店8:30-17時〉
+ ）。朝に aso-volcano.jp と台風情報を確認。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-19@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260819
+DTEND;VALUE=DATE:20260820
+SUMMARY:Rest*
+DESCRIPTION:Flex / rest — or swap any day-trip from the menu (Aso / Kuro
+ kawa / Takachiho / Beppu / Miyazaki).\n----\n休養*\n休養 or 日帰り
+ 候補の入れ替え（阿蘇／黒川／高千穂／別府／宮崎）
+ 。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-20@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260820
+DTEND;VALUE=DATE:20260821
+SUMMARY:Day-trip*
+DESCRIPTION:Same optional menu. Owner: aim to submit Sakura cancel in My P
+ age around now (by 25 Aug for end 31 Aug).\n----\n日帰り*\n同・日
+ 帰り候補。管理者：この頃に Sakura 解約申請（8/25 まで
+  → 8/31 終了）。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-21@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260821
+DTEND;VALUE=DATE:20260822
+SUMMARY:Day-trip*
+DESCRIPTION:Optional long drive day (e.g. Miyazaki coast) or onsen (Kuroka
+ wa/Beppu). Weather-dependent — check the JMA typhoon page + quake road 
+ status before committing to mountain routes.\n----\n日帰り*\nロング
+ ドライブ（例：宮崎）or 温泉（黒川／別府）。天候次
+ 第 — 台風・道路状況を確認。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-22@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260822
+DTEND;VALUE=DATE:20260823
+SUMMARY:Kumamoto
+DESCRIPTION:Repack — last night. Owner: last days for Sakura cancel-by-2
+ 5 if not done.\n----\n熊本\n荷造り — 最終泊。管理者：Sakur
+ a 解約 8/25 まで。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-08-23@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260823
+DTEND;VALUE=DATE:20260825
+SUMMARY:🏨 9h Hakata
+DESCRIPTION:9h 博多
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-23@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260823
+DTEND;VALUE=DATE:20260824
+SUMMARY:→ Hakata
+DESCRIPTION:Check out AM → Hakata → return Toyota by 20:00. Overnight 
+ 9h Hakata. Dinner flexible: Chinese\, French\, or shameless Saizeriya —
+  pinned branch: キャナルシティ博多 North Bldg 1F (住吉1-2-1 ·
+  10:00–23:00 · ~12–15 min walk from 9h · none inside Hakata Stn its
+ elf). Fukuoka has strong Chinese + yatai too.\n----\n博多へ\n午前ア
+ ウト→博多→車20:00返却。9h 博多。夕食：中華・フレ
+ ンチ or 本気のサイゼリヤ（キャナルシティ博多ノース
+ ビル1F・10-23時・9hから徒歩12-15分・駅構内に店舗なし
+ ）。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-08-24@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260824
+DTEND;VALUE=DATE:20260828
+SUMMARY:🏨 do-c Ebisu\, Tokyo
+DESCRIPTION:do-c 恵比寿（東京）
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-24@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260824
+DTEND;VALUE=DATE:20260825
+SUMMARY:Wabash pickup 1/4
+DESCRIPTION:Purpose: start res 2607-212 (4-day). Nozomi 18 → Shinagawa 1
+ 4:25 → do-c → CycleTrip ~15:30–17:00. Same WABASH RT L. Bike ¥34\,
+ 000 + deposit ¥100\,000 (cash refund faster). If train late vs 17:30\, m
+ orning 25th.\n----\nWabash受取 1/4\n目的：予約 2607-212 開始。
+ 品川14:25→do-c→CycleTrip。保証金 ¥100\,000。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-25@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260825
+DTEND;VALUE=DATE:20260826
+SUMMARY:Wabash day 2/4
+DESCRIPTION:Purpose: more Tokyo on the bike (front Yamanote already done 3
+ 0 Jul). Optional second loop or easy miles. Route ref: Maps. Breakfast: I
+ vy Place / EBISU FOOD HALL / konbini (West Georgia St. does not exist —
+  confirmed 29 Jul). Battery at do-c if removable.\n----\nWabash 2/4\n目
+ 的：東京サイクリング（山手は7/30済）。任意で再一周
+ 。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-26@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260826
+DTEND;VALUE=DATE:20260827
+SUMMARY:Yokohama · errands
+DESCRIPTION:Purpose: Yokohama Chinatown (bike or train). ⚠ 備深酒家 
+ Bishin Shuka is CLOSED Wednesdays — 26 Aug is a Wednesday. If the tofu-
+ flower mapo matters\, swap Yokohama onto 25 Aug instead\; otherwise must-
+ try today: 丿貫 Hechikan Kannai — shrimp-miso ultra-thick cold tsukem
+ en · 11:00–15:00 / 17:00–22:00 · Maps: 丿貫 福富町. Alt Chin: 
+ 頭文字D collab mapo at 陳麻婆 みなとみらい (11:00–22:00) or
+  市役所ラクシス (¥1\,680 · card · through 31 Oct). Also Tokki/K
+ yokarou if energy. Last full free day before Narita.\n----\n横浜・用
+ 事\n目的：横浜（自転車or電車）。⚠ 備深酒家は水曜
+ 定休 — 8/26は水曜。豆花麻婆が本命なら横浜は8/25に入
+ 替。今日は丿貫（福富町）のエビ味噌冷つけ（11〜15時
+ /17〜22時）or 陳麻婆 頭文字Dコラボ（みなとみらい11〜2
+ 2時）。成田前最後の自由日。
+END:VEVENT
+BEGIN:VEVENT
+UID:n-2026-08-27@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260827
+DTEND;VALUE=DATE:20260829
+SUMMARY:🏨 9h Narita Airport
+DESCRIPTION:9h 成田空港
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-27@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260827
+DTEND;VALUE=DATE:20260828
+SUMMARY:Return bike · NRT
+DESCRIPTION:Purpose: return res 2607-212 by ~17:00–17:15 → dinner → 
+ 9h Narita. Deposit refund if bike OK. Peace cans already bought (26th) 
+ — pack sealed for cabin/checked per airline rules.\n----\n返却・成
+ 田\n目的：2607-212 返却 ~17:00–17:15 → 夕食 → 成田9h。
+ ピースは前日購入済みで梱包。
+END:VEVENT
+BEGIN:VEVENT
+UID:d-2026-08-28@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;VALUE=DATE:20260828
+DTEND;VALUE=DATE:20260829
+SUMMARY:✈️ DEPART NRT
+DESCRIPTION:Purpose: fly home\, no rush. 9h out 10:00. Security when ready
+  → JAL lounge → JL008 18:25 T2.\n----\n成田発\n目的：帰国・
+ 急がない。10:00アウト → ラウンジ → JL008 18:25。
+END:VEVENT
+END:VCALENDAR
