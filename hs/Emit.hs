@@ -2,7 +2,7 @@
 -- index.html. All strings are emitted single-quoted with mechanical
 -- escaping, which retires the hand-written-apostrophe trap for good:
 -- a ' in the data becomes \' in the page, never a SyntaxError.
-module Emit (renderDays, renderNights) where
+module Emit (jsq, renderDays, renderNights) where
 
 import Data.List (intercalate)
 import Schedule (Card, days, nights)

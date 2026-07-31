@@ -24,10 +24,11 @@ import Data.Char (isDigit)
 import Data.List (isPrefixOf, sort, sortOn)
 import qualified Data.Map.Strict as M
 import Data.Maybe (isJust, mapMaybe)
-import Data.Time.Calendar (Day, DayOfWeek (..), addDays, dayOfWeek)
+import Data.Time.Calendar (Day, DayOfWeek (..), addDays, dayOfWeek, diffDays)
 import Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
 import Emit (renderDays, renderNights)
 import EmitAtlas (renderAtlas)
+import EmitLodging (renderLodgingI18n, renderLodgingRows)
 import Geo (haversineKm)
 import Ics (renderIcs)
 import qualified Schedule
@@ -121,6 +122,30 @@ placesFromAtlas = map conv Atlas.places
         , pCoord = (,) <$> Atlas.pLat ap <*> Atlas.pLng ap
         }
     minutes ivs = [(x, y) | (a, b) <- ivs, Just x <- [hhmm a], Just y <- [hhmm b]]
+
+-- the lodging table rows must agree with the NIGHTS data row-for-row
+checkStays :: [NightRow] -> [Finding]
+checkStays rows =
+  [ Err ("stays/nights row count mismatch: " ++ show (length Schedule.stays) ++ " vs " ++ show (length rows))
+  | length Schedule.stays /= length rows
+  ]
+    ++ [ Err ("duplicate stay key: " ++ k)
+       | k <- keys
+       , length (filter (== k) keys) > 1
+       ]
+    ++ concat
+      [ [ Err
+            ( "stay " ++ Schedule.stKey st ++ " night count " ++ show (Schedule.stNt st)
+                ++ " != NIGHTS " ++ fmtDay (nFrom n) ++ ".." ++ fmtDay (nTo n)
+                ++ " (" ++ show nightCount ++ ")"
+            )
+        | Schedule.stNt st /= nightCount
+        ]
+      | (st, n) <- zip Schedule.stays rows
+      , let nightCount = fromInteger (1 + diffDays (nTo n) (nFrom n)) :: Int
+      ]
+  where
+    keys = map Schedule.stKey Schedule.stays
 
 checkDeadlines :: [DayText] -> [Finding]
 checkDeadlines cards =
@@ -342,6 +367,8 @@ emitMain = do
   writeU "hs/.build/nights.js" (renderNights ++ "\n")
   writeU "hs/.build/japan-2026.ics" renderIcs
   writeU "hs/.build/koko-places.json" renderAtlas
+  writeU "hs/.build/lodging-rows.html" (renderLodgingRows ++ "\n")
+  writeU "hs/.build/lodging-i18n.js" (renderLodgingI18n ++ "\n")
   putStrLn ("emitted hs/.build/days.js (" ++ show (length Schedule.days) ++ " cards), nights.js (" ++ show (length Schedule.nights) ++ " rows), japan-2026.ics, koko-places.json (" ++ show (length Atlas.places) ++ " places)")
 
 checkMain :: IO ()
@@ -353,6 +380,7 @@ checkMain = do
         [ ("schedule schema (" ++ show (length Schedule.days) ++ " cards)", checkSchema)
         , ("calendar coverage", checkCoverage cards)
         , ("lodging coverage (" ++ show (length nights) ++ " rows)", checkNights nights)
+        , ("lodging table (" ++ show (length Schedule.stays) ++ " stays)", checkStays nights)
         , ("deadlines (" ++ show (length Schedule.deadlines) ++ ")", checkDeadlines cards)
         , ("atlas integrity (" ++ show (length places) ++ " places)", checkHoursSyntax ++ checkAtlas places)
         , ("mentions vs. reality", concatMap (checkMentions places) cards)

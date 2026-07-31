@@ -22,6 +22,30 @@ function currentBlock(marker, close) {
 }
 
 let drift = false;
+
+// marker-pair blocks: content between begin/end markers is generated
+for (const [file, begin, endMark] of [
+  ['lodging-rows.html', '<!-- LODGING:GEN -->', '<!-- /LODGING:GEN -->'],
+  ['lodging-i18n.js', '// LODGING_I18N:GEN', '// /LODGING_I18N:GEN'],
+]) {
+  const generated = readFileSync(join(root, 'hs', '.build', file), 'utf8').trimEnd();
+  const a = src.indexOf(begin);
+  if (a < 0) throw new Error('marker not found: ' + begin);
+  const contentStart = a + begin.length;
+  const b = src.indexOf(endMark, contentStart);
+  if (b < 0) throw new Error('end marker not found: ' + endMark);
+  const existing = src.slice(contentStart, b);
+  const wanted = '\n' + generated + '\n';
+  if (existing === wanted) continue;
+  if (checkOnly) {
+    console.error(`DRIFT: ${file} block differs from Schedule.hs output`);
+    drift = true;
+  } else {
+    src = src.slice(0, contentStart) + wanted + src.slice(b);
+    console.log(`spliced ${file} into index.html`);
+  }
+}
+
 for (const [file, marker, close] of [
   ['days.js', 'const DAYS = {', '};'],
   ['nights.js', 'const NIGHTS = [', '];'],

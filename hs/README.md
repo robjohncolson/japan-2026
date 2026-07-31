@@ -111,6 +111,14 @@ NowNext.hs renders the panel HTML in both languages (html_en /
 html_ja) and the page-side JS is a one-line innerHTML pipe — the first
 piece of UI whose rendering logic lives in Haskell.
 
+**SSR rung (v191):** the lodging table is Haskell now too — typed
+`Stay` records in Schedule.hs render the #lodging tbody (EN inline,
+data-i18n attrs) plus a generated LODGING_I18N dict for the JA side,
+spliced between markers and drift-checked like everything else. The
+kernel verifies the table agrees with NIGHTS row-for-row (night
+counts included), so the table can no longer quietly contradict the
+calendar.
+
 A full Haskell UI (Miso / GHC-WASM) would be the final step; that
 remains a post-trip project — but the runtime beachhead is live.
 

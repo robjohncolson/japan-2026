@@ -2,7 +2,7 @@
 -- tools/apply-schedule.sh to regenerate the DAYS/NIGHTS blocks in
 -- index.html (and bump the SW cache). Generated initially from the
 -- page by tools/gen-schedule-hs.py; owned by hand from then on.
-module Schedule (Card, days, nights, deadlines) where
+module Schedule (Card, Stay (..), days, nights, deadlines, stays) where
 
 -- (field, value) pairs in page order: cls, label, label_ja, detail, detail_ja
 type Card = [(String, String)]
@@ -268,4 +268,121 @@ deadlines =
   , ("2026-08-13", "23:59", "Obi minshuku free cancel ends (then full ¥36,720)", "民宿おび 無料キャンセル期限（以降全額¥36,720）")
   , ("2026-08-23", "20:00", "Return Toyota (Hakata-Ekimae) by 20:00", "トヨタレンタカー返却 20:00まで")
   , ("2026-08-25", "", "Sakura Mobile: submit cancel in My Page (for Aug 31 end)", "Sakura Mobile 解約申請（8/31解約分）")
+  ]
+
+-- The lodging table, typed. Rendered to the #lodging tbody (EN inline,
+-- data-i18n attrs) plus a generated LODGING_I18N dict for the JA side —
+-- see EmitLodging.hs. Row order must match `nights`; the kernel checks
+-- the night counts agree. HTML in the prop/price cells is authored
+-- content, emitted verbatim.
+data Stay = Stay
+  { stKey :: String -- i18n suffix: lo.dt<key> / lo.prop<key> / lo.pr<key>
+  , stDatesEn, stDatesJa :: String
+  , stNt :: Int
+  , stPropEn, stPropJa :: String
+  , stPhone :: Maybe String
+  , stPriceEn, stPriceJa :: String -- owner-only cell
+  }
+
+stays :: [Stay]
+stays =
+  [ Stay
+      { stKey = "1"
+      , stDatesEn = "28–30 Jul"
+      , stDatesJa = "7/28〜30"
+      , stNt = 3
+      , stPropEn = "<b>do-c Ebisu</b><br>1-8-1 Ebisu, Shibuya-ku, Tokyo<br><i>out 11:00 · in 15:00 · overnight bag store OK across a multi-night stay · <b>⚠ the 11:00–15:00 clean-out tightened (observed Jul 2026, unconfirmed): bags used to be fine parked anywhere outside a locker during the gap, now it reads as take-it-with-you. Working answer: collect the bag and use an Ebisu Stn coin locker for the gap (done 29 Jul)</b> · cash+ID on person (Patagonia Atom sling)</i>"
+      , stPropJa = "<b>do-c 恵比寿</b><br>東京都渋谷区恵比寿1-8-1<br><i>アウト11:00 · イン15:00 · 連泊中の荷物保管は可 · <b>⚠ 11:00〜15:00の清掃時間の扱いが厳格化した様子（2026年7月・未確認）：以前はロッカー外に置いておけたが、現在は持ち出し案内に見える。対応：荷物を引き取り恵比寿駅コインロッカーへ（7/29実施）</b> · 現金・身分証は身につけ（Patagonia Atomスリング）</i>"
+      , stPhone = Just "+81 50-1807-2324"
+      , stPriceEn = "advance-pay"
+      , stPriceJa = "事前決済"
+      }
+  , Stay
+      { stKey = "2"
+      , stDatesEn = "31 Jul"
+      , stDatesJa = "7/31"
+      , stNt = 1
+      , stPropEn = "<b>9h nine hours Hakata</b><br>3-22-2 Hakataekimae, Hakata-ku, Fukuoka (Hakata Stn)<br><i>Toyota car pickup same day 15:30 — Hakata Station Shop, 1-12-8 Hakataeki Higashi</i><br><i>Overnight: coin parking Hakataekimae / Gion (no lot at 9h)</i>"
+      , stPropJa = "<b>9h ナインアワーズ博多</b><br>福岡市博多区博多駅前3-22-2（博多駅そば）<br><i>同日 15:30 トヨタレンタカー博多駅店で受け取り — 博多駅東1-12-8</i><br><i>夜：博多駅前／祇園のコインパーキング（9h に駐車場なし）</i>"
+      , stPhone = Just "+81 50-1807-3481"
+      , stPriceEn = "Fri rate (low)"
+      , stPriceJa = "金曜料金（安め）"
+      }
+  , Stay
+      { stKey = "3"
+      , stDatesEn = "1–2 Aug"
+      , stDatesJa = "8/1〜2"
+      , stNt = 2
+      , stPropEn = "<b>Mika &amp; Kentaro’s apartment</b><br>Kanzaki area, Saga (address TBD)"
+      , stPropJa = "<b>Mika &amp; Kentaro 宅</b><br>佐賀・神埼エリア（住所 未定）"
+      , stPhone = Nothing
+      , stPriceEn = "family stay"
+      , stPriceJa = "家族宅"
+      }
+  , Stay
+      { stKey = "3b"
+      , stDatesEn = "3–7 Aug"
+      , stDatesJa = "8/3〜7"
+      , stNt = 5
+      , stPropEn = "<b>R9 The Yard Kanzaki</b><br>4155-54 Osaki, Kanzaki-machi, Kanzaki, Saga<br><a href=\"https://hotel-r9.jp/hotels/kanzaki/\" target=\"_blank\" rel=\"noopener\">hotel-r9.jp/hotels/kanzaki</a>"
+      , stPropJa = "<b>R9 The Yard 神埼</b><br>佐賀県神埼市神埼町尾崎4155-54<br><a href=\"https://hotel-r9.jp/hotels/kanzaki/\" target=\"_blank\" rel=\"noopener\">hotel-r9.jp/hotels/kanzaki</a>"
+      , stPhone = Just "+81 952-20-3642"
+      , stPriceEn = "✓ rebooked 3–7 Aug<br>free to <b>31 Jul 23:59</b> Kanzaki time<br>(then ¥6,237)"
+      , stPriceJa = "✓ 8/3〜7 に変更済み<br><b>7/31 23:59</b> 神埼時間まで無料キャンセル<br>（以降 ¥6,237）"
+      }
+  , Stay
+      { stKey = "4"
+      , stDatesEn = "8–14 Aug"
+      , stDatesJa = "8/8〜14"
+      , stNt = 7
+      , stPropEn = "<b>R9 The Yard Sagakashima</b><br>Nakamura 821-2, Kashima, Saga<br><a href=\"https://hotel-r9.jp/hotels/sagakashima/\" target=\"_blank\" rel=\"noopener\">hotel-r9.jp/hotels/sagakashima</a><br><i>Family note: Kashima window ~9–14 Aug (flexible)</i>"
+      , stPropJa = "<b>R9 The Yard 佐賀鹿島</b><br>佐賀県鹿島市中村821-2<br><a href=\"https://hotel-r9.jp/hotels/sagakashima/\" target=\"_blank\" rel=\"noopener\">hotel-r9.jp/hotels/sagakashima</a><br><i>家族向け：鹿島はだいたい 8/9〜14（融通可）</i>"
+      , stPhone = Just "+81 954-69-0111"
+      , stPriceEn = "¥74,700 stay<br>free to <b>5 Aug 23:59</b> local<br>(then cancel fee ¥10,800; no date changes)"
+      , stPriceJa = "宿泊 ¥74,700<br><b>8/5 23:59</b> 現地まで無料<br>（以降キャンセル料 ¥10,800・日程変更不可）"
+      }
+  , Stay
+      { stKey = "5"
+      , stDatesEn = "15–22 Aug"
+      , stDatesJa = "8/15〜22"
+      , stNt = 8
+      , stPropEn = "<b>Obi house B2</b><br>帯山1-24-24, Kumamoto · checkout <b>23 Aug</b> 08:00–11:00<br><i>in 15:00–18:00 · Smart Check-in (details week-of) · arrival ~15:00–16:00 approved · narrow car approach</i>"
+      , stPropJa = "<b>Obi house B2</b><br>熊本市 帯山1-24-24 · チェックアウト <b>8/23</b> 08:00〜11:00<br><i>イン 15:00〜18:00 · スマートチェックイン（週中に詳細）· 到着 15:00〜16:00 承認済み · 車は細い道注意</i>"
+      , stPhone = Just "+81 80-3981-4337"
+      , stPriceEn = "¥36,720 stay (Genius −10%)<br>free to <b>13 Aug 23:59</b> local<br>(then <b>full</b> ¥36,720; no date changes)"
+      , stPriceJa = "宿泊 ¥36,720（Genius −10%）<br><b>8/13 23:59</b> 現地まで無料<br>（以降は <b>全額</b> ¥36,720・日程変更不可）"
+      }
+  , Stay
+      { stKey = "6"
+      , stDatesEn = "23 Aug"
+      , stDatesJa = "8/23"
+      , stNt = 1
+      , stPropEn = "<b>9h nine hours Hakata</b><br>3-22-2 Hakataekimae, Hakata-ku, Fukuoka (Hakata Stn)<br><i>Return Toyota car by 20:00 — Hakata Station Shop, 1-12-8 Hakataeki Higashi · 092-441-0100</i>"
+      , stPropJa = "<b>9h ナインアワーズ博多</b><br>福岡市博多区博多駅前3-22-2（博多駅そば）<br><i>レンタカーは 20:00 までに返却 — トヨタ博多駅店 博多駅東1-12-8 · 092-441-0100</i>"
+      , stPhone = Just "+81 50-1807-3481"
+      , stPriceEn = "¥3,630 prepaid ✓"
+      , stPriceJa = "¥3,630 前払い ✓"
+      }
+  , Stay
+      { stKey = "7"
+      , stDatesEn = "24–26 Aug"
+      , stDatesJa = "8/24〜26"
+      , stNt = 3
+      , stPropEn = "<b>do-c Ebisu</b><br>1-8-1 Ebisu, Shibuya-ku, Tokyo<br><i>out 11:00 · in 15:00 · overnight bag store OK across a multi-night stay · <b>⚠ the 11:00–15:00 clean-out tightened (observed Jul 2026, unconfirmed): bags used to be fine parked anywhere outside a locker during the gap, now it reads as take-it-with-you. Working answer: collect the bag and use an Ebisu Stn coin locker for the gap (done 29 Jul)</b> · cash+ID on person (Patagonia Atom sling)</i>"
+      , stPropJa = "<b>do-c 恵比寿</b><br>東京都渋谷区恵比寿1-8-1<br><i>アウト11:00 · イン15:00 · 連泊中の荷物保管は可 · <b>⚠ 11:00〜15:00の清掃時間の扱いが厳格化した様子（2026年7月・未確認）：以前はロッカー外に置いておけたが、現在は持ち出し案内に見える。対応：荷物を引き取り恵比寿駅コインロッカーへ（7/29実施）</b> · 現金・身分証は身につけ（Patagonia Atomスリング）</i>"
+      , stPhone = Just "+81 50-1807-2324"
+      , stPriceEn = "advance-pay<br><span class=\"tag-warn\">⚠</span> extend to 3 nt"
+      , stPriceJa = "事前決済<br><span class=\"tag-warn\">⚠</span> 3泊に延長"
+      }
+  , Stay
+      { stKey = "8"
+      , stDatesEn = "27 Aug"
+      , stDatesJa = "8/27"
+      , stNt = 1
+      , stPropEn = "<b>9h nine hours Narita</b><br>Narita T2 (landside)"
+      , stPropJa = "<b>9h ナインアワーズ成田空港</b><br>成田 第2ターミナル（保安検査前）"
+      , stPhone = Nothing
+      , stPriceEn = "¥7,266<br>free to <b>26 Aug</b>"
+      , stPriceJa = "¥7,266<br>8/26 まで無料キャンセル"
+      }
   ]
