@@ -17,6 +17,10 @@ cmp -s hs/.build/japan-2026.ics japan-2026.ics || { echo "DRIFT: japan-2026.ics 
 echo "japan-2026.ics matches hs/Schedule.hs ✓"
 cmp -s hs/.build/koko-places.json koko-places.json || { echo "DRIFT: koko-places.json is stale — run tools/apply-schedule.sh" >&2; exit 1; }
 echo "koko-places.json matches hs/Atlas.hs ✓"
+SWV=$(grep -o "japan-2026-v[0-9]*" sw.js | head -1 | grep -o "v[0-9]*")
+PGV=$(grep -o 'id="pv" style="opacity:.6">v[0-9]*' index.html | grep -o ">v[0-9]*" | tr -d ">")
+[ "$SWV" = "$PGV" ] || { echo "DRIFT: footer version stamp ($PGV) != sw.js CACHE ($SWV)" >&2; exit 1; }
+echo "footer version stamp matches sw.js ($SWV) ✓"
 ghc -fno-code -outputdir hs/.build/nowcheck -ihs hs/NowNext.hs 1>/dev/null && echo "NowNext.hs compiles under GHC ✓"
 if [ -x hs/.microhs/bin/mhs ]; then
   MHSDIR=hs/.microhs/root hs/.microhs/bin/mhs -ihs NowNext -ohs/.build/now-next.comb 2>/dev/null
