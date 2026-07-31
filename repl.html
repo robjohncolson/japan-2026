@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>λ playground — Japan 2026</title>
+<link rel="icon" href="favicon.svg">
+<style>
+  :root{--black:#1a1a2e;--white:#f5f0e8;--accent:#c73e3a}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--black);color:var(--white);font:15px/1.5 "Noto Sans JP",system-ui,sans-serif;padding:16px;max-width:760px;margin:0 auto}
+  h1{font-size:20px;margin:8px 0 2px}
+  p.sub{margin:0 0 14px;font-size:12px;opacity:.7}
+  textarea{width:100%;min-height:260px;background:#11112288;color:var(--white);border:1px solid #444;border-radius:8px;padding:12px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+  button{margin:10px 0;padding:10px 22px;font-size:15px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer}
+  button:disabled{opacity:.5}
+  pre{background:#11112288;border:1px solid #333;border-radius:8px;padding:12px;font:13px/1.45 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;word-break:break-word;min-height:60px}
+  a{color:#e8b04a}
+  .note{font-size:11px;opacity:.6}
+</style>
+</head>
+<body>
+<h1>λ playground</h1>
+<p class="sub">Haskell, compiled and run on your phone by <a href="https://github.com/augustss/MicroHs">MicroHs</a> (WASM). The trip's own modules are importable: <code>Schedule</code> (days · nights · deadlines), <code>Geo</code>, <code>Sun</code>. Nothing leaves the device. First run downloads ~2&nbsp;MB and compiles for ~10&nbsp;s — patience is a monad.</p>
+<textarea id="src" spellcheck="false">module Main where
+
+import Schedule (days, nights, deadlines)
+import Geo (haversineKm)
+import Sun (sunTimesJst)
+
+main :: IO ()
+main = do
+  putStrLn ("trip days:  " ++ show (length days))
+  putStrLn ("lodgings:   " ++ show (length nights))
+  putStrLn ""
+  putStrLn "deadlines still ahead:"
+  mapM_ (\(d, t, en, _) -> putStrLn ("  " ++ d ++ " " ++ t ++ "  " ++ en)) deadlines
+  putStrLn ""
+  let hakata = (33.5902, 130.4207)
+      tokyo  = (35.6812, 139.7671)
+  putStrLn ("Hakata -> Tokyo: " ++ show (round (haversineKm hakata tokyo)) ++ " km as the crane flies")
+  case sunTimesJst 212 hakata of
+    Just (r, s) -> putStrLn ("Jul 31 Hakata sun: " ++ hm r ++ " - " ++ hm s)
+    Nothing -> pure ()
+  where
+    hm t = pad (t `div` 60) ++ ":" ++ pad (t `mod` 60)
+    pad n = (if n < 10 then "0" else "") ++ show n
+</textarea>
+<br>
+<button id="run" type="button">▶ Run</button>
+<pre id="out">— output appears here —</pre>
+<p class="note">One-shot compile &amp; run of <code>Main</code>. Importing <code>Atlas</code> works too but takes minutes to compile on a phone — the 155-place module is big. MIT-licensed compiler by Lennart Augustsson; see hs-wasm/LICENSE-MicroHs.</p>
+<script>
+(function(){
+  var runBtn = document.getElementById('run');
+  var out = document.getElementById('out');
+  var srcP = null, modsP = null;
+  function fetchText(u){ return fetch(u).then(function(r){ if(!r.ok) throw new Error(u); return r.text(); }); }
+  function assets(){
+    if(!srcP) srcP = fetchText('hs-wasm/mhs-embed.js');
+    if(!modsP) modsP = Promise.all([
+      fetchText('hs/Schedule.hs'), fetchText('hs/Geo.hs'), fetchText('hs/Sun.hs'), fetchText('hs/Atlas.hs')
+    ]);
+    return Promise.all([srcP, modsP]);
+  }
+  runBtn.addEventListener('click', function(){
+    runBtn.disabled = true;
+    out.textContent = 'downloading + compiling… (~10 s)';
+    var t0 = Date.now();
+    assets().then(function(a){
+      var glue = a[0], mods = a[1];
+      var lines = [];
+      var lastChange = Date.now();
+      function push(s){
+        if(/^Warning: cannot find config/.test(s)) return;
+        lines.push(s);
+        lastChange = Date.now();
+        out.textContent = lines.join('\n');
+      }
+      var cfg = {
+        arguments: ['-i.', '-r', 'Main'],
+        thisProgram: 'mhs',
+        locateFile: function(p){ return 'hs-wasm/' + p; },
+        print: push,
+        printErr: push,
+        preRun: [function(){
+          var M = window.Module;
+          M.FS.writeFile('Main.hs', document.getElementById('src').value);
+          M.FS.writeFile('Schedule.hs', mods[0]);
+          M.FS.writeFile('Geo.hs', mods[1]);
+          M.FS.writeFile('Sun.hs', mods[2]);
+          M.FS.writeFile('Atlas.hs', mods[3]);
+          M.FS.init(function(){ return null; }, null, null);
+        }],
+        onExit: function(){ finish(); }
+      };
+      window.Module = cfg;
+      // fresh instance per run: evaluate the glue with our Module in scope
+      try { new Function('Module', glue)(cfg); } catch(e){ lines.push(String(e)); }
+      var finished = false;
+      function finish(){
+        if(finished) return;
+        finished = true;
+        if(!lines.length) lines.push('(no output)');
+        lines.push('— ' + ((Date.now()-t0)/1000).toFixed(1) + 's —');
+        out.textContent = lines.join('\n');
+        runBtn.disabled = false;
+      }
+      // emscripten may not call onExit without EXIT_RUNTIME; poll for
+      // quiescence — but only after output has appeared (compilation is
+      // silent for ~10 s) or a generous floor has passed
+      var poll = setInterval(function(){
+        var now = Date.now();
+        var quietMs = now - lastChange;
+        if(lines.length > 0 && quietMs > 6000){ clearInterval(poll); finish(); }
+        if(lines.length === 0 && now - t0 > 60000){ clearInterval(poll); lines.push('(no output after 60 s — likely a compile hang; reload and try again)'); finish(); }
+        if(now - t0 > 180000){ clearInterval(poll); lines.push('(timeout)'); finish(); }
+      }, 1000);
+    }).catch(function(e){
+      out.textContent = 'failed to load: ' + e;
+      runBtn.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>

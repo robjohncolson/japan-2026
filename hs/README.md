@@ -110,3 +110,14 @@ check.sh) and MicroHs.
 
 A full Haskell UI (Miso / GHC-WASM) would be the final step; that
 remains a post-trip project — but the runtime beachhead is live.
+
+## λ playground (repl.html)
+
+The site is now a Haskell machine in the literal sense: `repl.html`
+(footer link "λ playground") loads the **full MicroHs compiler** as
+WASM and compiles whatever you type — on the phone, offline from any
+server, nothing transmitted. The trip's own modules are importable
+(`Schedule`, `Geo`, `Sun`; `Atlas` works but compiles slowly), so you
+can query the itinerary in Haskell from a konbini parking lot.
+First run: ~2 MB download + ~10 s compile. Not precached by the SW —
+it's an online-first toy, the itinerary always comes first.
