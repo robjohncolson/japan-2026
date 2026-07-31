@@ -244,6 +244,20 @@ DESCRIPTION:Toyota 15:30 — ⚠ confirm the reservation is 博多駅前
  t the desk named.
 END:VEVENT
 BEGIN:VEVENT
+UID:dl-2026-07-31@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;TZID=Asia/Tokyo:20260731T235900
+DTEND;TZID=Asia/Tokyo:20260731T235900
+SUMMARY:⏰ R9 Kanzaki free cancel ends
+DESCRIPTION:R9神埼 無料キャンセル期限\nR9 Kanzaki free cancel e
+ nds
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ R9 Kanzaki free cancel ends
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:n-2026-08-01@japan-2026
 DTSTAMP:20260731T000000Z
 DTSTART;VALUE=DATE:20260801
@@ -337,6 +351,20 @@ DESCRIPTION:Saga — Kanzaki base (R9). Owner: R9 Sagakashima free cancel
  Solo fallback → 8/4 menu.\n----\n神埼\n佐賀・神埼（R9）。管
  理者：R9 佐賀鹿島の無料キャンセルは 今夜 23:59 まで
  （以降キャンセル料 ¥10\,800／宿泊 ¥74\,700）。
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-2026-08-05@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;TZID=Asia/Tokyo:20260805T235900
+DTEND;TZID=Asia/Tokyo:20260805T235900
+SUMMARY:⏰ R9 Sagakashima free cancel ends (then ¥10\,800 fee)
+DESCRIPTION:R9佐賀鹿島 無料キャンセル期限（以降¥10\,800
+ ）\nR9 Sagakashima free cancel ends (then ¥10\,800 fee)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ R9 Sagakashima free cancel ends (then ¥10\,800 fee)
+TRIGGER:-PT3H
+END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:d-2026-08-06@japan-2026
@@ -462,6 +490,20 @@ DESCRIPTION:Saga — Kashima. Obon begins. Owner: Obi free cancel ends ton
  お盆\n佐賀・鹿島。お盆の入り。管理者：Obi の無料キ
  ャンセルは 今夜 23:59 まで（以降全額 ¥36\,720）。判断
  前に熊本の地震復旧（7/28 M7.1）を確認。
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-2026-08-13@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;TZID=Asia/Tokyo:20260813T235900
+DTEND;TZID=Asia/Tokyo:20260813T235900
+SUMMARY:⏰ Obi minshuku free cancel ends (then full ¥36\,720)
+DESCRIPTION:民宿おび 無料キャンセル期限（以降全額¥36\,7
+ 20）\nObi minshuku free cancel ends (then full ¥36\,720)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Obi minshuku free cancel ends (then full ¥36\,720)
+TRIGGER:-PT3H
+END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:d-2026-08-14@japan-2026
@@ -627,6 +669,20 @@ DESCRIPTION:Check out AM → Hakata → return Toyota by 20:00. Overnight
  ）。
 END:VEVENT
 BEGIN:VEVENT
+UID:dl-2026-08-23@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;TZID=Asia/Tokyo:20260823T200000
+DTEND;TZID=Asia/Tokyo:20260823T201500
+SUMMARY:⏰ Return Toyota (Hakata-Ekimae) by 20:00
+DESCRIPTION:トヨタレンタカー返却 20:00まで\nReturn Toyota (Hak
+ ata-Ekimae) by 20:00
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Return Toyota (Hakata-Ekimae) by 20:00
+TRIGGER:-PT3H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
 UID:n-2026-08-24@japan-2026
 DTSTAMP:20260731T000000Z
 DTSTART;VALUE=DATE:20260824
@@ -658,6 +714,20 @@ DESCRIPTION:Purpose: more Tokyo on the bike (front Yamanote already done 3
   confirmed 29 Jul). Battery at do-c if removable.\n----\nWabash 2/4\n目
  的：東京サイクリング（山手は7/30済）。任意で再一周
  。
+END:VEVENT
+BEGIN:VEVENT
+UID:dl-2026-08-25@japan-2026
+DTSTAMP:20260731T000000Z
+DTSTART;TZID=Asia/Tokyo:20260825T100000
+DTEND;TZID=Asia/Tokyo:20260825T101500
+SUMMARY:⏰ Sakura Mobile: submit cancel in My Page (for Aug 31 end)
+DESCRIPTION:Sakura Mobile 解約申請（8/31解約分）\nSakura Mobile: 
+ submit cancel in My Page (for Aug 31 end)
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Sakura Mobile: submit cancel in My Page (for Aug 31 end)
+TRIGGER:-PT1H
+END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:d-2026-08-26@japan-2026

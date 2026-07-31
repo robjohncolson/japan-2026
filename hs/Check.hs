@@ -119,6 +119,24 @@ placesFromAtlas = map conv Atlas.places
         }
     minutes ivs = [(x, y) | (a, b) <- ivs, Just x <- [hhmm a], Just y <- [hhmm b]]
 
+checkDeadlines :: [DayText] -> [Finding]
+checkDeadlines cards =
+  concat
+    [ [Err ("deadline has bad date: " ++ date) | parseDay date == Nothing]
+        ++ [Err ("deadline has bad time " ++ tm ++ " (" ++ date ++ ")") | tm /= "", hhmm tm == Nothing]
+        ++ [ Warn ("deadline " ++ date ++ " (" ++ en ++ ") has no day card")
+           | Just d <- [parseDay date]
+           , d `notElem` map cDate cards
+           ]
+    | (date, tm, en, _) <- Schedule.deadlines
+    ]
+    ++ [ Err ("deadlines out of order: " ++ a ++ " after " ++ b)
+       | (a, b) <- zip dts (drop 1 dts)
+       , a > b
+       ]
+  where
+    dts = [d | (d, _, _, _) <- Schedule.deadlines]
+
 -- every HH:MM literal in Atlas.hs must actually parse (the minutes
 -- conversion above silently drops broken ones, so catch them here)
 checkHoursSyntax :: [Finding]
@@ -285,6 +303,7 @@ checkMain = do
         [ ("schedule schema (" ++ show (length Schedule.days) ++ " cards)", checkSchema)
         , ("calendar coverage", checkCoverage cards)
         , ("lodging coverage (" ++ show (length nights) ++ " rows)", checkNights nights)
+        , ("deadlines (" ++ show (length Schedule.deadlines) ++ ")", checkDeadlines cards)
         , ("atlas integrity (" ++ show (length places) ++ " places)", checkHoursSyntax ++ checkAtlas places)
         , ("mentions vs. reality", concatMap (checkMentions places) cards)
         , ("explicit times vs. opening hours", concatMap (checkStepTimes places) cards)

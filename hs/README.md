@@ -56,7 +56,10 @@ Kagaya tin.
 the page footer: 📅 "Add the trip to your calendar"): every day card is
 an all-day event (EN summary, EN+JA plaintext body), every lodging stay
 a 🏨 span through checkout day, and every ①–⑫ step with a deliberate
-plan time a timed event in Asia/Tokyo. Time extraction is conservative
+plan time a timed event in Asia/Tokyo. The typed `deadlines` list in
+Schedule.hs (cancel windows, return times) becomes ⏰ events with
+display alarms — 3h ahead of timed deadlines, 1h ahead of the 10:00
+pin for date-only ones. Time extraction is conservative
 on purpose — an `HH:MM` counts only if it appears in the step's first
 80 chars, isn't either side of an hours range (`10:00–21:00`), and
 keeps the day's timeline strictly increasing; shop hours and deadlines

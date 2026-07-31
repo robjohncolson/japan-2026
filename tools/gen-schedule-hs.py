@@ -5,7 +5,9 @@
 After the initial conversion the flow reverses: hs/Schedule.hs is the
 source of truth and tools/apply-schedule.sh regenerates the JS blocks in
 index.html. Re-run this script only to re-import data if the page was
-ever hand-edited (drift the checker will flag anyway).
+ever hand-edited. CAUTION: Schedule.hs now carries hand-added lists
+(deadlines) that this generator does not know about — re-merge them
+manually after any re-sync.
 """
 import io
 import json

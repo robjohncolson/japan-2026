@@ -1869,6 +1869,8 @@ const T = {
   'hs.open':{en:"Open now", ja:"営業中"},
   'hs.soon':{en:"Opens soon", ja:"まもなく開店"},
   'hs.closedToday':{en:"Closed today", ja:"本日定休"},
+  'hs.deadline':{en:"Deadline", ja:"期限"},
+  'hs.tmrw':{en:"(tomorrow)", ja:"（明日）"},
   'hs.note':{en:"Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. Same Schedule.hs that generates this page.", ja:"このページを生成しているSchedule.hsを、MicroHsでコンビネータにコンパイルし、WebAssemblyでスマホ上で評価しています。"},
 
   'h.game':{en:"✦ Bored? Play Bobby's game — Moon Chorus", ja:"✦ ひまなとき — ボビーのゲーム『月の合唱』"},
@@ -4782,6 +4784,12 @@ if('serviceWorker' in navigator){
     }
     if(j.closedToday && j.closedToday.length){
       lines.push('🚫 ' + esc(t('hs.closedToday')) + ': ' + j.closedToday.map(pname).join(' · '));
+    }
+    if(j.deadlines && j.deadlines.length){
+      lines.push('⏰ <b>' + esc(t('hs.deadline')) + '</b>: ' + j.deadlines.map(function(i){
+        return pname(i) + (i.when ? ' <b>' + esc(i.when) + '</b>' : '') +
+          (i.day === 'tomorrow' ? ' <span style="opacity:.6">' + esc(t('hs.tmrw')) + '</span>' : '');
+      }).join(' · '));
     }
     out.innerHTML = lines.join('<br>');
     out.style.display = 'block';

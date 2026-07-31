@@ -10,7 +10,7 @@ module NowNext (main) where
 import Atlas (Hours (..), Place (..), places)
 import Data.Char (chr, isDigit, ord)
 import Data.List (isInfixOf, sortOn)
-import Schedule (days, nights)
+import Schedule (days, deadlines, nights)
 import System.Environment (getArgs)
 
 -- civil date from unix epoch (Howard Hinnant's algorithm), JST --------
@@ -258,6 +258,15 @@ answer epoch =
         , hWeekly (pHours p) /= Nothing
         , null (dayIvs p wd) || closedOn key p
         ]
+      dlJson (dt, tm, en, ja) dayTag =
+        obj
+          ( [("en", jstr en), ("ja", jstr ja), ("day", jstr dayTag)]
+              ++ [("when", jstr tm) | tm /= ""]
+              ++ [("date", jstr dt)]
+          )
+      dueList =
+        [dlJson dl "today" | dl@(dt, _, _, _) <- deadlines, dt == key]
+          ++ [dlJson dl "tomorrow" | dl@(dt, _, _, _) <- deadlines, dt == nextKey]
       atlasFields = case region of
         Nothing -> []
         Just r ->
@@ -295,6 +304,7 @@ answer epoch =
                    Just c -> [("tomorrow", jstr (trim (plain (field "label" c))))]
                    Nothing -> [("tomorrow", "null")]
                )
+            ++ [("deadlines", "[" ++ intercalate "," dueList ++ "]")]
             ++ atlasFields
         )
 

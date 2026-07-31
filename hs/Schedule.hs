@@ -2,7 +2,7 @@
 -- tools/apply-schedule.sh to regenerate the DAYS/NIGHTS blocks in
 -- index.html (and bump the SW cache). Generated initially from the
 -- page by tools/gen-schedule-hs.py; owned by hand from then on.
-module Schedule (Card, days, nights) where
+module Schedule (Card, days, nights, deadlines) where
 
 -- (field, value) pairs in page order: cls, label, label_ja, detail, detail_ja
 type Card = [(String, String)]
@@ -254,4 +254,18 @@ nights =
   , ("2026-08-23", "2026-08-23", "9h Hakata", "9h 博多")
   , ("2026-08-24", "2026-08-26", "do-c Ebisu, Tokyo", "do-c 恵比寿（東京）")
   , ("2026-08-27", "2026-08-27", "9h Narita Airport", "9h 成田空港")
+  ]
+
+-- Hard deadlines: (date, "HH:MM" or "" for all-day, EN, JA).
+-- The kernel validates them, Ics.hs exports them as calendar events
+-- with phone alarms, and NowNext.hs surfaces today's + tomorrow's in
+-- the Right now λ panel. Harvested from the day cards' Owner: notes;
+-- keep in date order.
+deadlines :: [(String, String, String, String)]
+deadlines =
+  [ ("2026-07-31", "23:59", "R9 Kanzaki free cancel ends", "R9神埼 無料キャンセル期限")
+  , ("2026-08-05", "23:59", "R9 Sagakashima free cancel ends (then ¥10,800 fee)", "R9佐賀鹿島 無料キャンセル期限（以降¥10,800）")
+  , ("2026-08-13", "23:59", "Obi minshuku free cancel ends (then full ¥36,720)", "民宿おび 無料キャンセル期限（以降全額¥36,720）")
+  , ("2026-08-23", "20:00", "Return Toyota (Hakata-Ekimae) by 20:00", "トヨタレンタカー返却 20:00まで")
+  , ("2026-08-25", "", "Sakura Mobile: submit cancel in My Page (for Aug 31 end)", "Sakura Mobile 解約申請（8/31解約分）")
   ]

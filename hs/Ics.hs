@@ -14,7 +14,7 @@ import Data.Char (chr, isDigit, ord)
 import Data.List (sortOn)
 import Data.Time.Calendar (Day, addDays)
 import Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
-import Schedule (days, nights)
+import Schedule (days, deadlines, nights)
 
 -- html -> plaintext ----------------------------------------------------
 
@@ -205,6 +205,39 @@ dayEvents (date, card) =
                     ]
        in allday : zipWith stepEv [0 ..] (zip timed nexts)
 
+-- deadlines become 15-minute events with a display alarm 3 hours ahead
+-- (all-day ones are pinned to 10:00 with a 1-hour-ahead alarm)
+deadlineEvents :: (String, String, String, String) -> [Ev]
+deadlineEvents (date, tm, en, ja) =
+  case parseDay date of
+    Nothing -> []
+    Just d ->
+      let (startMin, trigger) = case hmOf tm of
+            Just t -> (t, "-PT3H")
+            Nothing -> (10 * 60, "-PT1H")
+          endMin = min (startMin + 15) 1439
+       in [ Ev d 90 $
+              vevent
+                [ "UID:dl-" ++ date ++ "@japan-2026"
+                , dtstamp
+                , "DTSTART;TZID=Asia/Tokyo:" ++ ymd d ++ "T" ++ hm startMin
+                , "DTEND;TZID=Asia/Tokyo:" ++ ymd d ++ "T" ++ hm endMin
+                , "SUMMARY:" ++ escText ("⏰ " ++ en)
+                , "DESCRIPTION:" ++ escText (ja ++ "\n" ++ en)
+                , "BEGIN:VALARM"
+                , "ACTION:DISPLAY"
+                , "DESCRIPTION:" ++ escText ("⏰ " ++ en)
+                , "TRIGGER:" ++ trigger
+                , "END:VALARM"
+                ]
+          ]
+  where
+    hmOf s = case span isDigit s of
+      (ds, ':' : m1 : m2 : [])
+        | not (null ds), length ds <= 2, isDigit m1, isDigit m2, read ds < (24 :: Int) ->
+            Just (read ds * 60 + read [m1, m2])
+      _ -> Nothing
+
 nightEvents :: (String, String, String, String) -> [Ev]
 nightEvents (from, to, en, ja) =
   case (parseDay from, parseDay to) of
@@ -245,4 +278,4 @@ renderIcs =
       ]
         ++ concatMap (\(Ev _ _ ls) -> ls) (sortOn (\(Ev d p _) -> (d, p)) evs)
         ++ ["END:VCALENDAR"]
-    evs = concatMap nightEvents nights ++ concatMap dayEvents days
+    evs = concatMap nightEvents nights ++ concatMap dayEvents days ++ concatMap deadlineEvents deadlines
