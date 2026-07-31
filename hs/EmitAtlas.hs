@@ -60,7 +60,7 @@ renderPlace p =
   "{"
     ++ intercalate
       ", "
-      [ "\"id\": " ++ jstr (pId p)
+      ( [ "\"id\": " ++ jstr (pId p)
       , "\"name_en\": " ++ jstr (pNameEn p)
       , "\"name_ja\": " ++ jmstr (pNameJa p)
       , "\"one_liner\": " ++ jstr (pOneLiner p)
@@ -76,12 +76,15 @@ renderPlace p =
       , "\"status\": " ++ jstr (pStatus p)
       , "\"phone\": " ++ jmstr (pPhone p)
       , "\"hours\": " ++ jhours (pHours p)
-      , "\"maps_query\": " ++ jstr (pMapsQuery p)
-      , "\"needs\": " ++ jlist (pNeeds p)
-      , "\"vault\": " ++ jmstr (pVault p)
-      , "\"kind\": " ++ jstr (pKind p)
-      , "\"far\": " ++ jbool (pFar p)
-      ]
+        , "\"maps_query\": " ++ jstr (pMapsQuery p)
+        ]
+          ++ ["\"aliases\": " ++ jlist (pAliases p) | not (null (pAliases p))]
+          ++ [ "\"needs\": " ++ jlist (pNeeds p)
+             , "\"vault\": " ++ jmstr (pVault p)
+             , "\"kind\": " ++ jstr (pKind p)
+             , "\"far\": " ++ jbool (pFar p)
+             ]
+      )
     ++ "}"
 
 renderAtlas :: String

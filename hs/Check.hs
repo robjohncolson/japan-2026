@@ -46,6 +46,7 @@ data Place = Place
   , pStatus :: String
   , pWeekly :: Maybe (M.Map String [(Int, Int)]) -- "mon".."sun" -> minute intervals
   , pClosed :: [String] -- explicit closed dates, "YYYY-MM-DD"
+  , pRanges :: [(String, String)] -- inclusive closed date ranges (Obon, renovations)
   }
 
 -- decoding -------------------------------------------------------------
@@ -108,10 +109,13 @@ placesFromAtlas = map conv Atlas.places
     conv ap =
       Place
         { pId = Atlas.pId ap
-        , pNames = [n | Just n <- [Atlas.pNameJa ap, Just (Atlas.pMapsQuery ap), Just (Atlas.pNameEn ap)], n /= ""]
+        , pNames =
+            [n | Just n <- [Atlas.pNameJa ap, Just (Atlas.pMapsQuery ap), Just (Atlas.pNameEn ap)], n /= ""]
+              ++ Atlas.pAliases ap
         , pStatus = Atlas.pStatus ap
         , pWeekly = M.fromList . map (fmap minutes) <$> Atlas.hWeekly (Atlas.pHours ap)
         , pClosed = Atlas.hClosed (Atlas.pHours ap)
+        , pRanges = Atlas.hClosedRanges (Atlas.pHours ap)
         }
     minutes ivs = [(x, y) | (a, b) <- ivs, Just x <- [hhmm a], Just y <- [hhmm b]]
 
@@ -207,6 +211,12 @@ checkMentions ps (DayText d txt) =
            ]
         ++ [ Warn (fmtDay d ++ " mentions " ++ pId p ++ " — explicit closed date")
            | fmtDay d `elem` pClosed p
+           ]
+        ++ [ Warn (fmtDay d ++ " mentions " ++ pId p ++ " — inside closed range " ++ a ++ ".." ++ b)
+           | pStatus p /= "skip"
+           , (a, b) <- pRanges p
+           , a <= fmtDay d
+           , fmtDay d <= b
            ]
     | (_, p) <- mentionsIn txt ps
     ]

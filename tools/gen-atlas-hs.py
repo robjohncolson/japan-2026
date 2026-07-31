@@ -19,7 +19,7 @@ FIELDS = [  # (json key, record field)
     ("address", "pAddress"), ("addr_geo", "pAddrGeo"), ("plus_code", "pPlusCode"),
     ("lat", "pLat"), ("lng", "pLng"), ("hubs", "pHubs"), ("tags", "pTags"),
     ("priority", "pPriority"), ("status", "pStatus"), ("phone", "pPhone"),
-    ("hours", "pHours"), ("maps_query", "pMapsQuery"), ("needs", "pNeeds"),
+    ("hours", "pHours"), ("maps_query", "pMapsQuery"), ("aliases", "pAliases"), ("needs", "pNeeds"),
     ("vault", "pVault"), ("kind", "pKind"), ("far", "pFar"),
 ]
 
@@ -104,6 +104,7 @@ out.append("  , pStatus :: String")
 out.append("  , pPhone :: Maybe String")
 out.append("  , pHours :: Hours")
 out.append("  , pMapsQuery :: String")
+out.append("  , pAliases :: [String] -- extra strings a day card may use for this place (mention scanning)")
 out.append("  , pNeeds :: [String]")
 out.append("  , pVault :: Maybe String")
 out.append("  , pKind :: String")
@@ -115,7 +116,7 @@ out.append("places =")
 
 sep = "  [ "
 for p in places:
-    assert set(p.keys()) == {k for k, _ in FIELDS}, sorted(p.keys())
+    assert set(p.keys()) <= {k for k, _ in FIELDS}, sorted(p.keys())
     h = p["hours"]
     assert set(h.keys()) <= {"timezone", "weekly", "closed", "note", "approx", "closed_ranges"}
     w = h["weekly"]
@@ -148,6 +149,7 @@ for p in places:
     out.append("      , pPhone = " + m_str(p["phone"]))
     out.append("      , pHours = " + hours)
     out.append("      , pMapsQuery = " + hs_str(p["maps_query"]))
+    out.append("      , pAliases = " + str_list(p.get("aliases") or []))
     out.append("      , pNeeds = " + str_list(p["needs"]))
     out.append("      , pVault = " + m_str(p["vault"]))
     out.append("      , pKind = " + hs_str(p["kind"]))
