@@ -774,6 +774,11 @@
     <div class="body">
       <button id="nowBtn" type="button" data-i18n="hs.btn">Ask Haskell what's happening</button>
       <div id="nowOut" style="display:none;margin-top:10px;line-height:1.55"></div>
+      <div id="nowCtl" style="display:none;margin-top:8px">
+        <button id="nowPrev" type="button" title="-1 day">◀ −1d</button>
+        <button id="nowReset" type="button" title="back to now">⟲</button>
+        <button id="nowNext2" type="button" title="+1 day">+1d ▶</button>
+      </div>
       <p style="font-size:11px;opacity:.65;margin:8px 0 0" data-i18n="hs.note">Runs on your phone: the schedule, compiled to combinators by MicroHs, evaluated in WebAssembly. Same Schedule.hs that generates this page.</p>
     </div>
   </section>
@@ -4757,10 +4762,10 @@ if('serviceWorker' in navigator){
       setTimeout(function(){ fin(null); }, 4500);
     });
   }
-  function runHs(src, comb, geo){
+  function runHs(src, comb, geo, epoch){
     return new Promise(function(resolve, reject){
       var bytes = new Uint8Array(comb), sent = 0, done = false;
-      var argv = ['+RTS', '-r/dev/stdin', '-RTS', String(Math.floor(Date.now()/1000))];
+      var argv = ['+RTS', '-r/dev/stdin', '-RTS', String(epoch)];
       if(geo) argv = argv.concat([String(geo[0]), String(geo[1])]);
       var cfg = {
         arguments: argv,
@@ -4782,8 +4787,9 @@ if('serviceWorker' in navigator){
   function render(j){
     var ja = (lang === 'ja');
     var lines = [];
-    lines.push('<b>' + esc(ja ? (j.labelJa || j.label || '—') : (j.label || '—')) + '</b> · ' +
+    lines.push((offsetSec !== 0 ? '🔭 ' : '') + '<b>' + esc(ja ? (j.labelJa || j.label || '—') : (j.label || '—')) + '</b> · ' +
       esc(j.date) + ' (' + esc(ja ? j.weekdayJa : j.weekday) + ') ' + esc(j.time) + ' JST');
+    if(j.sun) lines.push('🌅 ' + esc(j.sun.rise) + ' · 🌇 ' + esc(j.sun.set));
     if(j.lodgingEn) lines.push('🏨 ' + esc(t('hs.tonight')) + ': ' + esc(ja ? (j.lodgingJa || j.lodgingEn) : j.lodgingEn));
     if(j.now) lines.push('▶ ' + esc(t('hs.now')) + ' ' + esc(j.now.mark) + ' ' + esc(j.now.time) + ' — ' + esc(j.now.text));
     if(j.next) lines.push('⏭ ' + esc(t('hs.next')) + ' ' + esc(j.next.mark) + ' ' + esc(j.next.time) + ' — ' + esc(j.next.text));
@@ -4813,21 +4819,29 @@ if('serviceWorker' in navigator){
     out.innerHTML = lines.join('<br>');
     out.style.display = 'block';
   }
-  btn.addEventListener('click', function(){
+  var offsetSec = 0; // time-travel: the oracle is a pure function of the epoch
+  function compute(){
     if(running) return;
     running = true;
     out.style.display = 'block';
     out.textContent = t('hs.loading');
-    Promise.all([fetchAssets(), getGeo()]).then(function(r){ return runHs(r[0][0], r[0][1], r[1]); }).then(function(j){
+    Promise.all([fetchAssets(), getGeo()]).then(function(r){
+      return runHs(r[0][0], r[0][1], r[1], Math.floor(Date.now()/1000) + offsetSec);
+    }).then(function(j){
       render(j);
       btn.textContent = t('hs.rerun');
       btn.removeAttribute('data-i18n');
+      document.getElementById('nowCtl').style.display = 'block';
       running = false;
     }).catch(function(){
       out.textContent = t('hs.err');
       running = false;
     });
-  });
+  }
+  btn.addEventListener('click', compute);
+  document.getElementById('nowPrev').addEventListener('click', function(){ offsetSec -= 86400; compute(); });
+  document.getElementById('nowNext2').addEventListener('click', function(){ offsetSec += 86400; compute(); });
+  document.getElementById('nowReset').addEventListener('click', function(){ offsetSec = 0; compute(); });
 })();
 </script>
 </body>

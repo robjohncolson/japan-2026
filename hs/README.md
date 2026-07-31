@@ -92,6 +92,10 @@ konbini sorted last), what **opens within 90 minutes**, and which
 high-priority places are **closed today** (the "Honten is dark on
 Wednesdays" mistake, caught at decision time — including explicit
 closed dates and Obon ranges, and cross-midnight hours like 18:00–25:00).
+With location permission the open lists sort by real haversine distance
+(Geo.hs, on-device); Sun.hs adds sunrise/sunset from NOAA solar
+equations; and because the oracle is a pure function of the epoch, the
+◀ ⟲ ▶ buttons time-travel it — same combinators, any day of the trip.
 The machinery: `tools/get-microhs.sh` builds a pinned
 [MicroHs](https://github.com/augustss/MicroHs) (fetched via the Go
 module proxy, since github.com is blocked in the build sandbox), the

@@ -12,6 +12,7 @@ import Data.Char (chr, isDigit, ord)
 import Data.List (isInfixOf, sortOn)
 import Geo (haversineKm)
 import Schedule (days, deadlines, nights)
+import Sun (sunTimesJst)
 import System.Environment (getArgs)
 
 -- civil date from unix epoch (Howard Hinnant's algorithm), JST --------
@@ -49,6 +50,12 @@ pad2 n = if n < 10 then '0' : show n else show n
 
 dateKey :: (Int, Int, Int) -> String
 dateKey (y, m, d) = show y ++ "-" ++ pad2 m ++ "-" ++ pad2 d
+
+dayOfYear :: (Int, Int, Int) -> Int
+dayOfYear (y, m, d) =
+  d + sum (take (m - 1) [31, feb, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31])
+  where
+    feb = if (y `mod` 4 == 0 && y `mod` 100 /= 0) || y `mod` 400 == 0 then 29 else 28
 
 -- html -> plaintext (same rules as Ics.hs) ----------------------------
 
@@ -303,6 +310,15 @@ answer epoch here =
               ]
       kmField p = case distKm here p of Just d -> [("km", fmtKm d)]; Nothing -> []
       intercalate sep = foldr (\a b -> if null b then a else a ++ sep ++ b) ""
+      -- solar geometry: your position if known, else the region's rough center
+      sunSpot = case (here, region) of
+        (Just c, _) -> Just c
+        (Nothing, Just Kyushu) -> Just (33.45, 130.4)
+        (Nothing, Just TokyoSide) -> Just (35.68, 139.77)
+        (Nothing, Nothing) -> Nothing
+      sunFields = case sunSpot >>= sunTimesJst (dayOfYear (mDate mo)) of
+        Just (r, s) -> [("sun", obj [("rise", jstr (hmStr r)), ("set", jstr (hmStr s))])]
+        Nothing -> []
    in obj
         ( [ ("date", jstr key)
           , ("weekday", jstr (weekdayName (mWeekday mo)))
@@ -327,6 +343,7 @@ answer epoch here =
                    Nothing -> [("tomorrow", "null")]
                )
             ++ [("deadlines", "[" ++ intercalate "," dueList ++ "]")]
+            ++ sunFields
             ++ atlasFields
         )
 
