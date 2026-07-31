@@ -149,3 +149,13 @@ the wrong *kind of thing*.
 6. The errands panel (ERR_SEED) is per-phone localStorage — seed edits do not
    reach an already-seeded phone, so the owner's list may still show stale
    items like "SXC-1 ×2 (Yodobashi)". A seed-version migration would fix it.
+
+## The Haskell schedule kernel (added 31 Jul, from the Nozomi)
+
+`hs/` + `tools/check.sh`: the schedule's invariants now live in typed
+Haskell (GHC boot libs only, no cabal). Extraction of DAYS/NIGHTS from
+index.html doubles as the JS syntax check, so run `./tools/check.sh`
+before committing instead of hand-extracting script blocks. On its first
+run it caught the 26 Aug card sending us to 備深酒家 on its Wednesday
+closing day, plus a stale Kagaya reference. Warnings are advisory by
+design — see hs/README.md.
