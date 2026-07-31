@@ -1,37 +1,58 @@
-# hs/ — the Haskell schedule kernel
+# hs/ — the Haskell schedule
 
-The itinerary's data still lives in `index.html` (the page must stay
-plain JS for GitHub Pages + offline phones mid-trip), but the *reasoning*
-about it now lives here in typed Haskell. `tools/check.sh` runs the whole
-pipeline:
+**The itinerary's source of truth is `hs/Schedule.hs`.** The `DAYS` and
+`NIGHTS` blocks in `index.html` are generated output — do not hand-edit
+them (the checker's drift check will fail the build if you do). The page
+itself stays plain JS because it must run on GitHub Pages + offline
+phones mid-trip; what moved to Haskell is the data and every check that
+reasons about it.
 
-1. `tools/extract-data.mjs` — pulls the `DAYS` and `NIGHTS` literals out of
-   `index.html` and writes `hs/.build/*.json`. Evaluating the literals in
-   node doubles as the JS syntax check, so the apostrophe trap
-   (see HANDOFF.md) dies here instead of as a white page on a phone.
-2. `hs/Check.hs` (with `hs/Json.hs`, a dependency-free JSON parser) —
-   decodes the day cards, lodging rows and `koko-places.json` into typed
-   structures and checks:
-   - **calendar coverage** — no missing day cards between first and last
-   - **lodging coverage** — NIGHTS rows contiguous, no gap nights, no overlaps
-   - **atlas integrity** — unique ids, hours intervals well-formed
-     (closes past midnight are encoded 24:00+, allowed to 30:00)
-   - **mentions vs. reality** — a day card that names a place which is
-     `status:skip`, closed that weekday, or closed on that exact date
-   - **explicit times vs. opening hours** — an `HH:MM` written in a ①–⑫
-     step that falls outside the resolved place's hours (the
-     "Honten opens at noon" class of bug)
+## Editing the schedule
 
-Errors (coverage breaks, duplicate ids, malformed hours) exit non-zero.
-Mention findings are **warnings** by design: cards narrate the past too,
-so "mentions West Georgia (status:skip)" on a card that says the shop
-does not exist is correct record, not a bug. Read warnings, don't
-blindly silence them — on its first run the kernel caught a future card
-sending us to 備深酒家 on a Wednesday (its closing day) and a stale
-reference to the cancelled Kagaya tin.
+1. Edit `hs/Schedule.hs` (cards are `(field, value)` pairs; strings are
+   ordinary Haskell literals, so apostrophes are safe — the emitter
+   escapes everything mechanically, which retired the single-quote
+   SyntaxError trap for good).
+2. `./tools/apply-schedule.sh` — compiles, runs the invariant checks
+   (refusing to splice a broken schedule), emits the JS blocks, splices
+   them into `index.html`, and re-extracts as a syntax proof.
+3. Bump `CACHE` in `sw.js`, commit.
 
-Requires GHC (boot libraries only — no cabal, no aeson) and node.
+## Checking (CI-style, run before any commit)
 
     ./tools/check.sh
 
-First run compiles `hs/.build/check`; artifacts stay untracked.
+runs: extraction (JS syntax proof) → JSON validity → `sw.js` syntax →
+the kernel's invariants → emit + drift check (page blocks must equal
+`Schedule.hs` output).
+
+## What the kernel checks (`hs/Check.hs`)
+
+- **schema** — every card has cls / label / label_ja / detail / detail_ja
+- **calendar coverage** — no missing day cards between first and last
+- **lodging coverage** — NIGHTS rows contiguous, no gap nights, no overlaps
+- **atlas integrity** — unique ids, hours intervals well-formed
+  (closes past midnight are encoded 24:00+, allowed to 30:00)
+- **mentions vs. reality** — a day card naming a place that is
+  `status:skip`, closed that weekday, or closed on that exact date
+- **explicit times vs. opening hours** — an `HH:MM` in a ①–⑫ step that
+  falls outside the resolved place's hours ("Honten opens at noon" bugs)
+
+Errors exit non-zero. Mention findings are **warnings** by design: cards
+narrate the past too, so "mentions West Georgia (status:skip)" on a card
+that says the shop does not exist is correct record, not a bug. On its
+first run the kernel caught a future card sending us to 備深酒家 on a
+Wednesday (its closing day) and a stale reference to the cancelled
+Kagaya tin.
+
+## Files
+
+- `Schedule.hs` — the data (generated once from the page by
+  `tools/gen-schedule-hs.py`, hand-owned since)
+- `Emit.hs` — renders the JS blocks (single-quoted, mechanically escaped)
+- `Check.hs` — invariants + `emit` mode
+- `Json.hs` — dependency-free JSON parser (surrogate pairs included)
+- needs GHC (boot libraries only — no cabal) and node
+
+A full in-browser Haskell UI (Miso / GHC-WASM) is the eventual endgame;
+that is a post-trip project.

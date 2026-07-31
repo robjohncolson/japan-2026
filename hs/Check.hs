@@ -1,22 +1,22 @@
--- The schedule kernel: typed model + invariant checks for the itinerary.
+-- The schedule kernel. Two modes:
 --
--- Reads the day cards and lodging rows extracted from index.html
--- (tools/extract-data.mjs) plus koko-places.json, and re-checks the
--- things that have actually bitten this trip:
+--   check (default) — run invariant checks over Schedule.hs (the source
+--                     of truth) plus koko-places.json:
+--                       * every card has the five required fields
+--                       * calendar coverage — no missing day cards
+--                       * lodging coverage — NIGHTS contiguous, no gaps
+--                       * atlas integrity — unique ids, well-formed hours
+--                       * mentions vs. reality — cards naming a place
+--                         that is status:skip / closed that weekday /
+--                         closed that exact date
+--                       * explicit HH:MM step times vs. opening hours
+--   emit            — render the JS DAYS/NIGHTS blocks to hs/.build/,
+--                     for tools/splice-schedule.mjs to put into
+--                     index.html
 --
---   * calendar coverage      — every date between first and last card exists
---   * lodging coverage       — NIGHTS rows are contiguous, no gap nights
---   * atlas integrity        — unique ids, well-formed opening hours
---   * mention vs. reality    — day cards that mention a place marked
---                              status:skip, closed that weekday, or closed
---                              on that specific date
---   * time vs. hours         — an explicit HH:MM in a step that falls
---                              outside the resolved place's opening hours
---                              (the "Honten opens at noon" class of bug)
---
--- Errors exit 1 (coverage breaks, duplicate ids, malformed hours).
--- Mention/time findings are warnings: the cards narrate the past as well
--- as the future, so a mentioned skip-place may be intentional record.
+-- Errors exit 1. Mention findings are warnings: the cards narrate the
+-- past as well as the future, so a mentioned skip-place may be
+-- deliberate record ("West Georgia does not exist").
 module Main (main) where
 
 import Data.Char (isDigit)
@@ -25,13 +25,16 @@ import qualified Data.Map.Strict as M
 import Data.Maybe (fromMaybe, isJust, mapMaybe)
 import Data.Time.Calendar (Day, DayOfWeek (..), addDays, dayOfWeek)
 import Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
+import Emit (renderDays, renderNights)
 import Json
+import qualified Schedule
+import System.Environment (getArgs)
 import System.Exit (exitFailure, exitSuccess)
 import System.IO
 
 -- domain ---------------------------------------------------------------
 
-data Card = Card {cDate :: Day, cText :: String} -- label + detail, EN+JA, tags stripped
+data DayText = DayText {cDate :: Day, cText :: String} -- all fields, EN+JA, tags stripped
 
 data NightRow = NightRow {nFrom, nTo :: Day, nName :: String}
 
@@ -61,28 +64,39 @@ stripTags [] = []
 stripTags ('<' : r) = stripTags (drop 1 (dropWhile (/= '>') r))
 stripTags (c : r) = c : stripTags r
 
-decodeCards :: JValue -> Either String [Card]
-decodeCards v = do
-  kvs <- maybe (Left "DAYS: not an object") Right (jObject v)
-  mapM one kvs
-  where
-    one (k, o) = do
-      d <- maybe (Left ("bad date key: " ++ k)) Right (parseDay k)
-      let s field = fromMaybe "" (jLookup field o >>= jString)
-          txt = stripTags (unwords [s "label", s "label_ja", s "detail", s "detail_ja"])
-      Right (Card d txt)
+requiredFields :: [String]
+requiredFields = ["cls", "label", "label_ja", "detail", "detail_ja"]
 
-decodeNights :: JValue -> Either String [NightRow]
-decodeNights v = do
-  rows <- maybe (Left "NIGHTS: not an array") Right (jArray v)
-  mapM one rows
+checkSchema :: [Finding]
+checkSchema =
+  [ Err (date ++ " card missing field " ++ f)
+  | (date, card) <- Schedule.days
+  , f <- requiredFields
+  , f `notElem` map fst card
+  ]
+    ++ [Err ("bad date key in Schedule.days: " ++ date) | (date, _) <- Schedule.days, cDate' date == Nothing]
+    ++ [ Err ("bad date in Schedule.nights: " ++ d)
+       | (f, t, _, _) <- Schedule.nights
+       , d <- [f, t]
+       , cDate' d == Nothing
+       ]
   where
-    one (JArr [JStr a, JStr b, names]) = do
-      f <- maybe (Left ("bad date: " ++ a)) Right (parseDay a)
-      t <- maybe (Left ("bad date: " ++ b)) Right (parseDay b)
-      let nm = fromMaybe "?" (jLookup "en" names >>= jString)
-      Right (NightRow f t nm)
-    one _ = Left "NIGHTS: row shape unexpected"
+    cDate' = parseDay
+
+scheduleCards :: [DayText]
+scheduleCards =
+  [ DayText d (stripTags (unwords (map snd card)))
+  | (date, card) <- Schedule.days
+  , Just d <- [parseDay date]
+  ]
+
+scheduleNights :: [NightRow]
+scheduleNights =
+  [ NightRow f t en
+  | (a, b, en, _) <- Schedule.nights
+  , Just f <- [parseDay a]
+  , Just t <- [parseDay b]
+  ]
 
 decodePlaces :: JValue -> Either String [Place]
 decodePlaces v = do
@@ -123,7 +137,7 @@ isErr :: Finding -> Bool
 isErr (Err _) = True
 isErr _ = False
 
-checkCoverage :: [Card] -> [Finding]
+checkCoverage :: [DayText] -> [Finding]
 checkCoverage cards =
   let ds = sort (map cDate cards)
       gaps = [d | (a, b) <- zip ds (drop 1 ds), b /= addDays 1 a, d <- [addDays 1 a]]
@@ -172,8 +186,8 @@ mentionsIn txt ps =
           | needle `isPrefixOf` s = Just i
           | otherwise = go (i + 1) (drop 1 s)
 
-checkMentions :: [Place] -> Card -> [Finding]
-checkMentions ps (Card d txt) =
+checkMentions :: [Place] -> DayText -> [Finding]
+checkMentions ps (DayText d txt) =
   concat
     [ [Warn (fmtDay d ++ " mentions " ++ pId p ++ " which is status:skip") | pStatus p == "skip"]
         ++ [ Warn (fmtDay d ++ " mentions " ++ pId p ++ " — closed " ++ dowKey d ++ "s")
@@ -189,8 +203,8 @@ checkMentions ps (Card d txt) =
 
 -- ①..⑫ step split, then: first explicit HH:MM in a step vs. the hours of
 -- the earliest-mentioned open-able place in that step (planResolveStop's rule)
-checkStepTimes :: [Place] -> Card -> [Finding]
-checkStepTimes ps (Card d txt) =
+checkStepTimes :: [Place] -> DayText -> [Finding]
+checkStepTimes ps (DayText d txt) =
   concatMap stepCheck (steps txt)
   where
     marks = "①②③④⑤⑥⑦⑧⑨⑩⑪⑫"
@@ -231,23 +245,26 @@ checkStepTimes ps (Card d txt) =
 
 -- main -----------------------------------------------------------------
 
-main :: IO ()
-main = do
-  mapM_ (`hSetEncoding` utf8) [stdout, stderr]
-  let readU p = do h <- openFile p ReadMode; hSetEncoding h utf8; hGetContents h
-  daysRaw <- readU "hs/.build/days.json"
-  nightsRaw <- readU "hs/.build/nights.json"
-  placesRaw <- readU "koko-places.json"
-  let decoded = do
-        cards <- parseJson daysRaw >>= decodeCards
-        nights <- parseJson nightsRaw >>= decodeNights
-        places <- parseJson placesRaw >>= decodePlaces
-        Right (cards, nights, places)
-  case decoded of
-    Left e -> hPutStrLn stderr ("decode error: " ++ e) >> exitFailure
-    Right (cards, nights, places) -> do
-      let sections =
-            [ ("calendar coverage (" ++ show (length cards) ++ " cards)", checkCoverage cards)
+writeU :: FilePath -> String -> IO ()
+writeU p s = withFile p WriteMode (\h -> hSetEncoding h utf8 >> hPutStr h s)
+
+emitMain :: IO ()
+emitMain = do
+  writeU "hs/.build/days.js" (renderDays ++ "\n")
+  writeU "hs/.build/nights.js" (renderNights ++ "\n")
+  putStrLn ("emitted hs/.build/days.js (" ++ show (length Schedule.days) ++ " cards) and nights.js (" ++ show (length Schedule.nights) ++ " rows)")
+
+checkMain :: IO ()
+checkMain = do
+  placesRaw <- do h <- openFile "koko-places.json" ReadMode; hSetEncoding h utf8; hGetContents h
+  case parseJson placesRaw >>= decodePlaces of
+    Left e -> hPutStrLn stderr ("koko-places.json decode error: " ++ e) >> exitFailure
+    Right places -> do
+      let cards = scheduleCards
+          nights = scheduleNights
+          sections =
+            [ ("schedule schema (" ++ show (length Schedule.days) ++ " cards)", checkSchema)
+            , ("calendar coverage", checkCoverage cards)
             , ("lodging coverage (" ++ show (length nights) ++ " rows)", checkNights nights)
             , ("atlas integrity (" ++ show (length places) ++ " places)", checkAtlas places)
             , ("mentions vs. reality", concatMap (checkMentions places) cards)
@@ -264,3 +281,11 @@ main = do
         sections
       putStrLn ("-- " ++ show errs ++ " error(s), " ++ show warns ++ " warning(s)")
       if errs > 0 then exitFailure else exitSuccess
+
+main :: IO ()
+main = do
+  mapM_ (`hSetEncoding` utf8) [stdout, stderr]
+  args <- getArgs
+  case args of
+    ["emit"] -> emitMain
+    _ -> checkMain
